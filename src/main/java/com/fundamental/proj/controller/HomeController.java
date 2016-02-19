@@ -20,11 +20,14 @@ public class HomeController {
     }
 
     @RequestMapping(value = "/session")
-    @ResponseBody
-    public String Logined_in() {
+     @ResponseBody
+     public String Logined_in() {
         //HYBERNET CALLS
         return "Logged In";
     }
-
+    @RequestMapping(value = "/sign_up")
+    public String sign_up(){
+        return "signup";
+    }
 }
 

@@ -2450,7 +2450,7 @@
         }
 
         body.login div.login_dialog {
-            width: 222px;
+            width: 500px;
             margin: 0 auto;
             background: #fff;
             padding: 10px 30px 30px;
@@ -2570,7 +2570,7 @@
         }
 
         body.login div.login_dialog span.overlay_wrapper {
-            display: block;
+            #display: block;
             position: relative;
             top: 0;
             left: 0;
@@ -3434,9 +3434,21 @@
                                 <h1>Sign in to <strong>Portal</strong></h1>
 
                                 <p style="">
-                                    <input autocapitalize="off" autocomplete="on" autocorrect="off" class="overlayable" id="username" name="username" title="Username or email" type="text" value="" />
+                                    <input autocapitalize="off" autocomplete="on" autocorrect="off" class="overlayable" id="fname" name="fname" title="First Name" type="text" value="" />
+                                    <input autocapitalize="off" autocomplete="on" autocorrect="off" class="overlayable" id="lname" name="lname" title="Last Name" type="text" value="" />
                                 </p>
-                                <p><input autocapitalize="off" autocomplete="on" autocorrect="off" class="overlayable" id="password" name="password" title="Password" type="password" /></p>
+                                <p style="">
+                                    <input autocapitalize="off" autocomplete="on" autocorrect="off" class="overlayable" id="email1" name="username1" title="email" type="text" value="" />
+                                    <input autocapitalize="off" autocomplete="on" autocorrect="off" class="overlayable" id="email2" name="username2" title="Confirm email" type="text" value="" />
+                                </p>
+                                <p>
+                                    <input autocapitalize="off" autocomplete="on" autocorrect="off" class="overlayable" id="password1" name="password1" title="Password" type="password" />
+                                    <input autocapitalize="off" autocomplete="on" autocorrect="off" class="overlayable" id="password2" name="password2" title="Confirm Password" type="password" />
+                                </p>
+                                <p>
+                                    <input autocapitalize="off" autocomplete="on" autocorrect="off" class="overlayable" id="dob" name="password1" title="DOB" type="text" />
+                                    <input autocapitalize="off" autocomplete="on" autocorrect="off" class="overlayable" id="gender" name="password2" title="Gender" type="text" />
+                                </p>
                             </div>
 
                             <div id="login_loading">
@@ -3457,8 +3469,8 @@
 
                 <div class="extras">
                     <ul id="extras_user_login">
-                        <li><strong>Help:</strong> <a href="/forgot_password">Reset your password</a></li>
-                        <li><strong>No Account?</strong><a href="/sign_up">Sign Up</a></li>
+                        <li><strong>Help:</strong> <a href="/">Login Screen</a></li>
+                        <li><strong>No Account?</strong><a href="/forgot_password">Sign Up</a></li>
                     </ul>
                 </div>
             </div>

@@ -3458,6 +3458,7 @@
                 <div class="extras">
                     <ul id="extras_user_login">
                         <li><strong>Help:</strong> <a href="/forgot_password">Reset your password</a></li>
+                        <li><strong>No Account?</strong><a href="/sign_up">Sign Up</a></li>
                     </ul>
                 </div>
             </div>
