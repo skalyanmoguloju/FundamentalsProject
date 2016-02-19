@@ -1,0 +1,62 @@
+<?xml  version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:aop="http://www.springframework.org/schema/aop"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:jee="http://www.springframework.org/schema/jee" xmlns:lang="http://www.springframework.org/schema/lang"
+       xmlns:p="http://www.springframework.org/schema/p" xmlns:tx="http://www.springframework.org/schema/tx"
+       xmlns:jdbc="http://www.springframework.org/schema/jdbc" xmlns:util="http://www.springframework.org/schema/util"
+       xmlns:security="http://www.springframework.org/schema/security"
+
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd
+		http://www.springframework.org/schema/jee http://www.springframework.org/schema/jee/spring-jee.xsd
+		http://www.springframework.org/schema/lang http://www.springframework.org/schema/lang/spring-lang.xsd
+		http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd
+		http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util.xsd
+		http://www.springframework.org/schema/security
+		http://www.springframework.org/schema/security/spring-security.xsd">
+
+
+    <security:http auto-config="true" use-expressions="true">
+        <security:access-denied-handler
+                error-page="/errors/403"/>
+        <security:intercept-url pattern="/favicon.ico"
+                                access="permitAll"/>
+        <security:intercept-url pattern="/resources/**"
+                                access="isAuthenticated()"/>
+        <security:intercept-url pattern="/login"
+                                access="permitAll"/>
+        <security:intercept-url pattern="/loginfailed"
+                                access="permitAll"/>
+        <security:intercept-url pattern="/logout"
+                                access="permitAll"/>
+        <security:intercept-url pattern="/app/assets/**"
+                                access="permitAll"/>
+        <security:intercept-url pattern="/app/**"
+                                access="isAuthenticated()"/>
+        <security:intercept-url pattern="/rest/**"
+                                access="isAuthenticated()"/>
+        <security:intercept-url pattern="/"
+                                access="isAuthenticated()"/>
+        <security:intercept-url pattern="/test"
+                                access="hasRole('person')"/>
+
+        <security:form-login login-page="/login"
+                             default-target-url="/" authentication-failure-url="/loginfailed"/>
+        <security:logout invalidate-session="true"
+                         logout-success-url="/logout"/>
+        <security:intercept-url pattern="/**" access="denyAll"/>
+    </security:http>
+
+    <bean name="applicationUserDetailsService" class="com.yash.crm.security.ApplicationUserDetailsService"/>
+    <bean name="userPasswordEncoder" class="com.yash.crm.security.UserPasswordEncoder"/>
+
+    <security:authentication-manager alias="authenticationManager">
+        <security:authentication-provider
+                user-service-ref="applicationUserDetailsService">
+            <security:password-encoder ref="userPasswordEncoder"/>
+        </security:authentication-provider>
+    </security:authentication-manager>
+
+</beans>

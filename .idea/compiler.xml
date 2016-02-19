@@ -26,5 +26,8 @@
         <module name="fundamental" />
       </profile>
     </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="fundamental" target="1.6" />
+    </bytecodeTargetLevel>
   </component>
 </project>

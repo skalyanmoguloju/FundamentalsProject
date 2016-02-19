@@ -1,0 +1,27 @@
+package com.fundamental.proj.service;
+
+import com.fundamental.proj.model.User;
+import com.fundamental.proj.repository.UserRepository;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
+
+
+import javax.persistence.Transient;
+import java.util.List;
+
+/**
+ * Created by sai on 2/18/16.
+ */
+@Service
+public class UserService {
+    @Autowired
+    private UserRepository userRepository;
+
+    @Transactional
+    public List<User> getAllUsers()
+    {
+        return userRepository.findAllUsers();
+    }
+
+}

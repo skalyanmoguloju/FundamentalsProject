@@ -3421,7 +3421,7 @@
                 <div id="login_dialog" class="login_dialog clearfix">
 
                     <div class="form">
-                        <form accept-charset="UTF-8" action="/session" method="post" onsubmit="Login.loginLoading()">
+                        <form accept-charset="UTF-8" action="/session/1/kal" method="post" onsubmit="Login.loginLoading()">
                             <div style="margin:0;padding:0;display:inline">
                                 <input name="utf8" type="hidden" value="&#x2713;" />
                                 <input name="authenticity_token" type="hidden" value="p6DokiMevvy/6q3yvVyl3Ag5zAozrkGX1YqQc31JOko=" />
