@@ -1,6 +1,5 @@
 package com.fundamental.proj.controller;
 import com.fundamental.proj.delegate.UserDelegate;
-import com.fundamental.proj.model.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -24,13 +23,13 @@ public class HomeController {
 
     @RequestMapping
     public String home(){
-        return "login";
+        return "WEB-INF/views/login";
     }
 
     @RequestMapping(value = "/forgot_password")
     public String he()
     {
-        return "forgot";
+        return "WEB-INF/views/forgot";
     }
 
     @RequestMapping(value = "/session/{id}/{pswd}")
@@ -47,7 +46,7 @@ public class HomeController {
     }
     @RequestMapping(value = "/sign_up")
     public String sign_up(){
-        return "signup";
+        return "WEB-INF/views/signup";
     }
 }
 

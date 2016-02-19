@@ -9,7 +9,7 @@
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" ng-app="myApp">
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
     <meta name="robots" content="noarchive" />
@@ -3420,8 +3420,8 @@
 
                 <div id="login_dialog" class="login_dialog clearfix">
 
-                    <div class="form">
-                        <form accept-charset="UTF-8" action="/session/1/kal" method="post" onsubmit="Login.loginLoading()">
+                    <div class="form" ng-controller="LoginCtrl">
+                        <form accept-charset="UTF-8" method="post" ng-submit="login()">
                             <div style="margin:0;padding:0;display:inline">
                                 <input name="utf8" type="hidden" value="&#x2713;" />
                                 <input name="authenticity_token" type="hidden" value="p6DokiMevvy/6q3yvVyl3Ag5zAozrkGX1YqQc31JOko=" />
@@ -3434,9 +3434,9 @@
                                 <h1>Sign in to <strong>Portal</strong></h1>
 
                                 <p style="">
-                                    <input autocapitalize="off" autocomplete="on" autocorrect="off" class="overlayable" id="username" name="username" title="Username or email" type="text" value="" />
+                                    <input autocapitalize="off" autocomplete="on" autocorrect="off" class="overlayable" id="username" name="username" title="Username or email" type="text" value="" ng-model = "login.username"/>
                                 </p>
-                                <p><input autocapitalize="off" autocomplete="on" autocorrect="off" class="overlayable" id="password" name="password" title="Password" type="password" /></p>
+                                <p><input autocapitalize="off" autocomplete="on" autocorrect="off" class="overlayable" id="password" name="password" title="Password" type="password" ng-model = "login.password" /></p>
                             </div>
 
                             <div id="login_loading">
