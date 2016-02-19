@@ -1,0 +1,13 @@
+<component name="libraryTable">
+  <library name="Maven: org.springframework:spring-webmvc:4.1.4.RE">
+    <CLASSES>
+      <root url="jar://$MAVEN_REPOSITORY$/org/springframework/spring-webmvc/4.1.4.RE/spring-webmvc-4.1.4.RE.jar!/" />
+    </CLASSES>
+    <JAVADOC>
+      <root url="jar://$MAVEN_REPOSITORY$/org/springframework/spring-webmvc/4.1.4.RE/spring-webmvc-4.1.4.RE-javadoc.jar!/" />
+    </JAVADOC>
+    <SOURCES>
+      <root url="jar://$MAVEN_REPOSITORY$/org/springframework/spring-webmvc/4.1.4.RE/spring-webmvc-4.1.4.RE-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>
