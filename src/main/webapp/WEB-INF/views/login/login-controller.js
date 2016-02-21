@@ -1,4 +1,4 @@
-angular.module('myApp', ['ngResource'])
+angular.module('myApp', [])
 
     .config(function config( $stateProvider ) {
         $stateProvider.state( 'login', {
@@ -13,15 +13,12 @@ angular.module('myApp', ['ngResource'])
         });
     })
 
-    .controller('LoginCtrl',
-    ['$scope', '$rootScope', '$location', 'AuthenticationService',
-        function ($scope, $rootScope, $location, AuthenticationService) {
-
-            $scope.title = "Welcome to Login Screen";
-            $scope.message1 = "hello";
-            $scope.value = 2;
-
-            $scope.login = function () {
+    .controller('LoginCtrl', ['$scope', '$rootScope','AuthenticationService',
+        function ($scope, $rootScope, AuthenticationService) {
+            console.log("jj");
+            $scope.loginMain = function () {
+                alert("he");
+                console.log("hell");
                 $scope.dataLoading = true;
                 AuthenticationService.Login($scope.username, $scope.password, function(response) {
                     if(response.firstName != null) {

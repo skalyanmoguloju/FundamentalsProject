@@ -9,13 +9,48 @@
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" ng-app="myApp">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" >
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
     <meta name="robots" content="noarchive" />
     <title>Sign In</title>
     <link rel="shortcut icon" href="https://launchpad-asset2.37signals.com/favicon.ico?1455655021" />
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+    <script>
+        angular.module('myApp', [])
 
+                .controller('LoginCtrl', ['$scope', '$rootScope','$http',
+                    function ($scope, $rootScope,$http) {
+                        console.log("jj");
+                        var service = {};
+                        service.Login = function (username, password, callback){
+
+
+                        }
+                        ;
+                        $scope.loginMain = function () {
+                            $scope.dataLoading = true;
+                            console.log($scope.username);
+                            $http.post('forgot_password')
+                                    .success(function (response) {
+                                        console.log(response);
+                                        window.location.href="sign_up"
+                                    });
+                        };
+                    }]);
+    </script>
+    <script>
+
+        angular.module('myApp')
+                .factory('AuthenticationService',
+                ['$http', '$cookieStore', '$rootScope', '$timeout',
+                    function ($http, $cookieStore, $rootScope, $timeout) {
+
+
+
+                        return service;
+                    }]);
+    </script>
     <meta name="csrf-param" content="authenticity_token"/>
     <meta name="csrf-token" content="p6DokiMevvy&#47;6q3yvVyl3Ag5zAozrkGX1YqQc31JOko="/>
     <style type="text/css">
@@ -3410,7 +3445,7 @@
 
 
 </head>
-<body class="login campfire">
+<body class="login campfire" ng-app="myApp">
 
 <div class="container">
 
@@ -3420,8 +3455,8 @@
 
                 <div id="login_dialog" class="login_dialog clearfix">
 
-                    <div class="form" ng-controller="LoginCtrl">
-                        <form accept-charset="UTF-8" method="post" ng-submit="login()">
+                    <div class="form" ng-controller="LoginCtrl as lgnctrl">
+                        <form accept-charset="UTF-8" method="post" ng-submit="loginMain()">
                             <div style="margin:0;padding:0;display:inline">
                                 <input name="utf8" type="hidden" value="&#x2713;" />
                                 <input name="authenticity_token" type="hidden" value="p6DokiMevvy/6q3yvVyl3Ag5zAozrkGX1YqQc31JOko=" />
@@ -3434,9 +3469,9 @@
                                 <h1>Sign in to <strong>Portal</strong></h1>
 
                                 <p style="">
-                                    <input autocapitalize="off" autocomplete="on" autocorrect="off" class="overlayable" id="username" name="username" title="Username or email" type="text" value="" ng-model = "login.username"/>
+                                    <input autocapitalize="off" autocomplete="on" autocorrect="off" class="overlayable" id="username" name="username" title="Username or email" type="text" value="" ng-model = "username"/>
                                 </p>
-                                <p><input autocapitalize="off" autocomplete="on" autocorrect="off" class="overlayable" id="password" name="password" title="Password" type="password" ng-model = "login.password" /></p>
+                                <p><input autocapitalize="off" autocomplete="on" autocorrect="off" class="overlayable" id="password" name="password" title="Password" type="password" ng-model = "lgnctrl.passwords" /></p>
                             </div>
 
                             <div id="login_loading">
@@ -3447,8 +3482,7 @@
                                 <input checked="checked" id="remember_me" name="remember_me" type="checkbox" value="1" /> <label for="remember_me">Remember me on this computer</label>
                             </div>
 
-                            <div id="signin_button">
-                                <input src="https://launchpad-asset1.37signals.com/images/btn_bc3_sign-in@2x.png?1455655026" type="image" />
+                            <div id="signin_button"><input src="https://launchpad-asset1.37signals.com/images/btn_bc3_sign-in@2x.png?1455655026" type="image"/>
                             </div>
                         </form>
                         <div class="loading" id="progressBar"></div>

@@ -1,5 +1,5 @@
 
-angular.module('ngBoilerplate')
+angular.module('myApp')
 
     .factory('AuthenticationService',
     ['$http', '$cookieStore', '$rootScope', '$timeout',

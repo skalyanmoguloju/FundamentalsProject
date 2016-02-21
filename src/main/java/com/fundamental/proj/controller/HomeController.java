@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.fundamental.proj.controller.bean.UserBean;
@@ -21,17 +22,26 @@ public class HomeController {
     private UserDelegate userDelegate;
 
 
-    @RequestMapping
+    @RequestMapping(value = "/", method = RequestMethod.GET)
     public String home(){
-        return "WEB-INF/views/login";
+        return "WEB-INF/views/login/login";
     }
 
-    @RequestMapping(value = "/forgot_password")
+    @RequestMapping(value = "/forgot_password1", method = RequestMethod.POST)
+    @ResponseBody
     public String he()
     {
         return "WEB-INF/views/forgot";
     }
+    @RequestMapping(value = "/forgot_password", method = RequestMethod.POST)
+    @ResponseBody
+    public List<UserBean> Logined() {
+        //HIBERNETCALLS
 
+        UserBean userBean = new UserBean();
+        List<UserBean> u = userDelegate.getUserList();
+        return u;
+    }
     @RequestMapping(value = "/session/{id}/{pswd}")
      @ResponseBody
      public List<UserBean> Logined_in(@PathVariable String id, @PathVariable String pswd) {
