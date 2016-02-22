@@ -46,6 +46,16 @@ public class UserBean {
     private String lname;
     private Date dob;
     private String email;
+    private  String pwsd;
+
+    public String getPwsd() {
+        return pwsd;
+    }
+
+    public void setPwsd(String pwsd) {
+        this.pwsd = pwsd;
+    }
+
     public String getName() {
         return name;
     }

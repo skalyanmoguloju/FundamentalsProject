@@ -36,7 +36,7 @@ public class HomeController {
         //HIBERNETCALLS
 
         System.out.println(userBean.getEmail());
-        List<UserBean> u = userDelegate.getUserList(userBean.getEmail());
+        List<UserBean> u = userDelegate.getUserList(userBean);
         return u;
     }
     @RequestMapping(value = "/session/{id}/{pswd}")
@@ -46,7 +46,7 @@ public class HomeController {
 
         UserBean userBean = new UserBean();
         userBean.setId(Long.parseLong(id));
-        List <UserBean> u = userDelegate.getUserList("");
+        List <UserBean> u = userDelegate.getUserList(userBean);
         return u;
 
 

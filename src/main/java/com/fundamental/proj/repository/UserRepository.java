@@ -1,5 +1,6 @@
 package com.fundamental.proj.repository;
 
+import com.fundamental.proj.controller.bean.UserBean;
 import com.fundamental.proj.model.User;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -31,11 +32,12 @@ public class UserRepository {
     private SessionFactory sessionFactory;
 
     @Transactional
-    public List<User> finAllUsers(String eid){
+    public List<User> finAllUsers(UserBean userBean){
         long id = 1;
         Session session = sessionFactory.getCurrentSession();
-        Query query = session.createQuery("from User where email=:eid");
-        query.setParameter("eid", eid);
+        Query query = session.createQuery("from User where email=:eid and pwsd=:pswd");
+        query.setParameter("eid", userBean.getEmail());
+        query.setParameter("pswd", userBean.getPwsd());
         return query.list();
     }
 }

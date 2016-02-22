@@ -31,9 +31,15 @@
                         $scope.loginMain = function () {
                             $scope.dataLoading = true;
                             console.log($scope.username);
-                            $http.post('forgot_password', {email:$scope.username})
+                            console.log($scope.password);
+                            $http.post('forgot_password', {email:$scope.username, pwsd:$scope.password})
                                     .success(function (response) {
                                         console.log(response);
+                                        console.log(response.length);
+                                        if(response.length==0)
+                                        {
+                                            document.getElementById('lbltipAddedComment').innerHTML = 'your tip has been submitted!';
+                                        }
                                         //window.location.href="sign_up"
                                     });
                         };
@@ -3471,7 +3477,8 @@
                                 <p style="">
                                     <input autocapitalize="off" autocomplete="on" autocorrect="off" class="overlayable" id="username" name="username" title="Username or email" type="text" value="" ng-model = "username"/>
                                 </p>
-                                <p><input autocapitalize="off" autocomplete="on" autocorrect="off" class="overlayable" id="password" name="password" title="Password" type="password" ng-model = "lgnctrl.passwords" /></p>
+                                <p><input autocapitalize="off" autocomplete="on" autocorrect="off" class="overlayable" id="password" name="password" title="Password" type="password" ng-model = "password" /></p>
+                                <label id="lbltipAddedComment">test</label>
                             </div>
 
                             <div id="login_loading">

@@ -29,6 +29,17 @@ public class User{
     @Column(name = "email")
     private String email;
 
+    @Column(name ="password")
+    private  String pwsd;
+
+    public String getPwsd() {
+        return pwsd;
+    }
+
+    public void setPwsd(String pwsd) {
+        this.pwsd = pwsd;
+    }
+
     public Date getDob() {
         return dob;
     }

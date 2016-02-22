@@ -1,5 +1,6 @@
 package com.fundamental.proj.service;
 
+import com.fundamental.proj.controller.bean.UserBean;
 import com.fundamental.proj.model.User;
 import com.fundamental.proj.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,9 +20,9 @@ public class UserService {
     private UserRepository userRepository;
 
     @Transactional
-    public List<User> getAllUsers(String eid)
+    public List<User> getAllUsers(UserBean userBean)
     {
-        return userRepository.finAllUsers(eid);
+        return userRepository.finAllUsers(userBean);
     }
 
 }
