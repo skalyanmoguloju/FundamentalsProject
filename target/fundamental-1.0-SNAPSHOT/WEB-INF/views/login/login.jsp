@@ -39,6 +39,7 @@
                                         if(response.length==0)
                                         {
                                             document.getElementById('lbltipAddedComment').innerHTML = 'your tip has been submitted!';
+
                                         }
                                         //window.location.href="sign_up"
                                     });

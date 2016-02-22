@@ -1,4 +1,5 @@
 package com.fundamental.proj.controller;
+import com.fundamental.proj.delegate.RolesDelegate;
 import com.fundamental.proj.delegate.UserDelegate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -18,6 +19,9 @@ public class HomeController {
     @Autowired
     private UserDelegate userDelegate;
 
+    @Autowired
+    private RolesDelegate rolesDelegate;
+
 
     @RequestMapping(value = "/", method = RequestMethod.GET)
     public String home(){
@@ -30,15 +34,28 @@ public class HomeController {
     {
         return "WEB-INF/views/forgot";
     }
+
+
     @RequestMapping(value = "/forgot_password", method = RequestMethod.POST)
     @ResponseBody
     public List<UserBean> Logined(@RequestBody UserBean userBean) {
-        //HIBERNETCALLS
-
+       //HIBERNETCALLS
+        List<String> s = rolesDelegate.getRolesList();
         System.out.println(userBean.getEmail());
         List<UserBean> u = userDelegate.getUserList(userBean);
         return u;
     }
+
+    @RequestMapping(value="roles", method = RequestMethod.POST)
+    @ResponseBody
+    public List<String> getRoles() {
+        //HIBERNETCALLS
+        List<String> s = rolesDelegate.getRolesList();
+        return s;
+    }
+
+
+
     @RequestMapping(value = "/session/{id}/{pswd}")
      @ResponseBody
      public List<UserBean> Logined_in(@PathVariable String id, @PathVariable String pswd) {

@@ -15,7 +15,32 @@
     <meta name="robots" content="noarchive" />
     <title>Sign In</title>
     <link rel="shortcut icon" href="https://launchpad-asset2.37signals.com/favicon.ico?1455655021" />
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+    <script>
+        angular.module('myApp', [])
 
+                .controller('SignUpCtrl', ['$scope', '$rootScope','$http',
+                    function ($scope, $rootScope,$http) {
+                        console.log("jj");
+                        $scope.roles = [];
+                        console.log("here");
+                            console.log("here2")
+                            $http.post('roles')
+                                    .success(function (response) {
+                                        if(response.length==0) {
+
+                                        }
+                                        else
+                                        {
+                                            console.log(response);
+                                            $scope.roles = response
+                                        }
+
+                                        //window.location.href="sign_up"
+                                    });
+
+                    }]);
+    </script>
     <meta name="csrf-param" content="authenticity_token"/>
     <meta name="csrf-token" content="p6DokiMevvy&#47;6q3yvVyl3Ag5zAozrkGX1YqQc31JOko="/>
     <style type="text/css">
@@ -3410,7 +3435,7 @@
 
 
 </head>
-<body class="login campfire">
+<body class="login campfire" ng-app="myApp">
 
 <div class="container">
 
@@ -3420,8 +3445,8 @@
 
                 <div id="login_dialog" class="login_dialog clearfix">
 
-                    <div class="form">
-                        <form accept-charset="UTF-8" action="/session" method="post" onsubmit="Login.loginLoading()">
+                    <div class="form" ng-controller="SignUpCtrl as lgnctrl">
+                        <form accept-charset="UTF-8" method="post" ng-submit="loginMain()">
                             <div style="margin:0;padding:0;display:inline">
                                 <input name="utf8" type="hidden" value="&#x2713;" />
                                 <input name="authenticity_token" type="hidden" value="p6DokiMevvy/6q3yvVyl3Ag5zAozrkGX1YqQc31JOko=" />
@@ -3439,7 +3464,10 @@
                                 </p>
                                 <p style="">
                                     <input autocapitalize="off" autocomplete="on" autocorrect="off" class="overlayable" id="email1" name="username1" title="email" type="text" value="" />
-                                    <input autocapitalize="off" autocomplete="on" autocorrect="off" class="overlayable" id="email2" name="username2" title="Confirm email" type="text" value="" />
+                                    <select class="overlayable" ng-model="role" ng-change="update()">
+                                        <option value="">Please select Role</option>
+                                        <option id="{{rol}}" ng-repeat="rol in roles" value="{{rol}}">{{rol}}</option>
+                                    </select>
                                 </p>
                                 <p>
                                     <input autocapitalize="off" autocomplete="on" autocorrect="off" class="overlayable" id="password1" name="password1" title="Password" type="password" />
@@ -3497,6 +3525,5 @@
     //]]>
 </script>
 
-<script src="https://launchpad-asset0.37signals.com/sprockets.js?1455655026" type="text/javascript"></script>
 </body>
 </html>

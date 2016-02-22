@@ -36,8 +36,12 @@ public class UserRepository {
         long id = 1;
         Session session = sessionFactory.getCurrentSession();
         Query query = session.createQuery("from User where email=:eid and pwsd=:pswd");
+
         query.setParameter("eid", userBean.getEmail());
         query.setParameter("pswd", userBean.getPwsd());
+
         return query.list();
     }
+
+
 }
