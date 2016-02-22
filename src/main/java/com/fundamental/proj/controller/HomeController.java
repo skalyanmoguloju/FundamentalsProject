@@ -2,10 +2,7 @@ package com.fundamental.proj.controller;
 import com.fundamental.proj.delegate.UserDelegate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
 
 import com.fundamental.proj.controller.bean.UserBean;
 
@@ -35,11 +32,11 @@ public class HomeController {
     }
     @RequestMapping(value = "/forgot_password", method = RequestMethod.POST)
     @ResponseBody
-    public List<UserBean> Logined() {
+    public List<UserBean> Logined(@RequestBody UserBean userBean) {
         //HIBERNETCALLS
 
-        UserBean userBean = new UserBean();
-        List<UserBean> u = userDelegate.getUserList();
+        System.out.println(userBean.getEmail());
+        List<UserBean> u = userDelegate.getUserList(userBean.getEmail());
         return u;
     }
     @RequestMapping(value = "/session/{id}/{pswd}")
@@ -49,7 +46,7 @@ public class HomeController {
 
         UserBean userBean = new UserBean();
         userBean.setId(Long.parseLong(id));
-        List <UserBean> u = userDelegate.getUserList();
+        List <UserBean> u = userDelegate.getUserList("");
         return u;
 
 

@@ -23,9 +23,9 @@ public class UserDelegate {
     UserService userService;
 
     @Transactional
-    public List<UserBean> getUserList(){
+    public List<UserBean> getUserList(String emailid){
         List<User> users;
-        users = userService.getAllUsers();
+        users = userService.getAllUsers(emailid);
         List<UserBean> userBeans = userBeanMapper.mapUserBean(users);
         return  userBeans;
     }

@@ -15,7 +15,7 @@ import org.hibernate.criterion.Restrictions;
 
 import java.util.ArrayList;
 import java.util.List;
-
+import java.lang.*;
 /**
  * Created by sai on 2/18/16.
  */
@@ -31,9 +31,11 @@ public class UserRepository {
     private SessionFactory sessionFactory;
 
     @Transactional
-    public List<User> findAllUsers(){
+    public List<User> finAllUsers(String eid){
+        long id = 1;
         Session session = sessionFactory.getCurrentSession();
-        Query query = session.createQuery("from User");
+        Query query = session.createQuery("from User where email=:eid");
+        query.setParameter("eid", eid);
         return query.list();
     }
 }

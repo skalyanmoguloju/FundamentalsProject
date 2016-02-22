@@ -19,9 +19,9 @@ public class UserService {
     private UserRepository userRepository;
 
     @Transactional
-    public List<User> getAllUsers()
+    public List<User> getAllUsers(String eid)
     {
-        return userRepository.findAllUsers();
+        return userRepository.finAllUsers(eid);
     }
 
 }

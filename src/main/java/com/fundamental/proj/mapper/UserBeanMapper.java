@@ -18,6 +18,9 @@ public class UserBeanMapper {
         UserBean userBean = new UserBean();
         userBean.setId(user.getId());
         userBean.setName(user.getName());
+        userBean.setDob(user.getDob());
+        userBean.setEmail(user.getEmail());
+        userBean.setLname(user.getLname());
         return userBean;
     }
 
@@ -25,6 +28,9 @@ public class UserBeanMapper {
         User user = new User();
         user.setName(userBean.getName());
         user.setId(userBean.getId());
+        user.setDob(userBean.getDob());
+        user.setEmail(userBean.getEmail());
+        user.setLname(userBean.getLname());
         return user;
     }
 

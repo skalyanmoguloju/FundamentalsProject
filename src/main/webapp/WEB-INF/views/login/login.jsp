@@ -31,10 +31,10 @@
                         $scope.loginMain = function () {
                             $scope.dataLoading = true;
                             console.log($scope.username);
-                            $http.post('forgot_password')
+                            $http.post('forgot_password', {email:$scope.username})
                                     .success(function (response) {
                                         console.log(response);
-                                        window.location.href="sign_up"
+                                        //window.location.href="sign_up"
                                     });
                         };
                     }]);

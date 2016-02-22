@@ -2,6 +2,7 @@ package com.fundamental.proj.model;
 
 
 import javax.persistence.*;
+import java.util.Date;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -19,8 +20,47 @@ public class User{
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
 
-    @Column(name = "name")
+    @Column(name = "fname")
     private String name;
+
+    @Column(name = "lname")
+    private String lname;
+
+    @Column(name = "email")
+    private String email;
+
+    public Date getDob() {
+        return dob;
+    }
+
+    public void setDob(Date dob) {
+        this.dob = dob;
+    }
+
+    public void setId(long id) {
+        this.id = id;
+    }
+
+    public String getEmail() {
+
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public String getLname() {
+
+        return lname;
+    }
+
+    public void setLname(String lname) {
+        this.lname = lname;
+    }
+
+    @Column(name = "dob")
+    private Date dob;
 
     public String getName() {
         return name;
@@ -30,9 +70,7 @@ public class User{
         return id;
     }
 
-    public void setId(Long id) {
-        this.id = id;
-    }
+
 
     public void setName(String name) {
         this.name = name;
