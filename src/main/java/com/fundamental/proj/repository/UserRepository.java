@@ -43,5 +43,13 @@ public class UserRepository {
         return query.list();
     }
 
+    @Transactional
+    public List<User> getUserInfo(UserBean userBean){
+        Session session = sessionFactory.getCurrentSession();
+        Query query = session.createQuery("from User where id=:id");
 
+        query.setParameter("id", userBean.getId());
+
+        return query.list();
+    }
 }

@@ -25,4 +25,11 @@ public class RolesDelegate {
         roles = rolesService.getAllRoles();
         return  roles;
     }
+
+    @Transactional
+    public List<String> getRights(RolesBean rolesBean){
+        List<String> roles;
+        roles = rolesService.getAllRights(rolesBean);
+        return  roles;
+    }
 }

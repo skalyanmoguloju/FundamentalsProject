@@ -29,4 +29,11 @@ public class UserDelegate {
         List<UserBean> userBeans = userBeanMapper.mapUserBean(users);
         return  userBeans;
     }
+    @Transactional
+    public List<UserBean> getUserInfo(UserBean userBean){
+        List<User> users;
+        users = userService.getUserInfo(userBean);
+        List<UserBean> userBeans = userBeanMapper.mapUserBean(users);
+        return  userBeans;
+    }
 }

@@ -87,5 +87,15 @@ public class User{
         this.name = name;
     }
 
+    public String getRole() {
+        return role;
+    }
 
+    public void setRole(String role) {
+        this.role = role;
+    }
+
+    @Column(name = "role")
+
+    private String role;
 }

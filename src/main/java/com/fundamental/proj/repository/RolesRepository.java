@@ -1,5 +1,6 @@
 package com.fundamental.proj.repository;
 
+import com.fundamental.proj.controller.bean.RolesBean;
 import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
@@ -24,9 +25,17 @@ public class RolesRepository {
     public List<String> getAllRole()
     {
         Session session = sessionFactory.getCurrentSession();
-        Query query = session.createQuery("select distinct name from Roles");
+        Query query = session.createQuery("select distinct role from Roles");
 
         return query.list();
     }
 
+    @Transactional
+    public List<String> getAllRights(RolesBean rolesBean)
+    {
+        Session session = sessionFactory.getCurrentSession();
+        Query query = session.createQuery("select distinct rights from Roles where role=:role");
+        query.setParameter("role", rolesBean.getRole());
+        return query.list();
+    }
 }

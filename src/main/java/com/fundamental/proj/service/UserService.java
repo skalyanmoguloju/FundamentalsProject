@@ -24,5 +24,9 @@ public class UserService {
     {
         return userRepository.finAllUsers(userBean);
     }
-
+    @Transactional
+    public List<User> getUserInfo(UserBean userBean)
+    {
+        return userRepository.getUserInfo(userBean);
+    }
 }

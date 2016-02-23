@@ -21,6 +21,7 @@ public class UserBeanMapper {
         userBean.setDob(user.getDob());
         userBean.setEmail(user.getEmail());
         userBean.setLname(user.getLname());
+        userBean.setRole(user.getRole());
         return userBean;
     }
 
@@ -31,6 +32,7 @@ public class UserBeanMapper {
         user.setDob(userBean.getDob());
         user.setEmail(userBean.getEmail());
         user.setLname(userBean.getLname());
+        user.setRole(userBean.getRole());
         return user;
     }
 

@@ -15,45 +15,76 @@
     <meta name="robots" content="noarchive" />
     <title>Sign In</title>
     <link rel="shortcut icon" href="https://launchpad-asset2.37signals.com/favicon.ico?1455655021" />
-    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
-    <script>
-        angular.module('myApp', [])
 
-                .controller('LoginCtrl', ['$scope', '$rootScope','$http',
-                    function ($scope, $rootScope,$http) {
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-cookies.js"></script>
+    <script>
+        angular.module('myApp', ['ngCookies'])
+
+                .controller('LoginCtrl', ['$scope', '$rootScope','$http', '$cookies',
+                    function ($scope, $rootScope,$http,$cookies) {
                         console.log("jj");
                         var service = {};
                         $scope.loginMain = function () {
                             $scope.dataLoading = true;
                             console.log($scope.username);
-                            console.log($scope.password);
-                            $http.post('forgot_password', {email:$scope.username, pwsd:$scope.password})
-                                    .success(function (response) {
-                                        console.log(response);
-                                        console.log(response.length);
-                                        if(response.length==0)
-                                        {
-                                            document.getElementById('lbltipAddedComment').innerHTML = 'your tip has been submitted!';
+                            if($scope.username =="" || $scope.username == undefined)
+                            {
+                                document.getElementById('lbltipAddedComment').innerHTML = 'Please enter email id';
+                            }
+                            else if($scope.validateEmail()== true)
+                            {
+                                if($scope.password =="" || $scope.password == undefined)
+                                {
+                                    document.getElementById('lbltipAddedComment').innerHTML = 'Please enter password';
+                                }
+                                else
+                                {
+                                    console.log($scope.password);
+                                    $http.post('forgot_password', {email: $scope.username, pwsd: $scope.password})
+                                            .success(function (response) {
+                                                console.log(response);
+                                                console.log(response.length);
+                                                if (response.length == 0) {
+                                                    document.getElementById('lbltipAddedComment').innerHTML = 'Invalid Credentials!!';
 
-                                        }
-                                        else {
-                                            window.location.href = "home"
-                                        }
-                                    });
+                                                }
+                                                else {
+                                                    $cookies.put("user",response[0].id);
+                                                    window.location.href = "home"
+                                                }
+                                            });
+                                }
+                            }
                         };
-                    }]);
-    </script>
-    <script>
+                        $scope.validateEmail = function(){
 
-        angular.module('myApp')
-                .factory('AuthenticationService',
-                ['$http', '$cookieStore', '$rootScope', '$timeout',
-                    function ($http, $cookieStore, $rootScope, $timeout) {
+                            var x = $scope.username;
+                            var atpos = x.indexOf("@");
+                            var dotpos = x.lastIndexOf(".");
+                            if (atpos<1 || dotpos<atpos+2 || dotpos+2>=x.length) {
+                                document.getElementById('lbltipAddedComment').innerHTML = 'Invalid Email id entered!!';
+                                return false;
+                            }
+                            return true;
+                        };
+                    }])
+                .factory('myService', function () {
+                    var savedData = {}
+                    function set(data) {
+                        savedData = data;
+                    }
+                    function get() {
+                        return savedData;
+                    }
+
+                    return {
+                        set: set,
+                        get: get
+                    }
+                });
 
 
-
-                        return service;
-                    }]);
     </script>
     <meta name="csrf-param" content="authenticity_token"/>
     <meta name="csrf-token" content="p6DokiMevvy&#47;6q3yvVyl3Ag5zAozrkGX1YqQc31JOko="/>

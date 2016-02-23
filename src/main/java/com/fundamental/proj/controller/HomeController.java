@@ -1,4 +1,5 @@
 package com.fundamental.proj.controller;
+import com.fundamental.proj.controller.bean.RolesBean;
 import com.fundamental.proj.delegate.RolesDelegate;
 import com.fundamental.proj.delegate.UserDelegate;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -46,10 +47,25 @@ public class HomeController {
     @ResponseBody
     public List<UserBean> Logined(@RequestBody UserBean userBean) {
        //HIBERNETCALLS
-        List<String> s = rolesDelegate.getRolesList();
         System.out.println(userBean.getEmail());
         List<UserBean> u = userDelegate.getUserList(userBean);
         return u;
+    }
+
+    @RequestMapping(value = "/userInfo", method = RequestMethod.POST)
+    @ResponseBody
+    public List<UserBean> userInfo(@RequestBody UserBean userBean) {
+        //HYBERNETCALLS
+        List<UserBean> u = userDelegate.getUserInfo(userBean);
+        return u;
+    }
+
+    @RequestMapping(value="/rights", method = RequestMethod.POST)
+    @ResponseBody
+    public List<String> getRights(@RequestBody RolesBean rolesBean) {
+        //HIBERNETCALLS
+        List<String> s = rolesDelegate.getRights(rolesBean);
+        return s;
     }
 
     @RequestMapping(value="roles", method = RequestMethod.POST)

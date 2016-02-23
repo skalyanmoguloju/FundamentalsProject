@@ -1,26 +1,27 @@
 package com.fundamental.proj.controller.bean;
 
+
 /**
  * Created by sai on 2/22/16.
  */
 public class RolesBean {
 
-    private String name;
-    private String right;
+    private String role;
+    private String rights;
 
-    public String getName() {
-        return name;
+    public String getRole() {
+        return role;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setRole(String role) {
+        this.role =  role;
     }
 
-    public String getRight() {
-        return right;
+    public String getRights() {
+        return rights;
     }
 
-    public void setRight(String right) {
-        this.right = right;
+    public void setRights(String rights) {
+        this.rights = rights;
     }
 }

@@ -15,15 +15,15 @@ public class RolesBeanMapper {
 
     public RolesBean mapRolesBean(Roles roles){
         RolesBean rolesBean = new RolesBean();
-        rolesBean.setRight(roles.getRight());
-        rolesBean.setName(roles.getName());
+        rolesBean.setRights(roles.getRights());
+        rolesBean.setRole(roles.getRole());
         return rolesBean;
     }
 
     public Roles mapBeanToRoles(RolesBean rolesBean){
         Roles roles = new Roles();
-        roles.setName(rolesBean.getName());
-        roles.setRight(rolesBean.getRight());
+        roles.setRole(rolesBean.getRole());
+        roles.setRights(rolesBean.getRights());
         return roles;
     }
 
