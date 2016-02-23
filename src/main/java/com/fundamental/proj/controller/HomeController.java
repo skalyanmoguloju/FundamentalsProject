@@ -24,9 +24,15 @@ public class HomeController {
 
 
     @RequestMapping(value = "/", method = RequestMethod.GET)
-    public String home(){
+    public String login(){
         return "WEB-INF/views/login/login";
     }
+
+    @RequestMapping(value = "/home", method = RequestMethod.GET)
+    public String home(){
+        return "WEB-INF/views/home/home";
+    }
+
 
     @RequestMapping(value = "/forgot_password1", method = RequestMethod.POST)
     @ResponseBody

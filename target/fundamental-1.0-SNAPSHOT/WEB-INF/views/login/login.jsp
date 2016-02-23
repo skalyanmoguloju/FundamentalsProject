@@ -23,11 +23,6 @@
                     function ($scope, $rootScope,$http) {
                         console.log("jj");
                         var service = {};
-                        service.Login = function (username, password, callback){
-
-
-                        }
-                        ;
                         $scope.loginMain = function () {
                             $scope.dataLoading = true;
                             console.log($scope.username);
@@ -41,7 +36,9 @@
                                             document.getElementById('lbltipAddedComment').innerHTML = 'your tip has been submitted!';
 
                                         }
-                                        //window.location.href="sign_up"
+                                        else {
+                                            window.location.href = "home"
+                                        }
                                     });
                         };
                     }]);

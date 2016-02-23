@@ -3483,10 +3483,6 @@
                                 <h1>Signing in to <strong>Portal</strong></h1>
                             </div>
 
-                            <div id="remember_container">
-                                <input checked="checked" id="remember_me" name="remember_me" type="checkbox" value="1" /> <label for="remember_me">Remember me on this computer</label>
-                            </div>
-
                             <div id="signin_button">
                                 <input src="https://launchpad-asset1.37signals.com/images/btn_bc3_sign-in@2x.png?1455655026" type="image" />
                             </div>
