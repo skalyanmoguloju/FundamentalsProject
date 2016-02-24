@@ -12,8 +12,8 @@
 <script>
     angular.module('myApp', ['ngCookies'])
 
-            .controller('HomeCtrl', ['$scope', '$rootScope','$http','$cookies',
-                function ($scope, $rootScope,$http,$cookies) {
+            .controller('HomeCtrl', ['$scope', '$rootScope','$http','$cookies','$filter',
+                function ($scope, $rootScope,$http,$cookies,$filter) {
                     console.log("jj");
                     var user = $cookies.get("user").toString();
                     //console.log(user.toString());
@@ -21,7 +21,9 @@
                             .success(function (response) {
                                 console.log(response);
                                 console.log(response.length);
+                                var date = new Date();
                                 $scope.userInfo = response[0];
+                                $scope.userInfo.dob= $filter('date')(response[0].dob , "dd/MM/yyyy");
                                 $http.post('rights', {role: response[0].role})
                                         .success(function (data) {
                                             console.log(data);
@@ -109,16 +111,15 @@
     <div ng-controller="HomeCtrl as hmectrl">
         <ul class="nav navbar-nav" ng-model = "userInfo">
             <li class="dropdown">
-                <a href="#" class="dropdown-toggle" data-toggle="dropdown">{{userInfo.name}} <span class="glyphicon glyphicon-user pull-right"></span></a>
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown">{{userInfo.name}} {{userInfo.lname}} <span class="glyphicon glyphicon-user pull-right"></span></a>
                 <ul class="dropdown-menu">
-
-                    <li><a href="#">Account Settings <span class="glyphicon glyphicon-cog pull-right"></span></a></li>
+                    <li><a href="#"><b>Id : </b> {{userInfo.id}} <span class="glyphicon glyphicon-fire pull-right"></span></a></li>
                     <li class="divider"></li>
-                    <li><a href="#">User stats <span class="glyphicon glyphicon-stats pull-right"></span></a></li>
+                    <li><a href="#">{{userInfo.role}} <span class="glyphicon glyphicon-tags pull-right"></span></a></li>
                     <li class="divider"></li>
-                    <li><a href="#">Messages <span class="badge pull-right"> 42 </span></a></li>
+                    <li><a href="#">{{userInfo.email}} <span class="glyphicon glyphicon-envelope pull-right"></span></a></li>
                     <li class="divider"></li>
-                    <li><a href="#">Favourites Snippets <span class="glyphicon glyphicon-heart pull-right"></span></a></li>
+                    <li><a href="#">{{userInfo.dob}} <span class="glyphicon glyphicon-gift pull-right"></span></a></li>
                     <li class="divider"></li>
                     <li><a href="#">Sign Out <span class="glyphicon glyphicon-log-out pull-right"></span></a></li>
                 </ul>

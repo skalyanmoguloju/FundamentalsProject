@@ -52,4 +52,14 @@ public class UserRepository {
 
         return query.list();
     }
+
+    @Transactional
+    public List<String> validateEmail(UserBean userBean){
+        Session session = sessionFactory.getCurrentSession();
+        Query query = session.createQuery("select email from User where email=:email");
+
+        query.setParameter("email", userBean.getEmail());
+
+        return query.list();
+    }
 }

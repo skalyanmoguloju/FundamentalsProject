@@ -36,4 +36,8 @@ public class UserDelegate {
         List<UserBean> userBeans = userBeanMapper.mapUserBean(users);
         return  userBeans;
     }
+    @Transactional
+    public List<String> validateEmail(UserBean userBean){
+        return userService.validateEmail(userBean);
+    }
 }

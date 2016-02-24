@@ -3520,6 +3520,7 @@
     async("\n  Placeholder.Overlay.wrap();\n    $('username').focus();\n")
     //]]>
 </script>
+<script src="https://launchpad-asset3.37signals.com/sprockets.js?1455655026" type="text/javascript"></script>
 
 </body>
 </html>

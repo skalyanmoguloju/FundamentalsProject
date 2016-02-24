@@ -35,20 +35,27 @@ public class HomeController {
     }
 
 
-    @RequestMapping(value = "/forgot_password1", method = RequestMethod.POST)
-    @ResponseBody
+    @RequestMapping(value = "/forgot_password")
     public String he()
     {
         return "WEB-INF/views/forgot";
     }
 
 
-    @RequestMapping(value = "/forgot_password", method = RequestMethod.POST)
+    @RequestMapping(value = "/loginCtrl", method = RequestMethod.POST)
     @ResponseBody
     public List<UserBean> Logined(@RequestBody UserBean userBean) {
        //HIBERNETCALLS
         System.out.println(userBean.getEmail());
         List<UserBean> u = userDelegate.getUserList(userBean);
+        return u;
+    }
+    @RequestMapping(value = "/forgotCtrl", method = RequestMethod.POST)
+    @ResponseBody
+    public List<String> validateEmail(@RequestBody UserBean userBean) {
+        //HIBERNETCALLS
+        System.out.println(userBean.getEmail());
+        List<String> u = userDelegate.validateEmail(userBean);
         return u;
     }
 

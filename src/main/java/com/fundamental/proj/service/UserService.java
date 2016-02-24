@@ -29,4 +29,9 @@ public class UserService {
     {
         return userRepository.getUserInfo(userBean);
     }
+    @Transactional
+    public List<String> validateEmail(UserBean userBean)
+    {
+        return userRepository.validateEmail(userBean);
+    }
 }

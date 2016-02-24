@@ -9,6 +9,51 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-cookies.js"></script>
+    <script>
+        angular.module('myApp', [])
+
+                .controller('ForgotCtrl', ['$scope', '$rootScope','$http',
+                    function ($scope, $rootScope,$http) {
+                        var service = {};
+                        $scope.forgetMain = function () {
+                            console.log($scope.email_address);
+                            if($scope.email_address =="" || $scope.email_address == undefined)
+                            {
+                                document.getElementById('lbltipAddedComment').innerHTML = 'Please enter email id';
+                            }
+                            else if($scope.validateEmail()== true)
+                            {
+                                    $http.post('forgotCtrl', {email: $scope.email_address})
+                                            .success(function (response) {
+                                                console.log(response);
+                                                console.log(response.length);
+                                                if (response.length==0) {
+                                                    document.getElementById('lbltipAddedComment').innerHTML = 'Invalid Email Id!!!';
+                                                }
+                                                else {
+                                                    alert("Email has been sent to your email");
+                                                    window.location.href = "/"
+                                                }
+                                            });
+
+                            }
+                        };
+                        $scope.validateEmail = function(){
+
+                            var x = $scope.email_address;
+                            var atpos = x.indexOf("@");
+                            var dotpos = x.lastIndexOf(".");
+                            if (atpos<1 || dotpos<atpos+2 || dotpos+2>=x.length) {
+                                document.getElementById('lbltipAddedComment').innerHTML = 'Invalid Email id entered!!';
+                                return false;
+                            }
+                            return true;
+                        };
+                    }]);
+
+    </script>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
     <meta name="robots" content="noarchive" />
     <title>Forgot your password?</title>
@@ -3407,7 +3452,7 @@
 
 
 </head>
-<body class="login campfire">
+<body class="login campfire" ng-app="myApp">>
 
 <div class="container">
     <div id="header">
@@ -3417,17 +3462,18 @@
         <div id="login_content_inner">
             <div class="dialog_contents">
                 <div id="login_dialog" class="login_dialog clearfix">
-                    <div class="form">
+                    <div class="form" ng-controller="ForgotCtrl as frgctrl">
                         <h2>Can't sign in?</h2>
                         <p>Enter your email address below and we'll send you password reset instructions.</p>
 
-                        <form accept-charset="UTF-8" action="/password_resets" method="post"><div style="margin:0;padding:0;display:inline"><input name="utf8" type="hidden" value="&#x2713;" /><input name="authenticity_token" type="hidden" value="p6DokiMevvy/6q3yvVyl3Ag5zAozrkGX1YqQc31JOko=" /></div>
+                        <form accept-charset="UTF-8" method="post" ng-submit="forgetMain()">
+                            <div style="margin:0;padding:0;display:inline"><input name="utf8" type="hidden" value="&#x2713;" /><input name="authenticity_token" type="hidden" value="p6DokiMevvy/6q3yvVyl3Ag5zAozrkGX1YqQc31JOko=" /></div>
                             <input id="product" name="product" type="hidden" value="campfire" />
                             <input id="account_id" name="account_id" type="hidden" />
 
                             <h3>Enter your email address</h3>
-                            <input autocapitalize="off" autocorrect="off" id="email_address" name="email_address" type="email" /><br />
-
+                            <input autocapitalize="off" autocorrect="off" id="email_address" name="email_address" ng-model="email_address" type="email" /><br />
+                            <label id="lbltipAddedComment"></label>
                             <input class="button" name="commit" type="submit" value="Send me reset instructions" />
                         </form>
                         <div class="note">
@@ -3451,7 +3497,7 @@
             <ul>
                 <li>
                     <a href="http://campfirenow.com/?source=signin-screen">
-                        Don't have a Campfire account? <strong>Sign up today</strong>.
+                        Don't have an account? <strong>Sign up today</strong>.
                     </a>      </li>
             </ul>
         </div>

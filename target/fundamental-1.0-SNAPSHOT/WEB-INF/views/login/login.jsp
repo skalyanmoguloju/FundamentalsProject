@@ -41,7 +41,7 @@
                                 else
                                 {
                                     console.log($scope.password);
-                                    $http.post('forgot_password', {email: $scope.username, pwsd: $scope.password})
+                                    $http.post('loginCtrl', {email: $scope.username, pwsd: $scope.password})
                                             .success(function (response) {
                                                 console.log(response);
                                                 console.log(response.length);
@@ -3504,10 +3504,10 @@
                                 <h1>Sign in to <strong>Portal</strong></h1>
 
                                 <p style="">
-                                    <input autocapitalize="off" autocomplete="on" autocorrect="off" class="overlayable" id="username" name="username" title="Username or email" type="text" value="" ng-model = "username"/>
+                                    <input autocapitalize="off" autocomplete="off" autocorrect="off" class="overlayable" id="username" name="username" title="Username or email" type="text" value="" ng-model = "username"/>
                                 </p>
                                 <p><input autocapitalize="off" autocomplete="on" autocorrect="off" class="overlayable" id="password" name="password" title="Password" type="password" ng-model = "password" /></p>
-                                <label id="lbltipAddedComment">test</label>
+                                <label id="lbltipAddedComment"></label>
                             </div>
 
                             <div id="login_loading">
