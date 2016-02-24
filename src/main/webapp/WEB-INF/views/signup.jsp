@@ -3463,11 +3463,9 @@
                                     <input autocapitalize="off" autocomplete="on" autocorrect="off" class="overlayable" id="lname" name="lname" title="Last Name" type="text" value="" />
                                 </p>
                                 <p style="">
-                                    <input autocapitalize="off" autocomplete="on" autocorrect="off" class="overlayable" id="email1" name="username1" title="email" type="text" value="" />
-                                    <select class="overlayable" ng-model="role" ng-change="update()">
-                                        <option value="">Please select Role</option>
-                                        <option id="{{rol}}" ng-repeat="rol in roles" value="{{rol}}">{{rol}}</option>
-                                    </select>
+                                    <input autocapitalize="off" autocomplete="on" autocorrect="off" class="overlayable" id="email" name="username" title="email" type="text" value="" />
+                                    <input autocapitalize="off" autocomplete="on" autocorrect="off" class="overlayable" id="email1" name="username1" title="Re-type email" type="text" value="" />
+
                                 </p>
                                 <p>
                                     <input autocapitalize="off" autocomplete="on" autocorrect="off" class="overlayable" id="password1" name="password1" title="Password" type="password" />
@@ -3476,6 +3474,13 @@
                                 <p>
                                     <input autocapitalize="off" autocomplete="on" autocorrect="off" class="overlayable" id="dob" name="password1" title="DOB" type="text" />
                                     <input autocapitalize="off" autocomplete="on" autocorrect="off" class="overlayable" id="gender" name="password2" title="Gender" type="text" />
+                                </p>
+                                <p>
+                                <select class="overlayable" ng-model="role" ng-change="update()">
+                                    <option value="">Please select Role</option>
+                                    <option id="{{rol}}" ng-repeat="rol in roles" value="{{rol}}">{{rol}}</option>
+                                </select>
+                                <input autocapitalize="off" autocomplete="on" autocorrect="off" class="overlayable" id="id" name="id" title="Generated Id" type="text" style="display: none"/>
                                 </p>
                             </div>
 
