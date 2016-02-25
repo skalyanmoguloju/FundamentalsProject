@@ -1,6 +1,7 @@
 package com.fundamental.proj.repository;
 
 import com.fundamental.proj.controller.bean.RolesBean;
+import com.fundamental.proj.model.User;
 import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
@@ -38,4 +39,5 @@ public class RolesRepository {
         query.setParameter("role", rolesBean.getRole());
         return query.list();
     }
+
 }

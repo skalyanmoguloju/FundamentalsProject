@@ -34,4 +34,10 @@ public class UserService {
     {
         return userRepository.validateEmail(userBean);
     }
+    @Transactional
+    public void addUser(User user)
+    {
+        userRepository.addUser(user);
+    }
+
 }

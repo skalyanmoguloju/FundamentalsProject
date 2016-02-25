@@ -44,6 +44,7 @@
                                                 console.log(response);
                                                 console.log(response.length);
                                                 if (response.length == 0) {
+                                                    $scope.password = "";
                                                     document.getElementById('lbltipAddedComment').innerHTML = 'Invalid Credentials!!';
 
                                                 }

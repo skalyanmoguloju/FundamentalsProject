@@ -50,6 +50,14 @@ public class HomeController {
         List<UserBean> u = userDelegate.getUserList(userBean);
         return u;
     }
+
+    @RequestMapping(value = "/signupCtrl", method = RequestMethod.POST)
+    @ResponseBody
+    public void Signup(@RequestBody UserBean userBean) {
+        //HIBERNETCALLS
+        userDelegate.adduser(userBean);
+    }
+
     @RequestMapping(value = "/forgotCtrl", method = RequestMethod.POST)
     @ResponseBody
     public List<String> validateEmail(@RequestBody UserBean userBean) {

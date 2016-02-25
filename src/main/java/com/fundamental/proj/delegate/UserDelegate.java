@@ -40,4 +40,12 @@ public class UserDelegate {
     public List<String> validateEmail(UserBean userBean){
         return userService.validateEmail(userBean);
     }
+
+    @Transactional
+    public void adduser(UserBean userBean){
+        User user = new User();
+        user = userBeanMapper.mapBeanToUser(userBean);
+        userService.addUser(user);
+    }
 }
+

@@ -3,6 +3,7 @@ package com.fundamental.proj.repository;
 import com.fundamental.proj.controller.bean.UserBean;
 import com.fundamental.proj.model.User;
 import org.hibernate.SessionFactory;
+import org.hsqldb.error.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
@@ -61,5 +62,25 @@ public class UserRepository {
         query.setParameter("email", userBean.getEmail());
 
         return query.list();
+   }
+
+    @Transactional
+    public void addUser(User user)
+    {
+        try {
+            Session session = sessionFactory.getCurrentSession();
+            if(user.getRole().equals("User"))
+            {
+                session.persist(user);
+            }
+            else {
+                session.update(user);
+            }
+            session.flush();
+        }
+        catch (Exception e)
+        {
+
+        }
     }
 }

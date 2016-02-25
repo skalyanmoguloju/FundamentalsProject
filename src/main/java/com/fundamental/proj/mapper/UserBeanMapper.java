@@ -33,6 +33,7 @@ public class UserBeanMapper {
         user.setEmail(userBean.getEmail());
         user.setLname(userBean.getLname());
         user.setRole(userBean.getRole());
+        user.setPwsd(userBean.getPwsd());
         return user;
     }
 
