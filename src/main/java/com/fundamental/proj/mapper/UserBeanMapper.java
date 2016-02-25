@@ -22,6 +22,7 @@ public class UserBeanMapper {
         userBean.setEmail(user.getEmail());
         userBean.setLname(user.getLname());
         userBean.setRole(user.getRole());
+        userBean.setStatus(user.getStatus());
         return userBean;
     }
 
@@ -33,6 +34,7 @@ public class UserBeanMapper {
         user.setEmail(userBean.getEmail());
         user.setLname(userBean.getLname());
         user.setRole(userBean.getRole());
+        user.setStatus(userBean.getStatus());
         user.setPwsd(userBean.getPwsd());
         return user;
     }

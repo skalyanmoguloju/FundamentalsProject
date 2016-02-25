@@ -46,7 +46,6 @@ public class HomeController {
     @ResponseBody
     public List<UserBean> Logined(@RequestBody UserBean userBean) {
        //HIBERNETCALLS
-        System.out.println(userBean.getEmail());
         List<UserBean> u = userDelegate.getUserList(userBean);
         return u;
     }
@@ -55,6 +54,7 @@ public class HomeController {
     @ResponseBody
     public void Signup(@RequestBody UserBean userBean) {
         //HIBERNETCALLS
+        userBean.setStatus("Inactive");
         userDelegate.adduser(userBean);
     }
 

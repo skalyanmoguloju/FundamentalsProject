@@ -6,7 +6,7 @@ import com.fundamental.proj.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-
+import 
 
 import javax.persistence.Transient;
 import java.util.List;
@@ -22,6 +22,7 @@ public class UserService {
     @Transactional
     public List<User> getAllUsers(UserBean userBean)
     {
+
         return userRepository.finAllUsers(userBean);
     }
     @Transactional

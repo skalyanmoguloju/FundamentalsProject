@@ -49,8 +49,18 @@
 
                                                 }
                                                 else {
-                                                    $cookies.put("user",response[0].id);
-                                                    window.location.href = "home"
+                                                    if(response[0].status == "Inactive")
+                                                    {
+                                                        document.getElementById('lbltipAddedComment').innerHTML = 'Account Inactive!!';
+                                                    }
+                                                    else if(response[0].status == "Deleted")
+                                                    {
+                                                        document.getElementById('lbltipAddedComment').innerHTML = 'Account Deleted!!';
+                                                    }
+                                                    else {
+                                                        $cookies.put("user", response[0].id);
+                                                        window.location.href = "home"
+                                                    }
                                                 }
                                             });
                                 }

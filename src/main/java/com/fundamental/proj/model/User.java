@@ -96,6 +96,16 @@ public class User{
     }
 
     @Column(name = "role")
-
     private String role;
+
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
+    }
+
+    @Column(name = "status")
+    private String status;
 }
