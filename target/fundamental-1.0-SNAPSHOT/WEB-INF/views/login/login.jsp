@@ -55,7 +55,7 @@
                                                     }
                                                     else if(response[0].status == "Deleted")
                                                     {
-                                                        document.getElementById('lbltipAddedComment').innerHTML = 'Account Deleted!!';
+                                                        document.getElementById('lbltipAddedComment').innerHTML = 'Account Inactive!!';
                                                     }
                                                     else {
                                                         $cookies.put("user", response[0].id);

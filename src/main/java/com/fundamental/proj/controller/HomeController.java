@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.*;
 
 import com.fundamental.proj.controller.bean.UserBean;
 
+import java.util.LinkedList;
 import java.util.List;
 
 /**
@@ -52,10 +53,20 @@ public class HomeController {
 
     @RequestMapping(value = "/signupCtrl", method = RequestMethod.POST)
     @ResponseBody
-    public void Signup(@RequestBody UserBean userBean) {
+    public List<String> Signup(@RequestBody UserBean userBean) {
         //HIBERNETCALLS
-        userBean.setStatus("Inactive");
-        userDelegate.adduser(userBean);
+        List<String> s = new LinkedList<String>();
+        try {
+            userBean.setStatus("Inactive");
+            userDelegate.adduser(userBean);
+            s.add("Done");
+            return s;
+        }
+        catch (Exception e)
+        {
+            return s;
+        }
+
     }
 
     @RequestMapping(value = "/forgotCtrl", method = RequestMethod.POST)
@@ -90,6 +101,7 @@ public class HomeController {
         List<String> s = rolesDelegate.getRolesList();
         return s;
     }
+
 
 
 

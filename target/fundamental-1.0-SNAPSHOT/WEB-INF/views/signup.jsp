@@ -55,13 +55,13 @@
                                             console.log(response);
                                             console.log(response.length);
                                             if (response.length == 0) {
-                                                $scope.password = "";
-                                                //document.getElementById('lbltipAddedComment').innerHTML = 'Invalid Credentials!!';
+                                                document.getElementById('lbltipAddedComment').innerHTML = 'Error is Signing up!! Please try again';
 
                                             }
                                             else {
-                                                $cookies.put("user",response[0].id);
-                                                window.location.href = "home"
+                                                document.getElementById('lbltipAddedComment').innerHTML = 'Successfully Signed Up';
+                                                alert("Please verify your account by opening the link sent to your email and then try Signing in");
+                                                window.location.href = "/"
                                             }
                                         });
                                 //httpost
@@ -73,14 +73,17 @@
 
                             if($scope.user.name == "" || $scope.user.name == undefined)
                             {
+                                document.getElementById('lbltipAddedComment').innerHTML = 'First Name cannot be empty';
                                 return false;
                             }
                             if($scope.user.lname == "" || $scope.user.lname == undefined)
                             {
+                                document.getElementById('lbltipAddedComment').innerHTML = 'Last Name cannot be empty';
                                 return false;
                             }
                             if($scope.user.email == "" || $scope.user.email == undefined)
                             {
+                                document.getElementById('lbltipAddedComment').innerHTML = 'Email id cannot be empty';
                                 return false;
                             }
                             else
@@ -92,22 +95,27 @@
                             }
                             if($scope.user.pwsd == "" || $scope.user.pwsd == undefined)
                             {
+                                document.getElementById('lbltipAddedComment').innerHTML = 'Password field cannot be empty';
                                 return false;
                             }
                             if($scope.pswd2 == "" || $scope.pswd2 == undefined)
                             {
+                                document.getElementById('lbltipAddedComment').innerHTML = 'Confirm Password cannot be empty';
                                 return false;
                             }
                             if($scope.user.pwsd != $scope.pswd2)
                             {
+                                document.getElementById('lbltipAddedComment').innerHTML = 'Passwords doesnot match';
                                 return false;
                             }
                             if($scope.user.role == "" || $scope.user.role == undefined)
                             {
+                                document.getElementById('lbltipAddedComment').innerHTML = 'Role should be selected';
                                 return false;
                             }
                             if(document.getElementById('roleid').disabled == false && ($scope.user.id =="" || $scope.user.id == undefined))
                             {
+                                document.getElementById('lbltipAddedComment').innerHTML = 'Id is required if you are a ' + $scope.user.role;
                                 return false;
                             }
                             return true;
@@ -174,10 +182,10 @@
 
 
 </head>
-<body class="login campfire" ng-app="myApp">
+<body ng-app="myApp">
 
-<div class="container" id="wrap">
-    <div class="row">
+<div class="container">
+    <div class="row" style="margin-top:20px" >
         <div class="col-xs-12 col-sm-8 col-md-6 col-sm-offset-2 col-md-offset-3" ng-controller="SignUpCtrl as sgnctrl">
             <form  role="form" ng-submit="signUp()">
                 <fieldset>
@@ -224,6 +232,11 @@
                                         <span class="glyphicon glyphicon-calendar"></span>
                                     </span>
                             </div>
+                        </div>
+                    </div>
+                    <div class="col-xs-6 col-md-6">
+                        <div class="form-group">
+                             <label id="lbltipAddedComment"></label>
                         </div>
                     </div>
                 </div>
