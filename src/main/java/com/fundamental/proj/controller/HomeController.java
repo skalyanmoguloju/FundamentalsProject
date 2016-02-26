@@ -2,14 +2,17 @@ package com.fundamental.proj.controller;
 import com.fundamental.proj.controller.bean.RolesBean;
 import com.fundamental.proj.delegate.RolesDelegate;
 import com.fundamental.proj.delegate.UserDelegate;
+import com.fundamental.proj.util.EmailVerification;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
 import com.fundamental.proj.controller.bean.UserBean;
 
+import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.SimpleTimeZone;
 
 /**
  * Created by sai on 2/17/16.
@@ -24,10 +27,14 @@ public class HomeController {
     @Autowired
     private RolesDelegate rolesDelegate;
 
+    public String idbck ="";
 
     @RequestMapping(value = "/", method = RequestMethod.GET)
     public String login(){
+        EmailVerification em = new EmailVerification();
+        //em.sendEmailPasswordReset("kalyansaim@gmail.com");
         return "WEB-INF/views/login/login";
+
     }
 
     @RequestMapping(value = "/home", method = RequestMethod.GET)
@@ -58,7 +65,10 @@ public class HomeController {
         List<String> s = new LinkedList<String>();
         try {
             userBean.setStatus("Inactive");
-            userDelegate.adduser(userBean);
+            List<Long> id = userDelegate.adduser(userBean);
+            EmailVerification eVerification = new EmailVerification();
+            userBean.setId(id.get(0));
+            eVerification.sendEmailVerificationLink(userBean.getEmail(),userBean.getId());
             s.add("Done");
             return s;
         }
@@ -71,10 +81,15 @@ public class HomeController {
 
     @RequestMapping(value = "/forgotCtrl", method = RequestMethod.POST)
     @ResponseBody
-    public List<String> validateEmail(@RequestBody UserBean userBean) {
+    public List<Long> validateEmail(@RequestBody UserBean userBean) {
         //HIBERNETCALLS
         System.out.println(userBean.getEmail());
-        List<String> u = userDelegate.validateEmail(userBean);
+        List<Long> u = userDelegate.validateEmail(userBean);
+        if(u.size()>0)
+        {
+            EmailVerification eVer= new EmailVerification();
+            eVer.sendEmailPasswordReset(userBean.getEmail(), u.get(0));
+        }
         return u;
     }
 
@@ -121,5 +136,39 @@ public class HomeController {
     public String sign_up(){
         return "WEB-INF/views/signup";
     }
+
+    @RequestMapping(value = "/reg_activation/{id}")
+    public String verify(@PathVariable String id)
+    {
+        userDelegate.verifyUser(Long.parseLong(id));
+        return "WEB-INF/views/dummy";
+    }
+
+    @RequestMapping(value = "/password_reset/{id}")
+    public String pswdReset(@PathVariable String id)
+    {
+        idbck = id;
+        return "WEB-INF/views/dummy1";
+    }
+
+    @RequestMapping(value = "/resetPassword", method = RequestMethod.GET)
+    public String reset(){
+        EmailVerification em = new EmailVerification();
+        //em.sendEmailPasswordReset("kalyansaim@gmail.com");
+        return "WEB-INF/views/reset";
+
+    }
+
+    @RequestMapping(value = "/resetDone", method = RequestMethod.POST)
+    @ResponseBody
+    public List<String> resetDone(@RequestBody UserBean userBean)
+    {
+        userDelegate.resetPassword(Long.parseLong(idbck), userBean.getPwsd());
+        List<String> s = new ArrayList<String>();
+        s.add("Done");
+        return s;
+
+    }
+
 }
 

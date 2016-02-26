@@ -30,14 +30,26 @@ public class UserService {
         return userRepository.getUserInfo(userBean);
     }
     @Transactional
-    public List<String> validateEmail(UserBean userBean)
+    public List<Long> validateEmail(UserBean userBean)
     {
         return userRepository.validateEmail(userBean);
     }
     @Transactional
-    public void addUser(User user)
+    public List<Long> addUser(User user)
     {
-        userRepository.addUser(user);
+        return userRepository.addUser(user);
+    }
+
+    @Transactional
+    public void verifyUser(Long id)
+    {
+        userRepository.verifyUser(id);
+    }
+
+    @Transactional
+    public  void resetPswd(Long id, String pswd)
+    {
+        userRepository.resetPswd(id, pswd);
     }
 
 }

@@ -55,9 +55,9 @@ public class UserRepository {
     }
 
     @Transactional
-    public List<String> validateEmail(UserBean userBean){
+    public List<Long> validateEmail(UserBean userBean){
         Session session = sessionFactory.getCurrentSession();
-        Query query = session.createQuery("select email from User where email=:email");
+        Query query = session.createQuery("select id from User where email=:email");
 
         query.setParameter("email", userBean.getEmail());
 
@@ -65,22 +65,53 @@ public class UserRepository {
    }
 
     @Transactional
-    public void addUser(User user)
+    public List<Long> addUser(User user)
     {
+        List<Long> i = new ArrayList<Long>();
         try {
             Session session = sessionFactory.getCurrentSession();
             if(user.getRole().equals("User"))
             {
                 session.persist(user);
+                Query query = session.createQuery("select max(id) from User");
+                query.list();
+                session.flush();
+                return query.list();
             }
             else {
                 session.update(user);
+                i.add(user.getId());
+                session.flush();
+                return i;
             }
-            session.flush();
         }
         catch (Exception e)
         {
-
+            return i;
         }
+    }
+
+
+    @Transactional
+    public void verifyUser(Long id)
+    {
+        String sts = "Active";
+        Session session = sessionFactory.getCurrentSession();
+        Query query = session.createQuery("update User set status=:sts where id=:id");
+        query.setParameter("sts", sts);
+        query.setParameter("id", id);
+        query.executeUpdate();
+        session.flush();
+    }
+
+    @Transactional
+    public void resetPswd(Long id, String pswd)
+    {
+        Session session = sessionFactory.getCurrentSession();
+        Query query = session.createQuery("update User set password=:pswd where id=:id");
+        query.setParameter("pswd", pswd);
+        query.setParameter("id", id);
+        query.executeUpdate();
+        session.flush();
     }
 }

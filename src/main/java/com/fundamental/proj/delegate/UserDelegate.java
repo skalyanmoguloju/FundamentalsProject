@@ -37,15 +37,28 @@ public class UserDelegate {
         return  userBeans;
     }
     @Transactional
-    public List<String> validateEmail(UserBean userBean){
+    public List<Long> validateEmail(UserBean userBean){
         return userService.validateEmail(userBean);
     }
 
     @Transactional
-    public void adduser(UserBean userBean){
+    public List<Long> adduser(UserBean userBean){
         User user = new User();
         user = userBeanMapper.mapBeanToUser(userBean);
-        userService.addUser(user);
+        return userService.addUser(user);
+    }
+
+    @Transactional
+    public void verifyUser(Long id)
+    {
+        userService.verifyUser(id);
+    }
+
+
+    @Transactional
+    public void resetPassword(Long id, String pswd)
+    {
+        userService.resetPswd(id,pswd);
     }
 }
 
