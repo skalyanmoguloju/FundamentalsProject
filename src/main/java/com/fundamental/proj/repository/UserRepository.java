@@ -114,4 +114,13 @@ public class UserRepository {
         query.executeUpdate();
         session.flush();
     }
+
+    @Transactional
+    public List<String> getPswdInfoWithEmail(UserBean userBean) {
+        Session session = sessionFactory.getCurrentSession();
+        Query query = session.createQuery("select pwsd from User where email=:eid");
+        query.setParameter("eid", userBean.getEmail());
+        return query.list();
+    }
+
 }

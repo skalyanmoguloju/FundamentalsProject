@@ -60,5 +60,15 @@ public class UserDelegate {
     {
         userService.resetPswd(id,pswd);
     }
+
+    @Transactional
+    public String getUserPasswordWithEmail(UserBean userBean) {
+        List<String> pswd;
+        pswd = userService.getUserInfoWithEmail(userBean);
+        if(pswd.size()>0)
+            return pswd.get(0);
+        else
+            return "";
+    }
 }
 

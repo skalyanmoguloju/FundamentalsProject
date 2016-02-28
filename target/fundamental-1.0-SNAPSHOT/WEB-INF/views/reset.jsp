@@ -43,27 +43,17 @@
                                             console.log(response.length);
                                             if (response.length == 0) {
                                                 $scope.password = "";
-                                                document.getElementById('lbltipAddedComment').innerHTML = 'Invalid Credentials!!';
+                                                document.getElementById('lbltipAddedComment').innerHTML = 'Please try again!!';
 
                                             }
                                             else {
+                                                alert("Password is updated.")
                                                     window.location.href = "/";
 
                                             }
                                         });
 
                             }
-                        };
-                        $scope.validateEmail = function(){
-
-                            var x = $scope.username;
-                            var atpos = x.indexOf("@");
-                            var dotpos = x.lastIndexOf(".");
-                            if (atpos<1 || dotpos<atpos+2 || dotpos+2>=x.length) {
-                                document.getElementById('lbltipAddedComment').innerHTML = 'Invalid Email id entered!!';
-                                return false;
-                            }
-                            return true;
                         };
                     }]);
 
@@ -94,7 +84,7 @@
         <div class="col-xs-12 col-sm-8 col-md-6 col-sm-offset-2 col-md-offset-3">
             <form role="form" ng-submit="loginMain()">
                 <fieldset>
-                    <h2>Please Sign In</h2>
+                    <h2>Password Reset</h2>
                     <hr class="colorgraph">
                     <div class="form-group">
                         <input type="password" name="password" id="password" class="form-control input-lg" placeholder="New Password" ng-model = "password">

@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+
 import javax.persistence.Transient;
 import java.util.List;
 
@@ -51,5 +52,11 @@ public class UserService {
     {
         userRepository.resetPswd(id, pswd);
     }
+
+    @Transactional
+    public List<String> getUserInfoWithEmail(UserBean userBean) {
+        return userRepository.getPswdInfoWithEmail(userBean); }
+
+
 
 }

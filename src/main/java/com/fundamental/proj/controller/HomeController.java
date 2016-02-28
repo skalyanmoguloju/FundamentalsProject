@@ -5,8 +5,11 @@ import com.fundamental.proj.delegate.UserDelegate;
 import com.fundamental.proj.util.EmailVerification;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.context.annotation.Bean;
+import org.springframework.security.crypto.password.PasswordEncoder;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.web.bind.annotation.*;
-
+import java.util.Collections;
 import com.fundamental.proj.controller.bean.UserBean;
 
 import java.util.ArrayList;
@@ -37,6 +40,11 @@ public class HomeController {
 
     }
 
+    @Bean
+    public PasswordEncoder passwordEncoder() {
+        return new BCryptPasswordEncoder();
+    }
+
     @RequestMapping(value = "/home", method = RequestMethod.GET)
     public String home(){
         return "WEB-INF/views/home/home";
@@ -53,9 +61,20 @@ public class HomeController {
     @RequestMapping(value = "/loginCtrl", method = RequestMethod.POST)
     @ResponseBody
     public List<UserBean> Logined(@RequestBody UserBean userBean) {
-       //HIBERNETCALLS
-        List<UserBean> u = userDelegate.getUserList(userBean);
-        return u;
+        //HIBERNETCALLs
+        String p = userBean.getPwsd();
+        //String encryptedPswd = passwordEncoder().encode(userBean.getPwsd());
+        //userBean.setPwsd(encryptedPswd);
+        String passwordToCompare = userDelegate.getUserPasswordWithEmail(userBean);
+        boolean isRight = passwordEncoder().matches(p, passwordToCompare);
+        if(isRight) {
+            userBean.setPwsd(passwordToCompare);
+            List <UserBean> u = userDelegate.getUserList(userBean);
+            return u;
+        } else {
+            return Collections.<UserBean>emptyList();
+
+        }
     }
 
     @RequestMapping(value = "/signupCtrl", method = RequestMethod.POST)
@@ -65,6 +84,10 @@ public class HomeController {
         List<String> s = new LinkedList<String>();
         try {
             userBean.setStatus("Inactive");
+            String p = userBean.getPwsd();
+
+            String encryptedPass = passwordEncoder().encode(p);
+            userBean.setPwsd(encryptedPass);
             List<Long> id = userDelegate.adduser(userBean);
             EmailVerification eVerification = new EmailVerification();
             userBean.setId(id.get(0));
