@@ -1,27 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="d764e5ff-1673-4dc6-b3d9-a589c3d68bd9" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/fundamental.iml" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/fundamental/proj/controller/HomeController.class" afterPath="$PROJECT_DIR$/target/classes/com/fundamental/proj/controller/HomeController.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/fundamental-1.0-SNAPSHOT/WEB-INF/classes/com/fundamental/proj/controller/HomeController.class" afterPath="$PROJECT_DIR$/target/fundamental-1.0-SNAPSHOT/WEB-INF/classes/com/fundamental/proj/controller/HomeController.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/fundamental/proj/mapper/UserBeanMapper.class" afterPath="$PROJECT_DIR$/target/classes/com/fundamental/proj/mapper/UserBeanMapper.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/fundamental-1.0-SNAPSHOT/WEB-INF/classes/com/fundamental/proj/mapper/UserBeanMapper.class" afterPath="$PROJECT_DIR$/target/fundamental-1.0-SNAPSHOT/WEB-INF/classes/com/fundamental/proj/mapper/UserBeanMapper.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/fundamental/proj/delegate/UserDelegate.class" afterPath="$PROJECT_DIR$/target/classes/com/fundamental/proj/delegate/UserDelegate.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/fundamental-1.0-SNAPSHOT/WEB-INF/classes/com/fundamental/proj/delegate/UserDelegate.class" afterPath="$PROJECT_DIR$/target/fundamental-1.0-SNAPSHOT/WEB-INF/classes/com/fundamental/proj/delegate/UserDelegate.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/fundamental/proj/repository/UserRepository.class" afterPath="$PROJECT_DIR$/target/classes/com/fundamental/proj/repository/UserRepository.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/fundamental-1.0-SNAPSHOT/WEB-INF/classes/com/fundamental/proj/repository/UserRepository.class" afterPath="$PROJECT_DIR$/target/fundamental-1.0-SNAPSHOT/WEB-INF/classes/com/fundamental/proj/repository/UserRepository.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/fundamental/proj/service/UserService.class" afterPath="$PROJECT_DIR$/target/classes/com/fundamental/proj/service/UserService.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/fundamental-1.0-SNAPSHOT/WEB-INF/classes/com/fundamental/proj/service/UserService.class" afterPath="$PROJECT_DIR$/target/fundamental-1.0-SNAPSHOT/WEB-INF/classes/com/fundamental/proj/service/UserService.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/fundamental/proj/controller/HomeController.java" afterPath="$PROJECT_DIR$/src/main/java/com/fundamental/proj/controller/HomeController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/fundamental/proj/delegate/UserDelegate.java" afterPath="$PROJECT_DIR$/src/main/java/com/fundamental/proj/delegate/UserDelegate.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/fundamental/proj/repository/UserRepository.java" afterPath="$PROJECT_DIR$/src/main/java/com/fundamental/proj/repository/UserRepository.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/fundamental/proj/service/UserService.java" afterPath="$PROJECT_DIR$/src/main/java/com/fundamental/proj/service/UserService.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pom.xml" afterPath="$PROJECT_DIR$/pom.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/fundamental-1.0-SNAPSHOT/WEB-INF/views/reset.jsp" afterPath="$PROJECT_DIR$/target/fundamental-1.0-SNAPSHOT/WEB-INF/views/reset.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/vcs.xml" afterPath="$PROJECT_DIR$/.idea/vcs.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-    </list>
+    <list default="true" id="d764e5ff-1673-4dc6-b3d9-a589c3d68bd9" name="Default" comment="" />
     <ignored path="fundamental.iws" />
     <ignored path=".idea/workspace.xml" />
     <ignored path="$PROJECT_DIR$/out/" />
@@ -1268,7 +1248,7 @@
       <workItem from="1456618065693" duration="17000" />
       <workItem from="1456618185996" duration="1858000" />
       <workItem from="1456620860428" duration="44000" />
-      <workItem from="1456620973590" duration="680000" />
+      <workItem from="1456620973590" duration="740000" />
     </task>
     <task id="LOCAL-00001" summary="Email Update">
       <created>1456473849674</created>
@@ -1280,7 +1260,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="121114000" />
+    <option name="totallyTimeSpent" value="121174000" />
   </component>
   <component name="TodoView" selected-index="0">
     <todo-panel id="selected-file">
