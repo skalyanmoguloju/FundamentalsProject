@@ -85,14 +85,20 @@ public class HomeController {
         try {
             userBean.setStatus("Inactive");
             String p = userBean.getPwsd();
-
-            String encryptedPass = passwordEncoder().encode(p);
-            userBean.setPwsd(encryptedPass);
-            List<Long> id = userDelegate.adduser(userBean);
-            EmailVerification eVerification = new EmailVerification();
-            userBean.setId(id.get(0));
-            eVerification.sendEmailVerificationLink(userBean.getEmail(),userBean.getId());
-            s.add("Done");
+            String passwordToCompare = userDelegate.getUserPasswordWithEmail(userBean);
+            if(passwordToCompare.equals(""))
+            {
+                String encryptedPass = passwordEncoder().encode(p);
+                userBean.setPwsd(encryptedPass);
+                List<Long> id = userDelegate.adduser(userBean);
+                EmailVerification eVerification = new EmailVerification();
+                userBean.setId(id.get(0));
+                eVerification.sendEmailVerificationLink(userBean.getEmail(),userBean.getId());
+                s.add("Done");
+            }
+            else{
+                s.add("repeat");
+            }
             return s;
         }
         catch (Exception e)
@@ -186,6 +192,7 @@ public class HomeController {
     @ResponseBody
     public List<String> resetDone(@RequestBody UserBean userBean)
     {
+        userBean.setPwsd(passwordEncoder().encode(userBean.getPwsd()));
         userDelegate.resetPassword(Long.parseLong(idbck), userBean.getPwsd());
         List<String> s = new ArrayList<String>();
         s.add("Done");

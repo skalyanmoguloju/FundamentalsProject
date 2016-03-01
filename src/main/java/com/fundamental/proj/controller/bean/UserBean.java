@@ -81,4 +81,15 @@ public class UserBean {
     public void setRole(String role) {
         this.role = role;
     }
+
+    private String gender;
+
+    public void setGender(String gender) {
+        this.gender = gender;
+
+    }
+
+    public String getGender() {
+        return gender;
+    }
 }

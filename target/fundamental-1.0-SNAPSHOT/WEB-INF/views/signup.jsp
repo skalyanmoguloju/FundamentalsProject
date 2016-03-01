@@ -1,5 +1,3 @@
-
-
 <%--
   Created by IntelliJ IDEA.
   User: sai
@@ -19,7 +17,6 @@
 
     <script>
         angular.module('myApp', [])
-
                 .controller('SignUpCtrl', ['$scope', '$rootScope','$http',
                     function ($scope, $rootScope,$http) {
                         $scope.roles = [];
@@ -27,21 +24,19 @@
                         $http.post('roles')
                                 .success(function (response) {
                                     if(response.length==0) {
-
                                     }
                                     else
                                     {
                                         $scope.roles = response
                                     }
-
-                                        //window.location.href="sign_up"
+                                    //window.location.href="sign_up"
                                 });
                         $scope.signUp = function()
                         {
-
                             if($scope.validateForm() == true)
                             {
                                 var d = Date.parse(document.getElementById('calendar').value);
+                                $scope.user.pwsd = document.getElementById('hidpassword').value;
                                 $http.post('signupCtrl', {
                                     name: $scope.user.name,
                                     lname:$scope.user.lname,
@@ -49,19 +44,24 @@
                                     pwsd: $scope.user.pwsd,
                                     id: $scope.user.id,
                                     role:$scope.user.role,
-                                    dob:d
+                                    dob:d,
+                                    gender: $scope.user.gender
                                 })
                                         .success(function (response) {
                                             console.log(response);
                                             console.log(response.length);
                                             if (response.length == 0) {
-                                                document.getElementById('lbltipAddedComment').innerHTML = 'Error is Signing up!! Please try again';
-
+                                                document.getElementById('lbltipAddedComment').innerHTML = 'Error in Signing up!! Please try again';
                                             }
                                             else {
-                                                document.getElementById('lbltipAddedComment').innerHTML = 'Successfully Signed Up';
-                                                alert("Please verify your account by opening the link sent to your email and then try Signing in");
-                                                window.location.href = "/"
+                                                if(response[0]=="Done") {
+                                                    document.getElementById('lbltipAddedComment').innerHTML = 'Successfully Signed Up';
+                                                    alert("Please verify your account by opening the link sent to your email and then try Signing in");
+                                                    window.location.href = "/"
+                                                }
+                                                else{
+                                                    alert("Email ID already exists!!!");
+                                                }
                                             }
                                         });
                                 //httpost
@@ -70,7 +70,6 @@
                         $scope.validateForm = function()
                         {
                             //console.log($scope.user);
-
                             if($scope.user.name == "" || $scope.user.name == undefined)
                             {
                                 document.getElementById('lbltipAddedComment').innerHTML = 'First Name cannot be empty';
@@ -93,19 +92,29 @@
                                     return false;
                                 }
                             }
-                            if($scope.user.pwsd == "" || $scope.user.pwsd == undefined)
+                            if($scope.user.asteriskpswd == "" || $scope.user.asteriskpswd == undefined)
                             {
                                 document.getElementById('lbltipAddedComment').innerHTML = 'Password field cannot be empty';
                                 return false;
                             }
-                            if($scope.pswd2 == "" || $scope.pswd2 == undefined)
+                            if(document.getElementById('hidpassword').value.length < 6)
+                            {
+                                document.getElementById('lbltipAddedComment').innerHTML = 'Password must contain at least 6 characters';
+                                return false;
+                            }
+                            if(!document.getElementById('hidpassword').value.match(/((^[0-9]+[a-z]+)|(^[a-z]+[0-9]+))+[0-9a-z]*$/i))
+                            {
+                                document.getElementById('lbltipAddedComment').innerHTML = 'Password must contain alphanumeric characters';
+                                return false;
+                            }
+                            if($scope.asteriskpswd2 == "" || $scope.asteriskpswd2 == undefined)
                             {
                                 document.getElementById('lbltipAddedComment').innerHTML = 'Confirm Password cannot be empty';
                                 return false;
                             }
-                            if($scope.user.pwsd != $scope.pswd2)
+                            if(document.getElementById('hidpassword').value != document.getElementById('hidconfirm_password').value)
                             {
-                                document.getElementById('lbltipAddedComment').innerHTML = 'Passwords doesnot match';
+                                document.getElementById('lbltipAddedComment').innerHTML = 'Confirm Password does not match with Password';
                                 return false;
                             }
                             if($scope.user.role == "" || $scope.user.role == undefined)
@@ -118,10 +127,20 @@
                                 document.getElementById('lbltipAddedComment').innerHTML = 'Id is required if you are a ' + $scope.user.role;
                                 return false;
                             }
+                            if($scope.user.gender !="M" && $scope.user.gender!="F")
+                            {
+                                document.getElementById('lbltipAddedComment').innerHTML = 'Please Select the Gender';
+                                return false;
+                            }
+                            if(document.getElementById('calendar').value == "")
+                            {
+                                document.getElementById('lbltipAddedComment').innerHTML = 'Please select DOB';
+                                return false;
+                            }
+
                             return true;
                         };
                         $scope.validateEmail = function(){
-
                             var x = $scope.user.email;
                             var atpos = x.indexOf("@");
                             var dotpos = x.lastIndexOf(".");
@@ -142,7 +161,6 @@
                                 document.getElementById('roleid').disabled = true;
                             }
                         };
-
                     }]);
     </script>
     <link rel='stylesheet' href='webjars/bootstrap/3.2.0/css/bootstrap.min.css'>
@@ -159,7 +177,6 @@
             background-image: -o-linear-gradient(left, #c4e17f, #c4e17f 12.5%, #f7fdca 12.5%, #f7fdca 25%, #fecf71 25%, #fecf71 37.5%, #f0776c 37.5%, #f0776c 50%, #db9dbe 50%, #db9dbe 62.5%, #c49cde 62.5%, #c49cde 75%, #669ae1 75%, #669ae1 87.5%, #62c2e4 87.5%, #62c2e4);
             background-image: linear-gradient(to right, #c4e17f, #c4e17f 12.5%, #f7fdca 12.5%, #f7fdca 25%, #fecf71 25%, #fecf71 37.5%, #f0776c 37.5%, #f0776c 50%, #db9dbe 50%, #db9dbe 62.5%, #c49cde 62.5%, #c49cde 75%, #669ae1 75%, #669ae1 87.5%, #62c2e4 87.5%, #62c2e4);
         }
-
         .navbar-default .navbar-brand{
             color:#fff;
             font-size:30px;
@@ -177,8 +194,7 @@
             }
         }
     </style>
-
-
+    <script type="text/javascript" src="js/asteriskPassword.js"></script>
 
 
 </head>
@@ -192,58 +208,61 @@
                     <h2>Sign Up</h2>
                     <hr class="colorgraph">
 
-                <div class="row">
-                    <div class="col-xs-6 col-md-6">
-                        <input type="text" autocapitalize="off" autocomplete="off" name="firstname" value="" class="form-control input-lg" placeholder="First Name"  ng-model="user.name"/>                        </div>
-                    <div class="col-xs-6 col-md-6">
-                        <input type="text" autocapitalize="off" autocomplete="off" name="lastname" value="" class="form-control input-lg" placeholder="Last Name"  ng-model="user.lname"/>                        </div>
-                </div>
+                    <div class="row">
+                        <div class="col-xs-6 col-md-6">
+                            <input type="text" autocapitalize="off" autocomplete="off" name="firstname" value="" class="form-control input-lg" placeholder="First Name"  ng-model="user.name"/>                        </div>
+                        <div class="col-xs-6 col-md-6">
+                            <input type="text" autocapitalize="off" autocomplete="off" name="lastname" value="" class="form-control input-lg" placeholder="Last Name"  ng-model="user.lname"/>                        </div>
+                    </div>
                     <br/>
-                <input type="text" autocapitalize="off" autocomplete="off" name="email" value="" class="form-control input-lg" placeholder="Your Email" ng-model="user.email"/>
-                <br/>
-                    <input type="password" name="password" value="" class="form-control input-lg" placeholder="Password" ng-model = "user.pwsd"/>
-                <br/>
-                    <input type="password" name="confirm_password" value="" class="form-control input-lg" placeholder="Confirm Password" ng-model = "pswd2"/>
-                <br/>
-                <div class="row">
-                    <div class="col-xs-6 col-md-6">
-                        <select name="role" value="" class="form-control input-lg" ng-model = "user.role" ng-change="update()">
-                            <option value="">Please select Role</option>
-                            <option id="{{rol}}" ng-repeat="rol in roles" value="{{rol}}">{{rol}}</option>
-                        </select>
+                    <input type="text" autocapitalize="off" autocomplete="off" name="email" value="" class="form-control input-lg" placeholder="Your Email" ng-model="user.email"/>
+                    <br/>
+                    <input id="pswd" type="password" name="password" value="" class="form-control input-lg" placeholder="Password" ng-model = "user.asteriskpswd"/>
+                    <script type="text/javascript"> new AsteriskPassword(document.getElementById('pswd'), '\u002A'); </script>
+                    <br/>
+                    <input id="confirm_pswd" type="password" name="confirm_password" value="" class="form-control input-lg" placeholder="Confirm Password" ng-model = "asteriskpswd2"/>
+                    <script type="text/javascript"> new AsteriskPassword(document.getElementById('confirm_pswd'), '\u002A'); </script>
+                    <br/>
+                    <div class="row">
+                        <div class="col-xs-6 col-md-6">
+                            <select name="role" value="" class="form-control input-lg" ng-model = "user.role" ng-change="update()">
+                                <option value="">Please select Role</option>
+                                <option id="{{rol}}" ng-repeat="rol in roles" value="{{rol}}">{{rol}}</option>
+                            </select>
+                        </div>
+                        <div class="col-xs-6 col-md-6">
+                            <input  id = "roleid" type="text" autocapitalize="off" autocomplete="off" name="id" value="" class="form-control input-lg" placeholder="Assigned ID" disabled  ng-model = "user.id"/>
+                        </div>
                     </div>
-                    <div class="col-xs-6 col-md-6">
-                        <input  id = "roleid" type="text" autocapitalize="off" autocomplete="off" name="id" value="" class="form-control input-lg" placeholder="Assigned ID" disabled  ng-model = "user.id"/>
-                    </div>
-                </div>
-                <br/>
-                <div class="row">
-                    <div class="col-xs-6 col-md-6">
-                        <select name="gender" value="" class="form-control input-lg" placeholder="Gender" ng-model="user.gender">
-                            <option value="M">Male</option>
-                            <option value="F">Female</option>
-                        </select>
-                    </div>
-                    <div class="col-xs-6 col-md-6">
-                        <div class="form-group">
-                            <div class='input-group date' id='datepicker1'>
-                                <input type="text" id ="calendar" class="form-control input-lg" ng-model = "parent.checkOut"/>
+                    <br/>
+                    <div class="row">
+                        <div class="col-xs-6 col-md-6">
+                            <select name="gender" value = "" class="form-control input-lg" ng-model="user.gender">
+                                <option value="">Gender</option>
+                                <option value="M">Male</option>
+                                <option value="F">Female</option>
+                            </select>
+                        </div>
+                        <div class="col-xs-6 col-md-6">
+                            <div class="form-group">
+                                <div class='input-group date' id='datepicker1'>
+                                    <input type="text" placeholder="DOB (mm/dd/yyyy)" id ="calendar" class="form-control input-lg" ng-model = "parent.checkOut"/>
                                     <span class="input-group-addon">
                                         <span class="glyphicon glyphicon-calendar"></span>
                                     </span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xs-6 col-md-6">
+                            <div class="form-group">
+                                <label id="lbltipAddedComment"></label>
                             </div>
                         </div>
                     </div>
-                    <div class="col-xs-6 col-md-6">
-                        <div class="form-group">
-                             <label id="lbltipAddedComment"></label>
-                        </div>
-                    </div>
-                </div>
                     <hr class="colorgraph">
-                <button class="btn btn-lg btn-success btn-block" type="submit">
-                    Create account</button>
-            </fieldset>
+                    <button class="btn btn-lg btn-success btn-block" type="submit">
+                        Create account</button>
+                </fieldset>
 
             </form>
         </div>
@@ -253,7 +272,6 @@
 <script src="http://code.jquery.com/ui/1.10.1/jquery-ui.js"></script>
 
 <script>
-
     $(function() {
         $( "#calendar" ).datepicker();
     });

@@ -16,6 +16,7 @@
     <title>Sign In</title>
     <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
     <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-cookies.js"></script>
+    <script type="text/javascript" src="js/asteriskPassword.js"></script>
     <script>
         angular.module('myApp', ['ngCookies'])
 
@@ -32,12 +33,13 @@
                             }
                             else if($scope.validateEmail()== true)
                             {
-                                if($scope.password =="" || $scope.password == undefined)
+                                if($scope.asteriskpassword =="" || $scope.asteriskpassword == undefined)
                                 {
                                     document.getElementById('lbltipAddedComment').innerHTML = 'Please enter password';
                                 }
                                 else
                                 {
+                                    $scope.password = document.getElementById('hidasteriskpassword').value;
                                     console.log($scope.password);
                                     $http.post('loginCtrl', {email: $scope.username, pwsd: $scope.password})
                                             .success(function (response) {
@@ -112,7 +114,9 @@
                         <input type="email" autocapitalize="off" autocomplete="off"  name="email" id="email" class="form-control input-lg" placeholder="Email Address" ng-model = "username">
                     </div>
                     <div class="form-group">
-                        <input type="password" name="password" id="password" class="form-control input-lg" placeholder="Password" ng-model = "password">
+                        <input id="askpassword" type="password" name="asteriskpassword" placeholder="Password" class="form-control input-lg" ng-model = "asteriskpassword">
+                        <script type="text/javascript"> new AsteriskPassword(document.getElementById('askpassword'), '\u002A'); </script>
+
                     </div>
 				<span class="button-checkbox">
 					<label id="lbltipAddedComment"></label>
