@@ -60,7 +60,7 @@
                                                     window.location.href = "/"
                                                 }
                                                 else{
-                                                    alert("Email ID already exists!!!");
+                                                     alert("Email ID already exists!!!");
                                                 }
                                             }
                                         });
