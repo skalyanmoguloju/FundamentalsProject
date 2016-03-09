@@ -3,7 +3,6 @@
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
-
     <groupId>com.fundamental</groupId>
     <artifactId>fundamental</artifactId>
     <version>1.0-SNAPSHOT</version>
@@ -15,7 +14,7 @@
         <org.springframework.security.version>3.2.1.RELEASE</org.springframework.security.version>
         <org.slf4j.version>1.6.4</org.slf4j.version>
         <hibernate.version>5.0.2.Final</hibernate.version>
-        <cuke.version>1.1.2</cuke.version>
+        <cuke.version>1.2.4</cuke.version>
         <thymeleaf.version>2.0.17</thymeleaf.version>
         <dandelion.datatables.version>0.8.11</dandelion.datatables.version>
     </properties>
@@ -304,11 +303,6 @@
             <groupId>org.apache.commons</groupId>
             <artifactId>commons-email</artifactId>
             <version>1.4</version>
-        </dependency>
-        <dependency>
-            <groupId>org.seleniumhq.selenium</groupId>
-            <artifactId>selenium-java</artifactId>
-            <version>2.52.0</version>
         </dependency>
     </dependencies>
 
