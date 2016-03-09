@@ -9,8 +9,8 @@ import java.util.UUID;
  * Created by sai on 2/25/16.
  */
 public class EmailVerification {
-    private String username = "emailver.FSE.Group4@gmail.com";
-    private String password = "UIowaGroup4";
+    private String username;
+    private String password;
 
     protected void setupAccount(String username, String password) {
         this.username = username;
@@ -18,7 +18,7 @@ public class EmailVerification {
     }
 
     public EmailVerification() {
-        setupAccount(username, password);
+        setupAccount("emailver.FSE.Group4@gmail.com", "UIowaGroup4");
     }
 
     public String generateKey() {
@@ -85,11 +85,6 @@ public class EmailVerification {
 
         sendEmail("FSE-Group4 Password Reset", email, subject, msg);
 
-    }
-
-    public static void main(String[] args) {
-
-        EmailVerification rev = new EmailVerification();
     }
 
 }
