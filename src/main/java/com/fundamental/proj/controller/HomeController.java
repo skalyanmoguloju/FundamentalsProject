@@ -11,7 +11,9 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.web.bind.annotation.*;
 import java.util.Collections;
 import com.fundamental.proj.controller.bean.UserBean;
-
+import org.apache.commons.io.FileUtils;
+import javax.servlet.ServletContext;
+import java.io.*;
 import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
@@ -35,6 +37,7 @@ public class HomeController {
     @RequestMapping(value = "/", method = RequestMethod.GET)
     public String login(){
         EmailVerification em = new EmailVerification();
+
         //em.sendEmailPasswordReset("kalyansaim@gmail.com");
         return "WEB-INF/views/login/login";
 
