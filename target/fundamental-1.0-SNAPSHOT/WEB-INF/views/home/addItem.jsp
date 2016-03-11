@@ -38,24 +38,12 @@
                             onsale_count: $scope.stock,
                             price: $scope.price,
                             images: $scope.url,
-                            category:$scope.category
+                            category:$scope.category,
+                            user_id:$scope.userInfo.id
                         })
                                 .success(function (response) {
                                     console.log(response);
-                                    console.log(response.length);
-                                    if (response.length == 0) {
-                                        document.getElementById('lbltipAddedComment').innerHTML = 'Error in Signing up!! Please try again';
-                                    }
-                                    else {
-                                        if(response[0]=="Done") {
-                                            document.getElementById('lbltipAddedComment').innerHTML = 'Successfully Signed Up';
-                                            alert("Please verify your account by opening the link sent to your email and then try Signing in");
-                                            window.location.href = "/"
-                                        }
-                                        else{
-                                            alert("Email ID already exists!!!");
-                                        }
-                                    }
+
                                 });
                     };
 
@@ -134,7 +122,7 @@
                                     Printer
                                 </option>
 
-                                <option value="Scanner">
+                                <option value="">
                                     Scanner
                                 </option>
                             </select>

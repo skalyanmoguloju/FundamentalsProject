@@ -9,5 +9,6 @@
         <mapping class="com.fundamental.proj.model.User" />
         <mapping class="com.fundamental.proj.model.Roles"/>
         <mapping class="com.fundamental.proj.model.Items"/>
+        <mapping class="com.fundamental.proj.model.Sales"/>
     </session-factory>
 </hibernate-configuration>

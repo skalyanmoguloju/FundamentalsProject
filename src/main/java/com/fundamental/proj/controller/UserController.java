@@ -1,7 +1,9 @@
 package com.fundamental.proj.controller;
 import com.fundamental.proj.controller.bean.ItemsBean;
 import com.fundamental.proj.controller.bean.RolesBean;
+import com.fundamental.proj.controller.bean.SalesBean;
 import com.fundamental.proj.delegate.ItemsDelegate;
+import com.fundamental.proj.delegate.SalesDelegate;
 import com.fundamental.proj.util.EmailVerification;
 import org.joda.time.DateTime;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -26,6 +28,9 @@ public class UserController {
     @Autowired
     private ItemsDelegate itemsDelegate;
 
+    @Autowired
+    private SalesDelegate salesDelegate;
+
     @RequestMapping(value = "/view")
     public String view() {
         return "WEB-INF/views/home/view";
@@ -48,13 +53,30 @@ public class UserController {
 
     @RequestMapping(value = "/addItem", method = RequestMethod.POST)
     @ResponseBody
-    public List<String> Signup(@RequestBody ItemsBean itemsBean) {
+    public List<String> AddeItem(@RequestBody ItemsBean itemsBean) {
         //HIBERNETCALLS
         List<String> s = new LinkedList<String>();
         try {
             itemsBean.setDate(Calendar.getInstance().getTime());
             itemsBean.setSold_count(0);
             itemsDelegate.addItem(itemsBean);
+            //String passwordToCompare = itemsDelegate.  .getUserPasswordWithEmail(userBean);
+            return s;
+
+        } catch (Exception e) {
+            return s;
+        }
+
+    }
+
+    @RequestMapping(value = "/order", method = RequestMethod.POST)
+    @ResponseBody
+    public List<String> PurchaseItem(@RequestBody SalesBean salesBean) {
+        //HIBERNETCALLS
+        List<String> s = new LinkedList<String>();
+        try {
+            salesBean.setPrice(salesBean.getPrice()*salesBean.getQuantity());
+           salesDelegate.addSale(salesBean);
             //String passwordToCompare = itemsDelegate.  .getUserPasswordWithEmail(userBean);
             return s;
 
