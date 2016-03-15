@@ -90,6 +90,8 @@
                     <li class="divider"></li>
                     <li><a href="#">{{userInfo.dob}} <span class="glyphicon glyphicon-gift pull-right"></span></a></li>
                     <li class="divider"></li>
+                    <li><a href="/cart">Cart <span class="glyphicon glyphicons-cart-in pull-right"></span></a></li>
+                    <li class="divider"></li>
                     <li><a href="#">Sign Out <span class="glyphicon glyphicon-log-out pull-right"></span></a></li>
                 </ul>
             </li>

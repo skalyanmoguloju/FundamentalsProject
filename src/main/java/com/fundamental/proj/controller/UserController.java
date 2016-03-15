@@ -1,7 +1,6 @@
 package com.fundamental.proj.controller;
-import com.fundamental.proj.controller.bean.ItemsBean;
-import com.fundamental.proj.controller.bean.RolesBean;
-import com.fundamental.proj.controller.bean.SalesBean;
+import com.fundamental.proj.controller.bean.*;
+import com.fundamental.proj.delegate.CartDelegate;
 import com.fundamental.proj.delegate.ItemsDelegate;
 import com.fundamental.proj.delegate.SalesDelegate;
 import com.fundamental.proj.util.EmailVerification;
@@ -30,6 +29,9 @@ public class UserController {
 
     @Autowired
     private SalesDelegate salesDelegate;
+
+    @Autowired
+    private CartDelegate cartDelegate;
 
     @RequestMapping(value = "/view")
     public String view() {
@@ -84,6 +86,19 @@ public class UserController {
             return s;
         }
 
+    }
+
+    @RequestMapping(value = "/cart")
+    public String CartItem() {
+        return "WEB-INF/views/home/cart";
+
+    }
+
+    @RequestMapping(value = "/getCart", method = RequestMethod.POST)
+    @ResponseBody
+    public List<CartBean> userInfo(@RequestBody UserBean userBean) {
+        //HYBERNETCALLS
+        return cartDelegate.getCart(userBean.getId());
     }
 
 
