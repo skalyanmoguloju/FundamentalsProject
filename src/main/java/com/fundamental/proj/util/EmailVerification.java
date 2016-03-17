@@ -53,8 +53,6 @@ public class EmailVerification {
 
         String key = generateKey();
 
-        try {
-
             // send email to user
             String subject = "New user, Welcome to FSE-Group4!";
             String acturl = "http://localhost:8080/reg_activation/"+userId;
@@ -65,10 +63,6 @@ public class EmailVerification {
                     "\n\n</body>" + "</html>";
 
             sendEmail("FSE-Group4 Email Verification", email, subject, msg);
-
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
 
         return key;
     }
@@ -85,11 +79,6 @@ public class EmailVerification {
 
         sendEmail("FSE-Group4 Password Reset", email, subject, msg);
 
-    }
-
-    public static void main(String[] args) {
-
-        EmailVerification rev = new EmailVerification();
     }
 
 }

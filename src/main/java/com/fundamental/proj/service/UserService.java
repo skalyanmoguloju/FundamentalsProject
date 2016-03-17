@@ -22,9 +22,9 @@ public class UserService {
     @Transactional
     public List<User> getAllUsers(UserBean userBean)
     {
-
         return userRepository.finAllUsers(userBean);
     }
+
     @Transactional
     public List<User> getUserInfo(UserBean userBean)
     {
