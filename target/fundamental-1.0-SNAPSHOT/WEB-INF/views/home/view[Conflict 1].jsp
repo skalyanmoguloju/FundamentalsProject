@@ -90,9 +90,8 @@
 <script type="text/javascript" src="webjars/bootstrap/3.2.0/js/bootstrap.min.js"></script>
 
 <div class="container" ng-app="myApp">
-
+    <jsp:include page="header.jsp" />
     <div  ng-controller="HomeCtrl as hmectrl" >
-        <jsp:include page="header.jsp" />
         <section class="col-xs-12 col-sm-6 col-md-12" ng-model = "list">
             <article class="search-result row" ng-repeat = "vw in list">
                 <div class="col-xs-12 col-sm-12 col-md-3">

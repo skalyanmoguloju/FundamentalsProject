@@ -48,7 +48,10 @@
 <script type="text/javascript" src="webjars/jquery/2.1.1/jquery.min.js"></script>
 <script type="text/javascript" src="webjars/bootstrap/3.2.0/js/bootstrap.min.js"></script>
 <div class="container" ng-app="myApp">
-<jsp:include page="header.jsp" />
+    <div ng-controller="HomeCtrl as hmectrl">
+        <jsp:include page="header.jsp" />
+    </div>
+
 </div>
 </body>
 </html>

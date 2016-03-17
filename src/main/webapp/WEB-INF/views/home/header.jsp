@@ -77,7 +77,7 @@
 </head>
 <body>
 
-    <div ng-controller="HomeCtrl as hmectrl" style="float: right">
+    <div  style="float: right">
         <ul class="nav navbar-nav" ng-model = "userInfo" style="left: 75%">
             <li class="dropdown">
                 <a href="#" class="dropdown-toggle" data-toggle="dropdown">{{userInfo.name}} {{userInfo.lname}} <span class="glyphicon glyphicon-user pull-right"></span></a>
