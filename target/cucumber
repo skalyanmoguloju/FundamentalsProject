@@ -4,263 +4,6009 @@
     "elements": [
       {
         "line": 3,
-        "name": "2 random keys are different",
+        "name": "Correct SignUp Page",
         "description": "",
-        "id": "check-emailverification;2-random-keys-are-different",
+        "id": "check-signup-page;correct-signup-page",
         "type": "scenario",
         "keyword": "Scenario",
         "steps": [
           {
             "result": {
-              "duration": 16229624,
+              "duration": 5663558656,
               "status": "passed"
             },
             "line": 4,
-            "name": "I have an EmailVerification",
+            "name": "I have a browser opened",
             "match": {
-              "location": "EmailVerificationSteps.i_have_an_EmailVerification()"
+              "location": "UITestingSteps.i_have_a_browser_opened()"
             },
             "keyword": "Given "
           },
           {
             "result": {
-              "duration": 17203050,
+              "duration": 1626980746,
               "status": "passed"
             },
             "line": 5,
-            "name": "I generate 2 key(s)",
+            "name": "I navigate to signup page",
             "match": {
-              "arguments": [
-                {
-                  "val": "2",
-                  "offset": 11
-                }
-              ],
-              "location": "EmailVerificationSteps.i_generate_key_s(int)"
+              "location": "UITestingSteps.i_navigate_to_signup_page()"
             },
             "keyword": "When "
           },
           {
             "result": {
-              "duration": 204239,
+              "duration": 775523153,
               "status": "passed"
             },
             "line": 6,
-            "name": "they should be different",
+            "name": "I should be in the signup page",
             "match": {
-              "location": "EmailVerificationSteps.they_should_be_different()"
+              "location": "UITestingSteps.i_should_be_in_the_signup_page()"
             },
             "keyword": "Then "
+          },
+          {
+            "result": {
+              "duration": 37998302,
+              "status": "passed"
+            },
+            "line": 7,
+            "name": "browser is closed",
+            "match": {
+              "location": "UITestingSteps.browser_is_closed()"
+            },
+            "keyword": "And "
           }
         ]
       },
       {
-        "line": 8,
-        "name": "2 random keys are different",
+        "comments": [
+          {
+            "line": 9,
+            "value": "#"
+          },
+          {
+            "line": 10,
+            "value": "# Check First Name"
+          },
+          {
+            "line": 11,
+            "value": "#"
+          }
+        ],
+        "line": 12,
+        "name": "Empty First Name",
         "description": "",
-        "id": "check-emailverification;2-random-keys-are-different",
+        "id": "check-signup-page;empty-first-name",
         "type": "scenario",
         "keyword": "Scenario",
         "steps": [
           {
             "result": {
-              "duration": 267133,
+              "duration": 3432575212,
               "status": "passed"
             },
-            "line": 9,
-            "name": "I have an EmailVerification",
+            "line": 13,
+            "name": "I have a browser opened",
             "match": {
-              "location": "EmailVerificationSteps.i_have_an_EmailVerification()"
+              "location": "UITestingSteps.i_have_a_browser_opened()"
             },
             "keyword": "Given "
           },
           {
             "result": {
-              "duration": 2085535,
+              "duration": 1450594160,
               "status": "passed"
             },
-            "line": 10,
-            "name": "I generate 4 key(s)",
+            "line": 14,
+            "name": "I navigate to signup page",
+            "match": {
+              "location": "UITestingSteps.i_navigate_to_signup_page()"
+            },
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "duration": 588812659,
+              "status": "passed"
+            },
+            "line": 15,
+            "name": "I click submit",
+            "match": {
+              "location": "UITestingSteps.i_click_submit()"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 54021795,
+              "status": "passed"
+            },
+            "line": 16,
+            "name": "I should receive an empty first name message",
+            "match": {
+              "location": "UITestingSteps.i_should_receive_an_error_message()"
+            },
+            "keyword": "Then "
+          },
+          {
+            "result": {
+              "duration": 29076341,
+              "status": "passed"
+            },
+            "line": 17,
+            "name": "browser is closed",
+            "match": {
+              "location": "UITestingSteps.browser_is_closed()"
+            },
+            "keyword": "And "
+          }
+        ]
+      },
+      {
+        "line": 19,
+        "name": "Non-Empty First Name",
+        "description": "",
+        "id": "check-signup-page;non-empty-first-name",
+        "type": "scenario",
+        "keyword": "Scenario",
+        "steps": [
+          {
+            "result": {
+              "duration": 3854521098,
+              "status": "passed"
+            },
+            "line": 20,
+            "name": "I have a browser opened",
+            "match": {
+              "location": "UITestingSteps.i_have_a_browser_opened()"
+            },
+            "keyword": "Given "
+          },
+          {
+            "result": {
+              "duration": 1532419292,
+              "status": "passed"
+            },
+            "line": 21,
+            "name": "I navigate to signup page",
+            "match": {
+              "location": "UITestingSteps.i_navigate_to_signup_page()"
+            },
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "duration": 636432191,
+              "status": "passed"
+            },
+            "line": 22,
+            "name": "I enter \"Group\" in first name field",
+            "match": {
+              "arguments": [
+                {
+                  "val": "Group",
+                  "offset": 9
+                }
+              ],
+              "location": "UITestingSteps.i_enter_in_first_name_field(String)"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 133992911,
+              "status": "passed"
+            },
+            "line": 23,
+            "name": "I click submit",
+            "match": {
+              "location": "UITestingSteps.i_click_submit()"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 40337905,
+              "status": "passed"
+            },
+            "line": 24,
+            "name": "I should not receive an empty first name message",
+            "match": {
+              "location": "UITestingSteps.i_should_not_receive_an_empty_first_name_message()"
+            },
+            "keyword": "Then "
+          },
+          {
+            "result": {
+              "duration": 20616281,
+              "status": "passed"
+            },
+            "line": 25,
+            "name": "browser is closed",
+            "match": {
+              "location": "UITestingSteps.browser_is_closed()"
+            },
+            "keyword": "And "
+          }
+        ]
+      },
+      {
+        "comments": [
+          {
+            "line": 27,
+            "value": "#"
+          },
+          {
+            "line": 28,
+            "value": "# Check Last Name"
+          },
+          {
+            "line": 29,
+            "value": "#"
+          }
+        ],
+        "line": 30,
+        "name": "Empty Last Name",
+        "description": "",
+        "id": "check-signup-page;empty-last-name",
+        "type": "scenario",
+        "keyword": "Scenario",
+        "steps": [
+          {
+            "result": {
+              "duration": 3380111168,
+              "status": "passed"
+            },
+            "line": 31,
+            "name": "I have a browser opened",
+            "match": {
+              "location": "UITestingSteps.i_have_a_browser_opened()"
+            },
+            "keyword": "Given "
+          },
+          {
+            "result": {
+              "duration": 1528231495,
+              "status": "passed"
+            },
+            "line": 32,
+            "name": "I navigate to signup page",
+            "match": {
+              "location": "UITestingSteps.i_navigate_to_signup_page()"
+            },
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "duration": 586609326,
+              "status": "passed"
+            },
+            "line": 33,
+            "name": "I enter \"NonEmpty\" in first name field",
+            "match": {
+              "arguments": [
+                {
+                  "val": "NonEmpty",
+                  "offset": 9
+                }
+              ],
+              "location": "UITestingSteps.i_enter_in_first_name_field(String)"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 64626315,
+              "status": "passed"
+            },
+            "line": 34,
+            "name": "I click submit",
+            "match": {
+              "location": "UITestingSteps.i_click_submit()"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 57347154,
+              "status": "passed"
+            },
+            "line": 35,
+            "name": "I should receive an empty last name message",
+            "match": {
+              "location": "UITestingSteps.i_should_receive_an_empty_last_name_message()"
+            },
+            "keyword": "Then "
+          },
+          {
+            "result": {
+              "duration": 18657602,
+              "status": "passed"
+            },
+            "line": 36,
+            "name": "browser is closed",
+            "match": {
+              "location": "UITestingSteps.browser_is_closed()"
+            },
+            "keyword": "And "
+          }
+        ]
+      },
+      {
+        "line": 38,
+        "name": "Non-Empty Last Name",
+        "description": "",
+        "id": "check-signup-page;non-empty-last-name",
+        "type": "scenario",
+        "keyword": "Scenario",
+        "steps": [
+          {
+            "result": {
+              "duration": 3022613041,
+              "status": "passed"
+            },
+            "line": 39,
+            "name": "I have a browser opened",
+            "match": {
+              "location": "UITestingSteps.i_have_a_browser_opened()"
+            },
+            "keyword": "Given "
+          },
+          {
+            "result": {
+              "duration": 1518261095,
+              "status": "passed"
+            },
+            "line": 40,
+            "name": "I navigate to signup page",
+            "match": {
+              "location": "UITestingSteps.i_navigate_to_signup_page()"
+            },
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "duration": 657512698,
+              "status": "passed"
+            },
+            "line": 41,
+            "name": "I enter \"Group\" in first name field",
+            "match": {
+              "arguments": [
+                {
+                  "val": "Group",
+                  "offset": 9
+                }
+              ],
+              "location": "UITestingSteps.i_enter_in_first_name_field(String)"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 205528831,
+              "status": "passed"
+            },
+            "line": 42,
+            "name": "I enter \"4\" in last name field",
             "match": {
               "arguments": [
                 {
                   "val": "4",
-                  "offset": 11
+                  "offset": 9
                 }
               ],
-              "location": "EmailVerificationSteps.i_generate_key_s(int)"
+              "location": "UITestingSteps.i_enter_in_last_name_field(String)"
             },
-            "keyword": "When "
+            "keyword": "And "
           },
           {
             "result": {
-              "duration": 263357,
+              "duration": 112929695,
               "status": "passed"
             },
-            "line": 11,
-            "name": "they should be different",
+            "line": 43,
+            "name": "I click submit",
             "match": {
-              "location": "EmailVerificationSteps.they_should_be_different()"
+              "location": "UITestingSteps.i_click_submit()"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 39189507,
+              "status": "passed"
+            },
+            "line": 44,
+            "name": "I should not receive an empty last name message",
+            "match": {
+              "location": "UITestingSteps.i_should_not_receive_an_empty_last_name_message()"
             },
             "keyword": "Then "
+          },
+          {
+            "result": {
+              "duration": 16117662,
+              "status": "passed"
+            },
+            "line": 45,
+            "name": "browser is closed",
+            "match": {
+              "location": "UITestingSteps.browser_is_closed()"
+            },
+            "keyword": "And "
           }
         ]
       },
       {
-        "line": 13,
-        "name": "a return key is a random UUID",
+        "comments": [
+          {
+            "line": 47,
+            "value": "#"
+          },
+          {
+            "line": 48,
+            "value": "# Check Email"
+          },
+          {
+            "line": 49,
+            "value": "#"
+          }
+        ],
+        "line": 50,
+        "name": "Empty Email",
         "description": "",
-        "id": "check-emailverification;a-return-key-is-a-random-uuid",
+        "id": "check-signup-page;empty-email",
         "type": "scenario",
         "keyword": "Scenario",
         "steps": [
           {
             "result": {
-              "duration": 284032,
+              "duration": 2865233358,
               "status": "passed"
             },
-            "line": 14,
-            "name": "I have an EmailVerification",
+            "line": 51,
+            "name": "I have a browser opened",
             "match": {
-              "location": "EmailVerificationSteps.i_have_an_EmailVerification()"
+              "location": "UITestingSteps.i_have_a_browser_opened()"
             },
             "keyword": "Given "
           },
           {
             "result": {
-              "duration": 412770,
+              "duration": 1882189393,
               "status": "passed"
             },
-            "line": 15,
-            "name": "I generate 1 key(s)",
+            "line": 52,
+            "name": "I navigate to signup page",
+            "match": {
+              "location": "UITestingSteps.i_navigate_to_signup_page()"
+            },
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "duration": 271110309,
+              "status": "passed"
+            },
+            "line": 53,
+            "name": "I enter \"Group\" in first name field",
             "match": {
               "arguments": [
                 {
-                  "val": "1",
-                  "offset": 11
+                  "val": "Group",
+                  "offset": 9
                 }
               ],
-              "location": "EmailVerificationSteps.i_generate_key_s(int)"
+              "location": "UITestingSteps.i_enter_in_first_name_field(String)"
             },
-            "keyword": "When "
+            "keyword": "And "
           },
           {
             "result": {
-              "duration": 456283,
+              "duration": 169700826,
               "status": "passed"
             },
-            "line": 16,
-            "name": "each key should have the same length as a random UUID",
-            "match": {
-              "location": "EmailVerificationSteps.it_should_have_the_same_length_as_a_random_UUID()"
-            },
-            "keyword": "Then "
-          }
-        ]
-      },
-      {
-        "line": 18,
-        "name": "each return key is a random UUID",
-        "description": "",
-        "id": "check-emailverification;each-return-key-is-a-random-uuid",
-        "type": "scenario",
-        "keyword": "Scenario",
-        "steps": [
-          {
-            "result": {
-              "duration": 457822,
-              "status": "passed"
-            },
-            "line": 19,
-            "name": "I have an EmailVerification",
-            "match": {
-              "location": "EmailVerificationSteps.i_have_an_EmailVerification()"
-            },
-            "keyword": "Given "
-          },
-          {
-            "result": {
-              "duration": 3012832,
-              "status": "passed"
-            },
-            "line": 20,
-            "name": "I generate 3 key(s)",
+            "line": 54,
+            "name": "I enter \"4\" in last name field",
             "match": {
               "arguments": [
                 {
-                  "val": "3",
-                  "offset": 11
+                  "val": "4",
+                  "offset": 9
                 }
               ],
-              "location": "EmailVerificationSteps.i_generate_key_s(int)"
+              "location": "UITestingSteps.i_enter_in_last_name_field(String)"
             },
-            "keyword": "When "
+            "keyword": "And "
           },
           {
             "result": {
-              "duration": 365835,
+              "duration": 205912586,
               "status": "passed"
             },
-            "line": 21,
-            "name": "each key should have the same length as a random UUID",
+            "line": 55,
+            "name": "I click submit",
             "match": {
-              "location": "EmailVerificationSteps.it_should_have_the_same_length_as_a_random_UUID()"
+              "location": "UITestingSteps.i_click_submit()"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 66575193,
+              "status": "passed"
+            },
+            "line": 56,
+            "name": "I should receive an empty email message",
+            "match": {
+              "location": "UITestingSteps.i_should_receive_an_empty_email_message()"
             },
             "keyword": "Then "
+          },
+          {
+            "result": {
+              "duration": 25998072,
+              "status": "passed"
+            },
+            "line": 57,
+            "name": "browser is closed",
+            "match": {
+              "location": "UITestingSteps.browser_is_closed()"
+            },
+            "keyword": "And "
           }
         ]
       },
       {
-        "line": 23,
-        "name": "a return key after executing sendEmailVerificationLink is a random UUID",
+        "line": 59,
+        "name": "Non-Empty Email (Wrong Format 1)",
         "description": "",
-        "id": "check-emailverification;a-return-key-after-executing-sendemailverificationlink-is-a-random-uuid",
+        "id": "check-signup-page;non-empty-email-(wrong-format-1)",
         "type": "scenario",
         "keyword": "Scenario",
         "steps": [
           {
             "result": {
-              "duration": 459960,
+              "duration": 3393227254,
               "status": "passed"
             },
-            "line": 24,
-            "name": "I have an EmailVerification",
+            "line": 60,
+            "name": "I have a browser opened",
             "match": {
-              "location": "EmailVerificationSteps.i_have_an_EmailVerification()"
+              "location": "UITestingSteps.i_have_a_browser_opened()"
             },
             "keyword": "Given "
           },
           {
             "result": {
-              "duration": 2420720593,
+              "duration": 1461507396,
               "status": "passed"
             },
-            "line": 25,
-            "name": "I call sendEmailVerificationLink",
+            "line": 61,
+            "name": "I navigate to signup page",
             "match": {
-              "location": "EmailVerificationSteps.i_call_sendEmailVerificationLink()"
+              "location": "UITestingSteps.i_navigate_to_signup_page()"
             },
             "keyword": "When "
           },
           {
             "result": {
-              "duration": 358164,
+              "duration": 501082351,
               "status": "passed"
             },
-            "line": 26,
-            "name": "it should return a key having the same length as a random UUID",
+            "line": 62,
+            "name": "I enter \"Group\" in first name field",
             "match": {
-              "location": "EmailVerificationSteps.it_should_return_a_key_having_the_same_length_as_a_random_UUID()"
+              "arguments": [
+                {
+                  "val": "Group",
+                  "offset": 9
+                }
+              ],
+              "location": "UITestingSteps.i_enter_in_first_name_field(String)"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 328341118,
+              "status": "passed"
+            },
+            "line": 63,
+            "name": "I enter \"4\" in last name field",
+            "match": {
+              "arguments": [
+                {
+                  "val": "4",
+                  "offset": 9
+                }
+              ],
+              "location": "UITestingSteps.i_enter_in_last_name_field(String)"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 258966978,
+              "status": "passed"
+            },
+            "line": 64,
+            "name": "I enter \"wrong\" in email field",
+            "match": {
+              "arguments": [
+                {
+                  "val": "wrong",
+                  "offset": 9
+                }
+              ],
+              "location": "UITestingSteps.i_enter_in_email_field(String)"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 88162127,
+              "status": "passed"
+            },
+            "line": 65,
+            "name": "I click submit",
+            "match": {
+              "location": "UITestingSteps.i_click_submit()"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 30518663,
+              "status": "passed"
+            },
+            "line": 66,
+            "name": "I should not receive an empty email message and should receive a wrong email message",
+            "match": {
+              "location": "UITestingSteps.i_should_receive_a_wrong_email_message()"
             },
             "keyword": "Then "
+          },
+          {
+            "result": {
+              "duration": 23332314,
+              "status": "passed"
+            },
+            "line": 67,
+            "name": "browser is closed",
+            "match": {
+              "location": "UITestingSteps.browser_is_closed()"
+            },
+            "keyword": "And "
+          }
+        ]
+      },
+      {
+        "line": 69,
+        "name": "Non-Empty Email (Wrong Format 2)",
+        "description": "",
+        "id": "check-signup-page;non-empty-email-(wrong-format-2)",
+        "type": "scenario",
+        "keyword": "Scenario",
+        "steps": [
+          {
+            "result": {
+              "duration": 3185214270,
+              "status": "passed"
+            },
+            "line": 70,
+            "name": "I have a browser opened",
+            "match": {
+              "location": "UITestingSteps.i_have_a_browser_opened()"
+            },
+            "keyword": "Given "
+          },
+          {
+            "result": {
+              "duration": 1418461927,
+              "status": "passed"
+            },
+            "line": 71,
+            "name": "I navigate to signup page",
+            "match": {
+              "location": "UITestingSteps.i_navigate_to_signup_page()"
+            },
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "duration": 668391917,
+              "status": "passed"
+            },
+            "line": 72,
+            "name": "I enter \"Group\" in first name field",
+            "match": {
+              "arguments": [
+                {
+                  "val": "Group",
+                  "offset": 9
+                }
+              ],
+              "location": "UITestingSteps.i_enter_in_first_name_field(String)"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 234201173,
+              "status": "passed"
+            },
+            "line": 73,
+            "name": "I enter \"4\" in last name field",
+            "match": {
+              "arguments": [
+                {
+                  "val": "4",
+                  "offset": 9
+                }
+              ],
+              "location": "UITestingSteps.i_enter_in_last_name_field(String)"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 274662602,
+              "status": "passed"
+            },
+            "line": 74,
+            "name": "I enter \"wrong.\" in email field",
+            "match": {
+              "arguments": [
+                {
+                  "val": "wrong.",
+                  "offset": 9
+                }
+              ],
+              "location": "UITestingSteps.i_enter_in_email_field(String)"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 56106802,
+              "status": "passed"
+            },
+            "line": 75,
+            "name": "I click submit",
+            "match": {
+              "location": "UITestingSteps.i_click_submit()"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 50457952,
+              "status": "passed"
+            },
+            "line": 76,
+            "name": "I should not receive an empty email message and should receive a wrong email message",
+            "match": {
+              "location": "UITestingSteps.i_should_receive_a_wrong_email_message()"
+            },
+            "keyword": "Then "
+          },
+          {
+            "result": {
+              "duration": 20853824,
+              "status": "passed"
+            },
+            "line": 77,
+            "name": "browser is closed",
+            "match": {
+              "location": "UITestingSteps.browser_is_closed()"
+            },
+            "keyword": "And "
+          }
+        ]
+      },
+      {
+        "line": 79,
+        "name": "Non-Empty Email (Wrong Format 3)",
+        "description": "",
+        "id": "check-signup-page;non-empty-email-(wrong-format-3)",
+        "type": "scenario",
+        "keyword": "Scenario",
+        "steps": [
+          {
+            "result": {
+              "duration": 2853165422,
+              "status": "passed"
+            },
+            "line": 80,
+            "name": "I have a browser opened",
+            "match": {
+              "location": "UITestingSteps.i_have_a_browser_opened()"
+            },
+            "keyword": "Given "
+          },
+          {
+            "result": {
+              "duration": 1430077567,
+              "status": "passed"
+            },
+            "line": 81,
+            "name": "I navigate to signup page",
+            "match": {
+              "location": "UITestingSteps.i_navigate_to_signup_page()"
+            },
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "duration": 565234241,
+              "status": "passed"
+            },
+            "line": 82,
+            "name": "I enter \"Group\" in first name field",
+            "match": {
+              "arguments": [
+                {
+                  "val": "Group",
+                  "offset": 9
+                }
+              ],
+              "location": "UITestingSteps.i_enter_in_first_name_field(String)"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 201997957,
+              "status": "passed"
+            },
+            "line": 83,
+            "name": "I enter \"4\" in last name field",
+            "match": {
+              "arguments": [
+                {
+                  "val": "4",
+                  "offset": 9
+                }
+              ],
+              "location": "UITestingSteps.i_enter_in_last_name_field(String)"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 349613703,
+              "status": "passed"
+            },
+            "line": 84,
+            "name": "I enter \"wrong.@\" in email field",
+            "match": {
+              "arguments": [
+                {
+                  "val": "wrong.@",
+                  "offset": 9
+                }
+              ],
+              "location": "UITestingSteps.i_enter_in_email_field(String)"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 27020156,
+              "status": "passed"
+            },
+            "line": 85,
+            "name": "I click submit",
+            "match": {
+              "location": "UITestingSteps.i_click_submit()"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 45861093,
+              "status": "passed"
+            },
+            "line": 86,
+            "name": "I should not receive an empty email message and should receive a wrong email message",
+            "match": {
+              "location": "UITestingSteps.i_should_receive_a_wrong_email_message()"
+            },
+            "keyword": "Then "
+          },
+          {
+            "result": {
+              "duration": 17134425,
+              "status": "passed"
+            },
+            "line": 87,
+            "name": "browser is closed",
+            "match": {
+              "location": "UITestingSteps.browser_is_closed()"
+            },
+            "keyword": "And "
+          }
+        ]
+      },
+      {
+        "line": 89,
+        "name": "Non-Empty Email (Wrong Format 4)",
+        "description": "",
+        "id": "check-signup-page;non-empty-email-(wrong-format-4)",
+        "type": "scenario",
+        "keyword": "Scenario",
+        "steps": [
+          {
+            "result": {
+              "duration": 2992572773,
+              "status": "passed"
+            },
+            "line": 90,
+            "name": "I have a browser opened",
+            "match": {
+              "location": "UITestingSteps.i_have_a_browser_opened()"
+            },
+            "keyword": "Given "
+          },
+          {
+            "result": {
+              "duration": 1381110631,
+              "status": "passed"
+            },
+            "line": 91,
+            "name": "I navigate to signup page",
+            "match": {
+              "location": "UITestingSteps.i_navigate_to_signup_page()"
+            },
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "duration": 505743233,
+              "status": "passed"
+            },
+            "line": 92,
+            "name": "I enter \"Group\" in first name field",
+            "match": {
+              "arguments": [
+                {
+                  "val": "Group",
+                  "offset": 9
+                }
+              ],
+              "location": "UITestingSteps.i_enter_in_first_name_field(String)"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 266326666,
+              "status": "passed"
+            },
+            "line": 93,
+            "name": "I enter \"4\" in last name field",
+            "match": {
+              "arguments": [
+                {
+                  "val": "4",
+                  "offset": 9
+                }
+              ],
+              "location": "UITestingSteps.i_enter_in_last_name_field(String)"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 272047027,
+              "status": "passed"
+            },
+            "line": 94,
+            "name": "I enter \"wrong@.\" in email field",
+            "match": {
+              "arguments": [
+                {
+                  "val": "wrong@.",
+                  "offset": 9
+                }
+              ],
+              "location": "UITestingSteps.i_enter_in_email_field(String)"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 39229403,
+              "status": "passed"
+            },
+            "line": 95,
+            "name": "I click submit",
+            "match": {
+              "location": "UITestingSteps.i_click_submit()"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 22900845,
+              "status": "passed"
+            },
+            "line": 96,
+            "name": "I should not receive an empty email message and should receive a wrong email message",
+            "match": {
+              "location": "UITestingSteps.i_should_receive_a_wrong_email_message()"
+            },
+            "keyword": "Then "
+          },
+          {
+            "result": {
+              "duration": 45041260,
+              "status": "passed"
+            },
+            "line": 97,
+            "name": "browser is closed",
+            "match": {
+              "location": "UITestingSteps.browser_is_closed()"
+            },
+            "keyword": "And "
+          }
+        ]
+      },
+      {
+        "line": 99,
+        "name": "Non-Empty Email (Wrong Format 5)",
+        "description": "",
+        "id": "check-signup-page;non-empty-email-(wrong-format-5)",
+        "type": "scenario",
+        "keyword": "Scenario",
+        "steps": [
+          {
+            "result": {
+              "duration": 3193778007,
+              "status": "passed"
+            },
+            "line": 100,
+            "name": "I have a browser opened",
+            "match": {
+              "location": "UITestingSteps.i_have_a_browser_opened()"
+            },
+            "keyword": "Given "
+          },
+          {
+            "result": {
+              "duration": 1387567881,
+              "status": "passed"
+            },
+            "line": 101,
+            "name": "I navigate to signup page",
+            "match": {
+              "location": "UITestingSteps.i_navigate_to_signup_page()"
+            },
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "duration": 575421702,
+              "status": "passed"
+            },
+            "line": 102,
+            "name": "I enter \"Group\" in first name field",
+            "match": {
+              "arguments": [
+                {
+                  "val": "Group",
+                  "offset": 9
+                }
+              ],
+              "location": "UITestingSteps.i_enter_in_first_name_field(String)"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 96198886,
+              "status": "passed"
+            },
+            "line": 103,
+            "name": "I enter \"4\" in last name field",
+            "match": {
+              "arguments": [
+                {
+                  "val": "4",
+                  "offset": 9
+                }
+              ],
+              "location": "UITestingSteps.i_enter_in_last_name_field(String)"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 390886607,
+              "status": "passed"
+            },
+            "line": 104,
+            "name": "I enter \"wrong@.co\" in email field",
+            "match": {
+              "arguments": [
+                {
+                  "val": "wrong@.co",
+                  "offset": 9
+                }
+              ],
+              "location": "UITestingSteps.i_enter_in_email_field(String)"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 61505119,
+              "status": "passed"
+            },
+            "line": 105,
+            "name": "I click submit",
+            "match": {
+              "location": "UITestingSteps.i_click_submit()"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 41485456,
+              "status": "passed"
+            },
+            "line": 106,
+            "name": "I should not receive an empty email message and should receive a wrong email message",
+            "match": {
+              "location": "UITestingSteps.i_should_receive_a_wrong_email_message()"
+            },
+            "keyword": "Then "
+          },
+          {
+            "result": {
+              "duration": 17236990,
+              "status": "passed"
+            },
+            "line": 107,
+            "name": "browser is closed",
+            "match": {
+              "location": "UITestingSteps.browser_is_closed()"
+            },
+            "keyword": "And "
+          }
+        ]
+      },
+      {
+        "line": 109,
+        "name": "Non-Empty Email (Wrong Format 6)",
+        "description": "",
+        "id": "check-signup-page;non-empty-email-(wrong-format-6)",
+        "type": "scenario",
+        "keyword": "Scenario",
+        "steps": [
+          {
+            "result": {
+              "duration": 3069052704,
+              "status": "passed"
+            },
+            "line": 110,
+            "name": "I have a browser opened",
+            "match": {
+              "location": "UITestingSteps.i_have_a_browser_opened()"
+            },
+            "keyword": "Given "
+          },
+          {
+            "result": {
+              "duration": 1391560284,
+              "status": "passed"
+            },
+            "line": 111,
+            "name": "I navigate to signup page",
+            "match": {
+              "location": "UITestingSteps.i_navigate_to_signup_page()"
+            },
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "duration": 580067719,
+              "status": "passed"
+            },
+            "line": 112,
+            "name": "I enter \"Group\" in first name field",
+            "match": {
+              "arguments": [
+                {
+                  "val": "Group",
+                  "offset": 9
+                }
+              ],
+              "location": "UITestingSteps.i_enter_in_first_name_field(String)"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 240657637,
+              "status": "passed"
+            },
+            "line": 113,
+            "name": "I enter \"4\" in last name field",
+            "match": {
+              "arguments": [
+                {
+                  "val": "4",
+                  "offset": 9
+                }
+              ],
+              "location": "UITestingSteps.i_enter_in_last_name_field(String)"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 262341105,
+              "status": "passed"
+            },
+            "line": 114,
+            "name": "I enter \"wrong.co@\" in email field",
+            "match": {
+              "arguments": [
+                {
+                  "val": "wrong.co@",
+                  "offset": 9
+                }
+              ],
+              "location": "UITestingSteps.i_enter_in_email_field(String)"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 66533944,
+              "status": "passed"
+            },
+            "line": 115,
+            "name": "I click submit",
+            "match": {
+              "location": "UITestingSteps.i_click_submit()"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 25805566,
+              "status": "passed"
+            },
+            "line": 116,
+            "name": "I should not receive an empty email message and should receive a wrong email message",
+            "match": {
+              "location": "UITestingSteps.i_should_receive_a_wrong_email_message()"
+            },
+            "keyword": "Then "
+          },
+          {
+            "result": {
+              "duration": 31339488,
+              "status": "passed"
+            },
+            "line": 117,
+            "name": "browser is closed",
+            "match": {
+              "location": "UITestingSteps.browser_is_closed()"
+            },
+            "keyword": "And "
+          }
+        ]
+      },
+      {
+        "line": 119,
+        "name": "Non-Empty Email (Wrong Format 7)",
+        "description": "",
+        "id": "check-signup-page;non-empty-email-(wrong-format-7)",
+        "type": "scenario",
+        "keyword": "Scenario",
+        "steps": [
+          {
+            "result": {
+              "duration": 3094983232,
+              "status": "passed"
+            },
+            "line": 120,
+            "name": "I have a browser opened",
+            "match": {
+              "location": "UITestingSteps.i_have_a_browser_opened()"
+            },
+            "keyword": "Given "
+          },
+          {
+            "result": {
+              "duration": 1832498771,
+              "status": "passed"
+            },
+            "line": 121,
+            "name": "I navigate to signup page",
+            "match": {
+              "location": "UITestingSteps.i_navigate_to_signup_page()"
+            },
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "duration": 223966339,
+              "status": "passed"
+            },
+            "line": 122,
+            "name": "I enter \"Group\" in first name field",
+            "match": {
+              "arguments": [
+                {
+                  "val": "Group",
+                  "offset": 9
+                }
+              ],
+              "location": "UITestingSteps.i_enter_in_first_name_field(String)"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 237073666,
+              "status": "passed"
+            },
+            "line": 123,
+            "name": "I enter \"4\" in last name field",
+            "match": {
+              "arguments": [
+                {
+                  "val": "4",
+                  "offset": 9
+                }
+              ],
+              "location": "UITestingSteps.i_enter_in_last_name_field(String)"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 167755248,
+              "status": "passed"
+            },
+            "line": 124,
+            "name": "I enter \"wrong.@c.\" in email field",
+            "match": {
+              "arguments": [
+                {
+                  "val": "wrong.@c.",
+                  "offset": 9
+                }
+              ],
+              "location": "UITestingSteps.i_enter_in_email_field(String)"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 176470880,
+              "status": "passed"
+            },
+            "line": 125,
+            "name": "I click submit",
+            "match": {
+              "location": "UITestingSteps.i_click_submit()"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 56646451,
+              "status": "passed"
+            },
+            "line": 126,
+            "name": "I should not receive an empty email message and should receive a wrong email message",
+            "match": {
+              "location": "UITestingSteps.i_should_receive_a_wrong_email_message()"
+            },
+            "keyword": "Then "
+          },
+          {
+            "result": {
+              "duration": 17570788,
+              "status": "passed"
+            },
+            "line": 127,
+            "name": "browser is closed",
+            "match": {
+              "location": "UITestingSteps.browser_is_closed()"
+            },
+            "keyword": "And "
+          }
+        ]
+      },
+      {
+        "line": 129,
+        "name": "Non-Empty Email (Correct Format)",
+        "description": "",
+        "id": "check-signup-page;non-empty-email-(correct-format)",
+        "type": "scenario",
+        "keyword": "Scenario",
+        "steps": [
+          {
+            "result": {
+              "duration": 3149459999,
+              "status": "passed"
+            },
+            "line": 130,
+            "name": "I have a browser opened",
+            "match": {
+              "location": "UITestingSteps.i_have_a_browser_opened()"
+            },
+            "keyword": "Given "
+          },
+          {
+            "result": {
+              "duration": 1421768396,
+              "status": "passed"
+            },
+            "line": 131,
+            "name": "I navigate to signup page",
+            "match": {
+              "location": "UITestingSteps.i_navigate_to_signup_page()"
+            },
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "duration": 602289988,
+              "status": "passed"
+            },
+            "line": 132,
+            "name": "I enter \"Group\" in first name field",
+            "match": {
+              "arguments": [
+                {
+                  "val": "Group",
+                  "offset": 9
+                }
+              ],
+              "location": "UITestingSteps.i_enter_in_first_name_field(String)"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 146363040,
+              "status": "passed"
+            },
+            "line": 133,
+            "name": "I enter \"4\" in last name field",
+            "match": {
+              "arguments": [
+                {
+                  "val": "4",
+                  "offset": 9
+                }
+              ],
+              "location": "UITestingSteps.i_enter_in_last_name_field(String)"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 321149785,
+              "status": "passed"
+            },
+            "line": 134,
+            "name": "I enter \"correct@e.com\" in email field",
+            "match": {
+              "arguments": [
+                {
+                  "val": "correct@e.com",
+                  "offset": 9
+                }
+              ],
+              "location": "UITestingSteps.i_enter_in_email_field(String)"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 53228069,
+              "status": "passed"
+            },
+            "line": 135,
+            "name": "I click submit",
+            "match": {
+              "location": "UITestingSteps.i_click_submit()"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 40423179,
+              "status": "passed"
+            },
+            "line": 136,
+            "name": "I should not receive a wrong email message or empty email message",
+            "match": {
+              "location": "UITestingSteps.i_should_not_receive_a_wrong_email_message_or_empty_email_message()"
+            },
+            "keyword": "Then "
+          },
+          {
+            "result": {
+              "duration": 17471535,
+              "status": "passed"
+            },
+            "line": 137,
+            "name": "browser is closed",
+            "match": {
+              "location": "UITestingSteps.browser_is_closed()"
+            },
+            "keyword": "And "
+          }
+        ]
+      },
+      {
+        "comments": [
+          {
+            "line": 139,
+            "value": "#"
+          },
+          {
+            "line": 140,
+            "value": "# Check Password"
+          },
+          {
+            "line": 141,
+            "value": "#"
+          }
+        ],
+        "line": 142,
+        "name": "Empty Password",
+        "description": "",
+        "id": "check-signup-page;empty-password",
+        "type": "scenario",
+        "keyword": "Scenario",
+        "steps": [
+          {
+            "result": {
+              "duration": 3022544507,
+              "status": "passed"
+            },
+            "line": 143,
+            "name": "I have a browser opened",
+            "match": {
+              "location": "UITestingSteps.i_have_a_browser_opened()"
+            },
+            "keyword": "Given "
+          },
+          {
+            "result": {
+              "duration": 1415034750,
+              "status": "passed"
+            },
+            "line": 144,
+            "name": "I navigate to signup page",
+            "match": {
+              "location": "UITestingSteps.i_navigate_to_signup_page()"
+            },
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "duration": 608970743,
+              "status": "passed"
+            },
+            "line": 145,
+            "name": "I enter \"Group\" in first name field",
+            "match": {
+              "arguments": [
+                {
+                  "val": "Group",
+                  "offset": 9
+                }
+              ],
+              "location": "UITestingSteps.i_enter_in_first_name_field(String)"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 269842395,
+              "status": "passed"
+            },
+            "line": 146,
+            "name": "I enter \"4\" in last name field",
+            "match": {
+              "arguments": [
+                {
+                  "val": "4",
+                  "offset": 9
+                }
+              ],
+              "location": "UITestingSteps.i_enter_in_last_name_field(String)"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 332999048,
+              "status": "passed"
+            },
+            "line": 147,
+            "name": "I enter \"correct@e.com\" in email field",
+            "match": {
+              "arguments": [
+                {
+                  "val": "correct@e.com",
+                  "offset": 9
+                }
+              ],
+              "location": "UITestingSteps.i_enter_in_email_field(String)"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 36920446,
+              "status": "passed"
+            },
+            "line": 148,
+            "name": "I click submit",
+            "match": {
+              "location": "UITestingSteps.i_click_submit()"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 38483728,
+              "status": "passed"
+            },
+            "line": 149,
+            "name": "I should receive an empty password message",
+            "match": {
+              "location": "UITestingSteps.i_should_receive_an_empty_password_message()"
+            },
+            "keyword": "Then "
+          },
+          {
+            "result": {
+              "duration": 19507114,
+              "status": "passed"
+            },
+            "line": 150,
+            "name": "browser is closed",
+            "match": {
+              "location": "UITestingSteps.browser_is_closed()"
+            },
+            "keyword": "And "
+          }
+        ]
+      },
+      {
+        "line": 152,
+        "name": "Non-Empty Password Less than 6 characters (numeric characters)",
+        "description": "",
+        "id": "check-signup-page;non-empty-password-less-than-6-characters-(numeric-characters)",
+        "type": "scenario",
+        "keyword": "Scenario",
+        "steps": [
+          {
+            "result": {
+              "duration": 3158804498,
+              "status": "passed"
+            },
+            "line": 153,
+            "name": "I have a browser opened",
+            "match": {
+              "location": "UITestingSteps.i_have_a_browser_opened()"
+            },
+            "keyword": "Given "
+          },
+          {
+            "result": {
+              "duration": 1503646208,
+              "status": "passed"
+            },
+            "line": 154,
+            "name": "I navigate to signup page",
+            "match": {
+              "location": "UITestingSteps.i_navigate_to_signup_page()"
+            },
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "duration": 492818898,
+              "status": "passed"
+            },
+            "line": 155,
+            "name": "I enter \"Group\" in first name field",
+            "match": {
+              "arguments": [
+                {
+                  "val": "Group",
+                  "offset": 9
+                }
+              ],
+              "location": "UITestingSteps.i_enter_in_first_name_field(String)"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 169769251,
+              "status": "passed"
+            },
+            "line": 156,
+            "name": "I enter \"4\" in last name field",
+            "match": {
+              "arguments": [
+                {
+                  "val": "4",
+                  "offset": 9
+                }
+              ],
+              "location": "UITestingSteps.i_enter_in_last_name_field(String)"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 401118632,
+              "status": "passed"
+            },
+            "line": 157,
+            "name": "I enter \"correct@e.com\" in email field",
+            "match": {
+              "arguments": [
+                {
+                  "val": "correct@e.com",
+                  "offset": 9
+                }
+              ],
+              "location": "UITestingSteps.i_enter_in_email_field(String)"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 220807302,
+              "status": "passed"
+            },
+            "line": 158,
+            "name": "I enter \"123\" in password field",
+            "match": {
+              "arguments": [
+                {
+                  "val": "123",
+                  "offset": 9
+                }
+              ],
+              "location": "UITestingSteps.i_enter_in_password_field(String)"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 64940401,
+              "status": "passed"
+            },
+            "line": 159,
+            "name": "I click submit",
+            "match": {
+              "location": "UITestingSteps.i_click_submit()"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 49124831,
+              "status": "passed"
+            },
+            "line": 160,
+            "name": "I should not receive an empty password message and should receive a 6-character message",
+            "match": {
+              "location": "UITestingSteps.i_should_not_receive_an_empty_password_message_and_should_receive_a_6_character_message()"
+            },
+            "keyword": "Then "
+          },
+          {
+            "result": {
+              "duration": 16323995,
+              "status": "passed"
+            },
+            "line": 161,
+            "name": "browser is closed",
+            "match": {
+              "location": "UITestingSteps.browser_is_closed()"
+            },
+            "keyword": "And "
+          }
+        ]
+      },
+      {
+        "line": 163,
+        "name": "Non-Empty Password Less than 6 characters (alphabetic characters)",
+        "description": "",
+        "id": "check-signup-page;non-empty-password-less-than-6-characters-(alphabetic-characters)",
+        "type": "scenario",
+        "keyword": "Scenario",
+        "steps": [
+          {
+            "result": {
+              "duration": 3213487645,
+              "status": "passed"
+            },
+            "line": 164,
+            "name": "I have a browser opened",
+            "match": {
+              "location": "UITestingSteps.i_have_a_browser_opened()"
+            },
+            "keyword": "Given "
+          },
+          {
+            "result": {
+              "duration": 1415354622,
+              "status": "passed"
+            },
+            "line": 165,
+            "name": "I navigate to signup page",
+            "match": {
+              "location": "UITestingSteps.i_navigate_to_signup_page()"
+            },
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "duration": 642275450,
+              "status": "passed"
+            },
+            "line": 166,
+            "name": "I enter \"Group\" in first name field",
+            "match": {
+              "arguments": [
+                {
+                  "val": "Group",
+                  "offset": 9
+                }
+              ],
+              "location": "UITestingSteps.i_enter_in_first_name_field(String)"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 173219130,
+              "status": "passed"
+            },
+            "line": 167,
+            "name": "I enter \"4\" in last name field",
+            "match": {
+              "arguments": [
+                {
+                  "val": "4",
+                  "offset": 9
+                }
+              ],
+              "location": "UITestingSteps.i_enter_in_last_name_field(String)"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 363925091,
+              "status": "passed"
+            },
+            "line": 168,
+            "name": "I enter \"correct@e.com\" in email field",
+            "match": {
+              "arguments": [
+                {
+                  "val": "correct@e.com",
+                  "offset": 9
+                }
+              ],
+              "location": "UITestingSteps.i_enter_in_email_field(String)"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 207843217,
+              "status": "passed"
+            },
+            "line": 169,
+            "name": "I enter \"abc\" in password field",
+            "match": {
+              "arguments": [
+                {
+                  "val": "abc",
+                  "offset": 9
+                }
+              ],
+              "location": "UITestingSteps.i_enter_in_password_field(String)"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 85550593,
+              "status": "passed"
+            },
+            "line": 170,
+            "name": "I click submit",
+            "match": {
+              "location": "UITestingSteps.i_click_submit()"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 60711216,
+              "status": "passed"
+            },
+            "line": 171,
+            "name": "I should not receive an empty password message and should receive a 6-character message",
+            "match": {
+              "location": "UITestingSteps.i_should_not_receive_an_empty_password_message_and_should_receive_a_6_character_message()"
+            },
+            "keyword": "Then "
+          },
+          {
+            "result": {
+              "duration": 12329851,
+              "status": "passed"
+            },
+            "line": 172,
+            "name": "browser is closed",
+            "match": {
+              "location": "UITestingSteps.browser_is_closed()"
+            },
+            "keyword": "And "
+          }
+        ]
+      },
+      {
+        "line": 174,
+        "name": "Non-Empty Password Less than 6 characters (alphanumeric characters) - 1st case",
+        "description": "",
+        "id": "check-signup-page;non-empty-password-less-than-6-characters-(alphanumeric-characters)---1st-case",
+        "type": "scenario",
+        "keyword": "Scenario",
+        "steps": [
+          {
+            "result": {
+              "duration": 3068670517,
+              "status": "passed"
+            },
+            "line": 175,
+            "name": "I have a browser opened",
+            "match": {
+              "location": "UITestingSteps.i_have_a_browser_opened()"
+            },
+            "keyword": "Given "
+          },
+          {
+            "result": {
+              "duration": 1439642238,
+              "status": "passed"
+            },
+            "line": 176,
+            "name": "I navigate to signup page",
+            "match": {
+              "location": "UITestingSteps.i_navigate_to_signup_page()"
+            },
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "duration": 652975864,
+              "status": "passed"
+            },
+            "line": 177,
+            "name": "I enter \"Group\" in first name field",
+            "match": {
+              "arguments": [
+                {
+                  "val": "Group",
+                  "offset": 9
+                }
+              ],
+              "location": "UITestingSteps.i_enter_in_first_name_field(String)"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 234105513,
+              "status": "passed"
+            },
+            "line": 178,
+            "name": "I enter \"4\" in last name field",
+            "match": {
+              "arguments": [
+                {
+                  "val": "4",
+                  "offset": 9
+                }
+              ],
+              "location": "UITestingSteps.i_enter_in_last_name_field(String)"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 330003870,
+              "status": "passed"
+            },
+            "line": 179,
+            "name": "I enter \"correct@e.com\" in email field",
+            "match": {
+              "arguments": [
+                {
+                  "val": "correct@e.com",
+                  "offset": 9
+                }
+              ],
+              "location": "UITestingSteps.i_enter_in_email_field(String)"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 232572966,
+              "status": "passed"
+            },
+            "line": 180,
+            "name": "I enter \"123aa\" in password field",
+            "match": {
+              "arguments": [
+                {
+                  "val": "123aa",
+                  "offset": 9
+                }
+              ],
+              "location": "UITestingSteps.i_enter_in_password_field(String)"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 52523067,
+              "status": "passed"
+            },
+            "line": 181,
+            "name": "I click submit",
+            "match": {
+              "location": "UITestingSteps.i_click_submit()"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 46592723,
+              "status": "passed"
+            },
+            "line": 182,
+            "name": "I should not receive an empty password message and should receive a 6-character message",
+            "match": {
+              "location": "UITestingSteps.i_should_not_receive_an_empty_password_message_and_should_receive_a_6_character_message()"
+            },
+            "keyword": "Then "
+          },
+          {
+            "result": {
+              "duration": 10360289,
+              "status": "passed"
+            },
+            "line": 183,
+            "name": "browser is closed",
+            "match": {
+              "location": "UITestingSteps.browser_is_closed()"
+            },
+            "keyword": "And "
+          }
+        ]
+      },
+      {
+        "line": 185,
+        "name": "Non-Empty Password Less than 6 characters (alphanumeric characters) - 2nd case",
+        "description": "",
+        "id": "check-signup-page;non-empty-password-less-than-6-characters-(alphanumeric-characters)---2nd-case",
+        "type": "scenario",
+        "keyword": "Scenario",
+        "steps": [
+          {
+            "result": {
+              "duration": 3144537602,
+              "status": "passed"
+            },
+            "line": 186,
+            "name": "I have a browser opened",
+            "match": {
+              "location": "UITestingSteps.i_have_a_browser_opened()"
+            },
+            "keyword": "Given "
+          },
+          {
+            "result": {
+              "duration": 1431229799,
+              "status": "passed"
+            },
+            "line": 187,
+            "name": "I navigate to signup page",
+            "match": {
+              "location": "UITestingSteps.i_navigate_to_signup_page()"
+            },
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "duration": 590591790,
+              "status": "passed"
+            },
+            "line": 188,
+            "name": "I enter \"Group\" in first name field",
+            "match": {
+              "arguments": [
+                {
+                  "val": "Group",
+                  "offset": 9
+                }
+              ],
+              "location": "UITestingSteps.i_enter_in_first_name_field(String)"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 110326719,
+              "status": "passed"
+            },
+            "line": 189,
+            "name": "I enter \"4\" in last name field",
+            "match": {
+              "arguments": [
+                {
+                  "val": "4",
+                  "offset": 9
+                }
+              ],
+              "location": "UITestingSteps.i_enter_in_last_name_field(String)"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 395294442,
+              "status": "passed"
+            },
+            "line": 190,
+            "name": "I enter \"correct@e.com\" in email field",
+            "match": {
+              "arguments": [
+                {
+                  "val": "correct@e.com",
+                  "offset": 9
+                }
+              ],
+              "location": "UITestingSteps.i_enter_in_email_field(String)"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 194247377,
+              "status": "passed"
+            },
+            "line": 191,
+            "name": "I enter \"123ab\" in password field",
+            "match": {
+              "arguments": [
+                {
+                  "val": "123ab",
+                  "offset": 9
+                }
+              ],
+              "location": "UITestingSteps.i_enter_in_password_field(String)"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 73250534,
+              "status": "passed"
+            },
+            "line": 192,
+            "name": "I click submit",
+            "match": {
+              "location": "UITestingSteps.i_click_submit()"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 55892794,
+              "status": "passed"
+            },
+            "line": 193,
+            "name": "I should not receive an empty password message and should receive a 6-character message",
+            "match": {
+              "location": "UITestingSteps.i_should_not_receive_an_empty_password_message_and_should_receive_a_6_character_message()"
+            },
+            "keyword": "Then "
+          },
+          {
+            "result": {
+              "duration": 19672755,
+              "status": "passed"
+            },
+            "line": 194,
+            "name": "browser is closed",
+            "match": {
+              "location": "UITestingSteps.browser_is_closed()"
+            },
+            "keyword": "And "
+          }
+        ]
+      },
+      {
+        "line": 196,
+        "name": "Non-Empty Password Less than 6 characters (alphanumeric characters) - 3rd case",
+        "description": "",
+        "id": "check-signup-page;non-empty-password-less-than-6-characters-(alphanumeric-characters)---3rd-case",
+        "type": "scenario",
+        "keyword": "Scenario",
+        "steps": [
+          {
+            "result": {
+              "duration": 3421102987,
+              "status": "passed"
+            },
+            "line": 197,
+            "name": "I have a browser opened",
+            "match": {
+              "location": "UITestingSteps.i_have_a_browser_opened()"
+            },
+            "keyword": "Given "
+          },
+          {
+            "result": {
+              "duration": 1406450801,
+              "status": "passed"
+            },
+            "line": 198,
+            "name": "I navigate to signup page",
+            "match": {
+              "location": "UITestingSteps.i_navigate_to_signup_page()"
+            },
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "duration": 771697969,
+              "status": "passed"
+            },
+            "line": 199,
+            "name": "I enter \"Group\" in first name field",
+            "match": {
+              "arguments": [
+                {
+                  "val": "Group",
+                  "offset": 9
+                }
+              ],
+              "location": "UITestingSteps.i_enter_in_first_name_field(String)"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 218249216,
+              "status": "passed"
+            },
+            "line": 200,
+            "name": "I enter \"4\" in last name field",
+            "match": {
+              "arguments": [
+                {
+                  "val": "4",
+                  "offset": 9
+                }
+              ],
+              "location": "UITestingSteps.i_enter_in_last_name_field(String)"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 314926436,
+              "status": "passed"
+            },
+            "line": 201,
+            "name": "I enter \"correct@e.com\" in email field",
+            "match": {
+              "arguments": [
+                {
+                  "val": "correct@e.com",
+                  "offset": 9
+                }
+              ],
+              "location": "UITestingSteps.i_enter_in_email_field(String)"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 241898141,
+              "status": "passed"
+            },
+            "line": 202,
+            "name": "I enter \"123a\" in password field",
+            "match": {
+              "arguments": [
+                {
+                  "val": "123a",
+                  "offset": 9
+                }
+              ],
+              "location": "UITestingSteps.i_enter_in_password_field(String)"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 55885146,
+              "status": "passed"
+            },
+            "line": 203,
+            "name": "I click submit",
+            "match": {
+              "location": "UITestingSteps.i_click_submit()"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 50053550,
+              "status": "passed"
+            },
+            "line": 204,
+            "name": "I should not receive an empty password message and should receive a 6-character message",
+            "match": {
+              "location": "UITestingSteps.i_should_not_receive_an_empty_password_message_and_should_receive_a_6_character_message()"
+            },
+            "keyword": "Then "
+          },
+          {
+            "result": {
+              "duration": 13655750,
+              "status": "passed"
+            },
+            "line": 205,
+            "name": "browser is closed",
+            "match": {
+              "location": "UITestingSteps.browser_is_closed()"
+            },
+            "keyword": "And "
+          }
+        ]
+      },
+      {
+        "line": 207,
+        "name": "Non-Empty Password Less than 6 characters (alphanumeric characters) - 4th case",
+        "description": "",
+        "id": "check-signup-page;non-empty-password-less-than-6-characters-(alphanumeric-characters)---4th-case",
+        "type": "scenario",
+        "keyword": "Scenario",
+        "steps": [
+          {
+            "result": {
+              "duration": 3127611756,
+              "status": "passed"
+            },
+            "line": 208,
+            "name": "I have a browser opened",
+            "match": {
+              "location": "UITestingSteps.i_have_a_browser_opened()"
+            },
+            "keyword": "Given "
+          },
+          {
+            "result": {
+              "duration": 1407635681,
+              "status": "passed"
+            },
+            "line": 209,
+            "name": "I navigate to signup page",
+            "match": {
+              "location": "UITestingSteps.i_navigate_to_signup_page()"
+            },
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "duration": 605294814,
+              "status": "passed"
+            },
+            "line": 210,
+            "name": "I enter \"Group\" in first name field",
+            "match": {
+              "arguments": [
+                {
+                  "val": "Group",
+                  "offset": 9
+                }
+              ],
+              "location": "UITestingSteps.i_enter_in_first_name_field(String)"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 203751410,
+              "status": "passed"
+            },
+            "line": 211,
+            "name": "I enter \"4\" in last name field",
+            "match": {
+              "arguments": [
+                {
+                  "val": "4",
+                  "offset": 9
+                }
+              ],
+              "location": "UITestingSteps.i_enter_in_last_name_field(String)"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 221630514,
+              "status": "passed"
+            },
+            "line": 212,
+            "name": "I enter \"correct@e.com\" in email field",
+            "match": {
+              "arguments": [
+                {
+                  "val": "correct@e.com",
+                  "offset": 9
+                }
+              ],
+              "location": "UITestingSteps.i_enter_in_email_field(String)"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 290132568,
+              "status": "passed"
+            },
+            "line": 213,
+            "name": "I enter \"1a1b2\" in password field",
+            "match": {
+              "arguments": [
+                {
+                  "val": "1a1b2",
+                  "offset": 9
+                }
+              ],
+              "location": "UITestingSteps.i_enter_in_password_field(String)"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 74111466,
+              "status": "passed"
+            },
+            "line": 214,
+            "name": "I click submit",
+            "match": {
+              "location": "UITestingSteps.i_click_submit()"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 45963243,
+              "status": "passed"
+            },
+            "line": 215,
+            "name": "I should not receive an empty password message and should receive a 6-character message",
+            "match": {
+              "location": "UITestingSteps.i_should_not_receive_an_empty_password_message_and_should_receive_a_6_character_message()"
+            },
+            "keyword": "Then "
+          },
+          {
+            "result": {
+              "duration": 29021749,
+              "status": "passed"
+            },
+            "line": 216,
+            "name": "browser is closed",
+            "match": {
+              "location": "UITestingSteps.browser_is_closed()"
+            },
+            "keyword": "And "
+          }
+        ]
+      },
+      {
+        "line": 218,
+        "name": "Non-Empty Password Less than 6 characters (alphanumeric characters) - 5th case",
+        "description": "",
+        "id": "check-signup-page;non-empty-password-less-than-6-characters-(alphanumeric-characters)---5th-case",
+        "type": "scenario",
+        "keyword": "Scenario",
+        "steps": [
+          {
+            "result": {
+              "duration": 3474200835,
+              "status": "passed"
+            },
+            "line": 219,
+            "name": "I have a browser opened",
+            "match": {
+              "location": "UITestingSteps.i_have_a_browser_opened()"
+            },
+            "keyword": "Given "
+          },
+          {
+            "result": {
+              "duration": 1420326754,
+              "status": "passed"
+            },
+            "line": 220,
+            "name": "I navigate to signup page",
+            "match": {
+              "location": "UITestingSteps.i_navigate_to_signup_page()"
+            },
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "duration": 526252728,
+              "status": "passed"
+            },
+            "line": 221,
+            "name": "I enter \"Group\" in first name field",
+            "match": {
+              "arguments": [
+                {
+                  "val": "Group",
+                  "offset": 9
+                }
+              ],
+              "location": "UITestingSteps.i_enter_in_first_name_field(String)"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 217248110,
+              "status": "passed"
+            },
+            "line": 222,
+            "name": "I enter \"4\" in last name field",
+            "match": {
+              "arguments": [
+                {
+                  "val": "4",
+                  "offset": 9
+                }
+              ],
+              "location": "UITestingSteps.i_enter_in_last_name_field(String)"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 285033035,
+              "status": "passed"
+            },
+            "line": 223,
+            "name": "I enter \"correct@e.com\" in email field",
+            "match": {
+              "arguments": [
+                {
+                  "val": "correct@e.com",
+                  "offset": 9
+                }
+              ],
+              "location": "UITestingSteps.i_enter_in_email_field(String)"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 201773578,
+              "status": "passed"
+            },
+            "line": 224,
+            "name": "I enter \"aa2\" in password field",
+            "match": {
+              "arguments": [
+                {
+                  "val": "aa2",
+                  "offset": 9
+                }
+              ],
+              "location": "UITestingSteps.i_enter_in_password_field(String)"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 99880828,
+              "status": "passed"
+            },
+            "line": 225,
+            "name": "I click submit",
+            "match": {
+              "location": "UITestingSteps.i_click_submit()"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 57849509,
+              "status": "passed"
+            },
+            "line": 226,
+            "name": "I should not receive an empty password message and should receive a 6-character message",
+            "match": {
+              "location": "UITestingSteps.i_should_not_receive_an_empty_password_message_and_should_receive_a_6_character_message()"
+            },
+            "keyword": "Then "
+          },
+          {
+            "result": {
+              "duration": 13137938,
+              "status": "passed"
+            },
+            "line": 227,
+            "name": "browser is closed",
+            "match": {
+              "location": "UITestingSteps.browser_is_closed()"
+            },
+            "keyword": "And "
+          }
+        ]
+      },
+      {
+        "line": 229,
+        "name": "Non-Empty Password Less than 6 characters (alphanumeric characters) - 6th case",
+        "description": "",
+        "id": "check-signup-page;non-empty-password-less-than-6-characters-(alphanumeric-characters)---6th-case",
+        "type": "scenario",
+        "keyword": "Scenario",
+        "steps": [
+          {
+            "result": {
+              "duration": 3160849671,
+              "status": "passed"
+            },
+            "line": 230,
+            "name": "I have a browser opened",
+            "match": {
+              "location": "UITestingSteps.i_have_a_browser_opened()"
+            },
+            "keyword": "Given "
+          },
+          {
+            "result": {
+              "duration": 1345609035,
+              "status": "passed"
+            },
+            "line": 231,
+            "name": "I navigate to signup page",
+            "match": {
+              "location": "UITestingSteps.i_navigate_to_signup_page()"
+            },
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "duration": 544504484,
+              "status": "passed"
+            },
+            "line": 232,
+            "name": "I enter \"Group\" in first name field",
+            "match": {
+              "arguments": [
+                {
+                  "val": "Group",
+                  "offset": 9
+                }
+              ],
+              "location": "UITestingSteps.i_enter_in_first_name_field(String)"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 229533180,
+              "status": "passed"
+            },
+            "line": 233,
+            "name": "I enter \"4\" in last name field",
+            "match": {
+              "arguments": [
+                {
+                  "val": "4",
+                  "offset": 9
+                }
+              ],
+              "location": "UITestingSteps.i_enter_in_last_name_field(String)"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 286519735,
+              "status": "passed"
+            },
+            "line": 234,
+            "name": "I enter \"correct@e.com\" in email field",
+            "match": {
+              "arguments": [
+                {
+                  "val": "correct@e.com",
+                  "offset": 9
+                }
+              ],
+              "location": "UITestingSteps.i_enter_in_email_field(String)"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 200021594,
+              "status": "passed"
+            },
+            "line": 235,
+            "name": "I enter \"aa23\" in password field",
+            "match": {
+              "arguments": [
+                {
+                  "val": "aa23",
+                  "offset": 9
+                }
+              ],
+              "location": "UITestingSteps.i_enter_in_password_field(String)"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 72012605,
+              "status": "passed"
+            },
+            "line": 236,
+            "name": "I click submit",
+            "match": {
+              "location": "UITestingSteps.i_click_submit()"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 78587056,
+              "status": "passed"
+            },
+            "line": 237,
+            "name": "I should not receive an empty password message and should receive a 6-character message",
+            "match": {
+              "location": "UITestingSteps.i_should_not_receive_an_empty_password_message_and_should_receive_a_6_character_message()"
+            },
+            "keyword": "Then "
+          },
+          {
+            "result": {
+              "duration": 14839550,
+              "status": "passed"
+            },
+            "line": 238,
+            "name": "browser is closed",
+            "match": {
+              "location": "UITestingSteps.browser_is_closed()"
+            },
+            "keyword": "And "
+          }
+        ]
+      },
+      {
+        "line": 240,
+        "name": "Non-Empty Password Less than 6 characters (alphanumeric characters) - 6th case",
+        "description": "",
+        "id": "check-signup-page;non-empty-password-less-than-6-characters-(alphanumeric-characters)---6th-case",
+        "type": "scenario",
+        "keyword": "Scenario",
+        "steps": [
+          {
+            "result": {
+              "duration": 3166929510,
+              "status": "passed"
+            },
+            "line": 241,
+            "name": "I have a browser opened",
+            "match": {
+              "location": "UITestingSteps.i_have_a_browser_opened()"
+            },
+            "keyword": "Given "
+          },
+          {
+            "result": {
+              "duration": 1392511030,
+              "status": "passed"
+            },
+            "line": 242,
+            "name": "I navigate to signup page",
+            "match": {
+              "location": "UITestingSteps.i_navigate_to_signup_page()"
+            },
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "duration": 646842283,
+              "status": "passed"
+            },
+            "line": 243,
+            "name": "I enter \"Group\" in first name field",
+            "match": {
+              "arguments": [
+                {
+                  "val": "Group",
+                  "offset": 9
+                }
+              ],
+              "location": "UITestingSteps.i_enter_in_first_name_field(String)"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 133797520,
+              "status": "passed"
+            },
+            "line": 244,
+            "name": "I enter \"4\" in last name field",
+            "match": {
+              "arguments": [
+                {
+                  "val": "4",
+                  "offset": 9
+                }
+              ],
+              "location": "UITestingSteps.i_enter_in_last_name_field(String)"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 359774088,
+              "status": "passed"
+            },
+            "line": 245,
+            "name": "I enter \"correct@e.com\" in email field",
+            "match": {
+              "arguments": [
+                {
+                  "val": "correct@e.com",
+                  "offset": 9
+                }
+              ],
+              "location": "UITestingSteps.i_enter_in_email_field(String)"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 230763337,
+              "status": "passed"
+            },
+            "line": 246,
+            "name": "I enter \"b2b3\" in password field",
+            "match": {
+              "arguments": [
+                {
+                  "val": "b2b3",
+                  "offset": 9
+                }
+              ],
+              "location": "UITestingSteps.i_enter_in_password_field(String)"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 55702191,
+              "status": "passed"
+            },
+            "line": 247,
+            "name": "I click submit",
+            "match": {
+              "location": "UITestingSteps.i_click_submit()"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 24392138,
+              "status": "passed"
+            },
+            "line": 248,
+            "name": "I should not receive an empty password message and should receive a 6-character message",
+            "match": {
+              "location": "UITestingSteps.i_should_not_receive_an_empty_password_message_and_should_receive_a_6_character_message()"
+            },
+            "keyword": "Then "
+          },
+          {
+            "result": {
+              "duration": 52979874,
+              "status": "passed"
+            },
+            "line": 249,
+            "name": "browser is closed",
+            "match": {
+              "location": "UITestingSteps.browser_is_closed()"
+            },
+            "keyword": "And "
+          }
+        ]
+      },
+      {
+        "line": 251,
+        "name": "Non-Empty Password Less than 6 characters (alphanumeric characters) - 7th case",
+        "description": "",
+        "id": "check-signup-page;non-empty-password-less-than-6-characters-(alphanumeric-characters)---7th-case",
+        "type": "scenario",
+        "keyword": "Scenario",
+        "steps": [
+          {
+            "result": {
+              "duration": 3083210865,
+              "status": "passed"
+            },
+            "line": 252,
+            "name": "I have a browser opened",
+            "match": {
+              "location": "UITestingSteps.i_have_a_browser_opened()"
+            },
+            "keyword": "Given "
+          },
+          {
+            "result": {
+              "duration": 1343456415,
+              "status": "passed"
+            },
+            "line": 253,
+            "name": "I navigate to signup page",
+            "match": {
+              "location": "UITestingSteps.i_navigate_to_signup_page()"
+            },
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "duration": 557164184,
+              "status": "passed"
+            },
+            "line": 254,
+            "name": "I enter \"Group\" in first name field",
+            "match": {
+              "arguments": [
+                {
+                  "val": "Group",
+                  "offset": 9
+                }
+              ],
+              "location": "UITestingSteps.i_enter_in_first_name_field(String)"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 278198792,
+              "status": "passed"
+            },
+            "line": 255,
+            "name": "I enter \"4\" in last name field",
+            "match": {
+              "arguments": [
+                {
+                  "val": "4",
+                  "offset": 9
+                }
+              ],
+              "location": "UITestingSteps.i_enter_in_last_name_field(String)"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 307789968,
+              "status": "passed"
+            },
+            "line": 256,
+            "name": "I enter \"correct@e.com\" in email field",
+            "match": {
+              "arguments": [
+                {
+                  "val": "correct@e.com",
+                  "offset": 9
+                }
+              ],
+              "location": "UITestingSteps.i_enter_in_email_field(String)"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 179985713,
+              "status": "passed"
+            },
+            "line": 257,
+            "name": "I enter \"b2b3a\" in password field",
+            "match": {
+              "arguments": [
+                {
+                  "val": "b2b3a",
+                  "offset": 9
+                }
+              ],
+              "location": "UITestingSteps.i_enter_in_password_field(String)"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 124195041,
+              "status": "passed"
+            },
+            "line": 258,
+            "name": "I click submit",
+            "match": {
+              "location": "UITestingSteps.i_click_submit()"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 66589118,
+              "status": "passed"
+            },
+            "line": 259,
+            "name": "I should not receive an empty password message and should receive a 6-character message",
+            "match": {
+              "location": "UITestingSteps.i_should_not_receive_an_empty_password_message_and_should_receive_a_6_character_message()"
+            },
+            "keyword": "Then "
+          },
+          {
+            "result": {
+              "duration": 9673452,
+              "status": "passed"
+            },
+            "line": 260,
+            "name": "browser is closed",
+            "match": {
+              "location": "UITestingSteps.browser_is_closed()"
+            },
+            "keyword": "And "
+          }
+        ]
+      },
+      {
+        "line": 262,
+        "name": "Non-Empty Password at least 6 characters (numeric characters) - 1st case",
+        "description": "",
+        "id": "check-signup-page;non-empty-password-at-least-6-characters-(numeric-characters)---1st-case",
+        "type": "scenario",
+        "keyword": "Scenario",
+        "steps": [
+          {
+            "result": {
+              "duration": 3051572198,
+              "status": "passed"
+            },
+            "line": 263,
+            "name": "I have a browser opened",
+            "match": {
+              "location": "UITestingSteps.i_have_a_browser_opened()"
+            },
+            "keyword": "Given "
+          },
+          {
+            "result": {
+              "duration": 1674503448,
+              "status": "passed"
+            },
+            "line": 264,
+            "name": "I navigate to signup page",
+            "match": {
+              "location": "UITestingSteps.i_navigate_to_signup_page()"
+            },
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "duration": 298144372,
+              "status": "passed"
+            },
+            "line": 265,
+            "name": "I enter \"Group\" in first name field",
+            "match": {
+              "arguments": [
+                {
+                  "val": "Group",
+                  "offset": 9
+                }
+              ],
+              "location": "UITestingSteps.i_enter_in_first_name_field(String)"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 98946318,
+              "status": "passed"
+            },
+            "line": 266,
+            "name": "I enter \"4\" in last name field",
+            "match": {
+              "arguments": [
+                {
+                  "val": "4",
+                  "offset": 9
+                }
+              ],
+              "location": "UITestingSteps.i_enter_in_last_name_field(String)"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 387295207,
+              "status": "passed"
+            },
+            "line": 267,
+            "name": "I enter \"correct@e.com\" in email field",
+            "match": {
+              "arguments": [
+                {
+                  "val": "correct@e.com",
+                  "offset": 9
+                }
+              ],
+              "location": "UITestingSteps.i_enter_in_email_field(String)"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 254655867,
+              "status": "passed"
+            },
+            "line": 268,
+            "name": "I enter \"123456\" in password field",
+            "match": {
+              "arguments": [
+                {
+                  "val": "123456",
+                  "offset": 9
+                }
+              ],
+              "location": "UITestingSteps.i_enter_in_password_field(String)"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 49521062,
+              "status": "passed"
+            },
+            "line": 269,
+            "name": "I click submit",
+            "match": {
+              "location": "UITestingSteps.i_click_submit()"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 49643146,
+              "status": "passed"
+            },
+            "line": 270,
+            "name": "I should not receive an empty password message and should not receive a 6-character message and should receive an alphanumeric message",
+            "match": {
+              "location": "UITestingSteps.i_should_not_receive_a_empty_password_message_and_should_not_receive_a_6_character_message_and_should_receive_an_aphanumeric_message()"
+            },
+            "keyword": "Then "
+          },
+          {
+            "result": {
+              "duration": 12432704,
+              "status": "passed"
+            },
+            "line": 271,
+            "name": "browser is closed",
+            "match": {
+              "location": "UITestingSteps.browser_is_closed()"
+            },
+            "keyword": "And "
+          }
+        ]
+      },
+      {
+        "line": 273,
+        "name": "Non-Empty Password at least 6 characters (numeric characters) - 2nd case",
+        "description": "",
+        "id": "check-signup-page;non-empty-password-at-least-6-characters-(numeric-characters)---2nd-case",
+        "type": "scenario",
+        "keyword": "Scenario",
+        "steps": [
+          {
+            "result": {
+              "duration": 3075215957,
+              "status": "passed"
+            },
+            "line": 274,
+            "name": "I have a browser opened",
+            "match": {
+              "location": "UITestingSteps.i_have_a_browser_opened()"
+            },
+            "keyword": "Given "
+          },
+          {
+            "result": {
+              "duration": 1450737332,
+              "status": "passed"
+            },
+            "line": 275,
+            "name": "I navigate to signup page",
+            "match": {
+              "location": "UITestingSteps.i_navigate_to_signup_page()"
+            },
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "duration": 657225203,
+              "status": "passed"
+            },
+            "line": 276,
+            "name": "I enter \"Group\" in first name field",
+            "match": {
+              "arguments": [
+                {
+                  "val": "Group",
+                  "offset": 9
+                }
+              ],
+              "location": "UITestingSteps.i_enter_in_first_name_field(String)"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 192854893,
+              "status": "passed"
+            },
+            "line": 277,
+            "name": "I enter \"4\" in last name field",
+            "match": {
+              "arguments": [
+                {
+                  "val": "4",
+                  "offset": 9
+                }
+              ],
+              "location": "UITestingSteps.i_enter_in_last_name_field(String)"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 295375943,
+              "status": "passed"
+            },
+            "line": 278,
+            "name": "I enter \"correct@e.com\" in email field",
+            "match": {
+              "arguments": [
+                {
+                  "val": "correct@e.com",
+                  "offset": 9
+                }
+              ],
+              "location": "UITestingSteps.i_enter_in_email_field(String)"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 238906930,
+              "status": "passed"
+            },
+            "line": 279,
+            "name": "I enter \"1233445561\" in password field",
+            "match": {
+              "arguments": [
+                {
+                  "val": "1233445561",
+                  "offset": 9
+                }
+              ],
+              "location": "UITestingSteps.i_enter_in_password_field(String)"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 97982329,
+              "status": "passed"
+            },
+            "line": 280,
+            "name": "I click submit",
+            "match": {
+              "location": "UITestingSteps.i_click_submit()"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 54902479,
+              "status": "passed"
+            },
+            "line": 281,
+            "name": "I should not receive an empty password message and should not receive a 6-character message and should receive an alphanumeric message",
+            "match": {
+              "location": "UITestingSteps.i_should_not_receive_a_empty_password_message_and_should_not_receive_a_6_character_message_and_should_receive_an_aphanumeric_message()"
+            },
+            "keyword": "Then "
+          },
+          {
+            "result": {
+              "duration": 6624166,
+              "status": "passed"
+            },
+            "line": 282,
+            "name": "browser is closed",
+            "match": {
+              "location": "UITestingSteps.browser_is_closed()"
+            },
+            "keyword": "And "
+          }
+        ]
+      },
+      {
+        "line": 284,
+        "name": "Non-Empty Password at least 6 characters (alphabetic characters) - 3rd case",
+        "description": "",
+        "id": "check-signup-page;non-empty-password-at-least-6-characters-(alphabetic-characters)---3rd-case",
+        "type": "scenario",
+        "keyword": "Scenario",
+        "steps": [
+          {
+            "result": {
+              "duration": 3057520625,
+              "status": "passed"
+            },
+            "line": 285,
+            "name": "I have a browser opened",
+            "match": {
+              "location": "UITestingSteps.i_have_a_browser_opened()"
+            },
+            "keyword": "Given "
+          },
+          {
+            "result": {
+              "duration": 1534916681,
+              "status": "passed"
+            },
+            "line": 286,
+            "name": "I navigate to signup page",
+            "match": {
+              "location": "UITestingSteps.i_navigate_to_signup_page()"
+            },
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "duration": 572195297,
+              "status": "passed"
+            },
+            "line": 287,
+            "name": "I enter \"Group\" in first name field",
+            "match": {
+              "arguments": [
+                {
+                  "val": "Group",
+                  "offset": 9
+                }
+              ],
+              "location": "UITestingSteps.i_enter_in_first_name_field(String)"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 247925608,
+              "status": "passed"
+            },
+            "line": 288,
+            "name": "I enter \"4\" in last name field",
+            "match": {
+              "arguments": [
+                {
+                  "val": "4",
+                  "offset": 9
+                }
+              ],
+              "location": "UITestingSteps.i_enter_in_last_name_field(String)"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 281674791,
+              "status": "passed"
+            },
+            "line": 289,
+            "name": "I enter \"correct@e.com\" in email field",
+            "match": {
+              "arguments": [
+                {
+                  "val": "correct@e.com",
+                  "offset": 9
+                }
+              ],
+              "location": "UITestingSteps.i_enter_in_email_field(String)"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 259998540,
+              "status": "passed"
+            },
+            "line": 290,
+            "name": "I enter \"abcdef\" in password field",
+            "match": {
+              "arguments": [
+                {
+                  "val": "abcdef",
+                  "offset": 9
+                }
+              ],
+              "location": "UITestingSteps.i_enter_in_password_field(String)"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 35195161,
+              "status": "passed"
+            },
+            "line": 291,
+            "name": "I click submit",
+            "match": {
+              "location": "UITestingSteps.i_click_submit()"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 72125846,
+              "status": "passed"
+            },
+            "line": 292,
+            "name": "I should not receive an empty password message and should not receive a 6-character message and should receive an alphanumeric message",
+            "match": {
+              "location": "UITestingSteps.i_should_not_receive_a_empty_password_message_and_should_not_receive_a_6_character_message_and_should_receive_an_aphanumeric_message()"
+            },
+            "keyword": "Then "
+          },
+          {
+            "result": {
+              "duration": 19494201,
+              "status": "passed"
+            },
+            "line": 293,
+            "name": "browser is closed",
+            "match": {
+              "location": "UITestingSteps.browser_is_closed()"
+            },
+            "keyword": "And "
+          }
+        ]
+      },
+      {
+        "line": 295,
+        "name": "Non-Empty Password at least 6 characters (alphabetic characters) - 4th case",
+        "description": "",
+        "id": "check-signup-page;non-empty-password-at-least-6-characters-(alphabetic-characters)---4th-case",
+        "type": "scenario",
+        "keyword": "Scenario",
+        "steps": [
+          {
+            "result": {
+              "duration": 3053693409,
+              "status": "passed"
+            },
+            "line": 296,
+            "name": "I have a browser opened",
+            "match": {
+              "location": "UITestingSteps.i_have_a_browser_opened()"
+            },
+            "keyword": "Given "
+          },
+          {
+            "result": {
+              "duration": 1442043204,
+              "status": "passed"
+            },
+            "line": 297,
+            "name": "I navigate to signup page",
+            "match": {
+              "location": "UITestingSteps.i_navigate_to_signup_page()"
+            },
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "duration": 562220976,
+              "status": "passed"
+            },
+            "line": 298,
+            "name": "I enter \"Group\" in first name field",
+            "match": {
+              "arguments": [
+                {
+                  "val": "Group",
+                  "offset": 9
+                }
+              ],
+              "location": "UITestingSteps.i_enter_in_first_name_field(String)"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 287175512,
+              "status": "passed"
+            },
+            "line": 299,
+            "name": "I enter \"4\" in last name field",
+            "match": {
+              "arguments": [
+                {
+                  "val": "4",
+                  "offset": 9
+                }
+              ],
+              "location": "UITestingSteps.i_enter_in_last_name_field(String)"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 193649806,
+              "status": "passed"
+            },
+            "line": 300,
+            "name": "I enter \"correct@e.com\" in email field",
+            "match": {
+              "arguments": [
+                {
+                  "val": "correct@e.com",
+                  "offset": 9
+                }
+              ],
+              "location": "UITestingSteps.i_enter_in_email_field(String)"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 377796032,
+              "status": "passed"
+            },
+            "line": 301,
+            "name": "I enter \"abbccrra\" in password field",
+            "match": {
+              "arguments": [
+                {
+                  "val": "abbccrra",
+                  "offset": 9
+                }
+              ],
+              "location": "UITestingSteps.i_enter_in_password_field(String)"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 52144907,
+              "status": "passed"
+            },
+            "line": 302,
+            "name": "I click submit",
+            "match": {
+              "location": "UITestingSteps.i_click_submit()"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 53680851,
+              "status": "passed"
+            },
+            "line": 303,
+            "name": "I should not receive an empty password message and should not receive a 6-character message and should receive an alphanumeric message",
+            "match": {
+              "location": "UITestingSteps.i_should_not_receive_a_empty_password_message_and_should_not_receive_a_6_character_message_and_should_receive_an_aphanumeric_message()"
+            },
+            "keyword": "Then "
+          },
+          {
+            "result": {
+              "duration": 7853028,
+              "status": "passed"
+            },
+            "line": 304,
+            "name": "browser is closed",
+            "match": {
+              "location": "UITestingSteps.browser_is_closed()"
+            },
+            "keyword": "And "
+          }
+        ]
+      },
+      {
+        "line": 306,
+        "name": "Non-Empty Password at least 6 characters and alphanumeric characters - 1st case",
+        "description": "",
+        "id": "check-signup-page;non-empty-password-at-least-6-characters-and-alphanumeric-characters---1st-case",
+        "type": "scenario",
+        "keyword": "Scenario",
+        "steps": [
+          {
+            "result": {
+              "duration": 2982692386,
+              "status": "passed"
+            },
+            "line": 307,
+            "name": "I have a browser opened",
+            "match": {
+              "location": "UITestingSteps.i_have_a_browser_opened()"
+            },
+            "keyword": "Given "
+          },
+          {
+            "result": {
+              "duration": 1571713995,
+              "status": "passed"
+            },
+            "line": 308,
+            "name": "I navigate to signup page",
+            "match": {
+              "location": "UITestingSteps.i_navigate_to_signup_page()"
+            },
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "duration": 636638532,
+              "status": "passed"
+            },
+            "line": 309,
+            "name": "I enter \"Group\" in first name field",
+            "match": {
+              "arguments": [
+                {
+                  "val": "Group",
+                  "offset": 9
+                }
+              ],
+              "location": "UITestingSteps.i_enter_in_first_name_field(String)"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 183446775,
+              "status": "passed"
+            },
+            "line": 310,
+            "name": "I enter \"4\" in last name field",
+            "match": {
+              "arguments": [
+                {
+                  "val": "4",
+                  "offset": 9
+                }
+              ],
+              "location": "UITestingSteps.i_enter_in_last_name_field(String)"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 285522135,
+              "status": "passed"
+            },
+            "line": 311,
+            "name": "I enter \"correct@e.com\" in email field",
+            "match": {
+              "arguments": [
+                {
+                  "val": "correct@e.com",
+                  "offset": 9
+                }
+              ],
+              "location": "UITestingSteps.i_enter_in_email_field(String)"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 195810661,
+              "status": "passed"
+            },
+            "line": 312,
+            "name": "I enter \"123456a\" in password field",
+            "match": {
+              "arguments": [
+                {
+                  "val": "123456a",
+                  "offset": 9
+                }
+              ],
+              "location": "UITestingSteps.i_enter_in_password_field(String)"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 75848391,
+              "status": "passed"
+            },
+            "line": 313,
+            "name": "I click submit",
+            "match": {
+              "location": "UITestingSteps.i_click_submit()"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 55371214,
+              "status": "passed"
+            },
+            "line": 314,
+            "name": "I should not receive an empty password message and should not receive a 6-character message and should not receive an alphanumeric message",
+            "match": {
+              "location": "UITestingSteps.i_should_not_receive_a_empty_password_message_and_should_not_receive_a_6_character_message_and_should_not_receive_an_aphanumeric_message()"
+            },
+            "keyword": "Then "
+          },
+          {
+            "result": {
+              "duration": 22271222,
+              "status": "passed"
+            },
+            "line": 315,
+            "name": "browser is closed",
+            "match": {
+              "location": "UITestingSteps.browser_is_closed()"
+            },
+            "keyword": "And "
+          }
+        ]
+      },
+      {
+        "line": 317,
+        "name": "Non-Empty Password at least 6 characters and alphanumeric characters - 2nd case",
+        "description": "",
+        "id": "check-signup-page;non-empty-password-at-least-6-characters-and-alphanumeric-characters---2nd-case",
+        "type": "scenario",
+        "keyword": "Scenario",
+        "steps": [
+          {
+            "result": {
+              "duration": 3118129005,
+              "status": "passed"
+            },
+            "line": 318,
+            "name": "I have a browser opened",
+            "match": {
+              "location": "UITestingSteps.i_have_a_browser_opened()"
+            },
+            "keyword": "Given "
+          },
+          {
+            "result": {
+              "duration": 1447796205,
+              "status": "passed"
+            },
+            "line": 319,
+            "name": "I navigate to signup page",
+            "match": {
+              "location": "UITestingSteps.i_navigate_to_signup_page()"
+            },
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "duration": 656299281,
+              "status": "passed"
+            },
+            "line": 320,
+            "name": "I enter \"Group\" in first name field",
+            "match": {
+              "arguments": [
+                {
+                  "val": "Group",
+                  "offset": 9
+                }
+              ],
+              "location": "UITestingSteps.i_enter_in_first_name_field(String)"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 210490017,
+              "status": "passed"
+            },
+            "line": 321,
+            "name": "I enter \"4\" in last name field",
+            "match": {
+              "arguments": [
+                {
+                  "val": "4",
+                  "offset": 9
+                }
+              ],
+              "location": "UITestingSteps.i_enter_in_last_name_field(String)"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 370576142,
+              "status": "passed"
+            },
+            "line": 322,
+            "name": "I enter \"correct@e.com\" in email field",
+            "match": {
+              "arguments": [
+                {
+                  "val": "correct@e.com",
+                  "offset": 9
+                }
+              ],
+              "location": "UITestingSteps.i_enter_in_email_field(String)"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 289652394,
+              "status": "passed"
+            },
+            "line": 323,
+            "name": "I enter \"123456ab\" in password field",
+            "match": {
+              "arguments": [
+                {
+                  "val": "123456ab",
+                  "offset": 9
+                }
+              ],
+              "location": "UITestingSteps.i_enter_in_password_field(String)"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 48609008,
+              "status": "passed"
+            },
+            "line": 324,
+            "name": "I click submit",
+            "match": {
+              "location": "UITestingSteps.i_click_submit()"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 54445413,
+              "status": "passed"
+            },
+            "line": 325,
+            "name": "I should not receive an empty password message and should not receive a 6-character message and should not receive an alphanumeric message",
+            "match": {
+              "location": "UITestingSteps.i_should_not_receive_a_empty_password_message_and_should_not_receive_a_6_character_message_and_should_not_receive_an_aphanumeric_message()"
+            },
+            "keyword": "Then "
+          },
+          {
+            "result": {
+              "duration": 14685008,
+              "status": "passed"
+            },
+            "line": 326,
+            "name": "browser is closed",
+            "match": {
+              "location": "UITestingSteps.browser_is_closed()"
+            },
+            "keyword": "And "
+          }
+        ]
+      },
+      {
+        "line": 328,
+        "name": "Non-Empty Password at least 6 characters and alphanumeric characters - 3rd case",
+        "description": "",
+        "id": "check-signup-page;non-empty-password-at-least-6-characters-and-alphanumeric-characters---3rd-case",
+        "type": "scenario",
+        "keyword": "Scenario",
+        "steps": [
+          {
+            "result": {
+              "duration": 3413336467,
+              "status": "passed"
+            },
+            "line": 329,
+            "name": "I have a browser opened",
+            "match": {
+              "location": "UITestingSteps.i_have_a_browser_opened()"
+            },
+            "keyword": "Given "
+          },
+          {
+            "result": {
+              "duration": 1388170445,
+              "status": "passed"
+            },
+            "line": 330,
+            "name": "I navigate to signup page",
+            "match": {
+              "location": "UITestingSteps.i_navigate_to_signup_page()"
+            },
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "duration": 684388062,
+              "status": "passed"
+            },
+            "line": 331,
+            "name": "I enter \"Group\" in first name field",
+            "match": {
+              "arguments": [
+                {
+                  "val": "Group",
+                  "offset": 9
+                }
+              ],
+              "location": "UITestingSteps.i_enter_in_first_name_field(String)"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 77742703,
+              "status": "passed"
+            },
+            "line": 332,
+            "name": "I enter \"4\" in last name field",
+            "match": {
+              "arguments": [
+                {
+                  "val": "4",
+                  "offset": 9
+                }
+              ],
+              "location": "UITestingSteps.i_enter_in_last_name_field(String)"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 392409612,
+              "status": "passed"
+            },
+            "line": 333,
+            "name": "I enter \"correct@e.com\" in email field",
+            "match": {
+              "arguments": [
+                {
+                  "val": "correct@e.com",
+                  "offset": 9
+                }
+              ],
+              "location": "UITestingSteps.i_enter_in_email_field(String)"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 138915493,
+              "status": "passed"
+            },
+            "line": 334,
+            "name": "I enter \"12ab44ab\" in password field",
+            "match": {
+              "arguments": [
+                {
+                  "val": "12ab44ab",
+                  "offset": 9
+                }
+              ],
+              "location": "UITestingSteps.i_enter_in_password_field(String)"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 214317305,
+              "status": "passed"
+            },
+            "line": 335,
+            "name": "I click submit",
+            "match": {
+              "location": "UITestingSteps.i_click_submit()"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 42606394,
+              "status": "passed"
+            },
+            "line": 336,
+            "name": "I should not receive an empty password message and should not receive a 6-character message and should not receive an alphanumeric message",
+            "match": {
+              "location": "UITestingSteps.i_should_not_receive_a_empty_password_message_and_should_not_receive_a_6_character_message_and_should_not_receive_an_aphanumeric_message()"
+            },
+            "keyword": "Then "
+          },
+          {
+            "result": {
+              "duration": 11476979,
+              "status": "passed"
+            },
+            "line": 337,
+            "name": "browser is closed",
+            "match": {
+              "location": "UITestingSteps.browser_is_closed()"
+            },
+            "keyword": "And "
+          }
+        ]
+      },
+      {
+        "line": 339,
+        "name": "Non-Empty Password at least 6 characters and alphanumeric characters - 4th case",
+        "description": "",
+        "id": "check-signup-page;non-empty-password-at-least-6-characters-and-alphanumeric-characters---4th-case",
+        "type": "scenario",
+        "keyword": "Scenario",
+        "steps": [
+          {
+            "result": {
+              "duration": 2858659785,
+              "status": "passed"
+            },
+            "line": 340,
+            "name": "I have a browser opened",
+            "match": {
+              "location": "UITestingSteps.i_have_a_browser_opened()"
+            },
+            "keyword": "Given "
+          },
+          {
+            "result": {
+              "duration": 1355515922,
+              "status": "passed"
+            },
+            "line": 341,
+            "name": "I navigate to signup page",
+            "match": {
+              "location": "UITestingSteps.i_navigate_to_signup_page()"
+            },
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "duration": 740102230,
+              "status": "passed"
+            },
+            "line": 342,
+            "name": "I enter \"Group\" in first name field",
+            "match": {
+              "arguments": [
+                {
+                  "val": "Group",
+                  "offset": 9
+                }
+              ],
+              "location": "UITestingSteps.i_enter_in_first_name_field(String)"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 183922067,
+              "status": "passed"
+            },
+            "line": 343,
+            "name": "I enter \"4\" in last name field",
+            "match": {
+              "arguments": [
+                {
+                  "val": "4",
+                  "offset": 9
+                }
+              ],
+              "location": "UITestingSteps.i_enter_in_last_name_field(String)"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 296032614,
+              "status": "passed"
+            },
+            "line": 344,
+            "name": "I enter \"correct@e.com\" in email field",
+            "match": {
+              "arguments": [
+                {
+                  "val": "correct@e.com",
+                  "offset": 9
+                }
+              ],
+              "location": "UITestingSteps.i_enter_in_email_field(String)"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 198170427,
+              "status": "passed"
+            },
+            "line": 345,
+            "name": "I enter \"12ab3c44\" in password field",
+            "match": {
+              "arguments": [
+                {
+                  "val": "12ab3c44",
+                  "offset": 9
+                }
+              ],
+              "location": "UITestingSteps.i_enter_in_password_field(String)"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 77674213,
+              "status": "passed"
+            },
+            "line": 346,
+            "name": "I click submit",
+            "match": {
+              "location": "UITestingSteps.i_click_submit()"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 58361684,
+              "status": "passed"
+            },
+            "line": 347,
+            "name": "I should not receive an empty password message and should not receive a 6-character message and should not receive an alphanumeric message",
+            "match": {
+              "location": "UITestingSteps.i_should_not_receive_a_empty_password_message_and_should_not_receive_a_6_character_message_and_should_not_receive_an_aphanumeric_message()"
+            },
+            "keyword": "Then "
+          },
+          {
+            "result": {
+              "duration": 16864506,
+              "status": "passed"
+            },
+            "line": 348,
+            "name": "browser is closed",
+            "match": {
+              "location": "UITestingSteps.browser_is_closed()"
+            },
+            "keyword": "And "
+          }
+        ]
+      },
+      {
+        "line": 350,
+        "name": "Non-Empty Password at least 6 characters and alphanumeric characters - 5th case",
+        "description": "",
+        "id": "check-signup-page;non-empty-password-at-least-6-characters-and-alphanumeric-characters---5th-case",
+        "type": "scenario",
+        "keyword": "Scenario",
+        "steps": [
+          {
+            "result": {
+              "duration": 3199444358,
+              "status": "passed"
+            },
+            "line": 351,
+            "name": "I have a browser opened",
+            "match": {
+              "location": "UITestingSteps.i_have_a_browser_opened()"
+            },
+            "keyword": "Given "
+          },
+          {
+            "result": {
+              "duration": 1546482677,
+              "status": "passed"
+            },
+            "line": 352,
+            "name": "I navigate to signup page",
+            "match": {
+              "location": "UITestingSteps.i_navigate_to_signup_page()"
+            },
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "duration": 839151935,
+              "status": "passed"
+            },
+            "line": 353,
+            "name": "I enter \"Group\" in first name field",
+            "match": {
+              "arguments": [
+                {
+                  "val": "Group",
+                  "offset": 9
+                }
+              ],
+              "location": "UITestingSteps.i_enter_in_first_name_field(String)"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 202333225,
+              "status": "passed"
+            },
+            "line": 354,
+            "name": "I enter \"4\" in last name field",
+            "match": {
+              "arguments": [
+                {
+                  "val": "4",
+                  "offset": 9
+                }
+              ],
+              "location": "UITestingSteps.i_enter_in_last_name_field(String)"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 291265603,
+              "status": "passed"
+            },
+            "line": 355,
+            "name": "I enter \"correct@e.com\" in email field",
+            "match": {
+              "arguments": [
+                {
+                  "val": "correct@e.com",
+                  "offset": 9
+                }
+              ],
+              "location": "UITestingSteps.i_enter_in_email_field(String)"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 244194809,
+              "status": "passed"
+            },
+            "line": 356,
+            "name": "I enter \"12ab3c5\" in password field",
+            "match": {
+              "arguments": [
+                {
+                  "val": "12ab3c5",
+                  "offset": 9
+                }
+              ],
+              "location": "UITestingSteps.i_enter_in_password_field(String)"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 76964203,
+              "status": "passed"
+            },
+            "line": 357,
+            "name": "I click submit",
+            "match": {
+              "location": "UITestingSteps.i_click_submit()"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 66992774,
+              "status": "passed"
+            },
+            "line": 358,
+            "name": "I should not receive an empty password message and should not receive a 6-character message and should not receive an alphanumeric message",
+            "match": {
+              "location": "UITestingSteps.i_should_not_receive_a_empty_password_message_and_should_not_receive_a_6_character_message_and_should_not_receive_an_aphanumeric_message()"
+            },
+            "keyword": "Then "
+          },
+          {
+            "result": {
+              "duration": 10240220,
+              "status": "passed"
+            },
+            "line": 359,
+            "name": "browser is closed",
+            "match": {
+              "location": "UITestingSteps.browser_is_closed()"
+            },
+            "keyword": "And "
+          }
+        ]
+      },
+      {
+        "line": 361,
+        "name": "Non-Empty Password at least 6 characters and alphanumeric characters - 6th case",
+        "description": "",
+        "id": "check-signup-page;non-empty-password-at-least-6-characters-and-alphanumeric-characters---6th-case",
+        "type": "scenario",
+        "keyword": "Scenario",
+        "steps": [
+          {
+            "result": {
+              "duration": 2982432118,
+              "status": "passed"
+            },
+            "line": 362,
+            "name": "I have a browser opened",
+            "match": {
+              "location": "UITestingSteps.i_have_a_browser_opened()"
+            },
+            "keyword": "Given "
+          },
+          {
+            "result": {
+              "duration": 1416527432,
+              "status": "passed"
+            },
+            "line": 363,
+            "name": "I navigate to signup page",
+            "match": {
+              "location": "UITestingSteps.i_navigate_to_signup_page()"
+            },
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "duration": 583462949,
+              "status": "passed"
+            },
+            "line": 364,
+            "name": "I enter \"Group\" in first name field",
+            "match": {
+              "arguments": [
+                {
+                  "val": "Group",
+                  "offset": 9
+                }
+              ],
+              "location": "UITestingSteps.i_enter_in_first_name_field(String)"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 182106484,
+              "status": "passed"
+            },
+            "line": 365,
+            "name": "I enter \"4\" in last name field",
+            "match": {
+              "arguments": [
+                {
+                  "val": "4",
+                  "offset": 9
+                }
+              ],
+              "location": "UITestingSteps.i_enter_in_last_name_field(String)"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 337325497,
+              "status": "passed"
+            },
+            "line": 366,
+            "name": "I enter \"correct@e.com\" in email field",
+            "match": {
+              "arguments": [
+                {
+                  "val": "correct@e.com",
+                  "offset": 9
+                }
+              ],
+              "location": "UITestingSteps.i_enter_in_email_field(String)"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 258773935,
+              "status": "passed"
+            },
+            "line": 367,
+            "name": "I enter \"abcd123\" in password field",
+            "match": {
+              "arguments": [
+                {
+                  "val": "abcd123",
+                  "offset": 9
+                }
+              ],
+              "location": "UITestingSteps.i_enter_in_password_field(String)"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 42716823,
+              "status": "passed"
+            },
+            "line": 368,
+            "name": "I click submit",
+            "match": {
+              "location": "UITestingSteps.i_click_submit()"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 60241414,
+              "status": "passed"
+            },
+            "line": 369,
+            "name": "I should not receive an empty password message and should not receive a 6-character message and should not receive an alphanumeric message",
+            "match": {
+              "location": "UITestingSteps.i_should_not_receive_a_empty_password_message_and_should_not_receive_a_6_character_message_and_should_not_receive_an_aphanumeric_message()"
+            },
+            "keyword": "Then "
+          },
+          {
+            "result": {
+              "duration": 13656122,
+              "status": "passed"
+            },
+            "line": 370,
+            "name": "browser is closed",
+            "match": {
+              "location": "UITestingSteps.browser_is_closed()"
+            },
+            "keyword": "And "
+          }
+        ]
+      },
+      {
+        "line": 372,
+        "name": "Non-Empty Password at least 6 characters and alphanumeric characters - 7th case",
+        "description": "",
+        "id": "check-signup-page;non-empty-password-at-least-6-characters-and-alphanumeric-characters---7th-case",
+        "type": "scenario",
+        "keyword": "Scenario",
+        "steps": [
+          {
+            "result": {
+              "duration": 2957546980,
+              "status": "passed"
+            },
+            "line": 373,
+            "name": "I have a browser opened",
+            "match": {
+              "location": "UITestingSteps.i_have_a_browser_opened()"
+            },
+            "keyword": "Given "
+          },
+          {
+            "result": {
+              "duration": 1438241411,
+              "status": "passed"
+            },
+            "line": 374,
+            "name": "I navigate to signup page",
+            "match": {
+              "location": "UITestingSteps.i_navigate_to_signup_page()"
+            },
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "duration": 620135391,
+              "status": "passed"
+            },
+            "line": 375,
+            "name": "I enter \"Group\" in first name field",
+            "match": {
+              "arguments": [
+                {
+                  "val": "Group",
+                  "offset": 9
+                }
+              ],
+              "location": "UITestingSteps.i_enter_in_first_name_field(String)"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 266921488,
+              "status": "passed"
+            },
+            "line": 376,
+            "name": "I enter \"4\" in last name field",
+            "match": {
+              "arguments": [
+                {
+                  "val": "4",
+                  "offset": 9
+                }
+              ],
+              "location": "UITestingSteps.i_enter_in_last_name_field(String)"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 270452733,
+              "status": "passed"
+            },
+            "line": 377,
+            "name": "I enter \"correct@e.com\" in email field",
+            "match": {
+              "arguments": [
+                {
+                  "val": "correct@e.com",
+                  "offset": 9
+                }
+              ],
+              "location": "UITestingSteps.i_enter_in_email_field(String)"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 272655408,
+              "status": "passed"
+            },
+            "line": 378,
+            "name": "I enter \"ab124f\" in password field",
+            "match": {
+              "arguments": [
+                {
+                  "val": "ab124f",
+                  "offset": 9
+                }
+              ],
+              "location": "UITestingSteps.i_enter_in_password_field(String)"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 26537973,
+              "status": "passed"
+            },
+            "line": 379,
+            "name": "I click submit",
+            "match": {
+              "location": "UITestingSteps.i_click_submit()"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 28662572,
+              "status": "passed"
+            },
+            "line": 380,
+            "name": "I should not receive an empty password message and should not receive a 6-character message and should not receive an alphanumeric message",
+            "match": {
+              "location": "UITestingSteps.i_should_not_receive_a_empty_password_message_and_should_not_receive_a_6_character_message_and_should_not_receive_an_aphanumeric_message()"
+            },
+            "keyword": "Then "
+          },
+          {
+            "result": {
+              "duration": 28375571,
+              "status": "passed"
+            },
+            "line": 381,
+            "name": "browser is closed",
+            "match": {
+              "location": "UITestingSteps.browser_is_closed()"
+            },
+            "keyword": "And "
+          }
+        ]
+      },
+      {
+        "line": 383,
+        "name": "Non-Empty Password at least 6 characters and alphanumeric characters - 8th case",
+        "description": "",
+        "id": "check-signup-page;non-empty-password-at-least-6-characters-and-alphanumeric-characters---8th-case",
+        "type": "scenario",
+        "keyword": "Scenario",
+        "steps": [
+          {
+            "result": {
+              "duration": 3058872732,
+              "status": "passed"
+            },
+            "line": 384,
+            "name": "I have a browser opened",
+            "match": {
+              "location": "UITestingSteps.i_have_a_browser_opened()"
+            },
+            "keyword": "Given "
+          },
+          {
+            "result": {
+              "duration": 1707839250,
+              "status": "passed"
+            },
+            "line": 385,
+            "name": "I navigate to signup page",
+            "match": {
+              "location": "UITestingSteps.i_navigate_to_signup_page()"
+            },
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "duration": 196261430,
+              "status": "passed"
+            },
+            "line": 386,
+            "name": "I enter \"Group\" in first name field",
+            "match": {
+              "arguments": [
+                {
+                  "val": "Group",
+                  "offset": 9
+                }
+              ],
+              "location": "UITestingSteps.i_enter_in_first_name_field(String)"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 321151766,
+              "status": "passed"
+            },
+            "line": 387,
+            "name": "I enter \"4\" in last name field",
+            "match": {
+              "arguments": [
+                {
+                  "val": "4",
+                  "offset": 9
+                }
+              ],
+              "location": "UITestingSteps.i_enter_in_last_name_field(String)"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 190318342,
+              "status": "passed"
+            },
+            "line": 388,
+            "name": "I enter \"correct@e.com\" in email field",
+            "match": {
+              "arguments": [
+                {
+                  "val": "correct@e.com",
+                  "offset": 9
+                }
+              ],
+              "location": "UITestingSteps.i_enter_in_email_field(String)"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 359918958,
+              "status": "passed"
+            },
+            "line": 389,
+            "name": "I enter \"a55f22c3\" in password field",
+            "match": {
+              "arguments": [
+                {
+                  "val": "a55f22c3",
+                  "offset": 9
+                }
+              ],
+              "location": "UITestingSteps.i_enter_in_password_field(String)"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 38840741,
+              "status": "passed"
+            },
+            "line": 390,
+            "name": "I click submit",
+            "match": {
+              "location": "UITestingSteps.i_click_submit()"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 29129981,
+              "status": "passed"
+            },
+            "line": 391,
+            "name": "I should not receive an empty password message and should not receive a 6-character message and should not receive an alphanumeric message",
+            "match": {
+              "location": "UITestingSteps.i_should_not_receive_a_empty_password_message_and_should_not_receive_a_6_character_message_and_should_not_receive_an_aphanumeric_message()"
+            },
+            "keyword": "Then "
+          },
+          {
+            "result": {
+              "duration": 27850709,
+              "status": "passed"
+            },
+            "line": 392,
+            "name": "browser is closed",
+            "match": {
+              "location": "UITestingSteps.browser_is_closed()"
+            },
+            "keyword": "And "
+          }
+        ]
+      },
+      {
+        "comments": [
+          {
+            "line": 394,
+            "value": "#"
+          },
+          {
+            "line": 395,
+            "value": "# Check Confirm Password"
+          },
+          {
+            "line": 396,
+            "value": "#"
+          }
+        ],
+        "line": 397,
+        "name": "Empty Confirm Password",
+        "description": "",
+        "id": "check-signup-page;empty-confirm-password",
+        "type": "scenario",
+        "keyword": "Scenario",
+        "steps": [
+          {
+            "result": {
+              "duration": 2903265208,
+              "status": "passed"
+            },
+            "line": 398,
+            "name": "I have a browser opened",
+            "match": {
+              "location": "UITestingSteps.i_have_a_browser_opened()"
+            },
+            "keyword": "Given "
+          },
+          {
+            "result": {
+              "duration": 1359980251,
+              "status": "passed"
+            },
+            "line": 399,
+            "name": "I navigate to signup page",
+            "match": {
+              "location": "UITestingSteps.i_navigate_to_signup_page()"
+            },
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "duration": 545353380,
+              "status": "passed"
+            },
+            "line": 400,
+            "name": "I enter \"Group\" in first name field",
+            "match": {
+              "arguments": [
+                {
+                  "val": "Group",
+                  "offset": 9
+                }
+              ],
+              "location": "UITestingSteps.i_enter_in_first_name_field(String)"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 173979282,
+              "status": "passed"
+            },
+            "line": 401,
+            "name": "I enter \"4\" in last name field",
+            "match": {
+              "arguments": [
+                {
+                  "val": "4",
+                  "offset": 9
+                }
+              ],
+              "location": "UITestingSteps.i_enter_in_last_name_field(String)"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 361501654,
+              "status": "passed"
+            },
+            "line": 402,
+            "name": "I enter \"correct@e.com\" in email field",
+            "match": {
+              "arguments": [
+                {
+                  "val": "correct@e.com",
+                  "offset": 9
+                }
+              ],
+              "location": "UITestingSteps.i_enter_in_email_field(String)"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 144427111,
+              "status": "passed"
+            },
+            "line": 403,
+            "name": "I enter \"a55f22c3\" in password field",
+            "match": {
+              "arguments": [
+                {
+                  "val": "a55f22c3",
+                  "offset": 9
+                }
+              ],
+              "location": "UITestingSteps.i_enter_in_password_field(String)"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 151502680,
+              "status": "passed"
+            },
+            "line": 404,
+            "name": "I click submit",
+            "match": {
+              "location": "UITestingSteps.i_click_submit()"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 65679953,
+              "status": "passed"
+            },
+            "line": 405,
+            "name": "I should receive an empty confirm password message",
+            "match": {
+              "location": "UITestingSteps.i_should_receive_an_empty_confirm_password_message()"
+            },
+            "keyword": "Then "
+          },
+          {
+            "result": {
+              "duration": 15541026,
+              "status": "passed"
+            },
+            "line": 406,
+            "name": "browser is closed",
+            "match": {
+              "location": "UITestingSteps.browser_is_closed()"
+            },
+            "keyword": "And "
+          }
+        ]
+      },
+      {
+        "line": 408,
+        "name": "Non-Empty Confirm Password which doesn\u0027t match with Password - 1st case",
+        "description": "",
+        "id": "check-signup-page;non-empty-confirm-password-which-doesn\u0027t-match-with-password---1st-case",
+        "type": "scenario",
+        "keyword": "Scenario",
+        "steps": [
+          {
+            "result": {
+              "duration": 2951807752,
+              "status": "passed"
+            },
+            "line": 409,
+            "name": "I have a browser opened",
+            "match": {
+              "location": "UITestingSteps.i_have_a_browser_opened()"
+            },
+            "keyword": "Given "
+          },
+          {
+            "result": {
+              "duration": 1380624205,
+              "status": "passed"
+            },
+            "line": 410,
+            "name": "I navigate to signup page",
+            "match": {
+              "location": "UITestingSteps.i_navigate_to_signup_page()"
+            },
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "duration": 596687205,
+              "status": "passed"
+            },
+            "line": 411,
+            "name": "I enter \"Group\" in first name field",
+            "match": {
+              "arguments": [
+                {
+                  "val": "Group",
+                  "offset": 9
+                }
+              ],
+              "location": "UITestingSteps.i_enter_in_first_name_field(String)"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 282916728,
+              "status": "passed"
+            },
+            "line": 412,
+            "name": "I enter \"4\" in last name field",
+            "match": {
+              "arguments": [
+                {
+                  "val": "4",
+                  "offset": 9
+                }
+              ],
+              "location": "UITestingSteps.i_enter_in_last_name_field(String)"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 286229604,
+              "status": "passed"
+            },
+            "line": 413,
+            "name": "I enter \"correct@e.com\" in email field",
+            "match": {
+              "arguments": [
+                {
+                  "val": "correct@e.com",
+                  "offset": 9
+                }
+              ],
+              "location": "UITestingSteps.i_enter_in_email_field(String)"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 114792389,
+              "status": "passed"
+            },
+            "line": 414,
+            "name": "I enter \"123456ab\" in password field",
+            "match": {
+              "arguments": [
+                {
+                  "val": "123456ab",
+                  "offset": 9
+                }
+              ],
+              "location": "UITestingSteps.i_enter_in_password_field(String)"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 265228637,
+              "status": "passed"
+            },
+            "line": 415,
+            "name": "I enter \"123\" in confirm password field",
+            "match": {
+              "arguments": [
+                {
+                  "val": "123",
+                  "offset": 9
+                }
+              ],
+              "location": "UITestingSteps.i_enter_in_confirm_password_field(String)"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 33701282,
+              "status": "passed"
+            },
+            "line": 416,
+            "name": "I click submit",
+            "match": {
+              "location": "UITestingSteps.i_click_submit()"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 34618392,
+              "status": "passed"
+            },
+            "line": 417,
+            "name": "I should not receive an empty confirm password message",
+            "match": {
+              "location": "UITestingSteps.i_should_not_receive_an_empty_confirm_password_message()"
+            },
+            "keyword": "Then "
+          },
+          {
+            "result": {
+              "duration": 26894333,
+              "status": "passed"
+            },
+            "line": 418,
+            "name": "I should receive a non-matching password message",
+            "match": {
+              "location": "UITestingSteps.i_should_receive_a_non_matching_password_message()"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 6435137,
+              "status": "passed"
+            },
+            "line": 419,
+            "name": "browser is closed",
+            "match": {
+              "location": "UITestingSteps.browser_is_closed()"
+            },
+            "keyword": "And "
+          }
+        ]
+      },
+      {
+        "line": 421,
+        "name": "Non-Empty Confirm Password which doesn\u0027t match with Password - 2nd case",
+        "description": "",
+        "id": "check-signup-page;non-empty-confirm-password-which-doesn\u0027t-match-with-password---2nd-case",
+        "type": "scenario",
+        "keyword": "Scenario",
+        "steps": [
+          {
+            "result": {
+              "duration": 3016029878,
+              "status": "passed"
+            },
+            "line": 422,
+            "name": "I have a browser opened",
+            "match": {
+              "location": "UITestingSteps.i_have_a_browser_opened()"
+            },
+            "keyword": "Given "
+          },
+          {
+            "result": {
+              "duration": 1443131816,
+              "status": "passed"
+            },
+            "line": 423,
+            "name": "I navigate to signup page",
+            "match": {
+              "location": "UITestingSteps.i_navigate_to_signup_page()"
+            },
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "duration": 582699798,
+              "status": "passed"
+            },
+            "line": 424,
+            "name": "I enter \"Group\" in first name field",
+            "match": {
+              "arguments": [
+                {
+                  "val": "Group",
+                  "offset": 9
+                }
+              ],
+              "location": "UITestingSteps.i_enter_in_first_name_field(String)"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 96881027,
+              "status": "passed"
+            },
+            "line": 425,
+            "name": "I enter \"4\" in last name field",
+            "match": {
+              "arguments": [
+                {
+                  "val": "4",
+                  "offset": 9
+                }
+              ],
+              "location": "UITestingSteps.i_enter_in_last_name_field(String)"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 391591277,
+              "status": "passed"
+            },
+            "line": 426,
+            "name": "I enter \"correct@e.com\" in email field",
+            "match": {
+              "arguments": [
+                {
+                  "val": "correct@e.com",
+                  "offset": 9
+                }
+              ],
+              "location": "UITestingSteps.i_enter_in_email_field(String)"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 170075070,
+              "status": "passed"
+            },
+            "line": 427,
+            "name": "I enter \"123456ab\" in password field",
+            "match": {
+              "arguments": [
+                {
+                  "val": "123456ab",
+                  "offset": 9
+                }
+              ],
+              "location": "UITestingSteps.i_enter_in_password_field(String)"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 280396387,
+              "status": "passed"
+            },
+            "line": 428,
+            "name": "I enter \"abc\" in confirm password field",
+            "match": {
+              "arguments": [
+                {
+                  "val": "abc",
+                  "offset": 9
+                }
+              ],
+              "location": "UITestingSteps.i_enter_in_confirm_password_field(String)"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 75789260,
+              "status": "passed"
+            },
+            "line": 429,
+            "name": "I click submit",
+            "match": {
+              "location": "UITestingSteps.i_click_submit()"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 40336524,
+              "status": "passed"
+            },
+            "line": 430,
+            "name": "I should not receive an empty confirm password message",
+            "match": {
+              "location": "UITestingSteps.i_should_not_receive_an_empty_confirm_password_message()"
+            },
+            "keyword": "Then "
+          },
+          {
+            "result": {
+              "duration": 27882434,
+              "status": "passed"
+            },
+            "line": 431,
+            "name": "I should receive a non-matching password message",
+            "match": {
+              "location": "UITestingSteps.i_should_receive_a_non_matching_password_message()"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 17346433,
+              "status": "passed"
+            },
+            "line": 432,
+            "name": "browser is closed",
+            "match": {
+              "location": "UITestingSteps.browser_is_closed()"
+            },
+            "keyword": "And "
+          }
+        ]
+      },
+      {
+        "line": 434,
+        "name": "Non-Empty Confirm Password which doesn\u0027t match with Password - 3rd case",
+        "description": "",
+        "id": "check-signup-page;non-empty-confirm-password-which-doesn\u0027t-match-with-password---3rd-case",
+        "type": "scenario",
+        "keyword": "Scenario",
+        "steps": [
+          {
+            "result": {
+              "duration": 2995147743,
+              "status": "passed"
+            },
+            "line": 435,
+            "name": "I have a browser opened",
+            "match": {
+              "location": "UITestingSteps.i_have_a_browser_opened()"
+            },
+            "keyword": "Given "
+          },
+          {
+            "result": {
+              "duration": 1483583523,
+              "status": "passed"
+            },
+            "line": 436,
+            "name": "I navigate to signup page",
+            "match": {
+              "location": "UITestingSteps.i_navigate_to_signup_page()"
+            },
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "duration": 517674382,
+              "status": "passed"
+            },
+            "line": 437,
+            "name": "I enter \"Group\" in first name field",
+            "match": {
+              "arguments": [
+                {
+                  "val": "Group",
+                  "offset": 9
+                }
+              ],
+              "location": "UITestingSteps.i_enter_in_first_name_field(String)"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 180972243,
+              "status": "passed"
+            },
+            "line": 438,
+            "name": "I enter \"4\" in last name field",
+            "match": {
+              "arguments": [
+                {
+                  "val": "4",
+                  "offset": 9
+                }
+              ],
+              "location": "UITestingSteps.i_enter_in_last_name_field(String)"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 354495688,
+              "status": "passed"
+            },
+            "line": 439,
+            "name": "I enter \"correct@e.com\" in email field",
+            "match": {
+              "arguments": [
+                {
+                  "val": "correct@e.com",
+                  "offset": 9
+                }
+              ],
+              "location": "UITestingSteps.i_enter_in_email_field(String)"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 237650182,
+              "status": "passed"
+            },
+            "line": 440,
+            "name": "I enter \"123456ab\" in password field",
+            "match": {
+              "arguments": [
+                {
+                  "val": "123456ab",
+                  "offset": 9
+                }
+              ],
+              "location": "UITestingSteps.i_enter_in_password_field(String)"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 261144071,
+              "status": "passed"
+            },
+            "line": 441,
+            "name": "I enter \"123ab\" in confirm password field",
+            "match": {
+              "arguments": [
+                {
+                  "val": "123ab",
+                  "offset": 9
+                }
+              ],
+              "location": "UITestingSteps.i_enter_in_confirm_password_field(String)"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 54842648,
+              "status": "passed"
+            },
+            "line": 442,
+            "name": "I click submit",
+            "match": {
+              "location": "UITestingSteps.i_click_submit()"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 55209692,
+              "status": "passed"
+            },
+            "line": 443,
+            "name": "I should not receive an empty confirm password message",
+            "match": {
+              "location": "UITestingSteps.i_should_not_receive_an_empty_confirm_password_message()"
+            },
+            "keyword": "Then "
+          },
+          {
+            "result": {
+              "duration": 37373679,
+              "status": "passed"
+            },
+            "line": 444,
+            "name": "I should receive a non-matching password message",
+            "match": {
+              "location": "UITestingSteps.i_should_receive_a_non_matching_password_message()"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 11393770,
+              "status": "passed"
+            },
+            "line": 445,
+            "name": "browser is closed",
+            "match": {
+              "location": "UITestingSteps.browser_is_closed()"
+            },
+            "keyword": "And "
+          }
+        ]
+      },
+      {
+        "line": 447,
+        "name": "Non-Empty Confirm Password which doesn\u0027t match with Password - 4th case",
+        "description": "",
+        "id": "check-signup-page;non-empty-confirm-password-which-doesn\u0027t-match-with-password---4th-case",
+        "type": "scenario",
+        "keyword": "Scenario",
+        "steps": [
+          {
+            "result": {
+              "duration": 3068602234,
+              "status": "passed"
+            },
+            "line": 448,
+            "name": "I have a browser opened",
+            "match": {
+              "location": "UITestingSteps.i_have_a_browser_opened()"
+            },
+            "keyword": "Given "
+          },
+          {
+            "result": {
+              "duration": 1378252828,
+              "status": "passed"
+            },
+            "line": 449,
+            "name": "I navigate to signup page",
+            "match": {
+              "location": "UITestingSteps.i_navigate_to_signup_page()"
+            },
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "duration": 666016332,
+              "status": "passed"
+            },
+            "line": 450,
+            "name": "I enter \"Group\" in first name field",
+            "match": {
+              "arguments": [
+                {
+                  "val": "Group",
+                  "offset": 9
+                }
+              ],
+              "location": "UITestingSteps.i_enter_in_first_name_field(String)"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 190778429,
+              "status": "passed"
+            },
+            "line": 451,
+            "name": "I enter \"4\" in last name field",
+            "match": {
+              "arguments": [
+                {
+                  "val": "4",
+                  "offset": 9
+                }
+              ],
+              "location": "UITestingSteps.i_enter_in_last_name_field(String)"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 291535194,
+              "status": "passed"
+            },
+            "line": 452,
+            "name": "I enter \"correct@e.com\" in email field",
+            "match": {
+              "arguments": [
+                {
+                  "val": "correct@e.com",
+                  "offset": 9
+                }
+              ],
+              "location": "UITestingSteps.i_enter_in_email_field(String)"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 110010557,
+              "status": "passed"
+            },
+            "line": 453,
+            "name": "I enter \"123456ab\" in password field",
+            "match": {
+              "arguments": [
+                {
+                  "val": "123456ab",
+                  "offset": 9
+                }
+              ],
+              "location": "UITestingSteps.i_enter_in_password_field(String)"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 297213984,
+              "status": "passed"
+            },
+            "line": 454,
+            "name": "I enter \"ab1233\" in confirm password field",
+            "match": {
+              "arguments": [
+                {
+                  "val": "ab1233",
+                  "offset": 9
+                }
+              ],
+              "location": "UITestingSteps.i_enter_in_confirm_password_field(String)"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 35834120,
+              "status": "passed"
+            },
+            "line": 455,
+            "name": "I click submit",
+            "match": {
+              "location": "UITestingSteps.i_click_submit()"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 25219118,
+              "status": "passed"
+            },
+            "line": 456,
+            "name": "I should not receive an empty confirm password message",
+            "match": {
+              "location": "UITestingSteps.i_should_not_receive_an_empty_confirm_password_message()"
+            },
+            "keyword": "Then "
+          },
+          {
+            "result": {
+              "duration": 35064423,
+              "status": "passed"
+            },
+            "line": 457,
+            "name": "I should receive a non-matching password message",
+            "match": {
+              "location": "UITestingSteps.i_should_receive_a_non_matching_password_message()"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 10355878,
+              "status": "passed"
+            },
+            "line": 458,
+            "name": "browser is closed",
+            "match": {
+              "location": "UITestingSteps.browser_is_closed()"
+            },
+            "keyword": "And "
+          }
+        ]
+      },
+      {
+        "line": 460,
+        "name": "Non-Empty Confirm Password which doesn\u0027t match with Password - 5th case",
+        "description": "",
+        "id": "check-signup-page;non-empty-confirm-password-which-doesn\u0027t-match-with-password---5th-case",
+        "type": "scenario",
+        "keyword": "Scenario",
+        "steps": [
+          {
+            "result": {
+              "duration": 2988133307,
+              "status": "passed"
+            },
+            "line": 461,
+            "name": "I have a browser opened",
+            "match": {
+              "location": "UITestingSteps.i_have_a_browser_opened()"
+            },
+            "keyword": "Given "
+          },
+          {
+            "result": {
+              "duration": 1389212305,
+              "status": "passed"
+            },
+            "line": 462,
+            "name": "I navigate to signup page",
+            "match": {
+              "location": "UITestingSteps.i_navigate_to_signup_page()"
+            },
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "duration": 761365222,
+              "status": "passed"
+            },
+            "line": 463,
+            "name": "I enter \"Group\" in first name field",
+            "match": {
+              "arguments": [
+                {
+                  "val": "Group",
+                  "offset": 9
+                }
+              ],
+              "location": "UITestingSteps.i_enter_in_first_name_field(String)"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 193147901,
+              "status": "passed"
+            },
+            "line": 464,
+            "name": "I enter \"4\" in last name field",
+            "match": {
+              "arguments": [
+                {
+                  "val": "4",
+                  "offset": 9
+                }
+              ],
+              "location": "UITestingSteps.i_enter_in_last_name_field(String)"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 302836470,
+              "status": "passed"
+            },
+            "line": 465,
+            "name": "I enter \"correct@e.com\" in email field",
+            "match": {
+              "arguments": [
+                {
+                  "val": "correct@e.com",
+                  "offset": 9
+                }
+              ],
+              "location": "UITestingSteps.i_enter_in_email_field(String)"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 235544604,
+              "status": "passed"
+            },
+            "line": 466,
+            "name": "I enter \"123456ab\" in password field",
+            "match": {
+              "arguments": [
+                {
+                  "val": "123456ab",
+                  "offset": 9
+                }
+              ],
+              "location": "UITestingSteps.i_enter_in_password_field(String)"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 399498164,
+              "status": "passed"
+            },
+            "line": 467,
+            "name": "I enter \"ab12cc3\" in confirm password field",
+            "match": {
+              "arguments": [
+                {
+                  "val": "ab12cc3",
+                  "offset": 9
+                }
+              ],
+              "location": "UITestingSteps.i_enter_in_confirm_password_field(String)"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 143608227,
+              "status": "passed"
+            },
+            "line": 468,
+            "name": "I click submit",
+            "match": {
+              "location": "UITestingSteps.i_click_submit()"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 29516771,
+              "status": "passed"
+            },
+            "line": 469,
+            "name": "I should not receive an empty confirm password message",
+            "match": {
+              "location": "UITestingSteps.i_should_not_receive_an_empty_confirm_password_message()"
+            },
+            "keyword": "Then "
+          },
+          {
+            "result": {
+              "duration": 27539264,
+              "status": "passed"
+            },
+            "line": 470,
+            "name": "I should receive a non-matching password message",
+            "match": {
+              "location": "UITestingSteps.i_should_receive_a_non_matching_password_message()"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 8690858,
+              "status": "passed"
+            },
+            "line": 471,
+            "name": "browser is closed",
+            "match": {
+              "location": "UITestingSteps.browser_is_closed()"
+            },
+            "keyword": "And "
+          }
+        ]
+      },
+      {
+        "line": 473,
+        "name": "Non-Empty Confirm Password matching with Password",
+        "description": "",
+        "id": "check-signup-page;non-empty-confirm-password-matching-with-password",
+        "type": "scenario",
+        "keyword": "Scenario",
+        "steps": [
+          {
+            "result": {
+              "duration": 3342212071,
+              "status": "passed"
+            },
+            "line": 474,
+            "name": "I have a browser opened",
+            "match": {
+              "location": "UITestingSteps.i_have_a_browser_opened()"
+            },
+            "keyword": "Given "
+          },
+          {
+            "result": {
+              "duration": 1488605254,
+              "status": "passed"
+            },
+            "line": 475,
+            "name": "I navigate to signup page",
+            "match": {
+              "location": "UITestingSteps.i_navigate_to_signup_page()"
+            },
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "duration": 576917029,
+              "status": "passed"
+            },
+            "line": 476,
+            "name": "I enter \"Group\" in first name field",
+            "match": {
+              "arguments": [
+                {
+                  "val": "Group",
+                  "offset": 9
+                }
+              ],
+              "location": "UITestingSteps.i_enter_in_first_name_field(String)"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 227315565,
+              "status": "passed"
+            },
+            "line": 477,
+            "name": "I enter \"4\" in last name field",
+            "match": {
+              "arguments": [
+                {
+                  "val": "4",
+                  "offset": 9
+                }
+              ],
+              "location": "UITestingSteps.i_enter_in_last_name_field(String)"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 323644646,
+              "status": "passed"
+            },
+            "line": 478,
+            "name": "I enter \"correct@e.com\" in email field",
+            "match": {
+              "arguments": [
+                {
+                  "val": "correct@e.com",
+                  "offset": 9
+                }
+              ],
+              "location": "UITestingSteps.i_enter_in_email_field(String)"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 201133604,
+              "status": "passed"
+            },
+            "line": 479,
+            "name": "I enter \"123456ab\" in password field",
+            "match": {
+              "arguments": [
+                {
+                  "val": "123456ab",
+                  "offset": 9
+                }
+              ],
+              "location": "UITestingSteps.i_enter_in_password_field(String)"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 302296687,
+              "status": "passed"
+            },
+            "line": 480,
+            "name": "I enter \"123456ab\" in confirm password field",
+            "match": {
+              "arguments": [
+                {
+                  "val": "123456ab",
+                  "offset": 9
+                }
+              ],
+              "location": "UITestingSteps.i_enter_in_confirm_password_field(String)"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 35673857,
+              "status": "passed"
+            },
+            "line": 481,
+            "name": "I click submit",
+            "match": {
+              "location": "UITestingSteps.i_click_submit()"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 38108918,
+              "status": "passed"
+            },
+            "line": 482,
+            "name": "I should not receive an empty confirm password message",
+            "match": {
+              "location": "UITestingSteps.i_should_not_receive_an_empty_confirm_password_message()"
+            },
+            "keyword": "Then "
+          },
+          {
+            "result": {
+              "duration": 46117867,
+              "status": "passed"
+            },
+            "line": 483,
+            "name": "I should not receive a non-matching password message",
+            "match": {
+              "location": "UITestingSteps.i_should_not_receive_a_non_matching_password_message()"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 11590862,
+              "status": "passed"
+            },
+            "line": 484,
+            "name": "browser is closed",
+            "match": {
+              "location": "UITestingSteps.browser_is_closed()"
+            },
+            "keyword": "And "
           }
         ]
       }
     ],
-    "name": "Check EmailVerification",
+    "name": "Check SignUp Page",
     "description": "",
-    "id": "check-emailverification",
+    "id": "check-signup-page",
     "keyword": "Feature",
-    "uri": "cucumber/EmailVerification.feature"
+    "uri": "cucumber/UITesting.feature"
   }
 ]

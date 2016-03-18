@@ -11,7 +11,7 @@
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
     <meta name="robots" content="noarchive" />
-    <title>Sign In</title>
+    <title>Sign Up</title>
     <link rel="shortcut icon" href="https://launchpad-asset2.37signals.com/favicon.ico?1455655021" />
     <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
 
@@ -143,7 +143,7 @@
                             var x = $scope.user.email;
                             var atpos = x.indexOf("@");
                             var dotpos = x.lastIndexOf(".");
-                            if (atpos<1 || dotpos<atpos+2 || dotpos+2>=x.length) {
+                            if (atpos<1 || dotpos<atpos+2 || dotpos+1>=x.length) {
                                 document.getElementById('lbltipAddedComment').innerHTML = 'Invalid Email id entered!!';
                                 return false;
                             }

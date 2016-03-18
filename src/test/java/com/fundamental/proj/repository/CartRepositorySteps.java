@@ -14,10 +14,8 @@ import org.hibernate.SessionFactory;
 import org.junit.Assert;
 import org.junit.Test;
 
-import org.mockito.InjectMocks;
-import org.mockito.Mock;
-import org.mockito.Mockito;
-import org.mockito.MockitoAnnotations;
+import org.mockito.*;
+import org.mockito.BDDMockito;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -71,8 +69,7 @@ public class CartRepositorySteps {
 
     @When("^updateCart\\(\\) is called incorrectly$")
     public void updatecart_is_called_incorrectly() throws Throwable {
-        Mockito.when(mockedSessionFactory.getCurrentSession()).thenReturn(mockedSession);
-        Mockito.doThrow(Exception.class).when(mockedSession).saveOrUpdate(Mockito.any(Cart.class));
+        BDDMockito.given(mockedSessionFactory.getCurrentSession()).willThrow(Exception.class);
     }
 
     @Then("^updateCart throws exception$")
@@ -81,9 +78,7 @@ public class CartRepositorySteps {
         Cart cart = new Cart();
         cartRepository.updateCart(cart);
 
-        // verify updateCart method has been called incorrectly
-        Mockito.verify(mockedSessionFactory).getCurrentSession();
-        Mockito.verify(mockedSession).saveOrUpdate(cart);
+
     }
 
     @Given("^expected list of carts is initialized$")
@@ -111,7 +106,7 @@ public class CartRepositorySteps {
     public void getcart_is_called() throws Throwable {
         Mockito.when(mockedSessionFactory.getCurrentSession()).thenReturn(mockedSession);
         Mockito.when(mockedSession.createQuery("from Cart where user_id=:uid")).thenReturn(mockedQuery);
-        Mockito.when(mockedQuery.setParameter(Mockito.anyString(), Mockito.anyLong())).thenReturn(mockedQuery);
+        Mockito.when(mockedQuery.setParameter(Mockito.eq("uid"), Mockito.anyLong())).thenReturn(mockedQuery);
         Mockito.when(mockedQuery.list()).thenReturn(expectedListCart);
     }
 
