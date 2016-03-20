@@ -482,3 +482,202 @@ Feature: Check SignUp Page
     Then I should not receive an empty confirm password message
     And I should not receive a non-matching password message
     And browser is closed
+
+#########################################################################################
+# Feature: Check Login Page
+
+  Scenario: Correct Login Page
+    Given I have a browser opened
+    When I navigate to login page
+    Then I should be in the login page
+    And browser is closed
+  #
+  # Check email
+  #
+  Scenario: Empty Email
+    Given I have a browser opened
+    When I navigate to login page
+    And I click submit
+    Then I should receive an please-enter email message
+    And browser is closed
+
+  Scenario: Non-Empty Email (Wrong Format 1)
+    Given I have a browser opened
+    When I navigate to login page
+    And I enter "wrong" in email field
+    And I click submit
+    Then I should receive an please-enter email message
+    And browser is closed
+
+  Scenario: Non-Empty Email (Wrong Format 2)
+    Given I have a browser opened
+    When I navigate to login page
+    And I enter "wrong." in email field
+    And I click submit
+    Then I should receive an please-enter email message
+    And browser is closed
+
+  Scenario: Non-Empty Email (Wrong Format 3)
+    Given I have a browser opened
+    When I navigate to login page
+    And I enter "wrong.@" in email field
+    And I click submit
+    Then I should receive an please-enter email message
+    And browser is closed
+
+  Scenario: Non-Empty Email (Wrong Format 4)
+    Given I have a browser opened
+    When I navigate to login page
+    And I enter "wrong@." in email field
+    And I click submit
+    Then I should receive an please-enter email message
+    And browser is closed
+
+  Scenario: Non-Empty Email (Wrong Format 5)
+    Given I have a browser opened
+    When I navigate to login page
+    And I enter "wrong@.co" in email field
+    And I click submit
+    Then I should receive an please-enter email message
+    And browser is closed
+
+  Scenario: Non-Empty Email (Wrong Format 6)
+    Given I have a browser opened
+    When I navigate to login page
+    And I enter "wrong.co@" in email field
+    And I click submit
+    Then I should receive an please-enter email message
+    And browser is closed
+
+  Scenario: Non-Empty Email (Wrong Format 7)
+    Given I have a browser opened
+    When I navigate to login page
+    And I enter "wrong.@c." in email field
+    And I click submit
+    Then I should receive an please-enter email message
+    And browser is closed
+
+  Scenario: Non-Empty Email (Correct Format)
+    Given I have a browser opened
+    When I navigate to login page
+    And I enter "correct@e.com" in email field
+    And I click submit
+    Then I should not receive an please-enter email message and should receive a please-enter password
+    And browser is closed
+
+    #
+    # Check password
+    #
+  Scenario: Non-Empty Password (Wrong account)
+    Given I have a browser opened
+    When I navigate to login page
+    And I enter "wrongaccount@e.com" in email field
+    And I enter "password1234" in password field in login
+    And I click submit
+    Then I should not receive an please-enter email message and should not receive a please-enter password
+    And I should receive a wrong account
+    And browser is closed
+
+  Scenario: Non-Empty Password (Correct account)
+    Given I have a browser opened
+    When I navigate to login page
+    And I enter "test@gmail.com" in email field
+    And I enter "test123456" in password field in login
+    And I click submit
+    Then I should be navigated to home page
+    And browser is closed
+
+########################################################################################
+# Feature: Check Forgot password Page
+
+  Scenario: Correct Forgot password Page
+    Given I have a browser opened
+    When I navigate to forgot password page
+    Then I should be in the forgot password page
+    And browser is closed
+
+  #
+  # Check email
+  #
+  Scenario: Empty Email
+    Given I have a browser opened
+    When I navigate to forgot password page
+    Then I should be in the forgot password page
+    And I click submit
+    Then I should receive an please-enter email message
+    And browser is closed
+
+  Scenario: Non-Empty Email (Wrong Format 1)
+    Given I have a browser opened
+    When I navigate to forgot password page
+    And I enter "wrong" in email field
+    And I click submit
+    Then I should receive an please-enter email message
+    And browser is closed
+
+  Scenario: Non-Empty Email (Wrong Format 2)
+    Given I have a browser opened
+    When I navigate to forgot password page
+    And I enter "wrong." in email field
+    And I click submit
+    Then I should receive an please-enter email message
+    And browser is closed
+
+  Scenario: Non-Empty Email (Wrong Format 3)
+    Given I have a browser opened
+    When I navigate to forgot password page
+    And I enter "wrong.@" in email field
+    And I click submit
+    Then I should receive an please-enter email message
+    And browser is closed
+
+  Scenario: Non-Empty Email (Wrong Format 4)
+    Given I have a browser opened
+    When I navigate to forgot password page
+    And I enter "wrong@." in email field
+    And I click submit
+    Then I should receive an please-enter email message
+    And browser is closed
+
+  Scenario: Non-Empty Email (Wrong Format 5)
+    Given I have a browser opened
+    When I navigate to forgot password page
+    And I enter "wrong@.co" in email field
+    And I click submit
+    Then I should receive an please-enter email message
+    And browser is closed
+
+  Scenario: Non-Empty Email (Wrong Format 6)
+    Given I have a browser opened
+    When I navigate to forgot password page
+    And I enter "wrong.co@" in email field
+    And I click submit
+    Then I should receive an please-enter email message
+    And browser is closed
+
+  Scenario: Non-Empty Email (Wrong Format 7)
+    Given I have a browser opened
+    When I navigate to forgot password page
+    And I enter "wrong.@c." in email field
+    And I click submit
+    Then I should receive an please-enter email message
+    And browser is closed
+
+  Scenario: Non-Empty Email (Correct Format - Invalid account's email)
+    Given I have a browser opened
+    When I navigate to forgot password page
+    And I enter "correct@e.com" in email field
+    And I click submit
+    Then I should not receive an please-enter email message and should receive a invalid email message
+    And browser is closed
+
+  Scenario: Non-Empty Email (Correct Format - Invalid account's email)
+    Given I have a browser opened
+    When I navigate to forgot password page
+    And I enter "test@gmail.com" in email field
+    And I click submit
+    Then I should not receive an please-enter email message and should not receive a invalid email message
+    And I should receive confirm alert
+    When I click ok
+    Then I should be in the login page
+    And browser is closed

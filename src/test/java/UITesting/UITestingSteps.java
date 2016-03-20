@@ -8,6 +8,8 @@ import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 /**
  * Created by Daniel Dao on 3/12/16.
@@ -20,10 +22,12 @@ public class UITestingSteps {
     @Given("^I have a browser opened")
     public void i_have_a_browser_opened() throws Throwable {
         driver = new FirefoxDriver();
+        WebDriverWait wait = new WebDriverWait(driver, 2);
     }
 
     @And("^browser is closed$")
     public void browser_is_closed() throws Throwable {
+        WebDriverWait wait = new WebDriverWait(driver, 2);
         driver.close();
     }
 
@@ -48,7 +52,6 @@ public class UITestingSteps {
     public void i_click_submit() throws Throwable {
         driver.findElement(By.id("lbltipAddedComment")).submit();
     }
-
 
     /*
      * First Name Check
@@ -193,9 +196,103 @@ public class UITestingSteps {
         Assert.assertNotEquals(msg, "Confirm Password does not match with Password");
     }
 
-
-    /*
-     *
-     */
     //-----------------------------------------------------------------------------------------------------------------
+    /*
+     * Login page check
+     */
+    @When("^I navigate to login page$")
+    public void i_navigate_to_login_page() throws Throwable {
+        driver.manage().window().maximize();
+        driver.get(homeURL);
+    }
+
+    @Then("^I should be in the login page$")
+    public void i_should_be_in_the_login_page() throws Throwable {
+        String msg = driver.getTitle();
+        Assert.assertEquals(msg, "Sign In");
+    }
+
+    @Then("^I should receive an please-enter email message$")
+    public void i_should_receive_an_please_enter_email_message() throws Throwable {
+        String msg = driver.findElement(By.id("lbltipAddedComment")).getAttribute("innerHTML").toString();
+        Assert.assertEquals(msg, "Please enter email id");
+    }
+
+    @Then("^I should not receive an please-enter email message and should receive a please-enter password$")
+    public void i_should_not_receive_an_please_enter_email_message_and_should_receive_a_please_enter_password() throws Throwable {
+        String msg = driver.findElement(By.id("lbltipAddedComment")).getAttribute("innerHTML").toString();
+        Assert.assertNotEquals(msg, "Please enter email id");
+        Assert.assertEquals(msg, "Please enter password");
+    }
+
+    @Then("^I should not receive an please-enter email message and should not receive a please-enter password$")
+    public void i_should_not_receive_an_please_enter_email_message_and_should_not_receive_a_please_enter_password() throws Throwable {
+        String msg = driver.findElement(By.id("lbltipAddedComment")).getAttribute("innerHTML").toString();
+        Assert.assertNotEquals(msg, "Please enter email id");
+        Assert.assertNotEquals(msg, "Please enter password");
+    }
+
+    @And("^I enter \"([^\"]*)\" in password field in login$")
+    public void i_enter_in_password_field_login(String arg1) throws Throwable {
+        driver.findElement(By.id("askpassword")).sendKeys(arg1);
+    }
+
+    @Then("^I should receive a wrong account$")
+    public void i_should_receive_a_wrong_account() throws Throwable {
+        String msg = driver.findElement(By.id("lbltipAddedComment")).getAttribute("innerHTML");
+        Assert.assertEquals(msg, "Invalid Credentials!!");
+    }
+
+    @Then("^I should be navigated to home page$")
+    public void i_should_be_navigated_to_home_page() throws Throwable {
+        WebDriverWait wait = new WebDriverWait(driver, 5);
+        wait.until(ExpectedConditions.urlToBe("http://localhost:8080/home"));
+        String msg = driver.getTitle();
+        Assert.assertEquals(msg, "Home");
+    }
+
+    //-----------------------------------------------------------------------------------------------------------------
+    /*
+     * Forgot password page check
+     */
+    @When("^I navigate to forgot password page$")
+    public void i_navigate_to_forgot_password_page() throws Throwable {
+        driver.manage().window().maximize();
+        driver.get(homeURL);
+        driver.findElement(By.linkText("Forgot Password?")).click();
+
+    }
+
+    @Then("^I should be in the forgot password page$")
+    public void i_should_be_in_the_forgot_password_page() throws Throwable {
+        String msg = driver.getTitle();
+        Assert.assertEquals(msg, "Forgot your password?");
+    }
+
+    @Then("^I should not receive an please-enter email message and should receive a invalid email message$")
+    public void i_should_not_receive_an_please_enter_email_message_and_should_receive_a_invalid_email_message() throws Throwable {
+        String msg = driver.findElement(By.id("lbltipAddedComment")).getAttribute("innerHTML").toString();
+        Assert.assertNotEquals(msg, "Please enter email id");
+        Assert.assertEquals(msg, "Invalid Email Id!!!");
+    }
+
+    @Then("^I should not receive an please-enter email message and should not receive a invalid email message$")
+    public void i_should_not_receive_an_please_enter_email_message_and_should_not_receive_a_invalid_email_message() throws Throwable {
+        String msg = driver.findElement(By.id("lbltipAddedComment")).getAttribute("innerHTML").toString();
+        Assert.assertNotEquals(msg, "Please enter email id");
+        Assert.assertNotEquals(msg, "Invalid Email Id!!!");
+    }
+
+    @And("^I should receive confirm alert$")
+    public void i_should_receive_confirm_alert() throws Throwable {
+        WebDriverWait wait = new WebDriverWait(driver, 5);
+        wait.until(ExpectedConditions.alertIsPresent());
+       Assert.assertEquals(driver.switchTo().alert().getText(), "Email has been sent to your email");
+    }
+
+    @When("^I click ok$")
+    public void i_click_ok() throws Throwable {
+        driver.switchTo().alert().accept();
+    }
+
 }
