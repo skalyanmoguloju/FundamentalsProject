@@ -4,57 +4,57 @@
     "elements": [
       {
         "line": 3,
-        "name": "getId returns id",
+        "name": "getRole returns role",
         "description": "",
-        "id": "check-user;getid-returns-id",
+        "id": "check-roles;getrole-returns-role",
         "type": "scenario",
         "keyword": "Scenario",
         "steps": [
           {
             "result": {
-              "duration": 27704765,
+              "duration": 510512655,
               "status": "passed"
             },
             "line": 4,
-            "name": "user is set up",
+            "name": "Roles is set up",
             "match": {
-              "location": "UserSteps.user_is_set_up()"
+              "location": "RolesSteps.roles_is_set_up()"
             },
             "keyword": "Given "
           },
           {
             "result": {
-              "duration": 910877,
+              "duration": 17721601,
               "status": "passed"
             },
             "line": 5,
-            "name": "id 1 is set",
+            "name": "roles \"Admin\" is set",
             "match": {
               "arguments": [
                 {
-                  "val": "1",
-                  "offset": 3
+                  "val": "Admin",
+                  "offset": 7
                 }
               ],
-              "location": "UserSteps.id_is_set(int)"
+              "location": "RolesSteps.roles_is_set(String)"
             },
             "keyword": "When "
           },
           {
             "result": {
-              "duration": 972151,
+              "duration": 14454908,
               "status": "passed"
             },
             "line": 6,
-            "name": "getId returns 1",
+            "name": "getRole returns role \"Admin\"",
             "match": {
               "arguments": [
                 {
-                  "val": "1",
-                  "offset": 14
+                  "val": "Admin",
+                  "offset": 22
                 }
               ],
-              "location": "UserSteps.getid_returns(int)"
+              "location": "RolesSteps.getrole_returns_role(String)"
             },
             "keyword": "Then "
           }
@@ -62,473 +62,67 @@
       },
       {
         "line": 8,
-        "name": "getName returns name",
+        "name": "getRights returns right",
         "description": "",
-        "id": "check-user;getname-returns-name",
+        "id": "check-roles;getrights-returns-right",
         "type": "scenario",
         "keyword": "Scenario",
         "steps": [
           {
             "result": {
-              "duration": 879190,
+              "duration": 1283564,
               "status": "passed"
             },
             "line": 9,
-            "name": "user is set up",
+            "name": "Roles is set up",
             "match": {
-              "location": "UserSteps.user_is_set_up()"
+              "location": "RolesSteps.roles_is_set_up()"
             },
             "keyword": "Given "
           },
           {
             "result": {
-              "duration": 697565,
+              "duration": 839850,
               "status": "passed"
             },
             "line": 10,
-            "name": "name \"testname\" is set",
+            "name": "right \"No Right\" is set",
             "match": {
               "arguments": [
                 {
-                  "val": "testname",
-                  "offset": 6
-                }
-              ],
-              "location": "UserSteps.name_is_set(String)"
-            },
-            "keyword": "When "
-          },
-          {
-            "result": {
-              "duration": 2047279,
-              "status": "passed"
-            },
-            "line": 11,
-            "name": "getName returns \"testname\"",
-            "match": {
-              "arguments": [
-                {
-                  "val": "testname",
-                  "offset": 17
-                }
-              ],
-              "location": "UserSteps.getname_returns(String)"
-            },
-            "keyword": "Then "
-          }
-        ]
-      },
-      {
-        "line": 13,
-        "name": "getLname returns last name",
-        "description": "",
-        "id": "check-user;getlname-returns-last-name",
-        "type": "scenario",
-        "keyword": "Scenario",
-        "steps": [
-          {
-            "result": {
-              "duration": 291901,
-              "status": "passed"
-            },
-            "line": 14,
-            "name": "user is set up",
-            "match": {
-              "location": "UserSteps.user_is_set_up()"
-            },
-            "keyword": "Given "
-          },
-          {
-            "result": {
-              "duration": 783473,
-              "status": "passed"
-            },
-            "line": 15,
-            "name": "last name \"testlname\" is set",
-            "match": {
-              "arguments": [
-                {
-                  "val": "testlname",
-                  "offset": 11
-                }
-              ],
-              "location": "UserSteps.last_name_is_set(String)"
-            },
-            "keyword": "When "
-          },
-          {
-            "result": {
-              "duration": 347860,
-              "status": "passed"
-            },
-            "line": 16,
-            "name": "getLname returns \"testlname\"",
-            "match": {
-              "arguments": [
-                {
-                  "val": "testlname",
-                  "offset": 18
-                }
-              ],
-              "location": "UserSteps.getlname_returns(String)"
-            },
-            "keyword": "Then "
-          }
-        ]
-      },
-      {
-        "line": 18,
-        "name": "getEmail returns email",
-        "description": "",
-        "id": "check-user;getemail-returns-email",
-        "type": "scenario",
-        "keyword": "Scenario",
-        "steps": [
-          {
-            "result": {
-              "duration": 336084,
-              "status": "passed"
-            },
-            "line": 19,
-            "name": "user is set up",
-            "match": {
-              "location": "UserSteps.user_is_set_up()"
-            },
-            "keyword": "Given "
-          },
-          {
-            "result": {
-              "duration": 582753,
-              "status": "passed"
-            },
-            "line": 20,
-            "name": "email \"test@gmail.com\" is set",
-            "match": {
-              "arguments": [
-                {
-                  "val": "test@gmail.com",
+                  "val": "No Right",
                   "offset": 7
                 }
               ],
-              "location": "UserSteps.email_is_set(String)"
+              "location": "RolesSteps.right_is_set(String)"
             },
             "keyword": "When "
           },
           {
             "result": {
-              "duration": 545795,
+              "duration": 1300237,
               "status": "passed"
             },
-            "line": 21,
-            "name": "getEmail returns \"test@gmail.com\"",
+            "line": 11,
+            "name": "gerRights returns right \"No Right\"",
             "match": {
               "arguments": [
                 {
-                  "val": "test@gmail.com",
-                  "offset": 18
+                  "val": "No Right",
+                  "offset": 25
                 }
               ],
-              "location": "UserSteps.getemail_returns(String)"
-            },
-            "keyword": "Then "
-          }
-        ]
-      },
-      {
-        "line": 23,
-        "name": "getPwsd returns password",
-        "description": "",
-        "id": "check-user;getpwsd-returns-password",
-        "type": "scenario",
-        "keyword": "Scenario",
-        "steps": [
-          {
-            "result": {
-              "duration": 2910268,
-              "status": "passed"
-            },
-            "line": 24,
-            "name": "user is set up",
-            "match": {
-              "location": "UserSteps.user_is_set_up()"
-            },
-            "keyword": "Given "
-          },
-          {
-            "result": {
-              "duration": 546062,
-              "status": "passed"
-            },
-            "line": 25,
-            "name": "password \"testpassword\" is set",
-            "match": {
-              "arguments": [
-                {
-                  "val": "testpassword",
-                  "offset": 10
-                }
-              ],
-              "location": "UserSteps.password_is_set(String)"
-            },
-            "keyword": "When "
-          },
-          {
-            "result": {
-              "duration": 3288320,
-              "status": "passed"
-            },
-            "line": 26,
-            "name": "getPwsd returns \"testpassword\"",
-            "match": {
-              "arguments": [
-                {
-                  "val": "testpassword",
-                  "offset": 17
-                }
-              ],
-              "location": "UserSteps.getpwsd_returns(String)"
-            },
-            "keyword": "Then "
-          }
-        ]
-      },
-      {
-        "line": 28,
-        "name": "getDob returns date of birth",
-        "description": "",
-        "id": "check-user;getdob-returns-date-of-birth",
-        "type": "scenario",
-        "keyword": "Scenario",
-        "steps": [
-          {
-            "result": {
-              "duration": 9116877,
-              "status": "passed"
-            },
-            "line": 29,
-            "name": "user is set up",
-            "match": {
-              "location": "UserSteps.user_is_set_up()"
-            },
-            "keyword": "Given "
-          },
-          {
-            "result": {
-              "duration": 1633464,
-              "status": "passed"
-            },
-            "line": 30,
-            "name": "date \"2000-01-01\" is set",
-            "match": {
-              "arguments": [
-                {
-                  "val": "2000-01-01",
-                  "offset": 6
-                }
-              ],
-              "location": "UserSteps.date_is_set(String)"
-            },
-            "keyword": "When "
-          },
-          {
-            "result": {
-              "duration": 1529824,
-              "status": "passed"
-            },
-            "line": 31,
-            "name": "getDob returns \"2000-01-01\"",
-            "match": {
-              "arguments": [
-                {
-                  "val": "2000-01-01",
-                  "offset": 16
-                }
-              ],
-              "location": "UserSteps.getdob_returns(String)"
-            },
-            "keyword": "Then "
-          }
-        ]
-      },
-      {
-        "line": 33,
-        "name": "getRole returns role",
-        "description": "",
-        "id": "check-user;getrole-returns-role",
-        "type": "scenario",
-        "keyword": "Scenario",
-        "steps": [
-          {
-            "result": {
-              "duration": 1276896,
-              "status": "passed"
-            },
-            "line": 34,
-            "name": "user is set up",
-            "match": {
-              "location": "UserSteps.user_is_set_up()"
-            },
-            "keyword": "Given "
-          },
-          {
-            "result": {
-              "duration": 420602,
-              "status": "passed"
-            },
-            "line": 35,
-            "name": "role \"User\" is set",
-            "match": {
-              "arguments": [
-                {
-                  "val": "User",
-                  "offset": 6
-                }
-              ],
-              "location": "UserSteps.role_is_set(String)"
-            },
-            "keyword": "When "
-          },
-          {
-            "result": {
-              "duration": 499645,
-              "status": "passed"
-            },
-            "line": 36,
-            "name": "getRole returns \"User\"",
-            "match": {
-              "arguments": [
-                {
-                  "val": "User",
-                  "offset": 17
-                }
-              ],
-              "location": "UserSteps.getrole_returns(String)"
-            },
-            "keyword": "Then "
-          }
-        ]
-      },
-      {
-        "line": 38,
-        "name": "getStatus returns status",
-        "description": "",
-        "id": "check-user;getstatus-returns-status",
-        "type": "scenario",
-        "keyword": "Scenario",
-        "steps": [
-          {
-            "result": {
-              "duration": 497256,
-              "status": "passed"
-            },
-            "line": 39,
-            "name": "user is set up",
-            "match": {
-              "location": "UserSteps.user_is_set_up()"
-            },
-            "keyword": "Given "
-          },
-          {
-            "result": {
-              "duration": 306349,
-              "status": "passed"
-            },
-            "line": 40,
-            "name": "status \"Activate\" is set",
-            "match": {
-              "arguments": [
-                {
-                  "val": "Activate",
-                  "offset": 8
-                }
-              ],
-              "location": "UserSteps.status_is_set(String)"
-            },
-            "keyword": "When "
-          },
-          {
-            "result": {
-              "duration": 428308,
-              "status": "passed"
-            },
-            "line": 41,
-            "name": "getStatus returns \"Activate\"",
-            "match": {
-              "arguments": [
-                {
-                  "val": "Activate",
-                  "offset": 19
-                }
-              ],
-              "location": "UserSteps.getstatus_returns(String)"
-            },
-            "keyword": "Then "
-          }
-        ]
-      },
-      {
-        "line": 43,
-        "name": "getGender returns gender",
-        "description": "",
-        "id": "check-user;getgender-returns-gender",
-        "type": "scenario",
-        "keyword": "Scenario",
-        "steps": [
-          {
-            "result": {
-              "duration": 997179,
-              "status": "passed"
-            },
-            "line": 44,
-            "name": "user is set up",
-            "match": {
-              "location": "UserSteps.user_is_set_up()"
-            },
-            "keyword": "Given "
-          },
-          {
-            "result": {
-              "duration": 724053,
-              "status": "passed"
-            },
-            "line": 45,
-            "name": "gender \"M\" is set",
-            "match": {
-              "arguments": [
-                {
-                  "val": "M",
-                  "offset": 8
-                }
-              ],
-              "location": "UserSteps.gender_is_set(String)"
-            },
-            "keyword": "When "
-          },
-          {
-            "result": {
-              "duration": 1052078,
-              "status": "passed"
-            },
-            "line": 46,
-            "name": "getGender returns \"M\"",
-            "match": {
-              "arguments": [
-                {
-                  "val": "M",
-                  "offset": 19
-                }
-              ],
-              "location": "UserSteps.getgender_returns(String)"
+              "location": "RolesSteps.getrights_returns_right(String)"
             },
             "keyword": "Then "
           }
         ]
       }
     ],
-    "name": "Check User",
+    "name": "Check Roles",
     "description": "",
-    "id": "check-user",
+    "id": "check-roles",
     "keyword": "Feature",
-    "uri": "cucumber/User.feature"
+    "uri": "cucumber/Roles.feature"
   }
 ]
