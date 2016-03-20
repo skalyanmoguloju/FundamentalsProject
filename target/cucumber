@@ -3,58 +3,52 @@
     "line": 1,
     "elements": [
       {
+        "comments": [
+          {
+            "line": 2,
+            "value": "# Test getId and setId"
+          }
+        ],
         "line": 3,
-        "name": "getId returns id",
+        "name": "getId returns correct id",
         "description": "",
-        "id": "check-user;getid-returns-id",
+        "id": "check-userbean;getid-returns-correct-id",
         "type": "scenario",
         "keyword": "Scenario",
         "steps": [
           {
             "result": {
-              "duration": 27704765,
+              "duration": 738500285,
               "status": "passed"
             },
             "line": 4,
-            "name": "user is set up",
+            "name": "mock UserBean is initialized",
             "match": {
-              "location": "UserSteps.user_is_set_up()"
+              "location": "UserBeanSteps.mock_UserBean_is_initialized()"
             },
             "keyword": "Given "
           },
           {
             "result": {
-              "duration": 910877,
+              "duration": 32941294,
               "status": "passed"
             },
             "line": 5,
-            "name": "id 1 is set",
+            "name": "getId() is called",
             "match": {
-              "arguments": [
-                {
-                  "val": "1",
-                  "offset": 3
-                }
-              ],
-              "location": "UserSteps.id_is_set(int)"
+              "location": "UserBeanSteps.getid_is_called()"
             },
             "keyword": "When "
           },
           {
             "result": {
-              "duration": 972151,
+              "duration": 2614193,
               "status": "passed"
             },
             "line": 6,
-            "name": "getId returns 1",
+            "name": "an id is returned",
             "match": {
-              "arguments": [
-                {
-                  "val": "1",
-                  "offset": 14
-                }
-              ],
-              "location": "UserSteps.getid_returns(int)"
+              "location": "UserBeanSteps.an_id_is_returned()"
             },
             "keyword": "Then "
           }
@@ -62,473 +56,839 @@
       },
       {
         "line": 8,
-        "name": "getName returns name",
+        "name": "setId sets Id",
         "description": "",
-        "id": "check-user;getname-returns-name",
+        "id": "check-userbean;setid-sets-id",
         "type": "scenario",
         "keyword": "Scenario",
         "steps": [
           {
             "result": {
-              "duration": 879190,
+              "duration": 2039403,
               "status": "passed"
             },
             "line": 9,
-            "name": "user is set up",
+            "name": "mock UserBean is initialized",
             "match": {
-              "location": "UserSteps.user_is_set_up()"
+              "location": "UserBeanSteps.mock_UserBean_is_initialized()"
             },
             "keyword": "Given "
           },
           {
             "result": {
-              "duration": 697565,
+              "duration": 49647607,
               "status": "passed"
             },
             "line": 10,
-            "name": "name \"testname\" is set",
+            "name": "setId() is called",
             "match": {
-              "arguments": [
-                {
-                  "val": "testname",
-                  "offset": 6
-                }
-              ],
-              "location": "UserSteps.name_is_set(String)"
+              "location": "UserBeanSteps.setid_is_called()"
             },
             "keyword": "When "
           },
           {
             "result": {
-              "duration": 2047279,
+              "duration": 461461,
               "status": "passed"
             },
             "line": 11,
-            "name": "getName returns \"testname\"",
+            "name": "setId() is successfully called",
             "match": {
-              "arguments": [
-                {
-                  "val": "testname",
-                  "offset": 17
-                }
-              ],
-              "location": "UserSteps.getname_returns(String)"
+              "location": "UserBeanSteps.setid_is_successfully_called()"
             },
             "keyword": "Then "
           }
         ]
       },
       {
-        "line": 13,
-        "name": "getLname returns last name",
+        "comments": [
+          {
+            "line": 13,
+            "value": "# Test getDob and setDob"
+          }
+        ],
+        "line": 14,
+        "name": "getDob returns correct dob",
         "description": "",
-        "id": "check-user;getlname-returns-last-name",
+        "id": "check-userbean;getdob-returns-correct-dob",
         "type": "scenario",
         "keyword": "Scenario",
         "steps": [
           {
             "result": {
-              "duration": 291901,
-              "status": "passed"
-            },
-            "line": 14,
-            "name": "user is set up",
-            "match": {
-              "location": "UserSteps.user_is_set_up()"
-            },
-            "keyword": "Given "
-          },
-          {
-            "result": {
-              "duration": 783473,
+              "duration": 7307363,
               "status": "passed"
             },
             "line": 15,
-            "name": "last name \"testlname\" is set",
+            "name": "mock UserBean is initialized",
             "match": {
-              "arguments": [
-                {
-                  "val": "testlname",
-                  "offset": 11
-                }
-              ],
-              "location": "UserSteps.last_name_is_set(String)"
+              "location": "UserBeanSteps.mock_UserBean_is_initialized()"
             },
-            "keyword": "When "
+            "keyword": "Given "
           },
           {
             "result": {
-              "duration": 347860,
+              "duration": 7572166,
               "status": "passed"
             },
             "line": 16,
-            "name": "getLname returns \"testlname\"",
+            "name": "getDob() is called",
             "match": {
-              "arguments": [
-                {
-                  "val": "testlname",
-                  "offset": 18
-                }
-              ],
-              "location": "UserSteps.getlname_returns(String)"
+              "location": "UserBeanSteps.getdob_is_called()"
+            },
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "duration": 97846,
+              "status": "passed"
+            },
+            "line": 17,
+            "name": "a date is returned",
+            "match": {
+              "location": "UserBeanSteps.a_date_is_returned()"
             },
             "keyword": "Then "
           }
         ]
       },
       {
-        "line": 18,
-        "name": "getEmail returns email",
+        "line": 19,
+        "name": "setDob sets dob",
         "description": "",
-        "id": "check-user;getemail-returns-email",
+        "id": "check-userbean;setdob-sets-dob",
         "type": "scenario",
         "keyword": "Scenario",
         "steps": [
           {
             "result": {
-              "duration": 336084,
-              "status": "passed"
-            },
-            "line": 19,
-            "name": "user is set up",
-            "match": {
-              "location": "UserSteps.user_is_set_up()"
-            },
-            "keyword": "Given "
-          },
-          {
-            "result": {
-              "duration": 582753,
+              "duration": 13051257,
               "status": "passed"
             },
             "line": 20,
-            "name": "email \"test@gmail.com\" is set",
+            "name": "mock UserBean is initialized",
             "match": {
-              "arguments": [
-                {
-                  "val": "test@gmail.com",
-                  "offset": 7
-                }
-              ],
-              "location": "UserSteps.email_is_set(String)"
+              "location": "UserBeanSteps.mock_UserBean_is_initialized()"
             },
-            "keyword": "When "
+            "keyword": "Given "
           },
           {
             "result": {
-              "duration": 545795,
+              "duration": 1151708,
               "status": "passed"
             },
             "line": 21,
-            "name": "getEmail returns \"test@gmail.com\"",
+            "name": "setDob() is called",
             "match": {
-              "arguments": [
-                {
-                  "val": "test@gmail.com",
-                  "offset": 18
-                }
-              ],
-              "location": "UserSteps.getemail_returns(String)"
+              "location": "UserBeanSteps.setdob_is_called()"
+            },
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "duration": 409269,
+              "status": "passed"
+            },
+            "line": 22,
+            "name": "setDob() is successfully called",
+            "match": {
+              "location": "UserBeanSteps.setdob_is_successfully_called()"
             },
             "keyword": "Then "
           }
         ]
       },
       {
-        "line": 23,
-        "name": "getPwsd returns password",
+        "comments": [
+          {
+            "line": 24,
+            "value": "# Test getEmail and setEmail"
+          }
+        ],
+        "line": 25,
+        "name": "getEmail returns correct email",
         "description": "",
-        "id": "check-user;getpwsd-returns-password",
+        "id": "check-userbean;getemail-returns-correct-email",
         "type": "scenario",
         "keyword": "Scenario",
         "steps": [
           {
             "result": {
-              "duration": 2910268,
-              "status": "passed"
-            },
-            "line": 24,
-            "name": "user is set up",
-            "match": {
-              "location": "UserSteps.user_is_set_up()"
-            },
-            "keyword": "Given "
-          },
-          {
-            "result": {
-              "duration": 546062,
-              "status": "passed"
-            },
-            "line": 25,
-            "name": "password \"testpassword\" is set",
-            "match": {
-              "arguments": [
-                {
-                  "val": "testpassword",
-                  "offset": 10
-                }
-              ],
-              "location": "UserSteps.password_is_set(String)"
-            },
-            "keyword": "When "
-          },
-          {
-            "result": {
-              "duration": 3288320,
+              "duration": 27440900,
               "status": "passed"
             },
             "line": 26,
-            "name": "getPwsd returns \"testpassword\"",
+            "name": "mock UserBean is initialized",
             "match": {
-              "arguments": [
-                {
-                  "val": "testpassword",
-                  "offset": 17
-                }
-              ],
-              "location": "UserSteps.getpwsd_returns(String)"
+              "location": "UserBeanSteps.mock_UserBean_is_initialized()"
+            },
+            "keyword": "Given "
+          },
+          {
+            "result": {
+              "duration": 6136744,
+              "status": "passed"
+            },
+            "line": 27,
+            "name": "getEmail() is called",
+            "match": {
+              "location": "UserBeanSteps.getemail_is_called()"
+            },
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "duration": 93096,
+              "status": "passed"
+            },
+            "line": 28,
+            "name": "an email string is returned",
+            "match": {
+              "location": "UserBeanSteps.an_email_string_is_returned()"
             },
             "keyword": "Then "
           }
         ]
       },
       {
-        "line": 28,
-        "name": "getDob returns date of birth",
+        "line": 30,
+        "name": "setEmail sets email",
         "description": "",
-        "id": "check-user;getdob-returns-date-of-birth",
+        "id": "check-userbean;setemail-sets-email",
         "type": "scenario",
         "keyword": "Scenario",
         "steps": [
           {
             "result": {
-              "duration": 9116877,
-              "status": "passed"
-            },
-            "line": 29,
-            "name": "user is set up",
-            "match": {
-              "location": "UserSteps.user_is_set_up()"
-            },
-            "keyword": "Given "
-          },
-          {
-            "result": {
-              "duration": 1633464,
-              "status": "passed"
-            },
-            "line": 30,
-            "name": "date \"2000-01-01\" is set",
-            "match": {
-              "arguments": [
-                {
-                  "val": "2000-01-01",
-                  "offset": 6
-                }
-              ],
-              "location": "UserSteps.date_is_set(String)"
-            },
-            "keyword": "When "
-          },
-          {
-            "result": {
-              "duration": 1529824,
+              "duration": 10693471,
               "status": "passed"
             },
             "line": 31,
-            "name": "getDob returns \"2000-01-01\"",
+            "name": "mock UserBean is initialized",
             "match": {
-              "arguments": [
-                {
-                  "val": "2000-01-01",
-                  "offset": 16
-                }
-              ],
-              "location": "UserSteps.getdob_returns(String)"
-            },
-            "keyword": "Then "
-          }
-        ]
-      },
-      {
-        "line": 33,
-        "name": "getRole returns role",
-        "description": "",
-        "id": "check-user;getrole-returns-role",
-        "type": "scenario",
-        "keyword": "Scenario",
-        "steps": [
-          {
-            "result": {
-              "duration": 1276896,
-              "status": "passed"
-            },
-            "line": 34,
-            "name": "user is set up",
-            "match": {
-              "location": "UserSteps.user_is_set_up()"
+              "location": "UserBeanSteps.mock_UserBean_is_initialized()"
             },
             "keyword": "Given "
           },
           {
             "result": {
-              "duration": 420602,
+              "duration": 352425,
               "status": "passed"
             },
-            "line": 35,
-            "name": "role \"User\" is set",
+            "line": 32,
+            "name": "setEmail() is called",
             "match": {
-              "arguments": [
-                {
-                  "val": "User",
-                  "offset": 6
-                }
-              ],
-              "location": "UserSteps.role_is_set(String)"
+              "location": "UserBeanSteps.setemail_is_called()"
             },
             "keyword": "When "
           },
           {
             "result": {
-              "duration": 499645,
+              "duration": 1617707,
               "status": "passed"
             },
-            "line": 36,
-            "name": "getRole returns \"User\"",
+            "line": 33,
+            "name": "setEmail() is successfully called",
             "match": {
-              "arguments": [
-                {
-                  "val": "User",
-                  "offset": 17
-                }
-              ],
-              "location": "UserSteps.getrole_returns(String)"
+              "location": "UserBeanSteps.setemail_is_successfully_called()"
             },
             "keyword": "Then "
           }
         ]
       },
       {
-        "line": 38,
-        "name": "getStatus returns status",
+        "comments": [
+          {
+            "line": 35,
+            "value": "# Test getLname and setLname"
+          }
+        ],
+        "line": 36,
+        "name": "getLname returns correct lname",
         "description": "",
-        "id": "check-user;getstatus-returns-status",
+        "id": "check-userbean;getlname-returns-correct-lname",
         "type": "scenario",
         "keyword": "Scenario",
         "steps": [
           {
             "result": {
-              "duration": 497256,
+              "duration": 12169291,
+              "status": "passed"
+            },
+            "line": 37,
+            "name": "mock UserBean is initialized",
+            "match": {
+              "location": "UserBeanSteps.mock_UserBean_is_initialized()"
+            },
+            "keyword": "Given "
+          },
+          {
+            "result": {
+              "duration": 487162,
+              "status": "passed"
+            },
+            "line": 38,
+            "name": "getLname() is called",
+            "match": {
+              "location": "UserBeanSteps.getlname_is_called()"
+            },
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "duration": 129915,
               "status": "passed"
             },
             "line": 39,
-            "name": "user is set up",
+            "name": "a lname string is returned",
             "match": {
-              "location": "UserSteps.user_is_set_up()"
-            },
-            "keyword": "Given "
-          },
-          {
-            "result": {
-              "duration": 306349,
-              "status": "passed"
-            },
-            "line": 40,
-            "name": "status \"Activate\" is set",
-            "match": {
-              "arguments": [
-                {
-                  "val": "Activate",
-                  "offset": 8
-                }
-              ],
-              "location": "UserSteps.status_is_set(String)"
-            },
-            "keyword": "When "
-          },
-          {
-            "result": {
-              "duration": 428308,
-              "status": "passed"
-            },
-            "line": 41,
-            "name": "getStatus returns \"Activate\"",
-            "match": {
-              "arguments": [
-                {
-                  "val": "Activate",
-                  "offset": 19
-                }
-              ],
-              "location": "UserSteps.getstatus_returns(String)"
+              "location": "UserBeanSteps.a_lname_string_is_returned()"
             },
             "keyword": "Then "
           }
         ]
       },
       {
-        "line": 43,
-        "name": "getGender returns gender",
+        "line": 41,
+        "name": "setLname sets lname",
         "description": "",
-        "id": "check-user;getgender-returns-gender",
+        "id": "check-userbean;setlname-sets-lname",
         "type": "scenario",
         "keyword": "Scenario",
         "steps": [
           {
             "result": {
-              "duration": 997179,
+              "duration": 1400360,
               "status": "passed"
             },
-            "line": 44,
-            "name": "user is set up",
+            "line": 42,
+            "name": "mock UserBean is initialized",
             "match": {
-              "location": "UserSteps.user_is_set_up()"
+              "location": "UserBeanSteps.mock_UserBean_is_initialized()"
             },
             "keyword": "Given "
           },
           {
             "result": {
-              "duration": 724053,
+              "duration": 361342,
               "status": "passed"
             },
-            "line": 45,
-            "name": "gender \"M\" is set",
+            "line": 43,
+            "name": "setLname() is called",
             "match": {
-              "arguments": [
-                {
-                  "val": "M",
-                  "offset": 8
-                }
-              ],
-              "location": "UserSteps.gender_is_set(String)"
+              "location": "UserBeanSteps.setlname_is_called()"
             },
             "keyword": "When "
           },
           {
             "result": {
-              "duration": 1052078,
+              "duration": 308008,
               "status": "passed"
             },
-            "line": 46,
-            "name": "getGender returns \"M\"",
+            "line": 44,
+            "name": "setLname() is successfully called",
             "match": {
-              "arguments": [
-                {
-                  "val": "M",
-                  "offset": 19
-                }
-              ],
-              "location": "UserSteps.getgender_returns(String)"
+              "location": "UserBeanSteps.setlname_is_successfully_called()"
+            },
+            "keyword": "Then "
+          }
+        ]
+      },
+      {
+        "comments": [
+          {
+            "line": 46,
+            "value": "# Test getPwsd and setPwsd"
+          }
+        ],
+        "line": 47,
+        "name": "getPwsd returns correct pwsd",
+        "description": "",
+        "id": "check-userbean;getpwsd-returns-correct-pwsd",
+        "type": "scenario",
+        "keyword": "Scenario",
+        "steps": [
+          {
+            "result": {
+              "duration": 1848418,
+              "status": "passed"
+            },
+            "line": 48,
+            "name": "mock UserBean is initialized",
+            "match": {
+              "location": "UserBeanSteps.mock_UserBean_is_initialized()"
+            },
+            "keyword": "Given "
+          },
+          {
+            "result": {
+              "duration": 6059368,
+              "status": "passed"
+            },
+            "line": 49,
+            "name": "getPwsd() is called",
+            "match": {
+              "location": "UserBeanSteps.getpwsd_is_called()"
+            },
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "duration": 342647,
+              "status": "passed"
+            },
+            "line": 50,
+            "name": "a password string is returned",
+            "match": {
+              "location": "UserBeanSteps.a_password_string_is_returned()"
+            },
+            "keyword": "Then "
+          }
+        ]
+      },
+      {
+        "line": 52,
+        "name": "setPwsd sets pwsd",
+        "description": "",
+        "id": "check-userbean;setpwsd-sets-pwsd",
+        "type": "scenario",
+        "keyword": "Scenario",
+        "steps": [
+          {
+            "result": {
+              "duration": 1153972,
+              "status": "passed"
+            },
+            "line": 53,
+            "name": "mock UserBean is initialized",
+            "match": {
+              "location": "UserBeanSteps.mock_UserBean_is_initialized()"
+            },
+            "keyword": "Given "
+          },
+          {
+            "result": {
+              "duration": 442432,
+              "status": "passed"
+            },
+            "line": 54,
+            "name": "setPwsd() is called",
+            "match": {
+              "location": "UserBeanSteps.setpwsd_is_called()"
+            },
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "duration": 432933,
+              "status": "passed"
+            },
+            "line": 55,
+            "name": "setPwsd() is successfully called",
+            "match": {
+              "location": "UserBeanSteps.setpwsd_is_successfully_called()"
+            },
+            "keyword": "Then "
+          }
+        ]
+      },
+      {
+        "comments": [
+          {
+            "line": 57,
+            "value": "# Test getName and setName"
+          }
+        ],
+        "line": 58,
+        "name": "getName returns correct name",
+        "description": "",
+        "id": "check-userbean;getname-returns-correct-name",
+        "type": "scenario",
+        "keyword": "Scenario",
+        "steps": [
+          {
+            "result": {
+              "duration": 3056395,
+              "status": "passed"
+            },
+            "line": 59,
+            "name": "mock UserBean is initialized",
+            "match": {
+              "location": "UserBeanSteps.mock_UserBean_is_initialized()"
+            },
+            "keyword": "Given "
+          },
+          {
+            "result": {
+              "duration": 9337652,
+              "status": "passed"
+            },
+            "line": 60,
+            "name": "getName() is called",
+            "match": {
+              "location": "UserBeanSteps.getname_is_called()"
+            },
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "duration": 584228,
+              "status": "passed"
+            },
+            "line": 61,
+            "name": "a name string is returned",
+            "match": {
+              "location": "UserBeanSteps.a_name_string_is_returned()"
+            },
+            "keyword": "Then "
+          }
+        ]
+      },
+      {
+        "line": 63,
+        "name": "setName sets name",
+        "description": "",
+        "id": "check-userbean;setname-sets-name",
+        "type": "scenario",
+        "keyword": "Scenario",
+        "steps": [
+          {
+            "result": {
+              "duration": 5272682,
+              "status": "passed"
+            },
+            "line": 64,
+            "name": "mock UserBean is initialized",
+            "match": {
+              "location": "UserBeanSteps.mock_UserBean_is_initialized()"
+            },
+            "keyword": "Given "
+          },
+          {
+            "result": {
+              "duration": 9478703,
+              "status": "passed"
+            },
+            "line": 65,
+            "name": "setName() is called",
+            "match": {
+              "location": "UserBeanSteps.setname_is_called()"
+            },
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "duration": 663307,
+              "status": "passed"
+            },
+            "line": 66,
+            "name": "setName() is successfully called",
+            "match": {
+              "location": "UserBeanSteps.setname_is_successfully_called()"
+            },
+            "keyword": "Then "
+          }
+        ]
+      },
+      {
+        "comments": [
+          {
+            "line": 68,
+            "value": "# Test getRole and setRole"
+          }
+        ],
+        "line": 69,
+        "name": "getRole returns correct role",
+        "description": "",
+        "id": "check-userbean;getrole-returns-correct-role",
+        "type": "scenario",
+        "keyword": "Scenario",
+        "steps": [
+          {
+            "result": {
+              "duration": 1434834,
+              "status": "passed"
+            },
+            "line": 70,
+            "name": "mock UserBean is initialized",
+            "match": {
+              "location": "UserBeanSteps.mock_UserBean_is_initialized()"
+            },
+            "keyword": "Given "
+          },
+          {
+            "result": {
+              "duration": 358893,
+              "status": "passed"
+            },
+            "line": 71,
+            "name": "getRole is called",
+            "match": {
+              "location": "UserBeanSteps.getrole_is_called()"
+            },
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "duration": 89684,
+              "status": "passed"
+            },
+            "line": 72,
+            "name": "a role string is returned",
+            "match": {
+              "location": "UserBeanSteps.a_role_string_is_returned()"
+            },
+            "keyword": "Then "
+          }
+        ]
+      },
+      {
+        "line": 74,
+        "name": "setRole sets role",
+        "description": "",
+        "id": "check-userbean;setrole-sets-role",
+        "type": "scenario",
+        "keyword": "Scenario",
+        "steps": [
+          {
+            "result": {
+              "duration": 1337140,
+              "status": "passed"
+            },
+            "line": 75,
+            "name": "mock UserBean is initialized",
+            "match": {
+              "location": "UserBeanSteps.mock_UserBean_is_initialized()"
+            },
+            "keyword": "Given "
+          },
+          {
+            "result": {
+              "duration": 2063494,
+              "status": "passed"
+            },
+            "line": 76,
+            "name": "setRole() is called",
+            "match": {
+              "location": "UserBeanSteps.setrole_is_called()"
+            },
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "duration": 354098,
+              "status": "passed"
+            },
+            "line": 77,
+            "name": "setRole() is successfully called",
+            "match": {
+              "location": "UserBeanSteps.setrole_is_successfully_called()"
+            },
+            "keyword": "Then "
+          }
+        ]
+      },
+      {
+        "comments": [
+          {
+            "line": 79,
+            "value": "# Test getStatus and setStatus"
+          }
+        ],
+        "line": 80,
+        "name": "getStatus returns correct status",
+        "description": "",
+        "id": "check-userbean;getstatus-returns-correct-status",
+        "type": "scenario",
+        "keyword": "Scenario",
+        "steps": [
+          {
+            "result": {
+              "duration": 13018021,
+              "status": "passed"
+            },
+            "line": 81,
+            "name": "mock UserBean is initialized",
+            "match": {
+              "location": "UserBeanSteps.mock_UserBean_is_initialized()"
+            },
+            "keyword": "Given "
+          },
+          {
+            "result": {
+              "duration": 359861,
+              "status": "passed"
+            },
+            "line": 82,
+            "name": "getStatus() is called",
+            "match": {
+              "location": "UserBeanSteps.getstatus_is_called()"
+            },
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "duration": 85023,
+              "status": "passed"
+            },
+            "line": 83,
+            "name": "a status string is returned",
+            "match": {
+              "location": "UserBeanSteps.a_status_string_is_returned()"
+            },
+            "keyword": "Then "
+          }
+        ]
+      },
+      {
+        "line": 85,
+        "name": "setStatus sets status",
+        "description": "",
+        "id": "check-userbean;setstatus-sets-status",
+        "type": "scenario",
+        "keyword": "Scenario",
+        "steps": [
+          {
+            "result": {
+              "duration": 90926528,
+              "status": "passed"
+            },
+            "line": 86,
+            "name": "mock UserBean is initialized",
+            "match": {
+              "location": "UserBeanSteps.mock_UserBean_is_initialized()"
+            },
+            "keyword": "Given "
+          },
+          {
+            "result": {
+              "duration": 344534,
+              "status": "passed"
+            },
+            "line": 87,
+            "name": "setStatus() is called",
+            "match": {
+              "location": "UserBeanSteps.setstatus_is_called()"
+            },
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "duration": 289035,
+              "status": "passed"
+            },
+            "line": 88,
+            "name": "setStatus() is successfully called",
+            "match": {
+              "location": "UserBeanSteps.setstatus_is_successfully_called()"
+            },
+            "keyword": "Then "
+          }
+        ]
+      },
+      {
+        "comments": [
+          {
+            "line": 90,
+            "value": "# Test getGender and setGender"
+          }
+        ],
+        "line": 91,
+        "name": "getGender returns correct gender",
+        "description": "",
+        "id": "check-userbean;getgender-returns-correct-gender",
+        "type": "scenario",
+        "keyword": "Scenario",
+        "steps": [
+          {
+            "result": {
+              "duration": 27638869,
+              "status": "passed"
+            },
+            "line": 92,
+            "name": "mock UserBean is initialized",
+            "match": {
+              "location": "UserBeanSteps.mock_UserBean_is_initialized()"
+            },
+            "keyword": "Given "
+          },
+          {
+            "result": {
+              "duration": 409390,
+              "status": "passed"
+            },
+            "line": 93,
+            "name": "getGender() is called",
+            "match": {
+              "location": "UserBeanSteps.getgender_is_called()"
+            },
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "duration": 71881,
+              "status": "passed"
+            },
+            "line": 94,
+            "name": "a gender string is returned",
+            "match": {
+              "location": "UserBeanSteps.a_gender_string_is_returned()"
+            },
+            "keyword": "Then "
+          }
+        ]
+      },
+      {
+        "line": 96,
+        "name": "setGender sets gender",
+        "description": "",
+        "id": "check-userbean;setgender-sets-gender",
+        "type": "scenario",
+        "keyword": "Scenario",
+        "steps": [
+          {
+            "result": {
+              "duration": 950089,
+              "status": "passed"
+            },
+            "line": 97,
+            "name": "mock UserBean is initialized",
+            "match": {
+              "location": "UserBeanSteps.mock_UserBean_is_initialized()"
+            },
+            "keyword": "Given "
+          },
+          {
+            "result": {
+              "duration": 368000,
+              "status": "passed"
+            },
+            "line": 98,
+            "name": "setGender() is called",
+            "match": {
+              "location": "UserBeanSteps.setgender_is_called()"
+            },
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "duration": 287199,
+              "status": "passed"
+            },
+            "line": 99,
+            "name": "setGender() is successfully called",
+            "match": {
+              "location": "UserBeanSteps.setgender_is_successfully_called()"
             },
             "keyword": "Then "
           }
         ]
       }
     ],
-    "name": "Check User",
+    "name": "Check UserBean",
     "description": "",
-    "id": "check-user",
+    "id": "check-userbean",
     "keyword": "Feature",
-    "uri": "cucumber/User.feature"
+    "uri": "cucumber/UserBean.feature"
   }
 ]
