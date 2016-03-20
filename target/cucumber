@@ -3,100 +3,58 @@
     "line": 1,
     "elements": [
       {
-        "comments": [
-          {
-            "line": 2,
-            "value": "# Test getDate and setDate"
-          }
-        ],
         "line": 3,
-<<<<<<< HEAD
-        "name": "getRole returns role",
+        "name": "getCart_id returns cart_id",
         "description": "",
-        "id": "check-roles;getrole-returns-role",
-=======
-        "name": "getDate returns correct date",
-        "description": "",
-        "id": "check-itemsbean;getdate-returns-correct-date",
->>>>>>> 26c5fb1689a25502189bf3df78bf263bc32fbb93
+        "id": "check-cart;getcart-id-returns-cart-id",
         "type": "scenario",
         "keyword": "Scenario",
         "steps": [
           {
             "result": {
-<<<<<<< HEAD
-              "duration": 510512655,
+              "duration": 406313663,
               "status": "passed"
             },
             "line": 4,
-            "name": "Roles is set up",
+            "name": "Cart is set up",
             "match": {
-              "location": "RolesSteps.roles_is_set_up()"
-=======
-              "duration": 776600576,
-              "status": "passed"
-            },
-            "line": 4,
-            "name": "mock ItemsBean is initialized",
-            "match": {
-              "location": "ItemsBeanSteps.mock_ItemsBean_is_initialized()"
->>>>>>> 26c5fb1689a25502189bf3df78bf263bc32fbb93
+              "location": "CartSteps.cart_is_set_up()"
             },
             "keyword": "Given "
           },
           {
             "result": {
-<<<<<<< HEAD
-              "duration": 17721601,
+              "duration": 18420530,
               "status": "passed"
             },
             "line": 5,
-            "name": "roles \"Admin\" is set",
+            "name": "cart_id 1 is set",
             "match": {
               "arguments": [
                 {
-                  "val": "Admin",
-                  "offset": 7
+                  "val": "1",
+                  "offset": 8
                 }
               ],
-              "location": "RolesSteps.roles_is_set(String)"
-=======
-              "duration": 47072146,
-              "status": "passed"
-            },
-            "line": 5,
-            "name": "getDate() is called",
-            "match": {
-              "location": "ItemsBeanSteps.getdate_is_called()"
->>>>>>> 26c5fb1689a25502189bf3df78bf263bc32fbb93
+              "location": "CartSteps.cart_id_is_set(int)"
             },
             "keyword": "When "
           },
           {
             "result": {
-<<<<<<< HEAD
-              "duration": 14454908,
+              "duration": 5273926,
               "status": "passed"
             },
             "line": 6,
-            "name": "getRole returns role \"Admin\"",
+            "name": "getCart_id returns cart_id 1",
             "match": {
               "arguments": [
                 {
-                  "val": "Admin",
-                  "offset": 22
+                  "val": "1",
+                  "offset": 27
                 }
               ],
-              "location": "RolesSteps.getrole_returns_role(String)"
-=======
-              "duration": 2953720,
-              "status": "passed"
-            },
-            "line": 6,
-            "name": "an item date is returned",
-            "match": {
-              "location": "ItemsBeanSteps.an_item_date_is_returned()"
->>>>>>> 26c5fb1689a25502189bf3df78bf263bc32fbb93
+              "location": "CartSteps.getcart_id_returns_cart_id(int)"
             },
             "keyword": "Then "
           }
@@ -104,993 +62,229 @@
       },
       {
         "line": 8,
-<<<<<<< HEAD
-        "name": "getRights returns right",
+        "name": "getUser_id returns user_id",
         "description": "",
-        "id": "check-roles;getrights-returns-right",
-=======
-        "name": "setDate sets date",
-        "description": "",
-        "id": "check-itemsbean;setdate-sets-date",
->>>>>>> 26c5fb1689a25502189bf3df78bf263bc32fbb93
+        "id": "check-cart;getuser-id-returns-user-id",
         "type": "scenario",
         "keyword": "Scenario",
         "steps": [
           {
             "result": {
-<<<<<<< HEAD
-              "duration": 1283564,
+              "duration": 1916017,
               "status": "passed"
             },
             "line": 9,
-            "name": "Roles is set up",
+            "name": "Cart is set up",
             "match": {
-              "location": "RolesSteps.roles_is_set_up()"
-=======
-              "duration": 1655291,
-              "status": "passed"
-            },
-            "line": 9,
-            "name": "mock ItemsBean is initialized",
-            "match": {
-              "location": "ItemsBeanSteps.mock_ItemsBean_is_initialized()"
->>>>>>> 26c5fb1689a25502189bf3df78bf263bc32fbb93
+              "location": "CartSteps.cart_is_set_up()"
             },
             "keyword": "Given "
           },
           {
             "result": {
-<<<<<<< HEAD
-              "duration": 839850,
+              "duration": 969071,
               "status": "passed"
             },
             "line": 10,
-            "name": "right \"No Right\" is set",
+            "name": "userid 1 is set",
             "match": {
               "arguments": [
                 {
-                  "val": "No Right",
+                  "val": "1",
                   "offset": 7
                 }
               ],
-              "location": "RolesSteps.right_is_set(String)"
-=======
-              "duration": 25256222,
-              "status": "passed"
-            },
-            "line": 10,
-            "name": "setDate() is called",
-            "match": {
-              "location": "ItemsBeanSteps.setdate_is_called()"
+              "location": "CartSteps.userid_is_set(int)"
             },
             "keyword": "When "
           },
           {
             "result": {
-              "duration": 1085423,
+              "duration": 1540281,
               "status": "passed"
             },
             "line": 11,
-            "name": "setDate() is successfully called",
-            "match": {
-              "location": "ItemsBeanSteps.setdate_is_successfully_called()"
-            },
-            "keyword": "Then "
-          }
-        ]
-      },
-      {
-        "comments": [
-          {
-            "line": 13,
-            "value": "# Test getItem_Id and setItem_Id"
-          }
-        ],
-        "line": 14,
-        "name": "getItem_Id returns correct id",
-        "description": "",
-        "id": "check-itemsbean;getitem-id-returns-correct-id",
-        "type": "scenario",
-        "keyword": "Scenario",
-        "steps": [
-          {
-            "result": {
-              "duration": 2723980,
-              "status": "passed"
-            },
-            "line": 15,
-            "name": "mock ItemsBean is initialized",
-            "match": {
-              "location": "ItemsBeanSteps.mock_ItemsBean_is_initialized()"
-            },
-            "keyword": "Given "
-          },
-          {
-            "result": {
-              "duration": 843276,
-              "status": "passed"
-            },
-            "line": 16,
-            "name": "getItem_Id() is called",
-            "match": {
-              "location": "ItemsBeanSteps.getitem_id_is_called()"
-            },
-            "keyword": "When "
-          },
-          {
-            "result": {
-              "duration": 559118,
-              "status": "passed"
-            },
-            "line": 17,
-            "name": "an item id is returned",
-            "match": {
-              "location": "ItemsBeanSteps.an_item_id_is_returned()"
-            },
-            "keyword": "Then "
-          }
-        ]
-      },
-      {
-        "line": 19,
-        "name": "setItem_Id sets item id",
-        "description": "",
-        "id": "check-itemsbean;setitem-id-sets-item-id",
-        "type": "scenario",
-        "keyword": "Scenario",
-        "steps": [
-          {
-            "result": {
-              "duration": 1926907,
-              "status": "passed"
-            },
-            "line": 20,
-            "name": "mock ItemsBean is initialized",
-            "match": {
-              "location": "ItemsBeanSteps.mock_ItemsBean_is_initialized()"
-            },
-            "keyword": "Given "
-          },
-          {
-            "result": {
-              "duration": 513879,
-              "status": "passed"
-            },
-            "line": 21,
-            "name": "setItem_Id() is called",
-            "match": {
-              "location": "ItemsBeanSteps.setitem_id_is_called()"
-            },
-            "keyword": "When "
-          },
-          {
-            "result": {
-              "duration": 1064593,
-              "status": "passed"
-            },
-            "line": 22,
-            "name": "setItem_Id() is successfully called",
-            "match": {
-              "location": "ItemsBeanSteps.setitem_id_is_successfully_called()"
-            },
-            "keyword": "Then "
-          }
-        ]
-      },
-      {
-        "comments": [
-          {
-            "line": 24,
-            "value": "# Test getItem_name and setItem_name"
-          }
-        ],
-        "line": 25,
-        "name": "getItem_name returns correct name",
-        "description": "",
-        "id": "check-itemsbean;getitem-name-returns-correct-name",
-        "type": "scenario",
-        "keyword": "Scenario",
-        "steps": [
-          {
-            "result": {
-              "duration": 1586207,
-              "status": "passed"
-            },
-            "line": 26,
-            "name": "mock ItemsBean is initialized",
-            "match": {
-              "location": "ItemsBeanSteps.mock_ItemsBean_is_initialized()"
-            },
-            "keyword": "Given "
-          },
-          {
-            "result": {
-              "duration": 5148843,
-              "status": "passed"
-            },
-            "line": 27,
-            "name": "getItem_name() is called",
-            "match": {
-              "location": "ItemsBeanSteps.getitem_name_is_called()"
-            },
-            "keyword": "When "
-          },
-          {
-            "result": {
-              "duration": 248284,
-              "status": "passed"
-            },
-            "line": 28,
-            "name": "an item name string is returned",
-            "match": {
-              "location": "ItemsBeanSteps.an_item_name_string_is_returned()"
-            },
-            "keyword": "Then "
-          }
-        ]
-      },
-      {
-        "line": 30,
-        "name": "setItem_name sets item name",
-        "description": "",
-        "id": "check-itemsbean;setitem-name-sets-item-name",
-        "type": "scenario",
-        "keyword": "Scenario",
-        "steps": [
-          {
-            "result": {
-              "duration": 5677366,
-              "status": "passed"
-            },
-            "line": 31,
-            "name": "mock ItemsBean is initialized",
-            "match": {
-              "location": "ItemsBeanSteps.mock_ItemsBean_is_initialized()"
-            },
-            "keyword": "Given "
-          },
-          {
-            "result": {
-              "duration": 537433,
-              "status": "passed"
-            },
-            "line": 32,
-            "name": "setItem_name() is called",
-            "match": {
-              "location": "ItemsBeanSteps.setitem_name_is_called()"
-            },
-            "keyword": "When "
-          },
-          {
-            "result": {
-              "duration": 555317,
-              "status": "passed"
-            },
-            "line": 33,
-            "name": "setItem_namel() is successfully called",
-            "match": {
-              "location": "ItemsBeanSteps.setitem_namel_is_successfully_called()"
-            },
-            "keyword": "Then "
-          }
-        ]
-      },
-      {
-        "comments": [
-          {
-            "line": 35,
-            "value": "# Test getItem_description and setItem_description"
-          }
-        ],
-        "line": 36,
-        "name": "getItem_description returns correct description",
-        "description": "",
-        "id": "check-itemsbean;getitem-description-returns-correct-description",
-        "type": "scenario",
-        "keyword": "Scenario",
-        "steps": [
-          {
-            "result": {
-              "duration": 6235313,
-              "status": "passed"
-            },
-            "line": 37,
-            "name": "mock ItemsBean is initialized",
-            "match": {
-              "location": "ItemsBeanSteps.mock_ItemsBean_is_initialized()"
-            },
-            "keyword": "Given "
-          },
-          {
-            "result": {
-              "duration": 462642,
-              "status": "passed"
-            },
-            "line": 38,
-            "name": "getItem_description() is called",
-            "match": {
-              "location": "ItemsBeanSteps.getitem_description_is_called()"
->>>>>>> 26c5fb1689a25502189bf3df78bf263bc32fbb93
-            },
-            "keyword": "When "
-          },
-          {
-            "result": {
-<<<<<<< HEAD
-              "duration": 1300237,
-              "status": "passed"
-            },
-            "line": 11,
-            "name": "gerRights returns right \"No Right\"",
+            "name": "getUser_id returns user_id 1",
             "match": {
               "arguments": [
                 {
-                  "val": "No Right",
-                  "offset": 25
+                  "val": "1",
+                  "offset": 27
                 }
               ],
-              "location": "RolesSteps.getrights_returns_right(String)"
-=======
-              "duration": 194869,
-              "status": "passed"
-            },
-            "line": 39,
-            "name": "a description string is returned",
-            "match": {
-              "location": "ItemsBeanSteps.a_description_string_is_returned()"
+              "location": "CartSteps.getuser_id_returns_user_id(int)"
             },
             "keyword": "Then "
           }
         ]
       },
       {
-        "line": 41,
-        "name": "setItem_description sets description",
+        "line": 13,
+        "name": "getQuantity returns quantity",
         "description": "",
-        "id": "check-itemsbean;setitem-description-sets-description",
+        "id": "check-cart;getquantity-returns-quantity",
         "type": "scenario",
         "keyword": "Scenario",
         "steps": [
           {
             "result": {
-              "duration": 2193231,
+              "duration": 1522762,
               "status": "passed"
             },
-            "line": 42,
-            "name": "mock ItemsBean is initialized",
+            "line": 14,
+            "name": "Cart is set up",
             "match": {
-              "location": "ItemsBeanSteps.mock_ItemsBean_is_initialized()"
+              "location": "CartSteps.cart_is_set_up()"
             },
             "keyword": "Given "
           },
           {
             "result": {
-              "duration": 501788,
+              "duration": 5169214,
               "status": "passed"
             },
-            "line": 43,
-            "name": "setItem_description() is called",
+            "line": 15,
+            "name": "Quantity 5 is set",
             "match": {
-              "location": "ItemsBeanSteps.setitem_description_is_called()"
+              "arguments": [
+                {
+                  "val": "5",
+                  "offset": 9
+                }
+              ],
+              "location": "CartSteps.quantity_is_set(int)"
             },
             "keyword": "When "
           },
           {
             "result": {
-              "duration": 797299,
+              "duration": 1019468,
               "status": "passed"
             },
-            "line": 44,
-            "name": "setItem_description() is successfully called",
+            "line": 16,
+            "name": "getQuantity returns quantity 5",
             "match": {
-              "location": "ItemsBeanSteps.setitem_description_is_successfully_called()"
+              "arguments": [
+                {
+                  "val": "5",
+                  "offset": 29
+                }
+              ],
+              "location": "CartSteps.getquantity_returns_quantity(int)"
             },
             "keyword": "Then "
           }
         ]
       },
       {
-        "comments": [
-          {
-            "line": 46,
-            "value": "# Test getOnsale_count and setOnsale_count"
-          }
-        ],
-        "line": 47,
-        "name": "getOnsale_count returns correct count",
+        "line": 18,
+        "name": "getPrice returns price",
         "description": "",
-        "id": "check-itemsbean;getonsale-count-returns-correct-count",
+        "id": "check-cart;getprice-returns-price",
         "type": "scenario",
         "keyword": "Scenario",
         "steps": [
           {
             "result": {
-              "duration": 3212996,
+              "duration": 1013978,
               "status": "passed"
             },
-            "line": 48,
-            "name": "mock ItemsBean is initialized",
+            "line": 19,
+            "name": "Cart is set up",
             "match": {
-              "location": "ItemsBeanSteps.mock_ItemsBean_is_initialized()"
+              "location": "CartSteps.cart_is_set_up()"
             },
             "keyword": "Given "
           },
           {
             "result": {
-              "duration": 1564325,
+              "duration": 1673254,
               "status": "passed"
             },
-            "line": 49,
-            "name": "getOnsale_count() is called",
+            "line": 20,
+            "name": "Price 5 is set",
             "match": {
-              "location": "ItemsBeanSteps.getonsale_count_is_called()"
+              "arguments": [
+                {
+                  "val": "5",
+                  "offset": 6
+                }
+              ],
+              "location": "CartSteps.price_is_set(int)"
             },
             "keyword": "When "
           },
           {
             "result": {
-              "duration": 1313931,
+              "duration": 2258388,
               "status": "passed"
             },
-            "line": 50,
-            "name": "an on sale count is returned",
+            "line": 21,
+            "name": "getPrice returns Price 5",
             "match": {
-              "location": "ItemsBeanSteps.an_on_sale_count_is_returned()"
+              "arguments": [
+                {
+                  "val": "5",
+                  "offset": 23
+                }
+              ],
+              "location": "CartSteps.getprice_returns_Price(int)"
             },
             "keyword": "Then "
           }
         ]
       },
       {
-        "line": 52,
-        "name": "setOnsale_count sets on sale count",
+        "line": 23,
+        "name": "getItems returns item",
         "description": "",
-        "id": "check-itemsbean;setonsale-count-sets-on-sale-count",
+        "id": "check-cart;getitems-returns-item",
         "type": "scenario",
         "keyword": "Scenario",
         "steps": [
           {
             "result": {
-              "duration": 6864830,
+              "duration": 1826466,
               "status": "passed"
             },
-            "line": 53,
-            "name": "mock ItemsBean is initialized",
+            "line": 24,
+            "name": "Cart is set up",
             "match": {
-              "location": "ItemsBeanSteps.mock_ItemsBean_is_initialized()"
+              "location": "CartSteps.cart_is_set_up()"
             },
             "keyword": "Given "
           },
           {
             "result": {
-              "duration": 1816909,
+              "duration": 2648801,
               "status": "passed"
             },
-            "line": 54,
-            "name": "setOnsale_count() is called",
+            "line": 25,
+            "name": "an item is set",
             "match": {
-              "location": "ItemsBeanSteps.setonsale_count_is_called()"
+              "location": "CartSteps.an_item_is_set()"
             },
             "keyword": "When "
           },
           {
             "result": {
-              "duration": 501946,
+              "duration": 1132881,
               "status": "passed"
             },
-            "line": 55,
-            "name": "setOnsale_count() is successfully called",
+            "line": 26,
+            "name": "getItems returns that item",
             "match": {
-              "location": "ItemsBeanSteps.setonsale_count_is_successfully_called()"
-            },
-            "keyword": "Then "
-          }
-        ]
-      },
-      {
-        "comments": [
-          {
-            "line": 57,
-            "value": "# Test getSold_count and setSold_count"
-          }
-        ],
-        "line": 58,
-        "name": "getSold_count returns correct count",
-        "description": "",
-        "id": "check-itemsbean;getsold-count-returns-correct-count",
-        "type": "scenario",
-        "keyword": "Scenario",
-        "steps": [
-          {
-            "result": {
-              "duration": 1156454,
-              "status": "passed"
-            },
-            "line": 59,
-            "name": "mock ItemsBean is initialized",
-            "match": {
-              "location": "ItemsBeanSteps.mock_ItemsBean_is_initialized()"
-            },
-            "keyword": "Given "
-          },
-          {
-            "result": {
-              "duration": 1593731,
-              "status": "passed"
-            },
-            "line": 60,
-            "name": "getSold_count() is called",
-            "match": {
-              "location": "ItemsBeanSteps.getsold_count_is_called()"
-            },
-            "keyword": "When "
-          },
-          {
-            "result": {
-              "duration": 394447,
-              "status": "passed"
-            },
-            "line": 61,
-            "name": "a sold count is returned",
-            "match": {
-              "location": "ItemsBeanSteps.a_sold_count_is_returned()"
-            },
-            "keyword": "Then "
-          }
-        ]
-      },
-      {
-        "line": 63,
-        "name": "setSold_count sets sold count",
-        "description": "",
-        "id": "check-itemsbean;setsold-count-sets-sold-count",
-        "type": "scenario",
-        "keyword": "Scenario",
-        "steps": [
-          {
-            "result": {
-              "duration": 50351659,
-              "status": "passed"
-            },
-            "line": 64,
-            "name": "mock ItemsBean is initialized",
-            "match": {
-              "location": "ItemsBeanSteps.mock_ItemsBean_is_initialized()"
-            },
-            "keyword": "Given "
-          },
-          {
-            "result": {
-              "duration": 475094,
-              "status": "passed"
-            },
-            "line": 65,
-            "name": "setSold_count() is called",
-            "match": {
-              "location": "ItemsBeanSteps.setsold_count_is_called()"
-            },
-            "keyword": "When "
-          },
-          {
-            "result": {
-              "duration": 456103,
-              "status": "passed"
-            },
-            "line": 66,
-            "name": "setSold_count() is successfully called",
-            "match": {
-              "location": "ItemsBeanSteps.setsold_count_is_successfully_called()"
-            },
-            "keyword": "Then "
-          }
-        ]
-      },
-      {
-        "comments": [
-          {
-            "line": 68,
-            "value": "# Test getCategory and setCategory"
-          }
-        ],
-        "line": 69,
-        "name": "getCategory returns correct category",
-        "description": "",
-        "id": "check-itemsbean;getcategory-returns-correct-category",
-        "type": "scenario",
-        "keyword": "Scenario",
-        "steps": [
-          {
-            "result": {
-              "duration": 3267487,
-              "status": "passed"
-            },
-            "line": 70,
-            "name": "mock ItemsBean is initialized",
-            "match": {
-              "location": "ItemsBeanSteps.mock_ItemsBean_is_initialized()"
-            },
-            "keyword": "Given "
-          },
-          {
-            "result": {
-              "duration": 419583,
-              "status": "passed"
-            },
-            "line": 71,
-            "name": "getCategory is called",
-            "match": {
-              "location": "ItemsBeanSteps.getcategory_is_called()"
-            },
-            "keyword": "When "
-          },
-          {
-            "result": {
-              "duration": 168263,
-              "status": "passed"
-            },
-            "line": 72,
-            "name": "a category string is returned",
-            "match": {
-              "location": "ItemsBeanSteps.a_category_string_is_returned()"
-            },
-            "keyword": "Then "
-          }
-        ]
-      },
-      {
-        "line": 74,
-        "name": "setCategory sets category",
-        "description": "",
-        "id": "check-itemsbean;setcategory-sets-category",
-        "type": "scenario",
-        "keyword": "Scenario",
-        "steps": [
-          {
-            "result": {
-              "duration": 1318637,
-              "status": "passed"
-            },
-            "line": 75,
-            "name": "mock ItemsBean is initialized",
-            "match": {
-              "location": "ItemsBeanSteps.mock_ItemsBean_is_initialized()"
-            },
-            "keyword": "Given "
-          },
-          {
-            "result": {
-              "duration": 517738,
-              "status": "passed"
-            },
-            "line": 76,
-            "name": "setCategory() is called",
-            "match": {
-              "location": "ItemsBeanSteps.setcategory_is_called()"
-            },
-            "keyword": "When "
-          },
-          {
-            "result": {
-              "duration": 660884,
-              "status": "passed"
-            },
-            "line": 77,
-            "name": "setCategory() is successfully called",
-            "match": {
-              "location": "ItemsBeanSteps.setcategory_is_successfully_called()"
-            },
-            "keyword": "Then "
-          }
-        ]
-      },
-      {
-        "comments": [
-          {
-            "line": 79,
-            "value": "# Test getImages and setImages"
-          }
-        ],
-        "line": 80,
-        "name": "getImages returns correct images",
-        "description": "",
-        "id": "check-itemsbean;getimages-returns-correct-images",
-        "type": "scenario",
-        "keyword": "Scenario",
-        "steps": [
-          {
-            "result": {
-              "duration": 1481231,
-              "status": "passed"
-            },
-            "line": 81,
-            "name": "mock ItemsBean is initialized",
-            "match": {
-              "location": "ItemsBeanSteps.mock_ItemsBean_is_initialized()"
-            },
-            "keyword": "Given "
-          },
-          {
-            "result": {
-              "duration": 441130,
-              "status": "passed"
-            },
-            "line": 82,
-            "name": "getImages() is called",
-            "match": {
-              "location": "ItemsBeanSteps.getimages_is_called()"
-            },
-            "keyword": "When "
-          },
-          {
-            "result": {
-              "duration": 559940,
-              "status": "passed"
-            },
-            "line": 83,
-            "name": "an images list is returned",
-            "match": {
-              "location": "ItemsBeanSteps.an_images_list_is_returned()"
-            },
-            "keyword": "Then "
-          }
-        ]
-      },
-      {
-        "line": 85,
-        "name": "setImages sets images",
-        "description": "",
-        "id": "check-itemsbean;setimages-sets-images",
-        "type": "scenario",
-        "keyword": "Scenario",
-        "steps": [
-          {
-            "result": {
-              "duration": 5290239,
-              "status": "passed"
-            },
-            "line": 86,
-            "name": "mock ItemsBean is initialized",
-            "match": {
-              "location": "ItemsBeanSteps.mock_ItemsBean_is_initialized()"
-            },
-            "keyword": "Given "
-          },
-          {
-            "result": {
-              "duration": 438970,
-              "status": "passed"
-            },
-            "line": 87,
-            "name": "setImages() is called",
-            "match": {
-              "location": "ItemsBeanSteps.setimages_is_called()"
-            },
-            "keyword": "When "
-          },
-          {
-            "result": {
-              "duration": 1133829,
-              "status": "passed"
-            },
-            "line": 88,
-            "name": "setImages() is successfully called",
-            "match": {
-              "location": "ItemsBeanSteps.setimages_is_successfully_called()"
-            },
-            "keyword": "Then "
-          }
-        ]
-      },
-      {
-        "comments": [
-          {
-            "line": 90,
-            "value": "# Test getPrice and setPrice"
-          }
-        ],
-        "line": 91,
-        "name": "getPrice returns correct price",
-        "description": "",
-        "id": "check-itemsbean;getprice-returns-correct-price",
-        "type": "scenario",
-        "keyword": "Scenario",
-        "steps": [
-          {
-            "result": {
-              "duration": 1282236,
-              "status": "passed"
-            },
-            "line": 92,
-            "name": "mock ItemsBean is initialized",
-            "match": {
-              "location": "ItemsBeanSteps.mock_ItemsBean_is_initialized()"
-            },
-            "keyword": "Given "
-          },
-          {
-            "result": {
-              "duration": 419844,
-              "status": "passed"
-            },
-            "line": 93,
-            "name": "getPrice() is called",
-            "match": {
-              "location": "ItemsBeanSteps.getprice_is_called()"
-            },
-            "keyword": "When "
-          },
-          {
-            "result": {
-              "duration": 205430,
-              "status": "passed"
-            },
-            "line": 94,
-            "name": "a price is returned",
-            "match": {
-              "location": "ItemsBeanSteps.a_price_is_returned()"
-            },
-            "keyword": "Then "
-          }
-        ]
-      },
-      {
-        "line": 96,
-        "name": "setPrice sets price",
-        "description": "",
-        "id": "check-itemsbean;setprice-sets-price",
-        "type": "scenario",
-        "keyword": "Scenario",
-        "steps": [
-          {
-            "result": {
-              "duration": 10428730,
-              "status": "passed"
-            },
-            "line": 97,
-            "name": "mock ItemsBean is initialized",
-            "match": {
-              "location": "ItemsBeanSteps.mock_ItemsBean_is_initialized()"
-            },
-            "keyword": "Given "
-          },
-          {
-            "result": {
-              "duration": 1192149,
-              "status": "passed"
-            },
-            "line": 98,
-            "name": "setPrice() is called",
-            "match": {
-              "location": "ItemsBeanSteps.setprice_is_called()"
-            },
-            "keyword": "When "
-          },
-          {
-            "result": {
-              "duration": 1594221,
-              "status": "passed"
-            },
-            "line": 99,
-            "name": "setPrice() is successfully called",
-            "match": {
-              "location": "ItemsBeanSteps.setprice_is_successfully_called()"
-            },
-            "keyword": "Then "
-          }
-        ]
-      },
-      {
-        "comments": [
-          {
-            "line": 101,
-            "value": "# Test getUser_id and setUser_id"
-          }
-        ],
-        "line": 102,
-        "name": "getUser_id returns correct user id",
-        "description": "",
-        "id": "check-itemsbean;getuser-id-returns-correct-user-id",
-        "type": "scenario",
-        "keyword": "Scenario",
-        "steps": [
-          {
-            "result": {
-              "duration": 1593297,
-              "status": "passed"
-            },
-            "line": 103,
-            "name": "mock ItemsBean is initialized",
-            "match": {
-              "location": "ItemsBeanSteps.mock_ItemsBean_is_initialized()"
-            },
-            "keyword": "Given "
-          },
-          {
-            "result": {
-              "duration": 493623,
-              "status": "passed"
-            },
-            "line": 104,
-            "name": "getUser_id() is called",
-            "match": {
-              "location": "ItemsBeanSteps.getuser_id_is_called()"
-            },
-            "keyword": "When "
-          },
-          {
-            "result": {
-              "duration": 237759,
-              "status": "passed"
-            },
-            "line": 105,
-            "name": "a user id is returned",
-            "match": {
-              "location": "ItemsBeanSteps.a_user_id_is_returned()"
-            },
-            "keyword": "Then "
-          }
-        ]
-      },
-      {
-        "line": 107,
-        "name": "setUser_id sets user id",
-        "description": "",
-        "id": "check-itemsbean;setuser-id-sets-user-id",
-        "type": "scenario",
-        "keyword": "Scenario",
-        "steps": [
-          {
-            "result": {
-              "duration": 1128434,
-              "status": "passed"
-            },
-            "line": 108,
-            "name": "mock ItemsBean is initialized",
-            "match": {
-              "location": "ItemsBeanSteps.mock_ItemsBean_is_initialized()"
-            },
-            "keyword": "Given "
-          },
-          {
-            "result": {
-              "duration": 478551,
-              "status": "passed"
-            },
-            "line": 109,
-            "name": "setUser_id() is called",
-            "match": {
-              "location": "ItemsBeanSteps.setuser_id_is_called()"
-            },
-            "keyword": "When "
-          },
-          {
-            "result": {
-              "duration": 426716,
-              "status": "passed"
-            },
-            "line": 110,
-            "name": "setUser_id() is successfully called",
-            "match": {
-              "location": "ItemsBeanSteps.setuser_id_is_successfully_called()"
->>>>>>> 26c5fb1689a25502189bf3df78bf263bc32fbb93
+              "location": "CartSteps.getitems_returns_that_item()"
             },
             "keyword": "Then "
           }
         ]
       }
     ],
-<<<<<<< HEAD
-    "name": "Check Roles",
+    "name": "Check Cart",
     "description": "",
-    "id": "check-roles",
+    "id": "check-cart",
     "keyword": "Feature",
-    "uri": "cucumber/Roles.feature"
-=======
-    "name": "Check ItemsBean",
-    "description": "",
-    "id": "check-itemsbean",
-    "keyword": "Feature",
-    "uri": "cucumber/ItemsBean.feature"
->>>>>>> 26c5fb1689a25502189bf3df78bf263bc32fbb93
+    "uri": "cucumber/Cart.feature"
   }
 ]
