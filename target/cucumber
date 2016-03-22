@@ -3,58 +3,52 @@
     "line": 1,
     "elements": [
       {
+        "comments": [
+          {
+            "line": 2,
+            "value": "# Test getSale_id and setSale_id"
+          }
+        ],
         "line": 3,
-        "name": "getCart_id returns cart_id",
+        "name": "getSale_id returns correct id",
         "description": "",
-        "id": "check-cart;getcart-id-returns-cart-id",
+        "id": "check-salesbean;getsale-id-returns-correct-id",
         "type": "scenario",
         "keyword": "Scenario",
         "steps": [
           {
             "result": {
-              "duration": 406313663,
+              "duration": 765224707,
               "status": "passed"
             },
             "line": 4,
-            "name": "Cart is set up",
+            "name": "mock SalesBean is initialized",
             "match": {
-              "location": "CartSteps.cart_is_set_up()"
+              "location": "SalesBeanSteps.mock_SalesBean_is_initialized()"
             },
             "keyword": "Given "
           },
           {
             "result": {
-              "duration": 18420530,
+              "duration": 43469815,
               "status": "passed"
             },
             "line": 5,
-            "name": "cart_id 1 is set",
+            "name": "getSale_id() is called",
             "match": {
-              "arguments": [
-                {
-                  "val": "1",
-                  "offset": 8
-                }
-              ],
-              "location": "CartSteps.cart_id_is_set(int)"
+              "location": "SalesBeanSteps.getsale_id_is_called()"
             },
             "keyword": "When "
           },
           {
             "result": {
-              "duration": 5273926,
+              "duration": 2761630,
               "status": "passed"
             },
             "line": 6,
-            "name": "getCart_id returns cart_id 1",
+            "name": "a sale id is returned",
             "match": {
-              "arguments": [
-                {
-                  "val": "1",
-                  "offset": 27
-                }
-              ],
-              "location": "CartSteps.getcart_id_returns_cart_id(int)"
+              "location": "SalesBeanSteps.a_sale_id_is_returned()"
             },
             "keyword": "Then "
           }
@@ -62,229 +56,741 @@
       },
       {
         "line": 8,
-        "name": "getUser_id returns user_id",
+        "name": "setSale_id sets sale_id",
         "description": "",
-        "id": "check-cart;getuser-id-returns-user-id",
+        "id": "check-salesbean;setsale-id-sets-sale-id",
         "type": "scenario",
         "keyword": "Scenario",
         "steps": [
           {
             "result": {
-              "duration": 1916017,
+              "duration": 3176327,
               "status": "passed"
             },
             "line": 9,
-            "name": "Cart is set up",
+            "name": "mock SalesBean is initialized",
             "match": {
-              "location": "CartSteps.cart_is_set_up()"
+              "location": "SalesBeanSteps.mock_SalesBean_is_initialized()"
             },
             "keyword": "Given "
           },
           {
             "result": {
-              "duration": 969071,
+              "duration": 8975433,
               "status": "passed"
             },
             "line": 10,
-            "name": "userid 1 is set",
+            "name": "setSale_id() is called",
             "match": {
-              "arguments": [
-                {
-                  "val": "1",
-                  "offset": 7
-                }
-              ],
-              "location": "CartSteps.userid_is_set(int)"
+              "location": "SalesBeanSteps.setsale_id_is_called()"
             },
             "keyword": "When "
           },
           {
             "result": {
-              "duration": 1540281,
+              "duration": 784674,
               "status": "passed"
             },
             "line": 11,
-            "name": "getUser_id returns user_id 1",
+            "name": "setSale_id() is successfully called",
             "match": {
-              "arguments": [
-                {
-                  "val": "1",
-                  "offset": 27
-                }
-              ],
-              "location": "CartSteps.getuser_id_returns_user_id(int)"
+              "location": "SalesBeanSteps.setsale_id_is_successfully_called()"
             },
             "keyword": "Then "
           }
         ]
       },
       {
-        "line": 13,
-        "name": "getQuantity returns quantity",
+        "comments": [
+          {
+            "line": 13,
+            "value": "# Test getItem_id and setItem_id"
+          }
+        ],
+        "line": 14,
+        "name": "getItem_id returns correct item_id",
         "description": "",
-        "id": "check-cart;getquantity-returns-quantity",
+        "id": "check-salesbean;getitem-id-returns-correct-item-id",
         "type": "scenario",
         "keyword": "Scenario",
         "steps": [
           {
             "result": {
-              "duration": 1522762,
-              "status": "passed"
-            },
-            "line": 14,
-            "name": "Cart is set up",
-            "match": {
-              "location": "CartSteps.cart_is_set_up()"
-            },
-            "keyword": "Given "
-          },
-          {
-            "result": {
-              "duration": 5169214,
+              "duration": 15400045,
               "status": "passed"
             },
             "line": 15,
-            "name": "Quantity 5 is set",
+            "name": "mock SalesBean is initialized",
             "match": {
-              "arguments": [
-                {
-                  "val": "5",
-                  "offset": 9
-                }
-              ],
-              "location": "CartSteps.quantity_is_set(int)"
+              "location": "SalesBeanSteps.mock_SalesBean_is_initialized()"
             },
-            "keyword": "When "
+            "keyword": "Given "
           },
           {
             "result": {
-              "duration": 1019468,
+              "duration": 755382,
               "status": "passed"
             },
             "line": 16,
-            "name": "getQuantity returns quantity 5",
+            "name": "getItem_id() is called",
             "match": {
-              "arguments": [
-                {
-                  "val": "5",
-                  "offset": 29
-                }
-              ],
-              "location": "CartSteps.getquantity_returns_quantity(int)"
+              "location": "SalesBeanSteps.getitem_id_is_called()"
+            },
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "duration": 362964,
+              "status": "passed"
+            },
+            "line": 17,
+            "name": "an item_id is returned",
+            "match": {
+              "location": "SalesBeanSteps.an_item_id_is_returned()"
             },
             "keyword": "Then "
           }
         ]
       },
       {
-        "line": 18,
-        "name": "getPrice returns price",
+        "line": 19,
+        "name": "setItem_id sets item_id",
         "description": "",
-        "id": "check-cart;getprice-returns-price",
+        "id": "check-salesbean;setitem-id-sets-item-id",
         "type": "scenario",
         "keyword": "Scenario",
         "steps": [
           {
             "result": {
-              "duration": 1013978,
-              "status": "passed"
-            },
-            "line": 19,
-            "name": "Cart is set up",
-            "match": {
-              "location": "CartSteps.cart_is_set_up()"
-            },
-            "keyword": "Given "
-          },
-          {
-            "result": {
-              "duration": 1673254,
+              "duration": 5352998,
               "status": "passed"
             },
             "line": 20,
-            "name": "Price 5 is set",
+            "name": "mock SalesBean is initialized",
             "match": {
-              "arguments": [
-                {
-                  "val": "5",
-                  "offset": 6
-                }
-              ],
-              "location": "CartSteps.price_is_set(int)"
+              "location": "SalesBeanSteps.mock_SalesBean_is_initialized()"
+            },
+            "keyword": "Given "
+          },
+          {
+            "result": {
+              "duration": 1259176,
+              "status": "passed"
+            },
+            "line": 21,
+            "name": "setItem_id() is called",
+            "match": {
+              "location": "SalesBeanSteps.setitem_id_is_called()"
             },
             "keyword": "When "
           },
           {
             "result": {
-              "duration": 2258388,
+              "duration": 618520,
               "status": "passed"
             },
-            "line": 21,
-            "name": "getPrice returns Price 5",
+            "line": 22,
+            "name": "setItem_id() is successfully called",
             "match": {
-              "arguments": [
-                {
-                  "val": "5",
-                  "offset": 23
-                }
-              ],
-              "location": "CartSteps.getprice_returns_Price(int)"
+              "location": "SalesBeanSteps.setitem_id_is_successfully_called()"
             },
             "keyword": "Then "
           }
         ]
       },
       {
-        "line": 23,
-        "name": "getItems returns item",
+        "comments": [
+          {
+            "line": 24,
+            "value": "# Test getUser_id and setUser_id"
+          }
+        ],
+        "line": 25,
+        "name": "getUser_id returns correct user_id",
         "description": "",
-        "id": "check-cart;getitems-returns-item",
+        "id": "check-salesbean;getuser-id-returns-correct-user-id",
         "type": "scenario",
         "keyword": "Scenario",
         "steps": [
           {
             "result": {
-              "duration": 1826466,
+              "duration": 3104426,
               "status": "passed"
             },
-            "line": 24,
-            "name": "Cart is set up",
+            "line": 26,
+            "name": "mock SalesBean is initialized",
             "match": {
-              "location": "CartSteps.cart_is_set_up()"
+              "location": "SalesBeanSteps.mock_SalesBean_is_initialized()"
             },
             "keyword": "Given "
           },
           {
             "result": {
-              "duration": 2648801,
+              "duration": 2784856,
               "status": "passed"
             },
-            "line": 25,
-            "name": "an item is set",
+            "line": 27,
+            "name": "a sales bean getUser_id() is called",
             "match": {
-              "location": "CartSteps.an_item_is_set()"
+              "location": "SalesBeanSteps.a_sales_bean_getUser_id_is_called()"
             },
             "keyword": "When "
           },
           {
             "result": {
-              "duration": 1132881,
+              "duration": 501577,
               "status": "passed"
             },
-            "line": 26,
-            "name": "getItems returns that item",
+            "line": 28,
+            "name": "a sales bean user id is returned",
             "match": {
-              "location": "CartSteps.getitems_returns_that_item()"
+              "location": "SalesBeanSteps.a_sales_bean_user_id_is_returned()"
+            },
+            "keyword": "Then "
+          }
+        ]
+      },
+      {
+        "line": 30,
+        "name": "setEmail sets email",
+        "description": "",
+        "id": "check-salesbean;setemail-sets-email",
+        "type": "scenario",
+        "keyword": "Scenario",
+        "steps": [
+          {
+            "result": {
+              "duration": 24160975,
+              "status": "passed"
+            },
+            "line": 31,
+            "name": "mock SalesBean is initialized",
+            "match": {
+              "location": "SalesBeanSteps.mock_SalesBean_is_initialized()"
+            },
+            "keyword": "Given "
+          },
+          {
+            "result": {
+              "duration": 711113,
+              "status": "passed"
+            },
+            "line": 32,
+            "name": "setUser_id() for sales bean is called",
+            "match": {
+              "location": "SalesBeanSteps.setuser_id_for_sales_bean_is_called()"
+            },
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "duration": 2009068,
+              "status": "passed"
+            },
+            "line": 33,
+            "name": "setUser_id() for sales bean is successfully called",
+            "match": {
+              "location": "SalesBeanSteps.setuser_id_for_sales_bean_is_successfully_called()"
+            },
+            "keyword": "Then "
+          }
+        ]
+      },
+      {
+        "comments": [
+          {
+            "line": 35,
+            "value": "# Test getPrice and setPrice"
+          }
+        ],
+        "line": 36,
+        "name": "getPrice returns correct price",
+        "description": "",
+        "id": "check-salesbean;getprice-returns-correct-price",
+        "type": "scenario",
+        "keyword": "Scenario",
+        "steps": [
+          {
+            "result": {
+              "duration": 1433333,
+              "status": "passed"
+            },
+            "line": 37,
+            "name": "mock SalesBean is initialized",
+            "match": {
+              "location": "SalesBeanSteps.mock_SalesBean_is_initialized()"
+            },
+            "keyword": "Given "
+          },
+          {
+            "result": {
+              "duration": 2885021,
+              "status": "passed"
+            },
+            "line": 38,
+            "name": "getPrice() for sales bean is called",
+            "match": {
+              "location": "SalesBeanSteps.getprice_for_sales_bean_is_called()"
+            },
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "duration": 15808520,
+              "status": "passed"
+            },
+            "line": 39,
+            "name": "a price string for sales bean is returned",
+            "match": {
+              "location": "SalesBeanSteps.a_price_string_for_sales_bean_is_returned()"
+            },
+            "keyword": "Then "
+          }
+        ]
+      },
+      {
+        "line": 41,
+        "name": "setPrice sets price",
+        "description": "",
+        "id": "check-salesbean;setprice-sets-price",
+        "type": "scenario",
+        "keyword": "Scenario",
+        "steps": [
+          {
+            "result": {
+              "duration": 6849171,
+              "status": "passed"
+            },
+            "line": 42,
+            "name": "mock SalesBean is initialized",
+            "match": {
+              "location": "SalesBeanSteps.mock_SalesBean_is_initialized()"
+            },
+            "keyword": "Given "
+          },
+          {
+            "result": {
+              "duration": 852466,
+              "status": "passed"
+            },
+            "line": 43,
+            "name": "setPrice() for sale bean is called",
+            "match": {
+              "location": "SalesBeanSteps.setprice_for_sale_bean_is_called()"
+            },
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "duration": 1093893,
+              "status": "passed"
+            },
+            "line": 44,
+            "name": "setPrice() for sale bean is successfully called",
+            "match": {
+              "location": "SalesBeanSteps.setprice_for_sale_bean_is_successfully_called()"
+            },
+            "keyword": "Then "
+          }
+        ]
+      },
+      {
+        "comments": [
+          {
+            "line": 46,
+            "value": "# Test getQuantity and setQuantity"
+          }
+        ],
+        "line": 47,
+        "name": "getQuantity returns correct quantity",
+        "description": "",
+        "id": "check-salesbean;getquantity-returns-correct-quantity",
+        "type": "scenario",
+        "keyword": "Scenario",
+        "steps": [
+          {
+            "result": {
+              "duration": 14084652,
+              "status": "passed"
+            },
+            "line": 48,
+            "name": "mock SalesBean is initialized",
+            "match": {
+              "location": "SalesBeanSteps.mock_SalesBean_is_initialized()"
+            },
+            "keyword": "Given "
+          },
+          {
+            "result": {
+              "duration": 656853,
+              "status": "passed"
+            },
+            "line": 49,
+            "name": "getQuantity() for sales bean is called",
+            "match": {
+              "location": "SalesBeanSteps.getquantity_for_sales_bean_is_called()"
+            },
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "duration": 7937388,
+              "status": "passed"
+            },
+            "line": 50,
+            "name": "a quantity string for sales bean is returned",
+            "match": {
+              "location": "SalesBeanSteps.a_quantity_string_for_sales_bean_is_returned()"
+            },
+            "keyword": "Then "
+          }
+        ]
+      },
+      {
+        "line": 52,
+        "name": "setQuantity sets quantity",
+        "description": "",
+        "id": "check-salesbean;setquantity-sets-quantity",
+        "type": "scenario",
+        "keyword": "Scenario",
+        "steps": [
+          {
+            "result": {
+              "duration": 2759852,
+              "status": "passed"
+            },
+            "line": 53,
+            "name": "mock SalesBean is initialized",
+            "match": {
+              "location": "SalesBeanSteps.mock_SalesBean_is_initialized()"
+            },
+            "keyword": "Given "
+          },
+          {
+            "result": {
+              "duration": 1658245,
+              "status": "passed"
+            },
+            "line": 54,
+            "name": "setQuantity() for sales bean is called",
+            "match": {
+              "location": "SalesBeanSteps.setquantity_for_sales_bean_is_called()"
+            },
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "duration": 587820,
+              "status": "passed"
+            },
+            "line": 55,
+            "name": "setQuantity() for sales bean is successfully called",
+            "match": {
+              "location": "SalesBeanSteps.setquantity_for_sales_bean_is_successfully_called()"
+            },
+            "keyword": "Then "
+          }
+        ]
+      },
+      {
+        "comments": [
+          {
+            "line": 57,
+            "value": "# Test getCard_number and setCard_number"
+          }
+        ],
+        "line": 58,
+        "name": "getCard_number returns correct card number",
+        "description": "",
+        "id": "check-salesbean;getcard-number-returns-correct-card-number",
+        "type": "scenario",
+        "keyword": "Scenario",
+        "steps": [
+          {
+            "result": {
+              "duration": 12800084,
+              "status": "passed"
+            },
+            "line": 59,
+            "name": "mock SalesBean is initialized",
+            "match": {
+              "location": "SalesBeanSteps.mock_SalesBean_is_initialized()"
+            },
+            "keyword": "Given "
+          },
+          {
+            "result": {
+              "duration": 1938803,
+              "status": "passed"
+            },
+            "line": 60,
+            "name": "getCard_number() is called",
+            "match": {
+              "location": "SalesBeanSteps.getcard_number_is_called()"
+            },
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "duration": 405955,
+              "status": "passed"
+            },
+            "line": 61,
+            "name": "a card number string is returned",
+            "match": {
+              "location": "SalesBeanSteps.a_card_number_string_is_returned()"
+            },
+            "keyword": "Then "
+          }
+        ]
+      },
+      {
+        "line": 63,
+        "name": "setCard_number sets card number",
+        "description": "",
+        "id": "check-salesbean;setcard-number-sets-card-number",
+        "type": "scenario",
+        "keyword": "Scenario",
+        "steps": [
+          {
+            "result": {
+              "duration": 1368335,
+              "status": "passed"
+            },
+            "line": 64,
+            "name": "mock SalesBean is initialized",
+            "match": {
+              "location": "SalesBeanSteps.mock_SalesBean_is_initialized()"
+            },
+            "keyword": "Given "
+          },
+          {
+            "result": {
+              "duration": 1596305,
+              "status": "passed"
+            },
+            "line": 65,
+            "name": "setCard_number() is called",
+            "match": {
+              "location": "SalesBeanSteps.setcard_number_is_called()"
+            },
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "duration": 1948423,
+              "status": "passed"
+            },
+            "line": 66,
+            "name": "setCard_number() is successfully called",
+            "match": {
+              "location": "SalesBeanSteps.setcard_number_is_successfully_called()"
+            },
+            "keyword": "Then "
+          }
+        ]
+      },
+      {
+        "comments": [
+          {
+            "line": 68,
+            "value": "# Test getExp_date and setExp_date"
+          }
+        ],
+        "line": 69,
+        "name": "getExp_date returns correct exp date",
+        "description": "",
+        "id": "check-salesbean;getexp-date-returns-correct-exp-date",
+        "type": "scenario",
+        "keyword": "Scenario",
+        "steps": [
+          {
+            "result": {
+              "duration": 4187020,
+              "status": "passed"
+            },
+            "line": 70,
+            "name": "mock SalesBean is initialized",
+            "match": {
+              "location": "SalesBeanSteps.mock_SalesBean_is_initialized()"
+            },
+            "keyword": "Given "
+          },
+          {
+            "result": {
+              "duration": 1963382,
+              "status": "passed"
+            },
+            "line": 71,
+            "name": "getExp_date is called",
+            "match": {
+              "location": "SalesBeanSteps.getexp_date_is_called()"
+            },
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "duration": 509425,
+              "status": "passed"
+            },
+            "line": 72,
+            "name": "an exp date string is returned",
+            "match": {
+              "location": "SalesBeanSteps.an_exp_date_string_is_returned()"
+            },
+            "keyword": "Then "
+          }
+        ]
+      },
+      {
+        "line": 74,
+        "name": "setExp_date sets role",
+        "description": "",
+        "id": "check-salesbean;setexp-date-sets-role",
+        "type": "scenario",
+        "keyword": "Scenario",
+        "steps": [
+          {
+            "result": {
+              "duration": 1794928,
+              "status": "passed"
+            },
+            "line": 75,
+            "name": "mock SalesBean is initialized",
+            "match": {
+              "location": "SalesBeanSteps.mock_SalesBean_is_initialized()"
+            },
+            "keyword": "Given "
+          },
+          {
+            "result": {
+              "duration": 655561,
+              "status": "passed"
+            },
+            "line": 76,
+            "name": "setExp_date() is called",
+            "match": {
+              "location": "SalesBeanSteps.setexp_date_is_called()"
+            },
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "duration": 948992,
+              "status": "passed"
+            },
+            "line": 77,
+            "name": "setExp_date() is successfully called",
+            "match": {
+              "location": "SalesBeanSteps.setexp_date_is_successfully_called()"
+            },
+            "keyword": "Then "
+          }
+        ]
+      },
+      {
+        "comments": [
+          {
+            "line": 79,
+            "value": "# Test getCard_cvv and setCard_cvv"
+          }
+        ],
+        "line": 80,
+        "name": "getCard_cvv returns correct card cvv",
+        "description": "",
+        "id": "check-salesbean;getcard-cvv-returns-correct-card-cvv",
+        "type": "scenario",
+        "keyword": "Scenario",
+        "steps": [
+          {
+            "result": {
+              "duration": 1249212,
+              "status": "passed"
+            },
+            "line": 81,
+            "name": "mock SalesBean is initialized",
+            "match": {
+              "location": "SalesBeanSteps.mock_SalesBean_is_initialized()"
+            },
+            "keyword": "Given "
+          },
+          {
+            "result": {
+              "duration": 548456,
+              "status": "passed"
+            },
+            "line": 82,
+            "name": "getCard_cvv() is called",
+            "match": {
+              "location": "SalesBeanSteps.getcard_cvv_is_called()"
+            },
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "duration": 298164,
+              "status": "passed"
+            },
+            "line": 83,
+            "name": "a card cvv is returned",
+            "match": {
+              "location": "SalesBeanSteps.a_card_cvv_is_returned()"
+            },
+            "keyword": "Then "
+          }
+        ]
+      },
+      {
+        "line": 85,
+        "name": "setCard_dvv sets card cvv",
+        "description": "",
+        "id": "check-salesbean;setcard-dvv-sets-card-cvv",
+        "type": "scenario",
+        "keyword": "Scenario",
+        "steps": [
+          {
+            "result": {
+              "duration": 41321398,
+              "status": "passed"
+            },
+            "line": 86,
+            "name": "mock SalesBean is initialized",
+            "match": {
+              "location": "SalesBeanSteps.mock_SalesBean_is_initialized()"
+            },
+            "keyword": "Given "
+          },
+          {
+            "result": {
+              "duration": 496306,
+              "status": "passed"
+            },
+            "line": 87,
+            "name": "setCard_cvv() is called",
+            "match": {
+              "location": "SalesBeanSteps.setcard_cvv_is_called()"
+            },
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "duration": 589200,
+              "status": "passed"
+            },
+            "line": 88,
+            "name": "setCard_cvv() is successfully called",
+            "match": {
+              "location": "SalesBeanSteps.setcard_cvv_is_successfully_called()"
             },
             "keyword": "Then "
           }
         ]
       }
     ],
-    "name": "Check Cart",
+    "name": "Check SalesBean",
     "description": "",
-    "id": "check-cart",
+    "id": "check-salesbean",
     "keyword": "Feature",
-    "uri": "cucumber/Cart.feature"
+    "uri": "cucumber/SalesBean.feature"
   }
 ]
