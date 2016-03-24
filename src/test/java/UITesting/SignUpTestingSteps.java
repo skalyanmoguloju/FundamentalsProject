@@ -7,27 +7,29 @@ import cucumber.api.java.en.When;
 import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 /**
  * Created by Daniel Dao on 3/12/16.
  */
-public class UITestingSteps {
+public class SignUpTestingSteps {
 
     private WebDriver driver;
     private String homeURL = "http://localhost:8080";
 
-    @Given("^I have a browser opened")
+    @Given("^I have a browser opened for SignUpTesting$")
     public void i_have_a_browser_opened() throws Throwable {
         driver = new FirefoxDriver();
-        WebDriverWait wait = new WebDriverWait(driver, 2);
+//        driver = new ChromeDriver();
+//        driver = new SafariDriver();
     }
 
-    @And("^browser is closed$")
+    @And("^browser is closed for SignUpTesting$")
     public void browser_is_closed() throws Throwable {
-        WebDriverWait wait = new WebDriverWait(driver, 2);
         driver.close();
     }
 
@@ -39,7 +41,6 @@ public class UITestingSteps {
         driver.manage().window().maximize();
         driver.get(homeURL);
         driver.findElement(By.linkText("Register")).click();
-
     }
 
     @Then("^I should be in the signup page$")
@@ -58,7 +59,7 @@ public class UITestingSteps {
      */
     @Then("^I should receive an empty first name message$")
     public void i_should_receive_an_error_message() throws Throwable {
-        String msg = driver.findElement(By.id("lbltipAddedComment")).getAttribute("innerHTML").toString();
+        String msg = driver.findElement(By.id("lbltipAddedComment")).getAttribute("innerHTML");
         Assert.assertEquals(msg, "First Name cannot be empty");
     }
 
@@ -69,7 +70,7 @@ public class UITestingSteps {
 
     @Then("^I should not receive an empty first name message$")
     public void i_should_not_receive_an_empty_first_name_message() throws Throwable {
-        String msg = driver.findElement(By.id("lbltipAddedComment")).getAttribute("innerHTML").toString();
+        String msg = driver.findElement(By.id("lbltipAddedComment")).getAttribute("innerHTML");
         Assert.assertNotEquals(msg, "First Name cannot be empty");
     }
 
@@ -84,13 +85,13 @@ public class UITestingSteps {
 
     @Then("^I should receive an empty last name message$")
     public void i_should_receive_an_empty_last_name_message() throws Throwable {
-        String msg = driver.findElement(By.id("lbltipAddedComment")).getAttribute("innerHTML").toString();
+        String msg = driver.findElement(By.id("lbltipAddedComment")).getAttribute("innerHTML");
         Assert.assertEquals(msg, "Last Name cannot be empty");
     }
 
     @Then("^I should not receive an empty last name message$")
     public void i_should_not_receive_an_empty_last_name_message() throws Throwable {
-        String msg = driver.findElement(By.id("lbltipAddedComment")).getAttribute("innerHTML").toString();
+        String msg = driver.findElement(By.id("lbltipAddedComment")).getAttribute("innerHTML");
         Assert.assertNotEquals(msg, "Last Name cannot be empty");
     }
 
@@ -100,7 +101,7 @@ public class UITestingSteps {
      */
     @Then("^I should receive an empty email message$")
     public void i_should_receive_an_empty_email_message() throws Throwable {
-        String msg = driver.findElement(By.id("lbltipAddedComment")).getAttribute("innerHTML").toString();
+        String msg = driver.findElement(By.id("lbltipAddedComment")).getAttribute("innerHTML");
         Assert.assertEquals(msg, "Email id cannot be empty");
     }
 
@@ -111,14 +112,14 @@ public class UITestingSteps {
 
     @Then("^I should not receive an empty email message and should receive a wrong email message$")
     public void i_should_receive_a_wrong_email_message() throws Throwable {
-        String msg = driver.findElement(By.id("lbltipAddedComment")).getAttribute("innerHTML").toString();
+        String msg = driver.findElement(By.id("lbltipAddedComment")).getAttribute("innerHTML");
         Assert.assertNotEquals(msg, "Email id cannot be empty");
         Assert.assertEquals(msg, "Invalid Email id entered!!");
     }
 
     @Then("^I should not receive a wrong email message or empty email message$")
     public void i_should_not_receive_a_wrong_email_message_or_empty_email_message() throws Throwable {
-        String msg = driver.findElement(By.id("lbltipAddedComment")).getAttribute("innerHTML").toString();
+        String msg = driver.findElement(By.id("lbltipAddedComment")).getAttribute("innerHTML");
         Assert.assertNotEquals(msg, "Email id cannot be empty");
         Assert.assertNotEquals(msg, "Invalid Email id entered!!");
     }
@@ -129,7 +130,7 @@ public class UITestingSteps {
      */
     @Then("^I should receive an empty password message$")
     public void i_should_receive_an_empty_password_message() throws Throwable {
-        String msg = driver.findElement(By.id("lbltipAddedComment")).getAttribute("innerHTML").toString();
+        String msg = driver.findElement(By.id("lbltipAddedComment")).getAttribute("innerHTML");
         Assert.assertEquals(msg, "Password field cannot be empty");
     }
 
@@ -140,14 +141,14 @@ public class UITestingSteps {
 
     @Then("^I should not receive an empty password message and should receive a 6-character message$")
     public void i_should_not_receive_an_empty_password_message_and_should_receive_a_6_character_message() throws Throwable {
-        String msg = driver.findElement(By.id("lbltipAddedComment")).getAttribute("innerHTML").toString();
+        String msg = driver.findElement(By.id("lbltipAddedComment")).getAttribute("innerHTML");
         Assert.assertNotEquals(msg, "Password field cannot be empty");
         Assert.assertEquals(msg, "Password must contain at least 6 characters");
     }
 
     @Then("^I should not receive an empty password message and should not receive a 6-character message and should receive an alphanumeric message$")
     public void i_should_not_receive_a_empty_password_message_and_should_not_receive_a_6_character_message_and_should_receive_an_aphanumeric_message() throws Throwable {
-        String msg = driver.findElement(By.id("lbltipAddedComment")).getAttribute("innerHTML").toString();
+        String msg = driver.findElement(By.id("lbltipAddedComment")).getAttribute("innerHTML");
         Assert.assertNotEquals(msg, "Password field cannot be empty");
         Assert.assertNotEquals(msg, "Password must contain at least 6 characters");
         Assert.assertEquals(msg, "Password must contain alphanumeric characters");
@@ -156,7 +157,7 @@ public class UITestingSteps {
 
     @Then("^I should not receive an empty password message and should not receive a 6-character message and should not receive an alphanumeric message$")
     public void i_should_not_receive_a_empty_password_message_and_should_not_receive_a_6_character_message_and_should_not_receive_an_aphanumeric_message() throws Throwable {
-        String msg = driver.findElement(By.id("lbltipAddedComment")).getAttribute("innerHTML").toString();
+        String msg = driver.findElement(By.id("lbltipAddedComment")).getAttribute("innerHTML");
         Assert.assertNotEquals(msg, "Password field cannot be empty");
         Assert.assertNotEquals(msg, "Password must contain at least 6 characters");
         Assert.assertNotEquals(msg, "Password must contain alphanumeric characters");
@@ -168,7 +169,7 @@ public class UITestingSteps {
      */
     @Then("^I should receive an empty confirm password message$")
     public void i_should_receive_an_empty_confirm_password_message() throws Throwable {
-        String msg = driver.findElement(By.id("lbltipAddedComment")).getAttribute("innerHTML").toString();
+        String msg = driver.findElement(By.id("lbltipAddedComment")).getAttribute("innerHTML");
         Assert.assertEquals(msg, "Confirm Password cannot be empty");
     }
 
@@ -180,119 +181,140 @@ public class UITestingSteps {
 
     @Then("^I should not receive an empty confirm password message$")
     public void i_should_not_receive_an_empty_confirm_password_message() throws Throwable {
-        String msg = driver.findElement(By.id("lbltipAddedComment")).getAttribute("innerHTML").toString();
+        String msg = driver.findElement(By.id("lbltipAddedComment")).getAttribute("innerHTML");
         Assert.assertNotEquals(msg, "Confirm Password cannot be empty");
     }
 
     @And("^I should receive a non-matching password message$")
     public void i_should_receive_a_non_matching_password_message() throws Throwable {
-        String msg = driver.findElement(By.id("lbltipAddedComment")).getAttribute("innerHTML").toString();
+        String msg = driver.findElement(By.id("lbltipAddedComment")).getAttribute("innerHTML");
         Assert.assertEquals(msg, "Confirm Password does not match with Password");
     }
 
     @And("^I should not receive a non-matching password message$")
     public void i_should_not_receive_a_non_matching_password_message() throws Throwable {
-        String msg = driver.findElement(By.id("lbltipAddedComment")).getAttribute("innerHTML").toString();
+        String msg = driver.findElement(By.id("lbltipAddedComment")).getAttribute("innerHTML");
         Assert.assertNotEquals(msg, "Confirm Password does not match with Password");
     }
 
-    //-----------------------------------------------------------------------------------------------------------------
     /*
-     * Login page check
+     * Role Check
      */
-    @When("^I navigate to login page$")
-    public void i_navigate_to_login_page() throws Throwable {
-        driver.manage().window().maximize();
-        driver.get(homeURL);
-    }
-
-    @Then("^I should be in the login page$")
-    public void i_should_be_in_the_login_page() throws Throwable {
-        String msg = driver.getTitle();
-        Assert.assertEquals(msg, "Sign In");
-    }
-
-    @Then("^I should receive an please-enter email message$")
-    public void i_should_receive_an_please_enter_email_message() throws Throwable {
-        String msg = driver.findElement(By.id("lbltipAddedComment")).getAttribute("innerHTML").toString();
-        Assert.assertEquals(msg, "Please enter email id");
-    }
-
-    @Then("^I should not receive an please-enter email message and should receive a please-enter password$")
-    public void i_should_not_receive_an_please_enter_email_message_and_should_receive_a_please_enter_password() throws Throwable {
-        String msg = driver.findElement(By.id("lbltipAddedComment")).getAttribute("innerHTML").toString();
-        Assert.assertNotEquals(msg, "Please enter email id");
-        Assert.assertEquals(msg, "Please enter password");
-    }
-
-    @Then("^I should not receive an please-enter email message and should not receive a please-enter password$")
-    public void i_should_not_receive_an_please_enter_email_message_and_should_not_receive_a_please_enter_password() throws Throwable {
-        String msg = driver.findElement(By.id("lbltipAddedComment")).getAttribute("innerHTML").toString();
-        Assert.assertNotEquals(msg, "Please enter email id");
-        Assert.assertNotEquals(msg, "Please enter password");
-    }
-
-    @And("^I enter \"([^\"]*)\" in password field in login$")
-    public void i_enter_in_password_field_login(String arg1) throws Throwable {
-        driver.findElement(By.id("askpassword")).sendKeys(arg1);
-    }
-
-    @Then("^I should receive a wrong account$")
-    public void i_should_receive_a_wrong_account() throws Throwable {
+    @Then("^I should receive a select-role message$")
+    public void i_should_receive_a_select_role_message() throws Throwable {
         String msg = driver.findElement(By.id("lbltipAddedComment")).getAttribute("innerHTML");
-        Assert.assertEquals(msg, "Invalid Credentials!!");
+        Assert.assertEquals(msg, "Role should be selected");
     }
 
-    @Then("^I should be navigated to home page$")
-    public void i_should_be_navigated_to_home_page() throws Throwable {
-        WebDriverWait wait = new WebDriverWait(driver, 5);
-        wait.until(ExpectedConditions.urlToBe("http://localhost:8080/home"));
-        String msg = driver.getTitle();
-        Assert.assertEquals(msg, "Home");
+    @When("^I choose User role$")
+    public void i_choose_User_role() throws Throwable {
+        Select dropdown = new Select (driver.findElement(By.name("role")));
+        dropdown.selectByVisibleText("User");
     }
 
-    //-----------------------------------------------------------------------------------------------------------------
+    @Then("^I should not receive an id message for User$")
+    public void i_should_not_receive_an_id_message_for_User() throws Throwable {
+        String msg = driver.findElement(By.id("lbltipAddedComment")).getAttribute("innerHTML");
+        Assert.assertNotEquals(msg, "Id is required if you are a User");
+    }
+
+    @When("^I choose Admin role$")
+    public void i_choose_Admin_role() throws Throwable {
+        Select dropdown = new Select (driver.findElement(By.name("role")));
+        dropdown.selectByVisibleText("Admin");
+    }
+
+    @Then("^I should receive an id message for Admin$")
+    public void i_should_receive_an_id_message_Ad() throws Throwable {
+        String msg = driver.findElement(By.id("lbltipAddedComment")).getAttribute("innerHTML");
+        Assert.assertEquals(msg, "Id is required if you are a Admin");
+    }
+
+    @When("^I choose Manager role$")
+    public void i_choose_Manager_role() throws Throwable {
+        Select dropdown = new Select (driver.findElement(By.name("role")));
+        dropdown.selectByVisibleText("Manager");
+    }
+
     /*
-     * Forgot password page check
-     */
-    @When("^I navigate to forgot password page$")
-    public void i_navigate_to_forgot_password_page() throws Throwable {
-        driver.manage().window().maximize();
-        driver.get(homeURL);
-        driver.findElement(By.linkText("Forgot Password?")).click();
-
+    * Assign ID Check
+    */
+    @Then("^I should receive an id message for Manager$")
+    public void i_should_receive_an_id_message_Manager() throws Throwable {
+        String msg = driver.findElement(By.id("lbltipAddedComment")).getAttribute("innerHTML");
+        Assert.assertEquals(msg, "Id is required if you are a Manager");
     }
 
-    @Then("^I should be in the forgot password page$")
-    public void i_should_be_in_the_forgot_password_page() throws Throwable {
-        String msg = driver.getTitle();
-        Assert.assertEquals(msg, "Forgot your password?");
+    @When("^I enter \"([^\"]*)\" in Assign ID$")
+    public void i_enter_in_Assign_ID(String arg1) throws Throwable {
+        driver.findElement(By.id("roleid")).sendKeys(arg1);
     }
 
-    @Then("^I should not receive an please-enter email message and should receive a invalid email message$")
-    public void i_should_not_receive_an_please_enter_email_message_and_should_receive_a_invalid_email_message() throws Throwable {
-        String msg = driver.findElement(By.id("lbltipAddedComment")).getAttribute("innerHTML").toString();
-        Assert.assertNotEquals(msg, "Please enter email id");
-        Assert.assertEquals(msg, "Invalid Email Id!!!");
+    @Then("^I should not receive an id message for Admin$")
+    public void i_should_not_receive_an_id_message_for_Admin() throws Throwable {
+        String msg = driver.findElement(By.id("lbltipAddedComment")).getAttribute("innerHTML");
+        Assert.assertNotEquals(msg, "Id is required if you are a Admin");
     }
 
-    @Then("^I should not receive an please-enter email message and should not receive a invalid email message$")
-    public void i_should_not_receive_an_please_enter_email_message_and_should_not_receive_a_invalid_email_message() throws Throwable {
-        String msg = driver.findElement(By.id("lbltipAddedComment")).getAttribute("innerHTML").toString();
-        Assert.assertNotEquals(msg, "Please enter email id");
-        Assert.assertNotEquals(msg, "Invalid Email Id!!!");
+    @Then("^I should not receive an id message for Manager$")
+    public void i_should_not_receive_an_id_message_for_Manager() throws Throwable {
+        String msg = driver.findElement(By.id("lbltipAddedComment")).getAttribute("innerHTML");
+        Assert.assertNotEquals(msg, "Id is required if you are a Manager");
     }
 
-    @And("^I should receive confirm alert$")
-    public void i_should_receive_confirm_alert() throws Throwable {
-        WebDriverWait wait = new WebDriverWait(driver, 5);
-        wait.until(ExpectedConditions.alertIsPresent());
-       Assert.assertEquals(driver.switchTo().alert().getText(), "Email has been sent to your email");
+    /*
+    * Gender Check
+    */
+    @Then("^I should receive an empty gender message$")
+    public void i_should_receive_an_empty_gender_message() throws Throwable {
+        String msg = driver.findElement(By.id("lbltipAddedComment")).getAttribute("innerHTML");
+        Assert.assertEquals(msg, "Please Select the Gender");
     }
 
-    @When("^I click ok$")
-    public void i_click_ok() throws Throwable {
-        driver.switchTo().alert().accept();
+    @When("^I choose Male gender$")
+    public void i_choose_Male_gender() throws Throwable {
+        Select dropdown = new Select (driver.findElement(By.name("gender")));
+        dropdown.selectByVisibleText("Male");
+    }
+
+    @Then("^I should not receive an empty gender message$")
+    public void i_should_not_receive_an_empty_gender_message() throws Throwable {
+        String msg = driver.findElement(By.id("lbltipAddedComment")).getAttribute("innerHTML");
+        Assert.assertNotEquals(msg, "Please Select the Gender");
+    }
+
+    @When("^I choose Female gender$")
+    public void i_choose_Female_gender() throws Throwable {
+        Select dropdown = new Select (driver.findElement(By.name("gender")));
+        dropdown.selectByVisibleText("Female");
+    }
+
+    /*
+    * DOB Check
+    */
+    @Then("^I should receive an empty dob message$")
+    public void i_should_receive_an_empty_dob_message() throws Throwable {
+        String msg = driver.findElement(By.id("lbltipAddedComment")).getAttribute("innerHTML");
+        Assert.assertEquals(msg, "Please select DOB");
+    }
+
+
+    @When("^I enter \"([^\"]*)\" in the dob field$")
+    public void i_enter_in_the_dob_field(String arg1) throws Throwable {
+        driver.findElement(By.id("calendar")).sendKeys(arg1);
+    }
+
+    @Then("^I should receive an error signup message$")
+    public void i_should_receive_an_error_signup_message() throws Throwable {
+        String msg = driver.findElement(By.id("lbltipAddedComment")).getAttribute("innerHTML");
+        System.out.println("msg" + msg + "end");
+        //Assert.assertEquals(msg, "Error in Signing up!! Please try again");
+    }
+
+    @Then("^I should not receive an error signup message$")
+    public void i_should_not_receive_an_error_signup_message() throws Throwable {
+        String msg = driver.findElement(By.id("lbltipAddedComment")).getAttribute("innerHTML");
+        Assert.assertNotEquals(msg, "Error in Signing up!! Please try again");
     }
 
 }

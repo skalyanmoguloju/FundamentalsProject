@@ -10,8 +10,8 @@ import org.junit.runner.RunWith;
 @RunWith(Cucumber.class)
 @CucumberOptions(
         format = { "pretty", "json:target/cucumber" },
-        features = "classpath:cucumber/UITesting.feature"
+        features = "classpath:cucumber/LogInTesting.feature"
 )
-public class UITestingRunner {
-    // Run UITesting.feature based on UITestingSignupSteps.java
+public class LogInTestingRunner {
+    // Run LogInTesting.feature based on LogInTestingSteps.java
 }
