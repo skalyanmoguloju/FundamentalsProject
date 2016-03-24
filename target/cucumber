@@ -1,0 +1,266 @@
+[
+  {
+    "line": 1,
+    "elements": [
+      {
+        "line": 3,
+        "name": "2 random keys are different",
+        "description": "",
+        "id": "check-emailverification;2-random-keys-are-different",
+        "type": "scenario",
+        "keyword": "Scenario",
+        "steps": [
+          {
+            "result": {
+              "duration": 11570285,
+              "status": "passed"
+            },
+            "line": 4,
+            "name": "I have an EmailVerification",
+            "match": {
+              "location": "EmailVerificationSteps.i_have_an_EmailVerification()"
+            },
+            "keyword": "Given "
+          },
+          {
+            "result": {
+              "duration": 3718853,
+              "status": "passed"
+            },
+            "line": 5,
+            "name": "I generate 2 key(s)",
+            "match": {
+              "arguments": [
+                {
+                  "val": "2",
+                  "offset": 11
+                }
+              ],
+              "location": "EmailVerificationSteps.i_generate_key_s(int)"
+            },
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "duration": 175904,
+              "status": "passed"
+            },
+            "line": 6,
+            "name": "they should be different",
+            "match": {
+              "location": "EmailVerificationSteps.they_should_be_different()"
+            },
+            "keyword": "Then "
+          }
+        ]
+      },
+      {
+        "line": 8,
+        "name": "2 random keys are different",
+        "description": "",
+        "id": "check-emailverification;2-random-keys-are-different",
+        "type": "scenario",
+        "keyword": "Scenario",
+        "steps": [
+          {
+            "result": {
+              "duration": 426013,
+              "status": "passed"
+            },
+            "line": 9,
+            "name": "I have an EmailVerification",
+            "match": {
+              "location": "EmailVerificationSteps.i_have_an_EmailVerification()"
+            },
+            "keyword": "Given "
+          },
+          {
+            "result": {
+              "duration": 699357,
+              "status": "passed"
+            },
+            "line": 10,
+            "name": "I generate 4 key(s)",
+            "match": {
+              "arguments": [
+                {
+                  "val": "4",
+                  "offset": 11
+                }
+              ],
+              "location": "EmailVerificationSteps.i_generate_key_s(int)"
+            },
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "duration": 108035,
+              "status": "passed"
+            },
+            "line": 11,
+            "name": "they should be different",
+            "match": {
+              "location": "EmailVerificationSteps.they_should_be_different()"
+            },
+            "keyword": "Then "
+          }
+        ]
+      },
+      {
+        "line": 13,
+        "name": "a return key is a random UUID",
+        "description": "",
+        "id": "check-emailverification;a-return-key-is-a-random-uuid",
+        "type": "scenario",
+        "keyword": "Scenario",
+        "steps": [
+          {
+            "result": {
+              "duration": 462754,
+              "status": "passed"
+            },
+            "line": 14,
+            "name": "I have an EmailVerification",
+            "match": {
+              "location": "EmailVerificationSteps.i_have_an_EmailVerification()"
+            },
+            "keyword": "Given "
+          },
+          {
+            "result": {
+              "duration": 1024335,
+              "status": "passed"
+            },
+            "line": 15,
+            "name": "I generate 1 key(s)",
+            "match": {
+              "arguments": [
+                {
+                  "val": "1",
+                  "offset": 11
+                }
+              ],
+              "location": "EmailVerificationSteps.i_generate_key_s(int)"
+            },
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "duration": 673752,
+              "status": "passed"
+            },
+            "line": 16,
+            "name": "each key should have the same length as a random UUID",
+            "match": {
+              "location": "EmailVerificationSteps.it_should_have_the_same_length_as_a_random_UUID()"
+            },
+            "keyword": "Then "
+          }
+        ]
+      },
+      {
+        "line": 18,
+        "name": "each return key is a random UUID",
+        "description": "",
+        "id": "check-emailverification;each-return-key-is-a-random-uuid",
+        "type": "scenario",
+        "keyword": "Scenario",
+        "steps": [
+          {
+            "result": {
+              "duration": 223094,
+              "status": "passed"
+            },
+            "line": 19,
+            "name": "I have an EmailVerification",
+            "match": {
+              "location": "EmailVerificationSteps.i_have_an_EmailVerification()"
+            },
+            "keyword": "Given "
+          },
+          {
+            "result": {
+              "duration": 711943,
+              "status": "passed"
+            },
+            "line": 20,
+            "name": "I generate 3 key(s)",
+            "match": {
+              "arguments": [
+                {
+                  "val": "3",
+                  "offset": 11
+                }
+              ],
+              "location": "EmailVerificationSteps.i_generate_key_s(int)"
+            },
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "duration": 436687,
+              "status": "passed"
+            },
+            "line": 21,
+            "name": "each key should have the same length as a random UUID",
+            "match": {
+              "location": "EmailVerificationSteps.it_should_have_the_same_length_as_a_random_UUID()"
+            },
+            "keyword": "Then "
+          }
+        ]
+      },
+      {
+        "line": 23,
+        "name": "a return key after executing sendEmailVerificationLink is a random UUID",
+        "description": "",
+        "id": "check-emailverification;a-return-key-after-executing-sendemailverificationlink-is-a-random-uuid",
+        "type": "scenario",
+        "keyword": "Scenario",
+        "steps": [
+          {
+            "result": {
+              "duration": 614864,
+              "status": "passed"
+            },
+            "line": 24,
+            "name": "I have an EmailVerification",
+            "match": {
+              "location": "EmailVerificationSteps.i_have_an_EmailVerification()"
+            },
+            "keyword": "Given "
+          },
+          {
+            "result": {
+              "duration": 2635914872,
+              "status": "passed"
+            },
+            "line": 25,
+            "name": "I call sendEmailVerificationLink",
+            "match": {
+              "location": "EmailVerificationSteps.i_call_sendEmailVerificationLink()"
+            },
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "duration": 296083,
+              "status": "passed"
+            },
+            "line": 26,
+            "name": "it should return a key having the same length as a random UUID",
+            "match": {
+              "location": "EmailVerificationSteps.it_should_return_a_key_having_the_same_length_as_a_random_UUID()"
+            },
+            "keyword": "Then "
+          }
+        ]
+      }
+    ],
+    "name": "Check EmailVerification",
+    "description": "",
+    "id": "check-emailverification",
+    "keyword": "Feature",
+    "uri": "cucumber/EmailVerification.feature"
+  }
+]
