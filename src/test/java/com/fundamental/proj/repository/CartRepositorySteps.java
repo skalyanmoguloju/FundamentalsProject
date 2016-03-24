@@ -81,6 +81,11 @@ public class CartRepositorySteps {
 
     }
 
+    /************************************************/
+    /*
+     * Test getCart()
+     */
+    /***********************************************/
     @Given("^expected list of carts is initialized$")
     public void expected_list_of_carts_is_initialized() throws Throwable {
         Cart cart1 = new Cart();

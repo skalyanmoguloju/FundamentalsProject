@@ -6,49 +6,177 @@
         "comments": [
           {
             "line": 3,
-            "value": "# Test updateCart"
+            "value": "# Test getAllItems"
           }
         ],
         "line": 4,
-        "name": "updateCart is called successfully",
+        "name": "getAllItems returns some itembeans",
         "description": "",
-        "id": "check-cartdelegate;updatecart-is-called-successfully",
+        "id": "check-itemsdelegate;getallitems-returns-some-itembeans",
         "type": "scenario",
         "keyword": "Scenario",
         "steps": [
           {
             "result": {
-              "duration": 881901338,
+              "duration": 986083861,
               "status": "passed"
             },
             "line": 5,
-            "name": "mock CartDelegate is initialized",
+            "name": "mock ItemsDelegate is initialized",
             "match": {
-              "location": "CartDelegateSteps.mock_CartDelegate_is_initialized()"
+              "location": "ItemsDelegateSteps.mock_itemsrespository_is_initialized()"
             },
             "keyword": "Given "
           },
           {
             "result": {
-              "duration": 111449716,
+              "duration": 3058350,
               "status": "passed"
             },
             "line": 6,
-            "name": "updateCart() is called for CartDelegate",
+            "name": "expected list of itembeans is initialized",
             "match": {
-              "location": "CartDelegateSteps.updatecart_is_called_CartDelegate()"
+              "location": "ItemsDelegateSteps.expected_list_of_itembeans_is_initialized()"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 66812121,
+              "status": "passed"
+            },
+            "line": 7,
+            "name": "getAllItems() is called for ItemsDelegate",
+            "match": {
+              "location": "ItemsDelegateSteps.getallitems_is_called_ItemsDelegate()"
             },
             "keyword": "When "
           },
           {
             "result": {
-              "duration": 29183461,
+              "duration": 26958332,
               "status": "passed"
             },
-            "line": 7,
-            "name": "updateCart has been called successfully",
+            "line": 8,
+            "name": "a list of itembeans is returned for getAllItems",
             "match": {
-              "location": "CartDelegateSteps.updatecart_has_been_called_successfully()"
+              "location": "ItemsDelegateSteps.a_list_of_itembeans_is_returned_for_getAllItems()"
+            },
+            "keyword": "Then "
+          }
+        ]
+      },
+      {
+        "line": 10,
+        "name": "getAllItems returns null",
+        "description": "",
+        "id": "check-itemsdelegate;getallitems-returns-null",
+        "type": "scenario",
+        "keyword": "Scenario",
+        "steps": [
+          {
+            "result": {
+              "duration": 6051910,
+              "status": "passed"
+            },
+            "line": 11,
+            "name": "mock ItemsDelegate is initialized",
+            "match": {
+              "location": "ItemsDelegateSteps.mock_itemsrespository_is_initialized()"
+            },
+            "keyword": "Given "
+          },
+          {
+            "result": {
+              "duration": 177147,
+              "status": "passed"
+            },
+            "line": 12,
+            "name": "expected null list of itembeans is initialized",
+            "match": {
+              "location": "ItemsDelegateSteps.expected_null_list_of_itembeans_is_initialized()"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 530931,
+              "status": "passed"
+            },
+            "line": 13,
+            "name": "getAllItems() is called for ItemsDelegate",
+            "match": {
+              "location": "ItemsDelegateSteps.getallitems_is_called_ItemsDelegate()"
+            },
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "duration": 1940478,
+              "status": "passed"
+            },
+            "line": 14,
+            "name": "a list of itembeans is null for getAllItems",
+            "match": {
+              "location": "ItemsDelegateSteps.a_list_of_itembeans_is_null_for_getAllItems()"
+            },
+            "keyword": "Then "
+          }
+        ]
+      },
+      {
+        "line": 16,
+        "name": "getAllItems returns empty",
+        "description": "",
+        "id": "check-itemsdelegate;getallitems-returns-empty",
+        "type": "scenario",
+        "keyword": "Scenario",
+        "steps": [
+          {
+            "result": {
+              "duration": 8751984,
+              "status": "passed"
+            },
+            "line": 17,
+            "name": "mock ItemsDelegate is initialized",
+            "match": {
+              "location": "ItemsDelegateSteps.mock_itemsrespository_is_initialized()"
+            },
+            "keyword": "Given "
+          },
+          {
+            "result": {
+              "duration": 1410012,
+              "status": "passed"
+            },
+            "line": 18,
+            "name": "expected empty list of itembeans is initialized",
+            "match": {
+              "location": "ItemsDelegateSteps.expected_empty_list_of_itembeans_is_initialized()"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 901380,
+              "status": "passed"
+            },
+            "line": 19,
+            "name": "getAllItems() is called for ItemsDelegate",
+            "match": {
+              "location": "ItemsDelegateSteps.getallitems_is_called_ItemsDelegate()"
+            },
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "duration": 1427507,
+              "status": "passed"
+            },
+            "line": 20,
+            "name": "a list of itembeans is empty for getAllItems",
+            "match": {
+              "location": "ItemsDelegateSteps.a_list_of_itembeans_is_empty_for_getAllItems()"
             },
             "keyword": "Then "
           }
@@ -57,188 +185,60 @@
       {
         "comments": [
           {
-            "line": 9,
-            "value": "# Test getCart"
+            "line": 22,
+            "value": "# Test addItem"
           }
         ],
-        "line": 10,
-        "name": "getCart returns some cartbeans",
+        "line": 23,
+        "name": "addItem is called successfully",
         "description": "",
-        "id": "check-cartdelegate;getcart-returns-some-cartbeans",
+        "id": "check-itemsdelegate;additem-is-called-successfully",
         "type": "scenario",
         "keyword": "Scenario",
         "steps": [
           {
             "result": {
-              "duration": 3048516,
-              "status": "passed"
-            },
-            "line": 11,
-            "name": "mock CartDelegate is initialized",
-            "match": {
-              "location": "CartDelegateSteps.mock_CartDelegate_is_initialized()"
-            },
-            "keyword": "Given "
-          },
-          {
-            "result": {
-              "duration": 1430670,
-              "status": "passed"
-            },
-            "line": 12,
-            "name": "expected list of cartbeans is initialized",
-            "match": {
-              "location": "CartDelegateSteps.expected_list_of_cartbeans_is_initialized()"
-            },
-            "keyword": "And "
-          },
-          {
-            "result": {
-              "duration": 6089578,
-              "status": "passed"
-            },
-            "line": 13,
-            "name": "getCart() is called for CartDelegate",
-            "match": {
-              "location": "CartDelegateSteps.getcart_is_called_CartDelegate()"
-            },
-            "keyword": "When "
-          },
-          {
-            "result": {
-              "duration": 11035361,
-              "status": "passed"
-            },
-            "line": 14,
-            "name": "a list of cartbeans is returned for CartDelegate",
-            "match": {
-              "location": "CartDelegateSteps.a_list_of_cartbeans_is_returned_for_cartDelegate()"
-            },
-            "keyword": "Then "
-          }
-        ]
-      },
-      {
-        "line": 16,
-        "name": "getCart returns null",
-        "description": "",
-        "id": "check-cartdelegate;getcart-returns-null",
-        "type": "scenario",
-        "keyword": "Scenario",
-        "steps": [
-          {
-            "result": {
-              "duration": 3707617,
-              "status": "passed"
-            },
-            "line": 17,
-            "name": "mock CartDelegate is initialized",
-            "match": {
-              "location": "CartDelegateSteps.mock_CartDelegate_is_initialized()"
-            },
-            "keyword": "Given "
-          },
-          {
-            "result": {
-              "duration": 210414,
-              "status": "passed"
-            },
-            "line": 18,
-            "name": "expected null list of cartbeans is initialized",
-            "match": {
-              "location": "CartDelegateSteps.expected_null_list_of_cartbeans_is_initialized()"
-            },
-            "keyword": "And "
-          },
-          {
-            "result": {
-              "duration": 882469,
-              "status": "passed"
-            },
-            "line": 19,
-            "name": "getCart() is called for CartDelegate",
-            "match": {
-              "location": "CartDelegateSteps.getcart_is_called_CartDelegate()"
-            },
-            "keyword": "When "
-          },
-          {
-            "result": {
-              "duration": 978732,
-              "status": "passed"
-            },
-            "line": 20,
-            "name": "a list of cartbeans is null for CartDelegate",
-            "match": {
-              "location": "CartDelegateSteps.a_list_of_cartbeans_is_null_for_CartDelegate()"
-            },
-            "keyword": "Then "
-          }
-        ]
-      },
-      {
-        "line": 22,
-        "name": "getCart returns empty",
-        "description": "",
-        "id": "check-cartdelegate;getcart-returns-empty",
-        "type": "scenario",
-        "keyword": "Scenario",
-        "steps": [
-          {
-            "result": {
-              "duration": 11019340,
-              "status": "passed"
-            },
-            "line": 23,
-            "name": "mock CartDelegate is initialized",
-            "match": {
-              "location": "CartDelegateSteps.mock_CartDelegate_is_initialized()"
-            },
-            "keyword": "Given "
-          },
-          {
-            "result": {
-              "duration": 484436,
+              "duration": 5931236,
               "status": "passed"
             },
             "line": 24,
-            "name": "expected empty list of cartbeans is initialized",
+            "name": "mock ItemsDelegate is initialized",
             "match": {
-              "location": "CartDelegateSteps.expected_empty_list_of_cartbeans_is_initialized()"
+              "location": "ItemsDelegateSteps.mock_itemsrespository_is_initialized()"
             },
-            "keyword": "And "
+            "keyword": "Given "
           },
           {
             "result": {
-              "duration": 552541,
+              "duration": 30209565,
               "status": "passed"
             },
             "line": 25,
-            "name": "getCart() is called for CartDelegate",
+            "name": "addItem() is called for ItemsDelegate",
             "match": {
-              "location": "CartDelegateSteps.getcart_is_called_CartDelegate()"
+              "location": "ItemsDelegateSteps.additem_is_called_ItemsDelegate()"
             },
             "keyword": "When "
           },
           {
             "result": {
-              "duration": 635501,
+              "duration": 14175769,
               "status": "passed"
             },
             "line": 26,
-            "name": "a list of cartbeans is empty for CartDelegate",
+            "name": "addItem has been called successfully",
             "match": {
-              "location": "CartDelegateSteps.a_list_of_cartbeans_is_empty_for_cartDelegate()"
+              "location": "ItemsDelegateSteps.additem_has_been_called_successfully()"
             },
             "keyword": "Then "
           }
         ]
       }
     ],
-    "name": "Check CartDelegate",
+    "name": "Check ItemsDelegate",
     "description": "",
-    "id": "check-cartdelegate",
+    "id": "check-itemsdelegate",
     "keyword": "Feature",
-    "uri": "cucumber/CartDelegate.feature"
+    "uri": "cucumber/ItemsDelegate.feature"
   }
 ]

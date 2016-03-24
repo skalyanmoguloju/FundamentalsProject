@@ -4,13 +4,15 @@ import com.fundamental.proj.controller.bean.CartBean;
 import com.fundamental.proj.controller.bean.ItemsBean;
 import com.fundamental.proj.mapper.CartBeanMapper;
 import com.fundamental.proj.model.Cart;
-import com.fundamental.proj.model.Items;
 import com.fundamental.proj.service.CartService;
+
 import cucumber.api.java.en.And;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
+
 import org.junit.Assert;
+
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.Mockito;
@@ -62,7 +64,6 @@ public class CartDelegateSteps {
     @Then("^updateCart has been called successfully")
     public void updatecart_has_been_called_successfully() throws Throwable {
         CartBean cartBean = new CartBean();
-        Cart cart = new Cart();
         cartDelegate.updateCart(cartBean);
 
         // verify updateCart has been called successfully
