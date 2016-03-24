@@ -4,14 +4,21 @@
     "elements": [
       {
         "line": 3,
+<<<<<<< HEAD
         "name": "Correct SignUp Page",
         "description": "",
         "id": "check-signup-page;correct-signup-page",
+=======
+        "name": "getUser_id returns user_id",
+        "description": "",
+        "id": "check-items;getuser-id-returns-user-id",
+>>>>>>> 43e99e79b6071b0abebbfc97365cadd16af04e49
         "type": "scenario",
         "keyword": "Scenario",
         "steps": [
           {
             "result": {
+<<<<<<< HEAD
               "duration": 2508191634,
               "status": "passed"
             },
@@ -19,11 +26,21 @@
             "name": "I have a browser opened for SignUpTesting",
             "match": {
               "location": "SignUpTestingSteps.i_have_a_browser_opened()"
+=======
+              "duration": 375468797,
+              "status": "passed"
+            },
+            "line": 4,
+            "name": "items is set up",
+            "match": {
+              "location": "ItemsSteps.items_is_set_up()"
+>>>>>>> 43e99e79b6071b0abebbfc97365cadd16af04e49
             },
             "keyword": "Given "
           },
           {
             "result": {
+<<<<<<< HEAD
               "duration": 1592973656,
               "status": "passed"
             },
@@ -31,11 +48,27 @@
             "name": "I navigate to signup page",
             "match": {
               "location": "SignUpTestingSteps.i_navigate_to_signup_page()"
+=======
+              "duration": 8842935,
+              "status": "passed"
+            },
+            "line": 5,
+            "name": "items user_id 1 is set",
+            "match": {
+              "arguments": [
+                {
+                  "val": "1",
+                  "offset": 14
+                }
+              ],
+              "location": "ItemsSteps.items_user_id_is_set(int)"
+>>>>>>> 43e99e79b6071b0abebbfc97365cadd16af04e49
             },
             "keyword": "When "
           },
           {
             "result": {
+<<<<<<< HEAD
               "duration": 29207666,
               "status": "passed"
             },
@@ -43,6 +76,21 @@
             "name": "I should be in the signup page",
             "match": {
               "location": "SignUpTestingSteps.i_should_be_in_the_signup_page()"
+=======
+              "duration": 9183176,
+              "status": "passed"
+            },
+            "line": 6,
+            "name": "items getUser_id returns 1",
+            "match": {
+              "arguments": [
+                {
+                  "val": "1",
+                  "offset": 25
+                }
+              ],
+              "location": "ItemsSteps.items_getUser_id_returns(int)"
+>>>>>>> 43e99e79b6071b0abebbfc97365cadd16af04e49
             },
             "keyword": "Then "
           },
@@ -61,6 +109,7 @@
         ]
       },
       {
+<<<<<<< HEAD
         "comments": [
           {
             "line": 9,
@@ -79,11 +128,18 @@
         "name": "Empty First Name",
         "description": "",
         "id": "check-signup-page;empty-first-name",
+=======
+        "line": 8,
+        "name": "getItem_id returns item_id",
+        "description": "",
+        "id": "check-items;getitem-id-returns-item-id",
+>>>>>>> 43e99e79b6071b0abebbfc97365cadd16af04e49
         "type": "scenario",
         "keyword": "Scenario",
         "steps": [
           {
             "result": {
+<<<<<<< HEAD
               "duration": 2633458459,
               "status": "passed"
             },
@@ -91,11 +147,21 @@
             "name": "I have a browser opened for SignUpTesting",
             "match": {
               "location": "SignUpTestingSteps.i_have_a_browser_opened()"
+=======
+              "duration": 1099173,
+              "status": "passed"
+            },
+            "line": 9,
+            "name": "items is set up",
+            "match": {
+              "location": "ItemsSteps.items_is_set_up()"
+>>>>>>> 43e99e79b6071b0abebbfc97365cadd16af04e49
             },
             "keyword": "Given "
           },
           {
             "result": {
+<<<<<<< HEAD
               "duration": 1314735731,
               "status": "passed"
             },
@@ -275,11 +341,27 @@
             "name": "I navigate to signup page",
             "match": {
               "location": "SignUpTestingSteps.i_navigate_to_signup_page()"
+=======
+              "duration": 524610,
+              "status": "passed"
+            },
+            "line": 10,
+            "name": "items item_id 2 is set",
+            "match": {
+              "arguments": [
+                {
+                  "val": "2",
+                  "offset": 14
+                }
+              ],
+              "location": "ItemsSteps.items_item_id_is_set(int)"
+>>>>>>> 43e99e79b6071b0abebbfc97365cadd16af04e49
             },
             "keyword": "When "
           },
           {
             "result": {
+<<<<<<< HEAD
               "duration": 460548401,
               "status": "passed"
             },
@@ -317,6 +399,21 @@
             "name": "I should receive an empty last name message",
             "match": {
               "location": "SignUpTestingSteps.i_should_receive_an_empty_last_name_message()"
+=======
+              "duration": 804830,
+              "status": "passed"
+            },
+            "line": 11,
+            "name": "items getItem_id returns 2",
+            "match": {
+              "arguments": [
+                {
+                  "val": "2",
+                  "offset": 25
+                }
+              ],
+              "location": "ItemsSteps.items_getItem_id_returns(int)"
+>>>>>>> 43e99e79b6071b0abebbfc97365cadd16af04e49
             },
             "keyword": "Then "
           },
@@ -335,15 +432,23 @@
         ]
       },
       {
+<<<<<<< HEAD
         "line": 38,
         "name": "Non-Empty Last Name",
         "description": "",
         "id": "check-signup-page;non-empty-last-name",
+=======
+        "line": 13,
+        "name": "getItem_name returns item_name",
+        "description": "",
+        "id": "check-items;getitem-name-returns-item-name",
+>>>>>>> 43e99e79b6071b0abebbfc97365cadd16af04e49
         "type": "scenario",
         "keyword": "Scenario",
         "steps": [
           {
             "result": {
+<<<<<<< HEAD
               "duration": 2756682219,
               "status": "passed"
             },
@@ -351,11 +456,21 @@
             "name": "I have a browser opened for SignUpTesting",
             "match": {
               "location": "SignUpTestingSteps.i_have_a_browser_opened()"
+=======
+              "duration": 1243085,
+              "status": "passed"
+            },
+            "line": 14,
+            "name": "items is set up",
+            "match": {
+              "location": "ItemsSteps.items_is_set_up()"
+>>>>>>> 43e99e79b6071b0abebbfc97365cadd16af04e49
             },
             "keyword": "Given "
           },
           {
             "result": {
+<<<<<<< HEAD
               "duration": 1769577980,
               "status": "passed"
             },
@@ -381,11 +496,27 @@
                 }
               ],
               "location": "SignUpTestingSteps.i_enter_in_first_name_field(String)"
+=======
+              "duration": 4222884,
+              "status": "passed"
+            },
+            "line": 15,
+            "name": "items item_name \"ItemName\" is set",
+            "match": {
+              "arguments": [
+                {
+                  "val": "ItemName",
+                  "offset": 17
+                }
+              ],
+              "location": "ItemsSteps.items_item_name_is_set(String)"
+>>>>>>> 43e99e79b6071b0abebbfc97365cadd16af04e49
             },
             "keyword": "And "
           },
           {
             "result": {
+<<<<<<< HEAD
               "duration": 318480053,
               "status": "passed"
             },
@@ -423,6 +554,21 @@
             "name": "I should not receive an empty last name message",
             "match": {
               "location": "SignUpTestingSteps.i_should_not_receive_an_empty_last_name_message()"
+=======
+              "duration": 442182,
+              "status": "passed"
+            },
+            "line": 16,
+            "name": "items get_item_name returns \"ItemName\"",
+            "match": {
+              "arguments": [
+                {
+                  "val": "ItemName",
+                  "offset": 29
+                }
+              ],
+              "location": "ItemsSteps.items_get_item_name_returns(String)"
+>>>>>>> 43e99e79b6071b0abebbfc97365cadd16af04e49
             },
             "keyword": "Then "
           },
@@ -441,6 +587,7 @@
         ]
       },
       {
+<<<<<<< HEAD
         "comments": [
           {
             "line": 47,
@@ -459,11 +606,18 @@
         "name": "Empty Email",
         "description": "",
         "id": "check-signup-page;empty-email",
+=======
+        "line": 18,
+        "name": "getItem_description returns item_description",
+        "description": "",
+        "id": "check-items;getitem-description-returns-item-description",
+>>>>>>> 43e99e79b6071b0abebbfc97365cadd16af04e49
         "type": "scenario",
         "keyword": "Scenario",
         "steps": [
           {
             "result": {
+<<<<<<< HEAD
               "duration": 2758064649,
               "status": "passed"
             },
@@ -471,11 +625,21 @@
             "name": "I have a browser opened for SignUpTesting",
             "match": {
               "location": "SignUpTestingSteps.i_have_a_browser_opened()"
+=======
+              "duration": 2369013,
+              "status": "passed"
+            },
+            "line": 19,
+            "name": "items is set up",
+            "match": {
+              "location": "ItemsSteps.items_is_set_up()"
+>>>>>>> 43e99e79b6071b0abebbfc97365cadd16af04e49
             },
             "keyword": "Given "
           },
           {
             "result": {
+<<<<<<< HEAD
               "duration": 1218555040,
               "status": "passed"
             },
@@ -501,11 +665,27 @@
                 }
               ],
               "location": "SignUpTestingSteps.i_enter_in_first_name_field(String)"
+=======
+              "duration": 861897,
+              "status": "passed"
+            },
+            "line": 20,
+            "name": "item_description \"Item description\" is set",
+            "match": {
+              "arguments": [
+                {
+                  "val": "Item description",
+                  "offset": 18
+                }
+              ],
+              "location": "ItemsSteps.item_description_is_set(String)"
+>>>>>>> 43e99e79b6071b0abebbfc97365cadd16af04e49
             },
             "keyword": "And "
           },
           {
             "result": {
+<<<<<<< HEAD
               "duration": 158290528,
               "status": "passed"
             },
@@ -543,6 +723,21 @@
             "name": "I should receive an empty email message",
             "match": {
               "location": "SignUpTestingSteps.i_should_receive_an_empty_email_message()"
+=======
+              "duration": 554678,
+              "status": "passed"
+            },
+            "line": 21,
+            "name": "getItem_description returns \"Item description\"",
+            "match": {
+              "arguments": [
+                {
+                  "val": "Item description",
+                  "offset": 29
+                }
+              ],
+              "location": "ItemsSteps.getitem_description_returns(String)"
+>>>>>>> 43e99e79b6071b0abebbfc97365cadd16af04e49
             },
             "keyword": "Then "
           },
@@ -561,15 +756,23 @@
         ]
       },
       {
+<<<<<<< HEAD
         "line": 59,
         "name": "Non-Empty Email (Wrong Format 1)",
         "description": "",
         "id": "check-signup-page;non-empty-email-(wrong-format-1)",
+=======
+        "line": 23,
+        "name": "getOnsale_count returns onsale_count",
+        "description": "",
+        "id": "check-items;getonsale-count-returns-onsale-count",
+>>>>>>> 43e99e79b6071b0abebbfc97365cadd16af04e49
         "type": "scenario",
         "keyword": "Scenario",
         "steps": [
           {
             "result": {
+<<<<<<< HEAD
               "duration": 2984516033,
               "status": "passed"
             },
@@ -577,11 +780,21 @@
             "name": "I have a browser opened for SignUpTesting",
             "match": {
               "location": "SignUpTestingSteps.i_have_a_browser_opened()"
+=======
+              "duration": 2169295,
+              "status": "passed"
+            },
+            "line": 24,
+            "name": "items is set up",
+            "match": {
+              "location": "ItemsSteps.items_is_set_up()"
+>>>>>>> 43e99e79b6071b0abebbfc97365cadd16af04e49
             },
             "keyword": "Given "
           },
           {
             "result": {
+<<<<<<< HEAD
               "duration": 1351269619,
               "status": "passed"
             },
@@ -589,11 +802,27 @@
             "name": "I navigate to signup page",
             "match": {
               "location": "SignUpTestingSteps.i_navigate_to_signup_page()"
+=======
+              "duration": 753683,
+              "status": "passed"
+            },
+            "line": 25,
+            "name": "onsale_count 3 is set",
+            "match": {
+              "arguments": [
+                {
+                  "val": "3",
+                  "offset": 13
+                }
+              ],
+              "location": "ItemsSteps.onsale_count_is_set(int)"
+>>>>>>> 43e99e79b6071b0abebbfc97365cadd16af04e49
             },
             "keyword": "When "
           },
           {
             "result": {
+<<<<<<< HEAD
               "duration": 462795246,
               "status": "passed"
             },
@@ -607,6 +836,299 @@
                 }
               ],
               "location": "SignUpTestingSteps.i_enter_in_first_name_field(String)"
+=======
+              "duration": 864294,
+              "status": "passed"
+            },
+            "line": 26,
+            "name": "getOnsale_count returns 3",
+            "match": {
+              "arguments": [
+                {
+                  "val": "3",
+                  "offset": 24
+                }
+              ],
+              "location": "ItemsSteps.getonsale_count_returns(int)"
+            },
+            "keyword": "Then "
+          }
+        ]
+      },
+      {
+        "line": 28,
+        "name": "getSold_count returns sold_count",
+        "description": "",
+        "id": "check-items;getsold-count-returns-sold-count",
+        "type": "scenario",
+        "keyword": "Scenario",
+        "steps": [
+          {
+            "result": {
+              "duration": 1430991,
+              "status": "passed"
+            },
+            "line": 29,
+            "name": "items is set up",
+            "match": {
+              "location": "ItemsSteps.items_is_set_up()"
+            },
+            "keyword": "Given "
+          },
+          {
+            "result": {
+              "duration": 489842,
+              "status": "passed"
+            },
+            "line": 30,
+            "name": "sold_count 5 is set",
+            "match": {
+              "arguments": [
+                {
+                  "val": "5",
+                  "offset": 11
+                }
+              ],
+              "location": "ItemsSteps.sold_count_is_set(int)"
+            },
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "duration": 3035054,
+              "status": "passed"
+            },
+            "line": 31,
+            "name": "sold_count returns 5",
+            "match": {
+              "arguments": [
+                {
+                  "val": "5",
+                  "offset": 19
+                }
+              ],
+              "location": "ItemsSteps.sold_count_returns(int)"
+            },
+            "keyword": "Then "
+          }
+        ]
+      },
+      {
+        "line": 33,
+        "name": "getCategory returns category",
+        "description": "",
+        "id": "check-items;getcategory-returns-category",
+        "type": "scenario",
+        "keyword": "Scenario",
+        "steps": [
+          {
+            "result": {
+              "duration": 2535382,
+              "status": "passed"
+            },
+            "line": 34,
+            "name": "items is set up",
+            "match": {
+              "location": "ItemsSteps.items_is_set_up()"
+            },
+            "keyword": "Given "
+          },
+          {
+            "result": {
+              "duration": 1497878,
+              "status": "passed"
+            },
+            "line": 35,
+            "name": "category \"Category\" is set",
+            "match": {
+              "arguments": [
+                {
+                  "val": "Category",
+                  "offset": 10
+                }
+              ],
+              "location": "ItemsSteps.category_is_set(String)"
+            },
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "duration": 2639147,
+              "status": "passed"
+            },
+            "line": 36,
+            "name": "getCategory returns \"Category\"",
+            "match": {
+              "arguments": [
+                {
+                  "val": "Category",
+                  "offset": 21
+                }
+              ],
+              "location": "ItemsSteps.getcategory_returns(String)"
+            },
+            "keyword": "Then "
+          }
+        ]
+      },
+      {
+        "line": 38,
+        "name": "getImages returns images",
+        "description": "",
+        "id": "check-items;getimages-returns-images",
+        "type": "scenario",
+        "keyword": "Scenario",
+        "steps": [
+          {
+            "result": {
+              "duration": 594852,
+              "status": "passed"
+            },
+            "line": 39,
+            "name": "items is set up",
+            "match": {
+              "location": "ItemsSteps.items_is_set_up()"
+            },
+            "keyword": "Given "
+          },
+          {
+            "result": {
+              "duration": 424909,
+              "status": "passed"
+            },
+            "line": 40,
+            "name": "images  \"Images\" is set",
+            "match": {
+              "arguments": [
+                {
+                  "val": "Images",
+                  "offset": 9
+                }
+              ],
+              "location": "ItemsSteps.images_is_set(String)"
+            },
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "duration": 323222,
+              "status": "passed"
+            },
+            "line": 41,
+            "name": "getImages returns \"Images\"",
+            "match": {
+              "arguments": [
+                {
+                  "val": "Images",
+                  "offset": 19
+                }
+              ],
+              "location": "ItemsSteps.getimages_returns(String)"
+            },
+            "keyword": "Then "
+          }
+        ]
+      },
+      {
+        "line": 43,
+        "name": "getPrice returns price",
+        "description": "",
+        "id": "check-items;getprice-returns-price",
+        "type": "scenario",
+        "keyword": "Scenario",
+        "steps": [
+          {
+            "result": {
+              "duration": 378216,
+              "status": "passed"
+            },
+            "line": 44,
+            "name": "items is set up",
+            "match": {
+              "location": "ItemsSteps.items_is_set_up()"
+            },
+            "keyword": "Given "
+          },
+          {
+            "result": {
+              "duration": 801511,
+              "status": "passed"
+            },
+            "line": 45,
+            "name": "items price  4 is set",
+            "match": {
+              "arguments": [
+                {
+                  "val": "4",
+                  "offset": 13
+                }
+              ],
+              "location": "ItemsSteps.items_price_is_set(int)"
+            },
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "duration": 427084,
+              "status": "passed"
+            },
+            "line": 46,
+            "name": "items getPrice returns 4",
+            "match": {
+              "arguments": [
+                {
+                  "val": "4",
+                  "offset": 23
+                }
+              ],
+              "location": "ItemsSteps.items_getPrice_returns(int)"
+            },
+            "keyword": "Then "
+          }
+        ]
+      },
+      {
+        "line": 48,
+        "name": "getDate returns date",
+        "description": "",
+        "id": "check-items;getdate-returns-date",
+        "type": "scenario",
+        "keyword": "Scenario",
+        "steps": [
+          {
+            "result": {
+              "duration": 380988,
+              "status": "passed"
+            },
+            "line": 49,
+            "name": "items is set up",
+            "match": {
+              "location": "ItemsSteps.items_is_set_up()"
+            },
+            "keyword": "Given "
+          },
+          {
+            "result": {
+              "duration": 751521,
+              "status": "passed"
+            },
+            "line": 50,
+            "name": "date  now is set",
+            "match": {
+              "location": "ItemsSteps.date_now_is_set()"
+            },
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "duration": 654670,
+              "status": "passed"
+            },
+            "line": 51,
+            "name": "getDate returns current date",
+            "match": {
+              "location": "ItemsSteps.getdate_returns_current_date()"
+>>>>>>> 43e99e79b6071b0abebbfc97365cadd16af04e49
             },
             "keyword": "And "
           },
@@ -8747,10 +9269,18 @@
         ]
       }
     ],
+<<<<<<< HEAD
     "name": "Check SignUp Page",
     "description": "",
     "id": "check-signup-page",
     "keyword": "Feature",
     "uri": "cucumber/SignUpTesting.feature"
+=======
+    "name": "Check Items",
+    "description": "",
+    "id": "check-items",
+    "keyword": "Feature",
+    "uri": "cucumber/Items.feature"
+>>>>>>> 43e99e79b6071b0abebbfc97365cadd16af04e49
   }
 ]
