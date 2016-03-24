@@ -3,264 +3,242 @@
     "line": 1,
     "elements": [
       {
-        "line": 3,
-        "name": "2 random keys are different",
+        "comments": [
+          {
+            "line": 3,
+            "value": "# Test updateCart"
+          }
+        ],
+        "line": 4,
+        "name": "updateCart is called successfully",
         "description": "",
-        "id": "check-emailverification;2-random-keys-are-different",
+        "id": "check-cartdelegate;updatecart-is-called-successfully",
         "type": "scenario",
         "keyword": "Scenario",
         "steps": [
           {
             "result": {
-              "duration": 10353672,
-              "status": "passed"
-            },
-            "line": 4,
-            "name": "I have an EmailVerification",
-            "match": {
-              "location": "EmailVerificationSteps.i_have_an_EmailVerification()"
-            },
-            "keyword": "Given "
-          },
-          {
-            "result": {
-              "duration": 13301629,
+              "duration": 881901338,
               "status": "passed"
             },
             "line": 5,
-            "name": "I generate 2 key(s)",
+            "name": "mock CartDelegate is initialized",
             "match": {
-              "arguments": [
-                {
-                  "val": "2",
-                  "offset": 11
-                }
-              ],
-              "location": "EmailVerificationSteps.i_generate_key_s(int)"
+              "location": "CartDelegateSteps.mock_CartDelegate_is_initialized()"
             },
-            "keyword": "When "
+            "keyword": "Given "
           },
           {
             "result": {
-              "duration": 200407,
+              "duration": 111449716,
               "status": "passed"
             },
             "line": 6,
-            "name": "they should be different",
+            "name": "updateCart() is called for CartDelegate",
             "match": {
-              "location": "EmailVerificationSteps.they_should_be_different()"
+              "location": "CartDelegateSteps.updatecart_is_called_CartDelegate()"
+            },
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "duration": 29183461,
+              "status": "passed"
+            },
+            "line": 7,
+            "name": "updateCart has been called successfully",
+            "match": {
+              "location": "CartDelegateSteps.updatecart_has_been_called_successfully()"
             },
             "keyword": "Then "
           }
         ]
       },
       {
-        "line": 8,
-        "name": "2 random keys are different",
+        "comments": [
+          {
+            "line": 9,
+            "value": "# Test getCart"
+          }
+        ],
+        "line": 10,
+        "name": "getCart returns some cartbeans",
         "description": "",
-        "id": "check-emailverification;2-random-keys-are-different",
+        "id": "check-cartdelegate;getcart-returns-some-cartbeans",
         "type": "scenario",
         "keyword": "Scenario",
         "steps": [
           {
             "result": {
-              "duration": 462722,
-              "status": "passed"
-            },
-            "line": 9,
-            "name": "I have an EmailVerification",
-            "match": {
-              "location": "EmailVerificationSteps.i_have_an_EmailVerification()"
-            },
-            "keyword": "Given "
-          },
-          {
-            "result": {
-              "duration": 708923,
-              "status": "passed"
-            },
-            "line": 10,
-            "name": "I generate 4 key(s)",
-            "match": {
-              "arguments": [
-                {
-                  "val": "4",
-                  "offset": 11
-                }
-              ],
-              "location": "EmailVerificationSteps.i_generate_key_s(int)"
-            },
-            "keyword": "When "
-          },
-          {
-            "result": {
-              "duration": 235368,
+              "duration": 3048516,
               "status": "passed"
             },
             "line": 11,
-            "name": "they should be different",
+            "name": "mock CartDelegate is initialized",
             "match": {
-              "location": "EmailVerificationSteps.they_should_be_different()"
+              "location": "CartDelegateSteps.mock_CartDelegate_is_initialized()"
             },
-            "keyword": "Then "
-          }
-        ]
-      },
-      {
-        "line": 13,
-        "name": "a return key is a random UUID",
-        "description": "",
-        "id": "check-emailverification;a-return-key-is-a-random-uuid",
-        "type": "scenario",
-        "keyword": "Scenario",
-        "steps": [
+            "keyword": "Given "
+          },
           {
             "result": {
-              "duration": 21173579,
+              "duration": 1430670,
+              "status": "passed"
+            },
+            "line": 12,
+            "name": "expected list of cartbeans is initialized",
+            "match": {
+              "location": "CartDelegateSteps.expected_list_of_cartbeans_is_initialized()"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 6089578,
+              "status": "passed"
+            },
+            "line": 13,
+            "name": "getCart() is called for CartDelegate",
+            "match": {
+              "location": "CartDelegateSteps.getcart_is_called_CartDelegate()"
+            },
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "duration": 11035361,
               "status": "passed"
             },
             "line": 14,
-            "name": "I have an EmailVerification",
+            "name": "a list of cartbeans is returned for CartDelegate",
             "match": {
-              "location": "EmailVerificationSteps.i_have_an_EmailVerification()"
-            },
-            "keyword": "Given "
-          },
-          {
-            "result": {
-              "duration": 576358,
-              "status": "passed"
-            },
-            "line": 15,
-            "name": "I generate 1 key(s)",
-            "match": {
-              "arguments": [
-                {
-                  "val": "1",
-                  "offset": 11
-                }
-              ],
-              "location": "EmailVerificationSteps.i_generate_key_s(int)"
-            },
-            "keyword": "When "
-          },
-          {
-            "result": {
-              "duration": 2017907,
-              "status": "passed"
-            },
-            "line": 16,
-            "name": "each key should have the same length as a random UUID",
-            "match": {
-              "location": "EmailVerificationSteps.it_should_have_the_same_length_as_a_random_UUID()"
+              "location": "CartDelegateSteps.a_list_of_cartbeans_is_returned_for_cartDelegate()"
             },
             "keyword": "Then "
           }
         ]
       },
       {
-        "line": 18,
-        "name": "each return key is a random UUID",
+        "line": 16,
+        "name": "getCart returns null",
         "description": "",
-        "id": "check-emailverification;each-return-key-is-a-random-uuid",
+        "id": "check-cartdelegate;getcart-returns-null",
         "type": "scenario",
         "keyword": "Scenario",
         "steps": [
           {
             "result": {
-              "duration": 715707,
+              "duration": 3707617,
+              "status": "passed"
+            },
+            "line": 17,
+            "name": "mock CartDelegate is initialized",
+            "match": {
+              "location": "CartDelegateSteps.mock_CartDelegate_is_initialized()"
+            },
+            "keyword": "Given "
+          },
+          {
+            "result": {
+              "duration": 210414,
+              "status": "passed"
+            },
+            "line": 18,
+            "name": "expected null list of cartbeans is initialized",
+            "match": {
+              "location": "CartDelegateSteps.expected_null_list_of_cartbeans_is_initialized()"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 882469,
               "status": "passed"
             },
             "line": 19,
-            "name": "I have an EmailVerification",
+            "name": "getCart() is called for CartDelegate",
             "match": {
-              "location": "EmailVerificationSteps.i_have_an_EmailVerification()"
-            },
-            "keyword": "Given "
-          },
-          {
-            "result": {
-              "duration": 651689,
-              "status": "passed"
-            },
-            "line": 20,
-            "name": "I generate 3 key(s)",
-            "match": {
-              "arguments": [
-                {
-                  "val": "3",
-                  "offset": 11
-                }
-              ],
-              "location": "EmailVerificationSteps.i_generate_key_s(int)"
+              "location": "CartDelegateSteps.getcart_is_called_CartDelegate()"
             },
             "keyword": "When "
           },
           {
             "result": {
-              "duration": 866819,
+              "duration": 978732,
               "status": "passed"
             },
-            "line": 21,
-            "name": "each key should have the same length as a random UUID",
+            "line": 20,
+            "name": "a list of cartbeans is null for CartDelegate",
             "match": {
-              "location": "EmailVerificationSteps.it_should_have_the_same_length_as_a_random_UUID()"
+              "location": "CartDelegateSteps.a_list_of_cartbeans_is_null_for_CartDelegate()"
             },
             "keyword": "Then "
           }
         ]
       },
       {
-        "line": 23,
-        "name": "a return key after executing sendEmailVerificationLink is a random UUID",
+        "line": 22,
+        "name": "getCart returns empty",
         "description": "",
-        "id": "check-emailverification;a-return-key-after-executing-sendemailverificationlink-is-a-random-uuid",
+        "id": "check-cartdelegate;getcart-returns-empty",
         "type": "scenario",
         "keyword": "Scenario",
         "steps": [
           {
             "result": {
-              "duration": 1050697,
+              "duration": 11019340,
               "status": "passed"
             },
-            "line": 24,
-            "name": "I have an EmailVerification",
+            "line": 23,
+            "name": "mock CartDelegate is initialized",
             "match": {
-              "location": "EmailVerificationSteps.i_have_an_EmailVerification()"
+              "location": "CartDelegateSteps.mock_CartDelegate_is_initialized()"
             },
             "keyword": "Given "
           },
           {
             "result": {
-              "duration": 3038012068,
+              "duration": 484436,
+              "status": "passed"
+            },
+            "line": 24,
+            "name": "expected empty list of cartbeans is initialized",
+            "match": {
+              "location": "CartDelegateSteps.expected_empty_list_of_cartbeans_is_initialized()"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 552541,
               "status": "passed"
             },
             "line": 25,
-            "name": "I call sendEmailVerificationLink",
+            "name": "getCart() is called for CartDelegate",
             "match": {
-              "location": "EmailVerificationSteps.i_call_sendEmailVerificationLink()"
+              "location": "CartDelegateSteps.getcart_is_called_CartDelegate()"
             },
             "keyword": "When "
           },
           {
             "result": {
-              "duration": 243369,
+              "duration": 635501,
               "status": "passed"
             },
             "line": 26,
-            "name": "it should return a key having the same length as a random UUID",
+            "name": "a list of cartbeans is empty for CartDelegate",
             "match": {
-              "location": "EmailVerificationSteps.it_should_return_a_key_having_the_same_length_as_a_random_UUID()"
+              "location": "CartDelegateSteps.a_list_of_cartbeans_is_empty_for_cartDelegate()"
             },
             "keyword": "Then "
           }
         ]
       }
     ],
-    "name": "Check EmailVerification",
+    "name": "Check CartDelegate",
     "description": "",
-    "id": "check-emailverification",
+    "id": "check-cartdelegate",
     "keyword": "Feature",
-    "uri": "cucumber/EmailVerification.feature"
+    "uri": "cucumber/CartDelegate.feature"
   }
 ]
