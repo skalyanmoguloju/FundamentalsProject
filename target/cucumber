@@ -3,242 +3,264 @@
     "line": 1,
     "elements": [
       {
-        "comments": [
-          {
-            "line": 3,
-            "value": "# Test getAllItems"
-          }
-        ],
-        "line": 4,
-        "name": "getAllItems returns some itembeans",
+        "line": 3,
+        "name": "2 random keys are different",
         "description": "",
-        "id": "check-itemsdelegate;getallitems-returns-some-itembeans",
+        "id": "check-emailverification;2-random-keys-are-different",
         "type": "scenario",
         "keyword": "Scenario",
         "steps": [
           {
             "result": {
-              "duration": 986083861,
+              "duration": 11570285,
+              "status": "passed"
+            },
+            "line": 4,
+            "name": "I have an EmailVerification",
+            "match": {
+              "location": "EmailVerificationSteps.i_have_an_EmailVerification()"
+            },
+            "keyword": "Given "
+          },
+          {
+            "result": {
+              "duration": 3718853,
               "status": "passed"
             },
             "line": 5,
-            "name": "mock ItemsDelegate is initialized",
+            "name": "I generate 2 key(s)",
             "match": {
-              "location": "ItemsDelegateSteps.mock_itemsrespository_is_initialized()"
+              "arguments": [
+                {
+                  "val": "2",
+                  "offset": 11
+                }
+              ],
+              "location": "EmailVerificationSteps.i_generate_key_s(int)"
             },
-            "keyword": "Given "
+            "keyword": "When "
           },
           {
             "result": {
-              "duration": 3058350,
+              "duration": 175904,
               "status": "passed"
             },
             "line": 6,
-            "name": "expected list of itembeans is initialized",
+            "name": "they should be different",
             "match": {
-              "location": "ItemsDelegateSteps.expected_list_of_itembeans_is_initialized()"
-            },
-            "keyword": "And "
-          },
-          {
-            "result": {
-              "duration": 66812121,
-              "status": "passed"
-            },
-            "line": 7,
-            "name": "getAllItems() is called for ItemsDelegate",
-            "match": {
-              "location": "ItemsDelegateSteps.getallitems_is_called_ItemsDelegate()"
-            },
-            "keyword": "When "
-          },
-          {
-            "result": {
-              "duration": 26958332,
-              "status": "passed"
-            },
-            "line": 8,
-            "name": "a list of itembeans is returned for getAllItems",
-            "match": {
-              "location": "ItemsDelegateSteps.a_list_of_itembeans_is_returned_for_getAllItems()"
+              "location": "EmailVerificationSteps.they_should_be_different()"
             },
             "keyword": "Then "
           }
         ]
       },
       {
-        "line": 10,
-        "name": "getAllItems returns null",
+        "line": 8,
+        "name": "2 random keys are different",
         "description": "",
-        "id": "check-itemsdelegate;getallitems-returns-null",
+        "id": "check-emailverification;2-random-keys-are-different",
         "type": "scenario",
         "keyword": "Scenario",
         "steps": [
           {
             "result": {
-              "duration": 6051910,
+              "duration": 426013,
+              "status": "passed"
+            },
+            "line": 9,
+            "name": "I have an EmailVerification",
+            "match": {
+              "location": "EmailVerificationSteps.i_have_an_EmailVerification()"
+            },
+            "keyword": "Given "
+          },
+          {
+            "result": {
+              "duration": 699357,
+              "status": "passed"
+            },
+            "line": 10,
+            "name": "I generate 4 key(s)",
+            "match": {
+              "arguments": [
+                {
+                  "val": "4",
+                  "offset": 11
+                }
+              ],
+              "location": "EmailVerificationSteps.i_generate_key_s(int)"
+            },
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "duration": 108035,
               "status": "passed"
             },
             "line": 11,
-            "name": "mock ItemsDelegate is initialized",
+            "name": "they should be different",
             "match": {
-              "location": "ItemsDelegateSteps.mock_itemsrespository_is_initialized()"
+              "location": "EmailVerificationSteps.they_should_be_different()"
             },
-            "keyword": "Given "
-          },
+            "keyword": "Then "
+          }
+        ]
+      },
+      {
+        "line": 13,
+        "name": "a return key is a random UUID",
+        "description": "",
+        "id": "check-emailverification;a-return-key-is-a-random-uuid",
+        "type": "scenario",
+        "keyword": "Scenario",
+        "steps": [
           {
             "result": {
-              "duration": 177147,
-              "status": "passed"
-            },
-            "line": 12,
-            "name": "expected null list of itembeans is initialized",
-            "match": {
-              "location": "ItemsDelegateSteps.expected_null_list_of_itembeans_is_initialized()"
-            },
-            "keyword": "And "
-          },
-          {
-            "result": {
-              "duration": 530931,
-              "status": "passed"
-            },
-            "line": 13,
-            "name": "getAllItems() is called for ItemsDelegate",
-            "match": {
-              "location": "ItemsDelegateSteps.getallitems_is_called_ItemsDelegate()"
-            },
-            "keyword": "When "
-          },
-          {
-            "result": {
-              "duration": 1940478,
+              "duration": 462754,
               "status": "passed"
             },
             "line": 14,
-            "name": "a list of itembeans is null for getAllItems",
+            "name": "I have an EmailVerification",
             "match": {
-              "location": "ItemsDelegateSteps.a_list_of_itembeans_is_null_for_getAllItems()"
+              "location": "EmailVerificationSteps.i_have_an_EmailVerification()"
+            },
+            "keyword": "Given "
+          },
+          {
+            "result": {
+              "duration": 1024335,
+              "status": "passed"
+            },
+            "line": 15,
+            "name": "I generate 1 key(s)",
+            "match": {
+              "arguments": [
+                {
+                  "val": "1",
+                  "offset": 11
+                }
+              ],
+              "location": "EmailVerificationSteps.i_generate_key_s(int)"
+            },
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "duration": 673752,
+              "status": "passed"
+            },
+            "line": 16,
+            "name": "each key should have the same length as a random UUID",
+            "match": {
+              "location": "EmailVerificationSteps.it_should_have_the_same_length_as_a_random_UUID()"
             },
             "keyword": "Then "
           }
         ]
       },
       {
-        "line": 16,
-        "name": "getAllItems returns empty",
+        "line": 18,
+        "name": "each return key is a random UUID",
         "description": "",
-        "id": "check-itemsdelegate;getallitems-returns-empty",
+        "id": "check-emailverification;each-return-key-is-a-random-uuid",
         "type": "scenario",
         "keyword": "Scenario",
         "steps": [
           {
             "result": {
-              "duration": 8751984,
-              "status": "passed"
-            },
-            "line": 17,
-            "name": "mock ItemsDelegate is initialized",
-            "match": {
-              "location": "ItemsDelegateSteps.mock_itemsrespository_is_initialized()"
-            },
-            "keyword": "Given "
-          },
-          {
-            "result": {
-              "duration": 1410012,
-              "status": "passed"
-            },
-            "line": 18,
-            "name": "expected empty list of itembeans is initialized",
-            "match": {
-              "location": "ItemsDelegateSteps.expected_empty_list_of_itembeans_is_initialized()"
-            },
-            "keyword": "And "
-          },
-          {
-            "result": {
-              "duration": 901380,
+              "duration": 223094,
               "status": "passed"
             },
             "line": 19,
-            "name": "getAllItems() is called for ItemsDelegate",
+            "name": "I have an EmailVerification",
             "match": {
-              "location": "ItemsDelegateSteps.getallitems_is_called_ItemsDelegate()"
+              "location": "EmailVerificationSteps.i_have_an_EmailVerification()"
+            },
+            "keyword": "Given "
+          },
+          {
+            "result": {
+              "duration": 711943,
+              "status": "passed"
+            },
+            "line": 20,
+            "name": "I generate 3 key(s)",
+            "match": {
+              "arguments": [
+                {
+                  "val": "3",
+                  "offset": 11
+                }
+              ],
+              "location": "EmailVerificationSteps.i_generate_key_s(int)"
             },
             "keyword": "When "
           },
           {
             "result": {
-              "duration": 1427507,
+              "duration": 436687,
               "status": "passed"
             },
-            "line": 20,
-            "name": "a list of itembeans is empty for getAllItems",
+            "line": 21,
+            "name": "each key should have the same length as a random UUID",
             "match": {
-              "location": "ItemsDelegateSteps.a_list_of_itembeans_is_empty_for_getAllItems()"
+              "location": "EmailVerificationSteps.it_should_have_the_same_length_as_a_random_UUID()"
             },
             "keyword": "Then "
           }
         ]
       },
       {
-        "comments": [
-          {
-            "line": 22,
-            "value": "# Test addItem"
-          }
-        ],
         "line": 23,
-        "name": "addItem is called successfully",
+        "name": "a return key after executing sendEmailVerificationLink is a random UUID",
         "description": "",
-        "id": "check-itemsdelegate;additem-is-called-successfully",
+        "id": "check-emailverification;a-return-key-after-executing-sendemailverificationlink-is-a-random-uuid",
         "type": "scenario",
         "keyword": "Scenario",
         "steps": [
           {
             "result": {
-              "duration": 5931236,
+              "duration": 614864,
               "status": "passed"
             },
             "line": 24,
-            "name": "mock ItemsDelegate is initialized",
+            "name": "I have an EmailVerification",
             "match": {
-              "location": "ItemsDelegateSteps.mock_itemsrespository_is_initialized()"
+              "location": "EmailVerificationSteps.i_have_an_EmailVerification()"
             },
             "keyword": "Given "
           },
           {
             "result": {
-              "duration": 30209565,
+              "duration": 2635914872,
               "status": "passed"
             },
             "line": 25,
-            "name": "addItem() is called for ItemsDelegate",
+            "name": "I call sendEmailVerificationLink",
             "match": {
-              "location": "ItemsDelegateSteps.additem_is_called_ItemsDelegate()"
+              "location": "EmailVerificationSteps.i_call_sendEmailVerificationLink()"
             },
             "keyword": "When "
           },
           {
             "result": {
-              "duration": 14175769,
+              "duration": 296083,
               "status": "passed"
             },
             "line": 26,
-            "name": "addItem has been called successfully",
+            "name": "it should return a key having the same length as a random UUID",
             "match": {
-              "location": "ItemsDelegateSteps.additem_has_been_called_successfully()"
+              "location": "EmailVerificationSteps.it_should_return_a_key_having_the_same_length_as_a_random_UUID()"
             },
             "keyword": "Then "
           }
         ]
       }
     ],
-    "name": "Check ItemsDelegate",
+    "name": "Check EmailVerification",
     "description": "",
-    "id": "check-itemsdelegate",
+    "id": "check-emailverification",
     "keyword": "Feature",
-    "uri": "cucumber/ItemsDelegate.feature"
+    "uri": "cucumber/EmailVerification.feature"
   }
 ]

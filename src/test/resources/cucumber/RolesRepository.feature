@@ -7,13 +7,13 @@ Feature: Check RolesRepository
     When getAllRoles() is called
     Then a list of roles is returned
 
-  Scenario: getAllRoles returns some roles
+  Scenario: getAllRoles returns null
     Given mock RolesRepository is initialized
     And expected null roles are initialized
     When getAllRoles() is called
     Then a list of roles is returned as null
 
-  Scenario: getAllRoles returns some roles
+  Scenario: getAllRoles returns empty
     Given mock RolesRepository is initialized
     And expected empty roles are initialized
     When getAllRoles() is called
@@ -26,13 +26,13 @@ Feature: Check RolesRepository
     When getAllRights() is called
     Then a list of rights is returned
 
-  Scenario: getAllRights returns some rights
+  Scenario: getAllRights returns null
     Given mock RolesRepository is initialized
     And expected null rights are initialized
     When getAllRights() is called
     Then a list of rights is returned as null
 
-  Scenario: getAllRights returns some rights
+  Scenario: getAllRights returns empty
     Given mock RolesRepository is initialized
     And expected empty rights are initialized
     When getAllRights() is called
