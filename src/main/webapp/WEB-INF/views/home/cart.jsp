@@ -35,7 +35,22 @@
                                     $scope.total = $scope.total+($scope.cart[i].itemsBean.price * $scope.cart[i].quantity);
                                 }
                             });
+                    $scope.orderUp= function(vw){;
+                        console.log(vw);
+                        $http.post('order', {
+                            item_id: vw.item_id,
+                            user_id:$scope.userInfo.id,
+                            price: $scope.total,
+                            quantity: vw.noofpieces,
+                            card_number: vw.cardNo,
+                            card_exp:vw.dateExp,
+                            card_cvv:vw.cvvNo
+                        })
+                                .success(function (response) {
+                                    console.log(response);
 
+                                });
+                    };
 
                 }]);
 </script>

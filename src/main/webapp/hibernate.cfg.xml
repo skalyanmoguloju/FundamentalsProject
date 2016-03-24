@@ -11,5 +11,7 @@
         <mapping class="com.fundamental.proj.model.Items"/>
         <mapping class="com.fundamental.proj.model.Sales"/>
         <mapping class="com.fundamental.proj.model.Cart"/>
+        <mapping class="com.fundamental.proj.model.MaterialIndent"/>
+        <mapping class="com.fundamental.proj.model.Orders"/>
     </session-factory>
 </hibernate-configuration>

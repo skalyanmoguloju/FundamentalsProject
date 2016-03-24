@@ -195,25 +195,25 @@
         <dependency>
             <groupId>info.cukes</groupId>
             <artifactId>cucumber-core</artifactId>
-            <version>${cuke.version}</version>
+            <version>1.1.8</version>
             <scope>test</scope>
         </dependency>
         <dependency>
             <groupId>info.cukes</groupId>
             <artifactId>cucumber-junit</artifactId>
-            <version>${cuke.version}</version>
+            <version>1.1.8</version>
             <scope>test</scope>
         </dependency>
         <dependency>
             <groupId>info.cukes</groupId>
             <artifactId>cucumber-java</artifactId>
-            <version>${cuke.version}</version>
+            <version>1.1.8</version>
             <scope>test</scope>
         </dependency>
         <dependency>
             <groupId>info.cukes</groupId>
             <artifactId>cucumber-spring</artifactId>
-            <version>${cuke.version}</version>
+            <version>1.1.8</version>
             <scope>test</scope>
         </dependency>
         <dependency>

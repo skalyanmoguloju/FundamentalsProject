@@ -47,4 +47,13 @@ public class CartRepository {
 
         return query.list();
     }
+
+    @Transactional
+    public void ClearCart(long user_id)
+    {
+        Session session = sessionFactory.getCurrentSession();
+        Query query = session.createQuery("delete from Cart where user_id=:uid");
+        query.setParameter("uid",user_id);
+        query.executeUpdate();
+    }
 }
