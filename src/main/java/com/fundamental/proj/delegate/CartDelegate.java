@@ -36,8 +36,8 @@ public class CartDelegate {
     }
 
     @Transactional
-    public void AddToCart(CartBean cartBean)
+    public void AddToCart(CartBean cartBean, int flag)
     {
-        cartService.AddToCart(cartBeanMapper.mapBeanToCart(cartBean));
+        cartService.AddToCart(cartBeanMapper.mapBeanToCart(cartBean),flag);
     }
 }

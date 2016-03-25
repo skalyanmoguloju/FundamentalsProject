@@ -110,7 +110,7 @@ public class UserController {
         //HIBERNETCALLS
         List<String> s = new LinkedList<String>();
         try {
-            cartDelegate.AddToCart(cartBean);
+            cartDelegate.AddToCart(cartBean, 0);
             //String passwordToCompare = itemsDelegate.  .getUserPasswordWithEmail(userBean);
             return s;
 
@@ -120,5 +120,35 @@ public class UserController {
 
     }
 
+    @RequestMapping(value = "/updateCart", method = RequestMethod.POST)
+    @ResponseBody
+    public List<String> updateCart(@RequestBody CartBean cartBean) {
+        //HIBERNETCALLS
+        List<String> s = new LinkedList<String>();
+        try {
+            cartDelegate.AddToCart(cartBean, 1);
+            //String passwordToCompare = itemsDelegate.  .getUserPasswordWithEmail(userBean);
+            return s;
 
+        } catch (Exception e) {
+            return s;
+        }
+
+    }
+
+    @RequestMapping(value = "/deleteCart", method = RequestMethod.POST)
+    @ResponseBody
+    public List<String> deleteCart(@RequestBody CartBean cartBean) {
+        //HIBERNETCALLS
+        List<String> s = new LinkedList<String>();
+        try {
+            cartDelegate.AddToCart(cartBean, 2);
+            //String passwordToCompare = itemsDelegate.  .getUserPasswordWithEmail(userBean);
+            return s;
+
+        } catch (Exception e) {
+            return s;
+        }
+
+    }
 }

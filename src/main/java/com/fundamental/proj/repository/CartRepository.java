@@ -58,25 +58,42 @@ public class CartRepository {
     }
 
     @Transactional
-    public void AddToCart(Cart cart)
+    public void AddToCart(Cart cart, int flag)
     {
         Session session = sessionFactory.getCurrentSession();
-        Query query = session.createQuery("from Cart where user_id=:uid and items.item_id=:itmid");
-        query.setParameter("uid",cart.getUser_id());
-        query.setParameter("itmid", cart.getItems().getItem_id());
-        List<Cart> carts = query.list();
-        session.flush();
-        if(carts.size() > 0)
+        if(flag==0) {
+            Query query = session.createQuery("from Cart where user_id=:uid and items.item_id=:itmid");
+            query.setParameter("uid", cart.getUser_id());
+            query.setParameter("itmid", cart.getItems().getItem_id());
+            List<Cart> carts = query.list();
+            session.flush();
+            if (carts.size() > 0) {
+                query = session.createQuery("update Cart set quantity=:newQunty where user_id=:uid and items.item_id=:itmid");
+                query.setParameter("newQunty", cart.getQuantity() + carts.get(0).getQuantity());
+                query.setParameter("uid", cart.getUser_id());
+                query.setParameter("itmid", cart.getItems().getItem_id());
+                query.executeUpdate();
+                session.flush();
+            } else {
+                session.saveOrUpdate(cart);
+                session.flush();
+            }
+        }
+        else if(flag ==1)
         {
-            query = session.createQuery("update Cart set quantity=:newQunty where user_id=:uid and items.item_id=:itmid");
-            query.setParameter("newQunty", cart.getQuantity() + carts.get(0).getQuantity());
-            query.setParameter("uid",cart.getUser_id());
+            Query query = session.createQuery("update Cart set quantity=:newQunty where user_id=:uid and items.item_id=:itmid");
+            query.setParameter("newQunty", cart.getQuantity());
+            query.setParameter("uid", cart.getUser_id());
             query.setParameter("itmid", cart.getItems().getItem_id());
             query.executeUpdate();
             session.flush();
         }
-        else {
-            session.saveOrUpdate(cart);
+        else if(flag ==2)
+        {
+            Query query = session.createQuery("delete Cart where user_id=:uid and items.item_id=:itmid");
+            query.setParameter("uid", cart.getUser_id());
+            query.setParameter("itmid", cart.getItems().getItem_id());
+            query.executeUpdate();
             session.flush();
         }
     }

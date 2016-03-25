@@ -35,7 +35,7 @@
                                     $scope.total = $scope.total+($scope.cart[i].itemsBean.price * $scope.cart[i].quantity);
                                 }
                             });
-                    $scope.orderUp= function(vw){;
+                    $scope.orderUp= function(vw){
                         console.log(vw);
                         $http.post('order', {
                             item_id: vw.item_id,
@@ -50,6 +50,42 @@
                                     console.log(response);
 
                                 });
+                    };
+                    $scope.quantity = function(vw){
+                        $scope.total = 0
+                        for (var i=0; i<$scope.cart.length; i++){
+                            $scope.total = $scope.total+($scope.cart[i].itemsBean.price * $scope.cart[i].quantity);
+                        }
+                        $http.post('updateCart', {
+                            itemsBean: vw.itemsBean,
+                            user_id:$scope.userInfo.id,
+                            quantity: vw.quantity,
+                            price: vw.price,
+                            cart_id: vw.cart_id
+                        })
+                                .success(function (response) {
+                                    console.log(response);
+
+                                });
+                    };
+                    $scope.delete = function(vw){
+                        $http.post('deleteCart', {
+                            itemsBean: vw.itemsBean,
+                            user_id:$scope.userInfo.id,
+                            quantity: vw.quantity,
+                            price: vw.price,
+                            cart_id: vw.cart_id
+                        })
+                                .success(function (response) {
+                                    console.log(response);
+
+                                });
+                        $scope.cart.pop(vw);
+                        $scope.total = 0
+                        for (var i=0; i<$scope.cart.length; i++){
+                            $scope.total = $scope.total+($scope.cart[i].itemsBean.price * $scope.cart[i].quantity);
+                        }
+
                     };
 
                 }]);
@@ -82,11 +118,17 @@
                             <td>
                                 <p>{{vw.itemsBean.item_description}}</p>
                             </td>
-                            <td style="width: 200px;">
-                                <i class="glyphicon glyphicon-usd"></i> <span> {{vw.itemsBean.price}}</span>
+                            <td style="width: 80px;">
+                                <i class="glyphicon glyphicon-usd"></i> <span> {{vw.itemsBean.price}}   X   </span>
                             </td>
-                            <td style="width: 200px;">
-                                <input type="number" style="width: 50px" class="form-control" id="quantity" placeholder="Quantity" ng-model="vw.quantity">
+                            <td style="width: 100px;">
+                                <input type="number" style="width: 80px" ng-change ="quantity(vw)" required class="form-control" id="quantity" placeholder="Quantity" ng-model="vw.quantity">
+                            </td>
+                            <td style="width: 100px;">
+                                <p> {{vw.itemsBean.price * vw.quantity}}</p>
+                            </td>
+                            <td style="width: 100px;">
+                                <button ng-click="delete(vw)" class="btn btn-primary center-block">Delete</button>
                             </td>
                         </tr>
                     </table>

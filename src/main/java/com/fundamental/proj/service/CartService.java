@@ -30,8 +30,8 @@ public class CartService {
     }
 
     @Transactional
-    public void AddToCart(Cart cart)
+    public void AddToCart(Cart cart, int flag)
     {
-        cartRepository.AddToCart(cart);
+        cartRepository.AddToCart(cart, flag);
     }
 }
