@@ -104,7 +104,21 @@ public class UserController {
         return cartDelegate.getCart(userBean.getId());
     }
 
+    @RequestMapping(value = "/addCart", method = RequestMethod.POST)
+    @ResponseBody
+    public List<String> AddToCart(@RequestBody CartBean cartBean) {
+        //HIBERNETCALLS
+        List<String> s = new LinkedList<String>();
+        try {
+            cartDelegate.AddToCart(cartBean);
+            //String passwordToCompare = itemsDelegate.  .getUserPasswordWithEmail(userBean);
+            return s;
 
+        } catch (Exception e) {
+            return s;
+        }
+
+    }
 
 
 }

@@ -29,4 +29,9 @@ public class CartService {
         return cartRepository.getCart(user_id);
     }
 
+    @Transactional
+    public void AddToCart(Cart cart)
+    {
+        cartRepository.AddToCart(cart);
+    }
 }

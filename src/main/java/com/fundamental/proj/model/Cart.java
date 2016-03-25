@@ -11,6 +11,7 @@ public class Cart {
 
     @Id
     @Column(name= "cart_id")
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private long cart_id;
 
     public long getCart_id() {

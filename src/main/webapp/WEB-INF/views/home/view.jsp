@@ -36,16 +36,13 @@
                                         });
 
                             });
-                    $scope.orderUp= function(vw){;
+                    $scope.cart= function(vw){;
                         console.log(vw);
-                        $http.post('order', {
-                            item_id: vw.item_id,
+                        $http.post('addCart', {
+                            itemsBean: vw,
                             user_id:$scope.userInfo.id,
-                            price: vw.price,
                             quantity: vw.noofpieces,
-                            card_number: vw.cardNo,
-                            exp_date:vw.dateExp,
-                            card_cvv:vw.cvvNo
+                            price: vw.price
                         })
                                 .success(function (response) {
                                     console.log(response);
@@ -109,73 +106,32 @@
                 <div class="col-xs-12 col-sm-12 col-md-7 excerpet">
                     <h3><a href="#" title="">{{vw.item_name}}</a></h3>
                 <p>{{vw.item_description}}</p>
-                    <div class="center"><button data-toggle="modal" data-target="#squarespaceModal" class="btn btn-primary center-block">Purchase</button></div>
-                    <div class="modal fade" id="squarespaceModal" tabindex="-1" role="dialog" aria-labelledby="modalLabel" aria-hidden="true">
+                    <div class="center"><button data-toggle="modal" data-target="#squarespaceModal{{vw.item_id}}" class="btn btn-primary center-block">Add to cart</button></div>
+                    <div class="modal fade" id="squarespaceModal{{vw.item_id}}" tabindex="-1" role="dialog" aria-labelledby="modalLabel" aria-hidden="true">
                         <div class="modal-dialog">
                             <div class="modal-content">
                                 <div class="modal-header">
                                     <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span><span class="sr-only">Close</span></button>
-                                    <h3 class="modal-title" id="lineModalLabel">Payment</h3>
+                                    <h3 class="modal-title" id="lineModalLabel">Add to cart</h3>
                                 </div>
                                 <div class="modal-body">
 
                                     <!-- content goes here -->
-                                    <form ng-submit = "orderUp(vw)">
-                                        <div class="form-group" >
-                                            <label for="exampleInputEmail1">Email address</label>
-                                            <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Enter email" ng-model="vw.purchaseemialId">
-                                        </div>
+                                    <form ng-submit = "cart(vw)">
                                         <div class="form-group">
-                                            <label for="exampleInputPassword1">Number of products</label>
-                                            <input type="number" class="form-control" id="exampleInputPassword1" placeholder="Available {{vw.onsale_count}}" ng-model="vw.noofpieces">
+                                            <label for="exampleInputPassword1{{vw.item_id}}">Number of products (available {{vw.onsale_count}})</label>
+                                            <input type="number" class="form-control" id="exampleInputPassword1{{vw.item_id}}" value="1" ng-model="vw.noofpieces">
                                         </div>
                                         <div class="form-group">
                                             <div>
-                                                <div class="panel panel-default">
-                                                    <div class="panel-heading">
-                                                        <h3 class="panel-title">
-                                                            Payment Details
-                                                        </h3>
-
-                                                    </div>
-                                                    <div class="panel-body">
-                                                        <form role="form">
-                                                            <div class="form-group">
-                                                                <label for="cardNumber">
-                                                                    CARD NUMBER</label>
-                                                                <div class="input-group">
-                                                                    <input type="text" class="form-control" id="cardNumber" placeholder="Valid Card Number"
-                                                                           required autofocus ng-model="vw.cardNo"/>
-                                                                    <span class="input-group-addon"><span class="glyphicon glyphicon-lock"></span></span>
-                                                                </div>
-                                                            </div>
-                                                            <div class="row">
-                                                                <div class="col-xs-7 col-md-7">
-                                                                    <div class="form-group">
-                                                                        <label for="expityMonth">
-                                                                            EXPIRY DATE</label>
-                                                                            <input type="text" class="form-control" id="expityMonth" placeholder="MM/YY" required ng-model="vw.dateExp"/>
-                                                                    </div>
-                                                                </div>
-                                                                <div class="col-xs-5 col-md-5 pull-right">
-                                                                    <div class="form-group">
-                                                                        <label for="cvCode">
-                                                                            CV CODE</label>
-                                                                        <input type="password" class="form-control" id="cvCode" placeholder="ex. 123" required ng-model="vw.cvvNo"/>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </form>
-                                                    </div>
-                                                </div>
                                                     <ul>
-                                                    <li class="active"><a href="#"><span class="badge pull-right"><span class="glyphicon glyphicon-usd"></span>{{vw.price * vw.noofpieces}}</span> Final Payment</a>
+                                                    <li class="active"><a href="#"><span class="badge pull-right"><span class="glyphicon glyphicon-usd"></span>{{vw.price * vw.noofpieces}}</span> Total Price</a>
                                                     </li>
                                                 </ul>
 
                                                 <input type="hidden" value="{{vw.price * vw.noofpieces}}" ng-model="vw.totalPrice">
                                                 <br/>
-                                                <button type="submit" class="btn btn-success btn-lg btn-block" role="button">Pay</button>
+                                                <button type="submit" class="btn btn-success btn-lg btn-block" role="button">Submit</button>
                                             </div>
                                         </div>
                                     </form>

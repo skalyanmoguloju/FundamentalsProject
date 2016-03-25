@@ -50,7 +50,7 @@ public class MaterialIndentRepository {
                 orders.setIndent_id(id);
                 orders.setItem_id(cart.getItems().getItem_id());
                 orders.setQuantity(cart.getQuantity());
-                orders.setStatus("Pending");
+                orders.setStatus("Purchased");
                 session.persist(orders);
                 session.flush();
             }
