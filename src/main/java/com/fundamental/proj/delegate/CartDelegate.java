@@ -35,4 +35,9 @@ public class CartDelegate {
         return cartBeanMapper.mapItemsBean(cartService.getCart(user_id));
     }
 
+    @Transactional
+    public void AddToCart(CartBean cartBean, int flag)
+    {
+        cartService.AddToCart(cartBeanMapper.mapBeanToCart(cartBean),flag);
+    }
 }

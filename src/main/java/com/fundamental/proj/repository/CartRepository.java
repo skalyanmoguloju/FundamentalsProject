@@ -47,4 +47,54 @@ public class CartRepository {
 
         return query.list();
     }
+
+    @Transactional
+    public void ClearCart(long user_id)
+    {
+        Session session = sessionFactory.getCurrentSession();
+        Query query = session.createQuery("delete from Cart where user_id=:uid");
+        query.setParameter("uid",user_id);
+        query.executeUpdate();
+    }
+
+    @Transactional
+    public void AddToCart(Cart cart, int flag)
+    {
+        Session session = sessionFactory.getCurrentSession();
+        if(flag==0) {
+            Query query = session.createQuery("from Cart where user_id=:uid and items.item_id=:itmid");
+            query.setParameter("uid", cart.getUser_id());
+            query.setParameter("itmid", cart.getItems().getItem_id());
+            List<Cart> carts = query.list();
+            session.flush();
+            if (carts.size() > 0) {
+                query = session.createQuery("update Cart set quantity=:newQunty where user_id=:uid and items.item_id=:itmid");
+                query.setParameter("newQunty", cart.getQuantity() + carts.get(0).getQuantity());
+                query.setParameter("uid", cart.getUser_id());
+                query.setParameter("itmid", cart.getItems().getItem_id());
+                query.executeUpdate();
+                session.flush();
+            } else {
+                session.saveOrUpdate(cart);
+                session.flush();
+            }
+        }
+        else if(flag ==1)
+        {
+            Query query = session.createQuery("update Cart set quantity=:newQunty where user_id=:uid and items.item_id=:itmid");
+            query.setParameter("newQunty", cart.getQuantity());
+            query.setParameter("uid", cart.getUser_id());
+            query.setParameter("itmid", cart.getItems().getItem_id());
+            query.executeUpdate();
+            session.flush();
+        }
+        else if(flag ==2)
+        {
+            Query query = session.createQuery("delete Cart where user_id=:uid and items.item_id=:itmid");
+            query.setParameter("uid", cart.getUser_id());
+            query.setParameter("itmid", cart.getItems().getItem_id());
+            query.executeUpdate();
+            session.flush();
+        }
+    }
 }

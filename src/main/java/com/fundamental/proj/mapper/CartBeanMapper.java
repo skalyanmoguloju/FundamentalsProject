@@ -27,11 +27,13 @@ public class CartBeanMapper {
     }
 
     public Cart mapBeanToCart(CartBean cartBean){
+        ItemsBeanMapper itemsBeanMapper = new ItemsBeanMapper();
         Cart cart = new Cart();
         cart.setPrice(cartBean.getPrice());
         cart.setQuantity(cartBean.getQuantity());
         cart.setUser_id(cartBean.getUser_id());
         cart.setCart_id(cartBean.getCart_id());
+        cart.setItems(itemsBeanMapper.mapBeanToItems(cartBean.getItemsBean()));
         return cart;
     }
 

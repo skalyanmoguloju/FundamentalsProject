@@ -2,7 +2,9 @@ package com.fundamental.proj.controller;
 import com.fundamental.proj.controller.bean.*;
 import com.fundamental.proj.delegate.CartDelegate;
 import com.fundamental.proj.delegate.ItemsDelegate;
+import com.fundamental.proj.delegate.MaterialIndentDelegate;
 import com.fundamental.proj.delegate.SalesDelegate;
+import com.fundamental.proj.model.MaterialIndent;
 import com.fundamental.proj.util.EmailVerification;
 import org.joda.time.DateTime;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -33,6 +35,8 @@ public class UserController {
     @Autowired
     private CartDelegate cartDelegate;
 
+    @Autowired
+    private MaterialIndentDelegate materialIndentDelegate;
     @RequestMapping(value = "/view")
     public String view() {
         return "WEB-INF/views/home/view";
@@ -73,12 +77,11 @@ public class UserController {
 
     @RequestMapping(value = "/order", method = RequestMethod.POST)
     @ResponseBody
-    public List<String> PurchaseItem(@RequestBody SalesBean salesBean) {
+    public List<String> PurchaseItem(@RequestBody MaterialIndentBean materialIndentBean) {
         //HIBERNETCALLS
         List<String> s = new LinkedList<String>();
         try {
-            salesBean.setPrice(salesBean.getPrice()*salesBean.getQuantity());
-           salesDelegate.addSale(salesBean);
+            materialIndentDelegate.addSale(materialIndentBean);
             //String passwordToCompare = itemsDelegate.  .getUserPasswordWithEmail(userBean);
             return s;
 
@@ -101,5 +104,51 @@ public class UserController {
         return cartDelegate.getCart(userBean.getId());
     }
 
+    @RequestMapping(value = "/addCart", method = RequestMethod.POST)
+    @ResponseBody
+    public List<String> AddToCart(@RequestBody CartBean cartBean) {
+        //HIBERNETCALLS
+        List<String> s = new LinkedList<String>();
+        try {
+            cartDelegate.AddToCart(cartBean, 0);
+            //String passwordToCompare = itemsDelegate.  .getUserPasswordWithEmail(userBean);
+            return s;
 
+        } catch (Exception e) {
+            return s;
+        }
+
+    }
+
+    @RequestMapping(value = "/updateCart", method = RequestMethod.POST)
+    @ResponseBody
+    public List<String> updateCart(@RequestBody CartBean cartBean) {
+        //HIBERNETCALLS
+        List<String> s = new LinkedList<String>();
+        try {
+            cartDelegate.AddToCart(cartBean, 1);
+            //String passwordToCompare = itemsDelegate.  .getUserPasswordWithEmail(userBean);
+            return s;
+
+        } catch (Exception e) {
+            return s;
+        }
+
+    }
+
+    @RequestMapping(value = "/deleteCart", method = RequestMethod.POST)
+    @ResponseBody
+    public List<String> deleteCart(@RequestBody CartBean cartBean) {
+        //HIBERNETCALLS
+        List<String> s = new LinkedList<String>();
+        try {
+            cartDelegate.AddToCart(cartBean, 2);
+            //String passwordToCompare = itemsDelegate.  .getUserPasswordWithEmail(userBean);
+            return s;
+
+        } catch (Exception e) {
+            return s;
+        }
+
+    }
 }

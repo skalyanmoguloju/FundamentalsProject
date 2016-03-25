@@ -12,6 +12,6 @@ import org.junit.runner.RunWith;
         format = { "pretty", "json:target/cucumber" },
         features = "classpath:cucumber/UI/LogInTesting.feature"
 )
-public class LogInTestingRunner {
+public class LoginTestingRunner {
     // Run LogInTesting.feature based on LogInTestingSteps.java
 }
