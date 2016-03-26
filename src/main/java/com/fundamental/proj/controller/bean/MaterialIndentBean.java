@@ -62,14 +62,8 @@ public class MaterialIndentBean {
         this.card_exp = card_exp;
     }
 
-    public long getPurchase_id() {
-        return purchase_id;
-    }
 
-    public void setPurchase_id(long purchase_id) {
-        this.purchase_id = purchase_id;
-    }
 
-    private long purchase_id;
+
 
 }

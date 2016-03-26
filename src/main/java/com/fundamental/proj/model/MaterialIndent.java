@@ -28,8 +28,6 @@ public class MaterialIndent {
     @Column(name = "card_exp")
     private String card_exp;
 
-    @Column(name = "purchase_id", nullable = true)
-    private long purchase_id;
 
     public long getIndent_id() {
         return indent_id;
@@ -79,11 +77,5 @@ public class MaterialIndent {
         this.card_exp = card_exp;
     }
 
-    public long getPurchase_id() {
-        return purchase_id;
-    }
 
-    public void setPurchase_id(long purchase_id) {
-        this.purchase_id = purchase_id;
-    }
 }

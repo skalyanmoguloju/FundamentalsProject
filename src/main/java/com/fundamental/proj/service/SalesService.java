@@ -1,11 +1,14 @@
 package com.fundamental.proj.service;
 
 import com.fundamental.proj.model.Items;
+import com.fundamental.proj.model.Orders;
 import com.fundamental.proj.model.Sales;
 import com.fundamental.proj.repository.SalesRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+
+import java.util.List;
 
 /**
  * Created by sai on 3/10/16.
@@ -23,4 +26,6 @@ public class SalesService {
     {
         salesRepository.AddSale(sales);
     }
+
+
 }

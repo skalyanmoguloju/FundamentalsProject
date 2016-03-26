@@ -1,10 +1,8 @@
 package com.fundamental.proj.controller;
 import com.fundamental.proj.controller.bean.*;
-import com.fundamental.proj.delegate.CartDelegate;
-import com.fundamental.proj.delegate.ItemsDelegate;
-import com.fundamental.proj.delegate.MaterialIndentDelegate;
-import com.fundamental.proj.delegate.SalesDelegate;
+import com.fundamental.proj.delegate.*;
 import com.fundamental.proj.model.MaterialIndent;
+import com.fundamental.proj.model.Orders;
 import com.fundamental.proj.util.EmailVerification;
 import org.joda.time.DateTime;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -34,6 +32,9 @@ public class UserController {
 
     @Autowired
     private CartDelegate cartDelegate;
+
+    @Autowired
+    private OrdersDelegate ordersDelegate;
 
     @Autowired
     private MaterialIndentDelegate materialIndentDelegate;
@@ -151,4 +152,16 @@ public class UserController {
         }
 
     }
+    @RequestMapping(value = "/allorders", method = RequestMethod.POST)
+    @ResponseBody
+    public List<OrdersBean> getAllOrders(@RequestBody UserBean userBean) {
+        //HIBERNETCALLS
+
+        return ordersDelegate.getAllOrderss(userBean.getId());
+    }
+    @RequestMapping(value = "/view orders")
+    public String allOrdersPage() {
+        return "WEB-INF/views/home/vieworders";
+    }
+
 }

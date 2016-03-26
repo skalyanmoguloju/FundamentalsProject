@@ -10,7 +10,7 @@ import org.junit.runner.RunWith;
 @RunWith(Cucumber.class)
 @CucumberOptions(
         format = { "pretty", "json:target/cucumber" },
-        features = "classpath:cucumber/ResetPasswordTesting.feature"
+        features = "classpath:cucumber/UI/ResetPasswordTesting.feature"
 )
 public class ResetPasswordTestingRunner {
     // Run ResetPasswordTesting.feature based on ResetPasswordTestingSteps.java

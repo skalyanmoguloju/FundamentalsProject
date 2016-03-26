@@ -21,11 +21,22 @@ public class Orders {
         this.order_id = order_id;
     }
 
-    @Column(name = "indent_id")
-    private long indent_id;
+    @ManyToOne
+    @JoinColumn(name = "indent_id")
+    private MaterialIndent materialIndent;
 
-    @Column(name = "item_id")
-    private long item_id;
+    public Items getItems() {
+        return items;
+    }
+
+    public void setItems(Items items) {
+        this.items = items;
+    }
+
+    @ManyToOne
+    @JoinColumn(name = "item_id")
+    private Items items;
+
 
     @Column(name = "quantity")
     private long quantity;
@@ -38,20 +49,12 @@ public class Orders {
         this.status = status;
     }
 
-    public long getIndent_id() {
-        return indent_id;
+    public MaterialIndent getMaterialIndent() {
+        return materialIndent;
     }
 
-    public void setIndent_id(long indent_id) {
-        this.indent_id = indent_id;
-    }
-
-    public long getItem_id() {
-        return item_id;
-    }
-
-    public void setItem_id(long item_id) {
-        this.item_id = item_id;
+    public void setMaterialIndent(MaterialIndent materialIndent) {
+        this.materialIndent = materialIndent;
     }
 
     public long getQuantity() {

@@ -111,10 +111,10 @@
                     <h2>Please Sign In</h2>
                     <hr class="colorgraph">
                     <div class="form-group">
-                        <input type="email" autocapitalize="off" autocomplete="off"  name="email" id="email" class="form-control input-lg" placeholder="Email Address" ng-model = "username">
+                        <input type="email" autocapitalize="off" autocomplete="off"  name="email" id="email" class="form-control input-lg" placeholder="Email Address" ng-model = "username" value="kalyansaim@gmail.com">
                     </div>
                     <div class="form-group">
-                        <input id="askpassword" type="password" name="asteriskpassword" placeholder="Password" class="form-control input-lg" ng-model = "asteriskpassword">
+                        <input id="askpassword" type="password" name="asteriskpassword" placeholder="Password" class="form-control input-lg" ng-model = "asteriskpassword" value="Kalyan123">
                         <script type="text/javascript"> new AsteriskPassword(document.getElementById('askpassword'), '\u002A'); </script>
 
                     </div>

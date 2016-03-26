@@ -1,11 +1,15 @@
 package com.fundamental.proj.delegate;
+import com.fundamental.proj.controller.bean.OrdersBean;
 import com.fundamental.proj.controller.bean.SalesBean;
+import com.fundamental.proj.mapper.OrdersBeanMapper;
 import com.fundamental.proj.mapper.SalesBeanMapper;
 import com.fundamental.proj.model.Sales;
 import com.fundamental.proj.service.SalesService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+
+import java.util.List;
 
 /**
  * Created by sai on 3/10/16.
@@ -20,6 +24,7 @@ public class SalesDelegate {
     @Autowired
     private SalesBeanMapper salesBeanMapper;
 
+
     @Transactional
     public void addSale(SalesBean salesBean)
     {
@@ -27,4 +32,6 @@ public class SalesDelegate {
         sales = salesBeanMapper.mapBeanToSales(salesBean);
         salesService.addSale(sales);
     }
+
+
 }

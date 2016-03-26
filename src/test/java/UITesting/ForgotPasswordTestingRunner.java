@@ -10,7 +10,7 @@ import org.junit.runner.RunWith;
 @RunWith(Cucumber.class)
 @CucumberOptions(
         format = { "pretty", "json:target/cucumber" },
-        features = "classpath:cucumber/ForgotPasswordTesting.feature"
+        features = "classpath:cucumber/UI/ForgotPasswordTesting.feature"
 )
 public class ForgotPasswordTestingRunner {
     // Run ForgotPasswordTesting.feature based on ForgotPasswordTestingSteps.java

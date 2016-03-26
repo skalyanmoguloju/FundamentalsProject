@@ -26,13 +26,7 @@ public class MaterialIndentRepository {
 
 
 
-    @Transactional
-    public List<Long> GetIndentID()
-    {
-        Session session = sessionFactory.getCurrentSession();
-        Query query = session.createQuery("select max(indent_id) from MaterialIndent ");
-        return query.list();
-    }
+
 
 
     @Transactional
@@ -42,13 +36,11 @@ public class MaterialIndentRepository {
             Session session = sessionFactory.getCurrentSession();
             session.saveOrUpdate(materialIndent);
             session.flush();
-            List<Long> indent_ids = GetIndentID();
-            long id = indent_ids.get(0);
             for(Cart cart : carts)
             {
                 Orders orders = new Orders();
-                orders.setIndent_id(id);
-                orders.setItem_id(cart.getItems().getItem_id());
+                orders.setMaterialIndent(materialIndent);
+                orders.setItems(cart.getItems());
                 orders.setQuantity(cart.getQuantity());
                 orders.setStatus("Purchased");
                 session.persist(orders);

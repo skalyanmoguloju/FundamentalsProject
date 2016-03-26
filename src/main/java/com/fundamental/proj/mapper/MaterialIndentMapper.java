@@ -19,7 +19,6 @@ public class MaterialIndentMapper {
         materialIndentBean.setCard_number(materialIndent.getCard_number());
         materialIndentBean.setIndent_id(materialIndent.getIndent_id());
         materialIndentBean.setPrice(materialIndent.getPrice());
-        materialIndentBean.setPurchase_id(materialIndent.getPurchase_id());
         materialIndentBean.setUser_id(materialIndent.getUser_id());
 
         return materialIndentBean;
@@ -32,7 +31,6 @@ public class MaterialIndentMapper {
         materialIndent.setCard_number(materialIndentBean.getCard_number());
         materialIndent.setIndent_id(materialIndentBean.getIndent_id());
         materialIndent.setPrice(materialIndentBean.getPrice());
-        materialIndent.setPurchase_id(materialIndentBean.getPurchase_id());
         materialIndent.setUser_id(materialIndentBean.getUser_id());
         return materialIndent;
     }

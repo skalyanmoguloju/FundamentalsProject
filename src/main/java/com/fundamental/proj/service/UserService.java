@@ -1,6 +1,7 @@
 package com.fundamental.proj.service;
 
 import com.fundamental.proj.controller.bean.UserBean;
+import com.fundamental.proj.model.Orders;
 import com.fundamental.proj.model.User;
 import com.fundamental.proj.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -56,7 +57,6 @@ public class UserService {
     @Transactional
     public List<String> getUserInfoWithEmail(UserBean userBean) {
         return userRepository.getPswdInfoWithEmail(userBean); }
-
 
 
 }
