@@ -20,6 +20,7 @@ public class MaterialIndentMapper {
         materialIndentBean.setIndent_id(materialIndent.getIndent_id());
         materialIndentBean.setPrice(materialIndent.getPrice());
         materialIndentBean.setUser_id(materialIndent.getUser_id());
+        materialIndentBean.setIndent_date(materialIndent.getIndent_date());
 
         return materialIndentBean;
     }
@@ -32,6 +33,7 @@ public class MaterialIndentMapper {
         materialIndent.setIndent_id(materialIndentBean.getIndent_id());
         materialIndent.setPrice(materialIndentBean.getPrice());
         materialIndent.setUser_id(materialIndentBean.getUser_id());
+        materialIndent.setIndent_date(materialIndentBean.getIndent_date());
         return materialIndent;
     }
 

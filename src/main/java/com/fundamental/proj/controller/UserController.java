@@ -15,6 +15,7 @@ import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.multipart.commons.CommonsMultipartFile;
 
 import java.util.Calendar;
+import java.util.Date;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -82,6 +83,8 @@ public class UserController {
         //HIBERNETCALLS
         List<String> s = new LinkedList<String>();
         try {
+            Date date = new Date();
+            materialIndentBean.setIndent_date(date);
             materialIndentDelegate.addSale(materialIndentBean);
             //String passwordToCompare = itemsDelegate.  .getUserPasswordWithEmail(userBean);
             return s;

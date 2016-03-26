@@ -1,6 +1,7 @@
 package com.fundamental.proj.model;
 
 import javax.persistence.*;
+import java.util.Date;
 
 /**
  * Created by sai on 3/24/16.
@@ -28,6 +29,16 @@ public class MaterialIndent {
     @Column(name = "card_exp")
     private String card_exp;
 
+    @Column(name = "indent_date")
+    private Date indent_date;
+
+    public Date getIndent_date() {
+        return indent_date;
+    }
+
+    public void setIndent_date(Date indent_date) {
+        this.indent_date = indent_date;
+    }
 
     public long getIndent_id() {
         return indent_id;

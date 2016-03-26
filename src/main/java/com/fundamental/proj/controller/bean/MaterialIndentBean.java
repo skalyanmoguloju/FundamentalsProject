@@ -1,5 +1,9 @@
 package com.fundamental.proj.controller.bean;
 
+import org.joda.time.DateTime;
+
+import java.util.Date;
+
 /**
  * Created by sai on 3/24/16.
  */
@@ -62,8 +66,13 @@ public class MaterialIndentBean {
         this.card_exp = card_exp;
     }
 
+    public Date indent_date;
 
+    public Date getIndent_date() {
+        return indent_date;
+    }
 
-
-
+    public void setIndent_date(Date indent_date) {
+        this.indent_date = indent_date;
+    }
 }
