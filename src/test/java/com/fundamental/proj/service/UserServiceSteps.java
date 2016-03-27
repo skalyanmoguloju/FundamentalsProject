@@ -396,4 +396,83 @@ public class UserServiceSteps {
         Mockito.verify(mockedUserRepository).getPswdInfoWithEmail(userBean);
     }
 
+    /************************************************/
+    /*
+     * Test addNewAdmin()
+     */
+    /************************************************/
+    @When("^addNewAdmin\\(\\) is called$")
+    public void addnewadmin_is_called() throws Throwable {
+        Mockito.when(mockedUserRepository.addNewAdmin()).thenReturn(expectedListID);
+    }
+
+    @Then("^a list of ids is returned for addNewAdmin$")
+    public void a_list_of_ids_is_returned_for_addNewAdmin() throws Throwable {
+        List<Long> actualListID = userService.addNewAdmin();
+
+        checkListID(actualListID);
+
+        // verify addNewAdmin method is called
+        Mockito.verify(mockedUserRepository).addNewAdmin();
+    }
+
+    @Then("^a list of ids is null for addNewAdmin$")
+    public void a_list_of_ids_is_null_for_addNewAdmin() throws Throwable {
+        List<Long> actualListID = userService.addNewAdmin();
+
+        Assert.assertNull(actualListID);
+
+        // verify addNewAdmin method is called
+        Mockito.verify(mockedUserRepository).addNewAdmin();
+    }
+
+    @Then("^a list of ids is empty for addNewAdmin$")
+    public void a_list_of_ids_is_empty_for_addNewAdmin() throws Throwable {
+        List<Long> actualListID = userService.addNewAdmin();
+
+        Assert.assertEquals(actualListID.size(), 0);
+
+        // verify addNewAdmin method is called
+        Mockito.verify(mockedUserRepository).addNewAdmin();
+    }
+
+    /************************************************/
+    /*
+     * Test addNewManager()
+     */
+    /************************************************/
+    @When("^addNewManager\\(\\) is called$")
+    public void addnewmanager_is_called() throws Throwable {
+        Mockito.when(mockedUserRepository.addNewManager()).thenReturn(expectedListID);
+    }
+
+    @Then("^a list of ids is returned for addNewManager$")
+    public void a_list_of_ids_is_returned_for_addNewManager() throws Throwable {
+        List<Long> actualListID = userService.addNewManager();
+
+        checkListID(actualListID);
+
+        // verify addNewManager method is called
+        Mockito.verify(mockedUserRepository).addNewManager();
+    }
+
+    @Then("^a list of ids is null for addNewManager$")
+    public void a_list_of_ids_is_null_for_addNewManager() throws Throwable {
+        List<Long> actualListID = userService.addNewManager();
+
+        Assert.assertNull(actualListID);
+
+        // verify addNewManager method is called
+        Mockito.verify(mockedUserRepository).addNewManager();
+    }
+
+    @Then("^a list of ids is empty for addNewManager$")
+    public void a_list_of_ids_is_empty_for_addNewManager() throws Throwable {
+        List<Long> actualListID = userService.addNewManager();
+
+        Assert.assertEquals(actualListID.size(), 0);
+
+        // verify addNewManager method is called
+        Mockito.verify(mockedUserRepository).addNewManager();
+    }
 }

@@ -70,5 +70,15 @@ public class UserDelegate {
         else
             return "";
     }
+
+    @Transactional
+    public List<Long> addNewAdmin(){
+        return userService.addNewAdmin();
+    }
+
+    @Transactional
+    public List<Long> addNewManager(){
+        return userService.addNewManager();
+    }
 }
 

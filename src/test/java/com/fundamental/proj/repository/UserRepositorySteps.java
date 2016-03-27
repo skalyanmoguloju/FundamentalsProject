@@ -36,9 +36,6 @@ public class UserRepositorySteps {
     @Mock
     private Query mockedQuery;
 
-    @Mock
-    private User mockedUser;
-
     @InjectMocks
     private UserRepository userRepository;
 
@@ -49,7 +46,7 @@ public class UserRepositorySteps {
     @Given("^mock UserRepository is initialized$")
     public void mock_userrepository_is_initialized() throws Throwable {
         MockitoAnnotations.initMocks(this);
-        Mockito.reset(mockedSessionFactory, mockedSession, mockedQuery, mockedUser);
+        Mockito.reset(mockedSessionFactory, mockedSession, mockedQuery);
     }
 
     private void checkListUser(List<User> actualListUser) {
@@ -507,6 +504,95 @@ public class UserRepositorySteps {
         Mockito.verify(mockedSession).createQuery("select pwsd from User where email=:eid");
         Mockito.verify(mockedQuery).setParameter("eid", userBean.getEmail());
         Mockito.verify(mockedQuery).list();
+    }
+
+    /************************************************/
+    /*
+     * Test addNewAdmin()
+     */
+    /************************************************/
+
+    @When("^addNewAdmin\\(\\) is called for UserRepository$")
+    public void addnewadmin_is_called_for_UserRepository() throws Throwable {
+        Mockito.when(mockedSessionFactory.getCurrentSession()).thenReturn(mockedSession);
+        Mockito.when(mockedSession.createQuery("select max(id) from User where role=:rolename")).thenReturn(mockedQuery);
+        Mockito.when(mockedQuery.setParameter(Mockito.eq("rolename"), Mockito.eq("Admin"))).thenReturn(mockedQuery);
+        Mockito.when(mockedQuery.list()).thenReturn(expectedListID);
+    }
+
+    @Then("^a list of ids is returned for addNewAdmin$")
+    public void a_list_of_ids_is_returned_for_addNewAdmin() throws Throwable {
+        List<Long> actualListIDs = userRepository.addNewAdmin();
+
+        Assert.assertEquals(actualListIDs.size(), expectedListID.size());
+        for (int x=0; x<expectedListID.size(); x++)
+            Assert.assertEquals(expectedListID.get(x), actualListIDs.get(x));
+
+        // verify addNewAdmin method has been called successfully
+        Mockito.verify(mockedSessionFactory).getCurrentSession();
+        Mockito.verify(mockedSession).createQuery("select max(id) from User where role=:rolename");
+        Mockito.verify(mockedQuery).setParameter("rolename", "Admin");
+        Mockito.verify(mockedQuery).list();
+    }
+
+    @When("^addNewAdmin\\(\\) is called with Exception for UserRepository$")
+    public void addnewadmin_is_called_with_Exception_for_UserRepository() throws Throwable {
+        BDDMockito.given(mockedSessionFactory.getCurrentSession()).willThrow(Exception.class);
+    }
+
+    @Then("^a list of ids is empty for UserRepository$")
+    @Test(expected=Exception.class)
+    public void a_list_of_ids_is_empty_for_UserRepository() throws Throwable {
+        List<Long> actualListIDs = userRepository.addNewAdmin();
+
+        Assert.assertEquals(actualListIDs.size(), expectedListID.size());
+
+        // verify addNewAdmin method has been called
+        Mockito.verify(mockedSessionFactory).getCurrentSession();
+    }
+
+    /************************************************/
+    /*
+     * Test addNewManager()
+     */
+    /************************************************/
+    @When("^addNewManager\\(\\) is called for UserRepository$")
+    public void addnewmanager_is_called_for_UserRepository() throws Throwable {
+        Mockito.when(mockedSessionFactory.getCurrentSession()).thenReturn(mockedSession);
+        Mockito.when(mockedSession.createQuery("select max(id) from User where role=:rolename")).thenReturn(mockedQuery);
+        Mockito.when(mockedQuery.setParameter(Mockito.eq("rolename"), Mockito.eq("Manager"))).thenReturn(mockedQuery);
+        Mockito.when(mockedQuery.list()).thenReturn(expectedListID);
+    }
+
+    @Then("^a list of ids is returned for addNewManager in UserRepository$")
+    public void a_list_of_ids_is_returned_for_addNewManager_in_UserRepository() throws Throwable {
+        List<Long> actualListIDs = userRepository.addNewManager();
+
+        Assert.assertEquals(actualListIDs.size(), expectedListID.size());
+        for (int x=0; x<expectedListID.size(); x++)
+            Assert.assertEquals(expectedListID.get(x), actualListIDs.get(x));
+
+        // verify addNewManager method has been called successfully
+        Mockito.verify(mockedSessionFactory).getCurrentSession();
+        Mockito.verify(mockedSession).createQuery("select max(id) from User where role=:rolename");
+        Mockito.verify(mockedQuery).setParameter("rolename", "Manager");
+        Mockito.verify(mockedQuery).list();
+    }
+
+    @When("^addNewManager\\(\\) is called with Exception for UserRepository$")
+    public void addnewmanager_is_called_with_Exception_for_UserRepository() throws Throwable {
+        BDDMockito.given(mockedSessionFactory.getCurrentSession()).willThrow(Exception.class);
+    }
+
+    @Then("^a list of ids is empty for addNewManager in UserRepository$")
+    @Test(expected=Exception.class)
+    public void a_list_of_ids_is_empty_for_addNewManager_in_UserRepository() throws Throwable {
+        List<Long> actualListIDs = userRepository.addNewManager();
+
+        Assert.assertEquals(actualListIDs.size(), expectedListID.size());
+
+        // verify addNewManager method has been called
+        Mockito.verify(mockedSessionFactory).getCurrentSession();
     }
 
 }

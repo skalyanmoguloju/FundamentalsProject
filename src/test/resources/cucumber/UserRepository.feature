@@ -106,3 +106,29 @@ Feature: Check UserRepository
     And expected empty list of passwords is initialized
     When getPswdInfoWithEmail() is called
     Then a list of passwords is empty for getPswdInfoWithEmail
+
+# Test addNewAdmin
+  Scenario: addNewAdmin returns some ids
+    Given mock UserRepository is initialized
+    And expected list of ids is initialized for UserRepository
+    When addNewAdmin() is called for UserRepository
+    Then a list of ids is returned for addNewAdmin
+
+  Scenario: addNewAdmin throws Exception
+    Given mock UserRepository is initialized
+    And expected empty list of ids is initialized for UserRepository
+    When addNewAdmin() is called with Exception for UserRepository
+    Then a list of ids is empty for UserRepository
+
+# Test addNewManager
+  Scenario: addNewManager returns some ids
+    Given mock UserRepository is initialized
+    And expected list of ids is initialized for UserRepository
+    When addNewManager() is called for UserRepository
+    Then a list of ids is returned for addNewManager in UserRepository
+
+  Scenario: addNewManager throws Exception
+    Given mock UserRepository is initialized
+    And expected empty list of ids is initialized for UserRepository
+    When addNewManager() is called with Exception for UserRepository
+    Then a list of ids is empty for addNewManager in UserRepository

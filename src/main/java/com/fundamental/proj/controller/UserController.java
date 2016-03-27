@@ -14,10 +14,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.multipart.commons.CommonsMultipartFile;
 
-import java.util.Calendar;
-import java.util.Date;
-import java.util.LinkedList;
-import java.util.List;
+import java.util.*;
 
 /**
  * Created by sai on 3/6/16.
@@ -38,12 +35,15 @@ public class UserController {
     private OrdersDelegate ordersDelegate;
 
     @Autowired
+    private UserDelegate userDelegate;
+
+    @Autowired
     private MaterialIndentDelegate materialIndentDelegate;
+
     @RequestMapping(value = "/view")
     public String view() {
         return "WEB-INF/views/home/view";
     }
-
 
     @RequestMapping(value = "/list", method = RequestMethod.POST)
     @ResponseBody
@@ -51,6 +51,29 @@ public class UserController {
         //HIBERNETCALLS
         List<ItemsBean> s = itemsDelegate.getAllItems();
         return s;
+    }
+
+    @RequestMapping(value = "/add admin")
+    public String addAdminPage() {
+        return "WEB-INF/views/home/addAdmin";
+    }
+
+    @RequestMapping(value = "/addAdmin", method = RequestMethod.POST)
+    @ResponseBody
+    public List<Long> addNewAdmin() {
+        //HIBERNETCALLS
+        return userDelegate.addNewAdmin();
+    }
+
+    @RequestMapping(value = "/add manager")
+    public String addManagerPage() {
+        return "WEB-INF/views/home/addManager";
+    }
+
+    @RequestMapping(value = "/addManager", method = RequestMethod.POST)
+    @ResponseBody
+    public List<Long> addNewManager() {
+        return userDelegate.addNewManager();
     }
 
     @RequestMapping(value = "/add item")
@@ -159,7 +182,6 @@ public class UserController {
     @ResponseBody
     public List<OrdersBean> getAllOrders(@RequestBody UserBean userBean) {
         //HIBERNETCALLS
-
         return ordersDelegate.getAllOrderss(userBean.getId());
     }
     @RequestMapping(value = "/view orders")

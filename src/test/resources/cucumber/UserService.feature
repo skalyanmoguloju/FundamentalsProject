@@ -106,3 +106,41 @@ Feature: Check UserService
     And expected empty list of passwords is initialized
     When getUserInfoWithEmail() is called
     Then a list of passwords is empty for getUserInfoWithEmail
+
+# Test addNewAdmin
+  Scenario: addNewAdmin returns some ids
+    Given mock UserService is initialized
+    And expected list of ids is initialized
+    When addNewAdmin() is called
+    Then a list of ids is returned for addNewAdmin
+
+  Scenario: addNewAdmin returns null
+    Given mock UserService is initialized
+    And expected null list of ids is initialized
+    When addNewAdmin() is called
+    Then a list of ids is null for addNewAdmin
+
+  Scenario: addNewAdmin returns empty list
+    Given mock UserService is initialized
+    And expected empty list of ids is initialized
+    When addNewAdmin() is called
+    Then a list of ids is empty for addNewAdmin
+
+# Test addNewManager
+  Scenario: addNewManager returns some ids
+    Given mock UserService is initialized
+    And expected list of ids is initialized
+    When addNewManager() is called
+    Then a list of ids is returned for addNewManager
+
+  Scenario: addNewManager returns null
+    Given mock UserService is initialized
+    And expected null list of ids is initialized
+    When addNewManager() is called
+    Then a list of ids is null for addNewManager
+
+  Scenario: addNewManager returns empty list
+    Given mock UserService is initialized
+    And expected empty list of ids is initialized
+    When addNewManager() is called
+    Then a list of ids is empty for addNewManager

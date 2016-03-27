@@ -58,5 +58,15 @@ public class UserService {
     public List<String> getUserInfoWithEmail(UserBean userBean) {
         return userRepository.getPswdInfoWithEmail(userBean); }
 
+    @Transactional
+    public List<Long> addNewAdmin()
+    {
+        return userRepository.addNewAdmin();
+    }
 
+    @Transactional
+    public List<Long> addNewManager()
+    {
+        return userRepository.addNewManager();
+    }
 }

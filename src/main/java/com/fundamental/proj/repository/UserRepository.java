@@ -123,4 +123,45 @@ public class UserRepository {
         return query.list();
     }
 
+    @Transactional
+    public List<Long> addNewAdmin()
+    {
+        List<Long> i = new ArrayList<Long>();
+        try {
+            Session session = sessionFactory.getCurrentSession();
+            User user = new User();
+            String role = "Admin";
+            user.setRole(role);
+            session.persist(user);
+
+            Query query = session.createQuery("select max(id) from User where role=:rolename");
+            query.setParameter("rolename", role);
+            return query.list();
+        }
+        catch (Exception e)
+        {
+            return i;
+        }
+    }
+
+    @Transactional
+    public List<Long> addNewManager()
+    {
+        List<Long> i = new ArrayList<Long>();
+        try {
+            Session session = sessionFactory.getCurrentSession();
+            User user = new User();
+            String role = "Manager";
+            user.setRole(role);
+            session.persist(user);
+
+            Query query = session.createQuery("select max(id) from User where role=:rolename");
+            query.setParameter("rolename", role);
+            return query.list();
+        }
+        catch (Exception e)
+        {
+            return i;
+        }
+    }
 }

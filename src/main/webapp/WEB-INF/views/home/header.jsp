@@ -92,7 +92,7 @@
                     <li class="divider"></li>
                     <li><a href="/cart">Cart <span class="glyphicon glyphicons-cart-in pull-right"></span></a></li>
                     <li class="divider"></li>
-                    <li><a href="#">Sign Out <span class="glyphicon glyphicon-log-out pull-right"></span></a></li>
+                    <li><a href="http://localhost:8080">Sign Out <span class="glyphicon glyphicon-log-out pull-right"></span></a></li>
                 </ul>
             </li>
         </ul>
@@ -103,7 +103,6 @@
             <div class="list-group list-group-horizontal" ng-model = "rights"  style="text-align: left" >
                 <a href="/home" class="list-group-item">Home</a>
                 <a  ng-href="/{{rig | lowercase}}" ng-repeat="rig in rights" class="list-group-item">{{rig}}</a>
-
             </div>
 
         </div>
