@@ -3,1264 +3,264 @@
     "line": 1,
     "elements": [
       {
-        "comments": [
-          {
-            "line": 3,
-            "value": "# Test finAllUsers"
-          }
-        ],
-        "line": 4,
-        "name": "finAllUsers returns some users",
+        "line": 3,
+        "name": "2 random keys are different",
         "description": "",
-        "id": "check-userrepository;finallusers-returns-some-users",
+        "id": "check-emailverification;2-random-keys-are-different",
         "type": "scenario",
         "keyword": "Scenario",
         "steps": [
           {
             "result": {
-              "duration": 644503570,
+              "duration": 5133544,
+              "status": "passed"
+            },
+            "line": 4,
+            "name": "I have an EmailVerification",
+            "match": {
+              "location": "EmailVerificationSteps.i_have_an_EmailVerification()"
+            },
+            "keyword": "Given "
+          },
+          {
+            "result": {
+              "duration": 7646161,
               "status": "passed"
             },
             "line": 5,
-            "name": "mock UserRepository is initialized",
+            "name": "I generate 2 key(s)",
             "match": {
-              "location": "UserRepositorySteps.mock_userrepository_is_initialized()"
+              "arguments": [
+                {
+                  "val": "2",
+                  "offset": 11
+                }
+              ],
+              "location": "EmailVerificationSteps.i_generate_key_s(int)"
             },
-            "keyword": "Given "
+            "keyword": "When "
           },
           {
             "result": {
-              "duration": 12525303,
+              "duration": 422063,
               "status": "passed"
             },
             "line": 6,
-            "name": "expected list of users is initialized",
+            "name": "they should be different",
             "match": {
-              "location": "UserRepositorySteps.expected_list_of_users_is_initialized()"
-            },
-            "keyword": "And "
-          },
-          {
-            "result": {
-              "duration": 41227360,
-              "status": "passed"
-            },
-            "line": 7,
-            "name": "finAllUsers() is called",
-            "match": {
-              "location": "UserRepositorySteps.finallusers_is_called()"
-            },
-            "keyword": "When "
-          },
-          {
-            "result": {
-              "duration": 19668148,
-              "status": "passed"
-            },
-            "line": 8,
-            "name": "a list of users is returned for finAllUsers",
-            "match": {
-              "location": "UserRepositorySteps.a_list_of_users_is_returned_finAllUsers()"
+              "location": "EmailVerificationSteps.they_should_be_different()"
             },
             "keyword": "Then "
           }
         ]
       },
       {
-        "line": 10,
-        "name": "finAllUsers returns null",
+        "line": 8,
+        "name": "2 random keys are different",
         "description": "",
-        "id": "check-userrepository;finallusers-returns-null",
+        "id": "check-emailverification;2-random-keys-are-different",
         "type": "scenario",
         "keyword": "Scenario",
         "steps": [
           {
             "result": {
-              "duration": 3087864,
+              "duration": 349607,
+              "status": "passed"
+            },
+            "line": 9,
+            "name": "I have an EmailVerification",
+            "match": {
+              "location": "EmailVerificationSteps.i_have_an_EmailVerification()"
+            },
+            "keyword": "Given "
+          },
+          {
+            "result": {
+              "duration": 350203,
+              "status": "passed"
+            },
+            "line": 10,
+            "name": "I generate 4 key(s)",
+            "match": {
+              "arguments": [
+                {
+                  "val": "4",
+                  "offset": 11
+                }
+              ],
+              "location": "EmailVerificationSteps.i_generate_key_s(int)"
+            },
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "duration": 59823,
               "status": "passed"
             },
             "line": 11,
-            "name": "mock UserRepository is initialized",
+            "name": "they should be different",
             "match": {
-              "location": "UserRepositorySteps.mock_userrepository_is_initialized()"
+              "location": "EmailVerificationSteps.they_should_be_different()"
             },
-            "keyword": "Given "
-          },
+            "keyword": "Then "
+          }
+        ]
+      },
+      {
+        "line": 13,
+        "name": "a return key is a random UUID",
+        "description": "",
+        "id": "check-emailverification;a-return-key-is-a-random-uuid",
+        "type": "scenario",
+        "keyword": "Scenario",
+        "steps": [
           {
             "result": {
-              "duration": 1224891,
-              "status": "passed"
-            },
-            "line": 12,
-            "name": "expected null list of users is initialized",
-            "match": {
-              "location": "UserRepositorySteps.expected_null_list_of_users_is_initialized()"
-            },
-            "keyword": "And "
-          },
-          {
-            "result": {
-              "duration": 3251917,
-              "status": "passed"
-            },
-            "line": 13,
-            "name": "finAllUsers() is called",
-            "match": {
-              "location": "UserRepositorySteps.finallusers_is_called()"
-            },
-            "keyword": "When "
-          },
-          {
-            "result": {
-              "duration": 1931078,
+              "duration": 287081,
               "status": "passed"
             },
             "line": 14,
-            "name": "a list of users is null for finAllUsers",
+            "name": "I have an EmailVerification",
             "match": {
-              "location": "UserRepositorySteps.a_list_of_users_is_null_finAllUsers()"
-            },
-            "keyword": "Then "
-          }
-        ]
-      },
-      {
-        "line": 16,
-        "name": "finAllUsers returns empty list",
-        "description": "",
-        "id": "check-userrepository;finallusers-returns-empty-list",
-        "type": "scenario",
-        "keyword": "Scenario",
-        "steps": [
-          {
-            "result": {
-              "duration": 9409737,
-              "status": "passed"
-            },
-            "line": 17,
-            "name": "mock UserRepository is initialized",
-            "match": {
-              "location": "UserRepositorySteps.mock_userrepository_is_initialized()"
+              "location": "EmailVerificationSteps.i_have_an_EmailVerification()"
             },
             "keyword": "Given "
           },
           {
             "result": {
-              "duration": 261823,
+              "duration": 373765,
               "status": "passed"
             },
-            "line": 18,
-            "name": "expected empty list of users is initialized",
-            "match": {
-              "location": "UserRepositorySteps.expected_empty_list_of_users_is_initialized()"
-            },
-            "keyword": "And "
-          },
-          {
-            "result": {
-              "duration": 1947154,
-              "status": "passed"
-            },
-            "line": 19,
-            "name": "finAllUsers() is called",
-            "match": {
-              "location": "UserRepositorySteps.finallusers_is_called()"
-            },
-            "keyword": "When "
-          },
-          {
-            "result": {
-              "duration": 3445752,
-              "status": "passed"
-            },
-            "line": 20,
-            "name": "a list of users is empty for finAllUsers",
-            "match": {
-              "location": "UserRepositorySteps.a_list_of_users_is_empty_finAllUsers()"
-            },
-            "keyword": "Then "
-          }
-        ]
-      },
-      {
-        "comments": [
-          {
-            "line": 22,
-            "value": "# Test getUserInfo"
-          }
-        ],
-        "line": 23,
-        "name": "getUserInfo returns some users",
-        "description": "",
-        "id": "check-userrepository;getuserinfo-returns-some-users",
-        "type": "scenario",
-        "keyword": "Scenario",
-        "steps": [
-          {
-            "result": {
-              "duration": 2731751,
-              "status": "passed"
-            },
-            "line": 24,
-            "name": "mock UserRepository is initialized",
-            "match": {
-              "location": "UserRepositorySteps.mock_userrepository_is_initialized()"
-            },
-            "keyword": "Given "
-          },
-          {
-            "result": {
-              "duration": 105672,
-              "status": "passed"
-            },
-            "line": 25,
-            "name": "expected list of users is initialized",
-            "match": {
-              "location": "UserRepositorySteps.expected_list_of_users_is_initialized()"
-            },
-            "keyword": "And "
-          },
-          {
-            "result": {
-              "duration": 17066681,
-              "status": "passed"
-            },
-            "line": 26,
-            "name": "getUserInfo() is called",
-            "match": {
-              "location": "UserRepositorySteps.getuserinfo_is_called()"
-            },
-            "keyword": "When "
-          },
-          {
-            "result": {
-              "duration": 1789413,
-              "status": "passed"
-            },
-            "line": 27,
-            "name": "a list of users is returned for getUserInfo",
-            "match": {
-              "location": "UserRepositorySteps.a_list_of_users_is_returned_for_getuserinfo()"
-            },
-            "keyword": "Then "
-          }
-        ]
-      },
-      {
-        "line": 29,
-        "name": "getUserInfo returns null",
-        "description": "",
-        "id": "check-userrepository;getuserinfo-returns-null",
-        "type": "scenario",
-        "keyword": "Scenario",
-        "steps": [
-          {
-            "result": {
-              "duration": 4121733,
-              "status": "passed"
-            },
-            "line": 30,
-            "name": "mock UserRepository is initialized",
-            "match": {
-              "location": "UserRepositorySteps.mock_userrepository_is_initialized()"
-            },
-            "keyword": "Given "
-          },
-          {
-            "result": {
-              "duration": 153604,
-              "status": "passed"
-            },
-            "line": 31,
-            "name": "expected null list of users is initialized",
-            "match": {
-              "location": "UserRepositorySteps.expected_null_list_of_users_is_initialized()"
-            },
-            "keyword": "And "
-          },
-          {
-            "result": {
-              "duration": 5763644,
-              "status": "passed"
-            },
-            "line": 32,
-            "name": "getUserInfo() is called",
-            "match": {
-              "location": "UserRepositorySteps.getuserinfo_is_called()"
-            },
-            "keyword": "When "
-          },
-          {
-            "result": {
-              "duration": 2069458,
-              "status": "passed"
-            },
-            "line": 33,
-            "name": "a list of users is null for getUserInfo",
-            "match": {
-              "location": "UserRepositorySteps.a_list_of_users_is_null_for_getUserInfo()"
-            },
-            "keyword": "Then "
-          }
-        ]
-      },
-      {
-        "line": 35,
-        "name": "getUserInfo returns empty list",
-        "description": "",
-        "id": "check-userrepository;getuserinfo-returns-empty-list",
-        "type": "scenario",
-        "keyword": "Scenario",
-        "steps": [
-          {
-            "result": {
-              "duration": 6012268,
-              "status": "passed"
-            },
-            "line": 36,
-            "name": "mock UserRepository is initialized",
-            "match": {
-              "location": "UserRepositorySteps.mock_userrepository_is_initialized()"
-            },
-            "keyword": "Given "
-          },
-          {
-            "result": {
-              "duration": 148838,
-              "status": "passed"
-            },
-            "line": 37,
-            "name": "expected empty list of users is initialized",
-            "match": {
-              "location": "UserRepositorySteps.expected_empty_list_of_users_is_initialized()"
-            },
-            "keyword": "And "
-          },
-          {
-            "result": {
-              "duration": 1027702,
-              "status": "passed"
-            },
-            "line": 38,
-            "name": "getUserInfo() is called",
-            "match": {
-              "location": "UserRepositorySteps.getuserinfo_is_called()"
-            },
-            "keyword": "When "
-          },
-          {
-            "result": {
-              "duration": 2235269,
-              "status": "passed"
-            },
-            "line": 39,
-            "name": "a list of users is empty for getUserInfo",
-            "match": {
-              "location": "UserRepositorySteps.a_list_of_users_is_empty_for_getUserInfo()"
-            },
-            "keyword": "Then "
-          }
-        ]
-      },
-      {
-        "comments": [
-          {
-            "line": 41,
-            "value": "# Test validateEmail"
-          }
-        ],
-        "line": 42,
-        "name": "validateEmail returns some ids",
-        "description": "",
-        "id": "check-userrepository;validateemail-returns-some-ids",
-        "type": "scenario",
-        "keyword": "Scenario",
-        "steps": [
-          {
-            "result": {
-              "duration": 12805862,
-              "status": "passed"
-            },
-            "line": 43,
-            "name": "mock UserRepository is initialized",
-            "match": {
-              "location": "UserRepositorySteps.mock_userrepository_is_initialized()"
-            },
-            "keyword": "Given "
-          },
-          {
-            "result": {
-              "duration": 279819,
-              "status": "passed"
-            },
-            "line": 44,
-            "name": "expected list of ids is initialized for UserRepository",
-            "match": {
-              "location": "UserRepositorySteps.expected_list_of_ids_is_initialized_ur()"
-            },
-            "keyword": "And "
-          },
-          {
-            "result": {
-              "duration": 4921232,
-              "status": "passed"
-            },
-            "line": 45,
-            "name": "validateEmail() is called",
-            "match": {
-              "location": "UserRepositorySteps.validateemail_is_called()"
-            },
-            "keyword": "When "
-          },
-          {
-            "result": {
-              "duration": 2384700,
-              "status": "passed"
-            },
-            "line": 46,
-            "name": "a list of ids is returned for validateEmail",
-            "match": {
-              "location": "UserRepositorySteps.a_list_of_ids_is_returned_for_validateEmail()"
-            },
-            "keyword": "Then "
-          }
-        ]
-      },
-      {
-        "line": 48,
-        "name": "validateEmail returns null",
-        "description": "",
-        "id": "check-userrepository;validateemail-returns-null",
-        "type": "scenario",
-        "keyword": "Scenario",
-        "steps": [
-          {
-            "result": {
-              "duration": 10105805,
-              "status": "passed"
-            },
-            "line": 49,
-            "name": "mock UserRepository is initialized",
-            "match": {
-              "location": "UserRepositorySteps.mock_userrepository_is_initialized()"
-            },
-            "keyword": "Given "
-          },
-          {
-            "result": {
-              "duration": 3605377,
-              "status": "passed"
-            },
-            "line": 50,
-            "name": "expected null list of ids is initialized for UserRepository",
-            "match": {
-              "location": "UserRepositorySteps.expected_null_list_of_ids_is_initialized_userRepository()"
-            },
-            "keyword": "And "
-          },
-          {
-            "result": {
-              "duration": 3419232,
-              "status": "passed"
-            },
-            "line": 51,
-            "name": "validateEmail() is called",
-            "match": {
-              "location": "UserRepositorySteps.validateemail_is_called()"
-            },
-            "keyword": "When "
-          },
-          {
-            "result": {
-              "duration": 4132342,
-              "status": "passed"
-            },
-            "line": 52,
-            "name": "a list of ids is null for validateEmail",
-            "match": {
-              "location": "UserRepositorySteps.a_list_of_ids_is_null_for_validateEmail()"
-            },
-            "keyword": "Then "
-          }
-        ]
-      },
-      {
-        "line": 54,
-        "name": "validateEmail returns empty list",
-        "description": "",
-        "id": "check-userrepository;validateemail-returns-empty-list",
-        "type": "scenario",
-        "keyword": "Scenario",
-        "steps": [
-          {
-            "result": {
-              "duration": 1898324,
-              "status": "passed"
-            },
-            "line": 55,
-            "name": "mock UserRepository is initialized",
-            "match": {
-              "location": "UserRepositorySteps.mock_userrepository_is_initialized()"
-            },
-            "keyword": "Given "
-          },
-          {
-            "result": {
-              "duration": 192081,
-              "status": "passed"
-            },
-            "line": 56,
-            "name": "expected empty list of ids is initialized for UserRepository",
-            "match": {
-              "location": "UserRepositorySteps.expected_empty_list_of_ids_is_initialized_ur()"
-            },
-            "keyword": "And "
-          },
-          {
-            "result": {
-              "duration": 1121202,
-              "status": "passed"
-            },
-            "line": 57,
-            "name": "validateEmail() is called",
-            "match": {
-              "location": "UserRepositorySteps.validateemail_is_called()"
-            },
-            "keyword": "When "
-          },
-          {
-            "result": {
-              "duration": 1772096,
-              "status": "passed"
-            },
-            "line": 58,
-            "name": "a list of ids is empty for validateEmail",
-            "match": {
-              "location": "UserRepositorySteps.a_list_of_ids_is_empty_for_validateEmail()"
-            },
-            "keyword": "Then "
-          }
-        ]
-      },
-      {
-        "comments": [
-          {
-            "line": 60,
-            "value": "# Test addUser"
-          }
-        ],
-        "line": 61,
-        "name": "addUser returns some ids for user role",
-        "description": "",
-        "id": "check-userrepository;adduser-returns-some-ids-for-user-role",
-        "type": "scenario",
-        "keyword": "Scenario",
-        "steps": [
-          {
-            "result": {
-              "duration": 35212380,
-              "status": "passed"
-            },
-            "line": 62,
-            "name": "mock UserRepository is initialized",
-            "match": {
-              "location": "UserRepositorySteps.mock_userrepository_is_initialized()"
-            },
-            "keyword": "Given "
-          },
-          {
-            "result": {
-              "duration": 468283,
-              "status": "passed"
-            },
-            "line": 63,
-            "name": "expected list of ids is initialized for UserRepository",
-            "match": {
-              "location": "UserRepositorySteps.expected_list_of_ids_is_initialized_ur()"
-            },
-            "keyword": "And "
-          },
-          {
-            "result": {
-              "duration": 6214411,
-              "status": "passed"
-            },
-            "line": 64,
-            "name": "addUser() is called with user role",
-            "match": {
-              "location": "UserRepositorySteps.adduser_is_called_with_user_role()"
-            },
-            "keyword": "When "
-          },
-          {
-            "result": {
-              "duration": 12057282,
-              "status": "passed"
-            },
-            "line": 65,
-            "name": "a list of ids is returned for addUser",
-            "match": {
-              "location": "UserRepositorySteps.a_list_of_ids_is_returned_for_addUser()"
-            },
-            "keyword": "Then "
-          }
-        ]
-      },
-      {
-        "line": 67,
-        "name": "addUser returns some ids for NOT user role",
-        "description": "",
-        "id": "check-userrepository;adduser-returns-some-ids-for-not-user-role",
-        "type": "scenario",
-        "keyword": "Scenario",
-        "steps": [
-          {
-            "result": {
-              "duration": 6375871,
-              "status": "passed"
-            },
-            "line": 68,
-            "name": "mock UserRepository is initialized",
-            "match": {
-              "location": "UserRepositorySteps.mock_userrepository_is_initialized()"
-            },
-            "keyword": "Given "
-          },
-          {
-            "result": {
-              "duration": 90177,
-              "status": "passed"
-            },
-            "line": 69,
-            "name": "expected list of ids is initialized for UserRepository",
-            "match": {
-              "location": "UserRepositorySteps.expected_list_of_ids_is_initialized_ur()"
-            },
-            "keyword": "And "
-          },
-          {
-            "result": {
-              "duration": 622115,
-              "status": "passed"
-            },
-            "line": 70,
-            "name": "addUser() is called with not user role",
-            "match": {
-              "location": "UserRepositorySteps.adduser_is_called_with_not_user_role()"
-            },
-            "keyword": "When "
-          },
-          {
-            "result": {
-              "duration": 18089190,
-              "status": "passed"
-            },
-            "line": 71,
-            "name": "a list of ids is returned with 1 id for addUser",
+            "line": 15,
+            "name": "I generate 1 key(s)",
             "match": {
               "arguments": [
                 {
                   "val": "1",
-                  "offset": 31
+                  "offset": 11
                 }
               ],
-              "location": "UserRepositorySteps.a_list_of_ids_is_returned_with_id_for_addUser(int)"
+              "location": "EmailVerificationSteps.i_generate_key_s(int)"
+            },
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "duration": 262529,
+              "status": "passed"
+            },
+            "line": 16,
+            "name": "each key should have the same length as a random UUID",
+            "match": {
+              "location": "EmailVerificationSteps.it_should_have_the_same_length_as_a_random_UUID()"
             },
             "keyword": "Then "
           }
         ]
       },
       {
-        "line": 73,
-        "name": "addUser throws Exception",
+        "line": 18,
+        "name": "each return key is a random UUID",
         "description": "",
-        "id": "check-userrepository;adduser-throws-exception",
+        "id": "check-emailverification;each-return-key-is-a-random-uuid",
         "type": "scenario",
         "keyword": "Scenario",
         "steps": [
           {
             "result": {
-              "duration": 2951846,
+              "duration": 339534,
               "status": "passed"
             },
-            "line": 74,
-            "name": "mock UserRepository is initialized",
+            "line": 19,
+            "name": "I have an EmailVerification",
             "match": {
-              "location": "UserRepositorySteps.mock_userrepository_is_initialized()"
+              "location": "EmailVerificationSteps.i_have_an_EmailVerification()"
             },
             "keyword": "Given "
           },
           {
             "result": {
-              "duration": 242937,
+              "duration": 724197,
               "status": "passed"
             },
-            "line": 75,
-            "name": "expected empty list of ids is initialized for UserRepository",
+            "line": 20,
+            "name": "I generate 3 key(s)",
             "match": {
-              "location": "UserRepositorySteps.expected_empty_list_of_ids_is_initialized_ur()"
-            },
-            "keyword": "And "
-          },
-          {
-            "result": {
-              "duration": 8922548,
-              "status": "passed"
-            },
-            "line": 76,
-            "name": "addUser() is called with Exception",
-            "match": {
-              "location": "UserRepositorySteps.adduser_is_called_with_exception()"
+              "arguments": [
+                {
+                  "val": "3",
+                  "offset": 11
+                }
+              ],
+              "location": "EmailVerificationSteps.i_generate_key_s(int)"
             },
             "keyword": "When "
           },
           {
             "result": {
-              "duration": 9333549,
+              "duration": 2205542,
               "status": "passed"
             },
-            "line": 77,
-            "name": "a list of ids is empty for addUser",
+            "line": 21,
+            "name": "each key should have the same length as a random UUID",
             "match": {
-              "location": "UserRepositorySteps.a_list_of_ids_is_empty_for_addUser()"
+              "location": "EmailVerificationSteps.it_should_have_the_same_length_as_a_random_UUID()"
             },
             "keyword": "Then "
           }
         ]
       },
       {
-        "comments": [
-          {
-            "line": 79,
-            "value": "# Test verifyUser"
-          }
-        ],
-        "line": 80,
-        "name": "verifyUser is called successfully",
+        "line": 23,
+        "name": "a return key after executing sendEmailVerificationLink is a random UUID",
         "description": "",
-        "id": "check-userrepository;verifyuser-is-called-successfully",
+        "id": "check-emailverification;a-return-key-after-executing-sendemailverificationlink-is-a-random-uuid",
         "type": "scenario",
         "keyword": "Scenario",
         "steps": [
           {
             "result": {
-              "duration": 1585438,
+              "duration": 617269,
               "status": "passed"
             },
-            "line": 81,
-            "name": "mock UserRepository is initialized",
+            "line": 24,
+            "name": "I have an EmailVerification",
             "match": {
-              "location": "UserRepositorySteps.mock_userrepository_is_initialized()"
+              "location": "EmailVerificationSteps.i_have_an_EmailVerification()"
             },
             "keyword": "Given "
           },
           {
             "result": {
-              "duration": 1486803,
+              "duration": 3962810638,
               "status": "passed"
             },
-            "line": 82,
-            "name": "verifyUser() is called",
+            "line": 25,
+            "name": "I call sendEmailVerificationLink",
             "match": {
-              "location": "UserRepositorySteps.verifyuser_is_called()"
+              "location": "EmailVerificationSteps.i_call_sendEmailVerificationLink()"
             },
             "keyword": "When "
           },
           {
             "result": {
-              "duration": 2070154,
+              "duration": 105817,
               "status": "passed"
             },
-            "line": 83,
-            "name": "verifyUser is successfully called",
+            "line": 26,
+            "name": "it should return a key having the same length as a random UUID",
             "match": {
-              "location": "UserRepositorySteps.verifyuser_is_successfully_called()"
-            },
-            "keyword": "Then "
-          }
-        ]
-      },
-      {
-        "comments": [
-          {
-            "line": 85,
-            "value": "# Test resetPswd"
-          }
-        ],
-        "line": 86,
-        "name": "resetPswd is called successfully",
-        "description": "",
-        "id": "check-userrepository;resetpswd-is-called-successfully",
-        "type": "scenario",
-        "keyword": "Scenario",
-        "steps": [
-          {
-            "result": {
-              "duration": 2477616,
-              "status": "passed"
-            },
-            "line": 87,
-            "name": "mock UserRepository is initialized",
-            "match": {
-              "location": "UserRepositorySteps.mock_userrepository_is_initialized()"
-            },
-            "keyword": "Given "
-          },
-          {
-            "result": {
-              "duration": 1724412,
-              "status": "passed"
-            },
-            "line": 88,
-            "name": "resetPswd() is called",
-            "match": {
-              "location": "UserRepositorySteps.resetpswd_is_called()"
-            },
-            "keyword": "When "
-          },
-          {
-            "result": {
-              "duration": 3636317,
-              "status": "passed"
-            },
-            "line": 89,
-            "name": "resetPswd is successfully called",
-            "match": {
-              "location": "UserRepositorySteps.resetpswd_is_successfully_called()"
-            },
-            "keyword": "Then "
-          }
-        ]
-      },
-      {
-        "comments": [
-          {
-            "line": 91,
-            "value": "# Test getPswdInfoWithEmail"
-          }
-        ],
-        "line": 92,
-        "name": "getPswdInfoWithEmail returns some passwords",
-        "description": "",
-        "id": "check-userrepository;getpswdinfowithemail-returns-some-passwords",
-        "type": "scenario",
-        "keyword": "Scenario",
-        "steps": [
-          {
-            "result": {
-              "duration": 2679586,
-              "status": "passed"
-            },
-            "line": 93,
-            "name": "mock UserRepository is initialized",
-            "match": {
-              "location": "UserRepositorySteps.mock_userrepository_is_initialized()"
-            },
-            "keyword": "Given "
-          },
-          {
-            "result": {
-              "duration": 128635,
-              "status": "passed"
-            },
-            "line": 94,
-            "name": "expected list of passwords is initialized",
-            "match": {
-              "location": "UserRepositorySteps.expected_list_of_passwords_is_initialized()"
-            },
-            "keyword": "And "
-          },
-          {
-            "result": {
-              "duration": 3639981,
-              "status": "passed"
-            },
-            "line": 95,
-            "name": "getPswdInfoWithEmail() is called",
-            "match": {
-              "location": "UserRepositorySteps.getpswdinfowithemail_is_called()"
-            },
-            "keyword": "When "
-          },
-          {
-            "result": {
-              "duration": 1708028,
-              "status": "passed"
-            },
-            "line": 96,
-            "name": "a list of passwords is returned for getPswdInfoWithEmail",
-            "match": {
-              "location": "UserRepositorySteps.a_list_of_passwords_is_returned_for_getPswdInfoWithEmail()"
-            },
-            "keyword": "Then "
-          }
-        ]
-      },
-      {
-        "line": 98,
-        "name": "getPswdInfoWithEmail returns null",
-        "description": "",
-        "id": "check-userrepository;getpswdinfowithemail-returns-null",
-        "type": "scenario",
-        "keyword": "Scenario",
-        "steps": [
-          {
-            "result": {
-              "duration": 13958327,
-              "status": "passed"
-            },
-            "line": 99,
-            "name": "mock UserRepository is initialized",
-            "match": {
-              "location": "UserRepositorySteps.mock_userrepository_is_initialized()"
-            },
-            "keyword": "Given "
-          },
-          {
-            "result": {
-              "duration": 195074,
-              "status": "passed"
-            },
-            "line": 100,
-            "name": "expected null list of passwords is initialized",
-            "match": {
-              "location": "UserRepositorySteps.expected_null_list_of_passwords_is_initialized()"
-            },
-            "keyword": "And "
-          },
-          {
-            "result": {
-              "duration": 2000534,
-              "status": "passed"
-            },
-            "line": 101,
-            "name": "getPswdInfoWithEmail() is called",
-            "match": {
-              "location": "UserRepositorySteps.getpswdinfowithemail_is_called()"
-            },
-            "keyword": "When "
-          },
-          {
-            "result": {
-              "duration": 2843112,
-              "status": "passed"
-            },
-            "line": 102,
-            "name": "a list of passwords is null for getPswdInfoWithEmail",
-            "match": {
-              "location": "UserRepositorySteps.a_list_of_passwords_is_null_for_getPswdInfoWithEmail()"
-            },
-            "keyword": "Then "
-          }
-        ]
-      },
-      {
-        "line": 104,
-        "name": "getPswdInfoWithEmail returns empty list",
-        "description": "",
-        "id": "check-userrepository;getpswdinfowithemail-returns-empty-list",
-        "type": "scenario",
-        "keyword": "Scenario",
-        "steps": [
-          {
-            "result": {
-              "duration": 3791527,
-              "status": "passed"
-            },
-            "line": 105,
-            "name": "mock UserRepository is initialized",
-            "match": {
-              "location": "UserRepositorySteps.mock_userrepository_is_initialized()"
-            },
-            "keyword": "Given "
-          },
-          {
-            "result": {
-              "duration": 342142,
-              "status": "passed"
-            },
-            "line": 106,
-            "name": "expected empty list of passwords is initialized",
-            "match": {
-              "location": "UserRepositorySteps.expected_empty_list_of_passwords_is_initialized()"
-            },
-            "keyword": "And "
-          },
-          {
-            "result": {
-              "duration": 990289,
-              "status": "passed"
-            },
-            "line": 107,
-            "name": "getPswdInfoWithEmail() is called",
-            "match": {
-              "location": "UserRepositorySteps.getpswdinfowithemail_is_called()"
-            },
-            "keyword": "When "
-          },
-          {
-            "result": {
-              "duration": 1673852,
-              "status": "passed"
-            },
-            "line": 108,
-            "name": "a list of passwords is empty for getPswdInfoWithEmail",
-            "match": {
-              "location": "UserRepositorySteps.a_list_of_passwords_is_empty_for_getPswdInfoWithEmail()"
-            },
-            "keyword": "Then "
-          }
-        ]
-      },
-      {
-        "comments": [
-          {
-            "line": 110,
-            "value": "# Test addNewAdmin"
-          }
-        ],
-        "line": 111,
-        "name": "addNewAdmin returns some ids",
-        "description": "",
-        "id": "check-userrepository;addnewadmin-returns-some-ids",
-        "type": "scenario",
-        "keyword": "Scenario",
-        "steps": [
-          {
-            "result": {
-              "duration": 1882930,
-              "status": "passed"
-            },
-            "line": 112,
-            "name": "mock UserRepository is initialized",
-            "match": {
-              "location": "UserRepositorySteps.mock_userrepository_is_initialized()"
-            },
-            "keyword": "Given "
-          },
-          {
-            "result": {
-              "duration": 96286,
-              "status": "passed"
-            },
-            "line": 113,
-            "name": "expected list of ids is initialized for UserRepository",
-            "match": {
-              "location": "UserRepositorySteps.expected_list_of_ids_is_initialized_ur()"
-            },
-            "keyword": "And "
-          },
-          {
-            "result": {
-              "duration": 2808090,
-              "status": "passed"
-            },
-            "line": 114,
-            "name": "addNewAdmin() is called for UserRepository",
-            "match": {
-              "location": "UserRepositorySteps.addnewadmin_is_called_for_UserRepository()"
-            },
-            "keyword": "When "
-          },
-          {
-            "result": {
-              "duration": 6502227,
-              "status": "passed"
-            },
-            "line": 115,
-            "name": "a list of ids is returned for addNewAdmin",
-            "match": {
-              "location": "UserRepositorySteps.a_list_of_ids_is_returned_for_addNewAdmin()"
-            },
-            "keyword": "Then "
-          }
-        ]
-      },
-      {
-        "line": 117,
-        "name": "addNewAdmin throws Exception",
-        "description": "",
-        "id": "check-userrepository;addnewadmin-throws-exception",
-        "type": "scenario",
-        "keyword": "Scenario",
-        "steps": [
-          {
-            "result": {
-              "duration": 4821180,
-              "status": "passed"
-            },
-            "line": 118,
-            "name": "mock UserRepository is initialized",
-            "match": {
-              "location": "UserRepositorySteps.mock_userrepository_is_initialized()"
-            },
-            "keyword": "Given "
-          },
-          {
-            "result": {
-              "duration": 69862,
-              "status": "passed"
-            },
-            "line": 119,
-            "name": "expected empty list of ids is initialized for UserRepository",
-            "match": {
-              "location": "UserRepositorySteps.expected_empty_list_of_ids_is_initialized_ur()"
-            },
-            "keyword": "And "
-          },
-          {
-            "result": {
-              "duration": 185173,
-              "status": "passed"
-            },
-            "line": 120,
-            "name": "addNewAdmin() is called with Exception for UserRepository",
-            "match": {
-              "location": "UserRepositorySteps.addnewadmin_is_called_with_Exception_for_UserRepository()"
-            },
-            "keyword": "When "
-          },
-          {
-            "result": {
-              "duration": 267389,
-              "status": "passed"
-            },
-            "line": 121,
-            "name": "a list of ids is empty for UserRepository",
-            "match": {
-              "location": "UserRepositorySteps.a_list_of_ids_is_empty_for_UserRepository()"
-            },
-            "keyword": "Then "
-          }
-        ]
-      },
-      {
-        "comments": [
-          {
-            "line": 123,
-            "value": "# Test addNewManager"
-          }
-        ],
-        "line": 124,
-        "name": "addNewManager returns some ids",
-        "description": "",
-        "id": "check-userrepository;addnewmanager-returns-some-ids",
-        "type": "scenario",
-        "keyword": "Scenario",
-        "steps": [
-          {
-            "result": {
-              "duration": 17418590,
-              "status": "passed"
-            },
-            "line": 125,
-            "name": "mock UserRepository is initialized",
-            "match": {
-              "location": "UserRepositorySteps.mock_userrepository_is_initialized()"
-            },
-            "keyword": "Given "
-          },
-          {
-            "result": {
-              "duration": 117321,
-              "status": "passed"
-            },
-            "line": 126,
-            "name": "expected list of ids is initialized for UserRepository",
-            "match": {
-              "location": "UserRepositorySteps.expected_list_of_ids_is_initialized_ur()"
-            },
-            "keyword": "And "
-          },
-          {
-            "result": {
-              "duration": 754583,
-              "status": "passed"
-            },
-            "line": 127,
-            "name": "addNewManager() is called for UserRepository",
-            "match": {
-              "location": "UserRepositorySteps.addnewmanager_is_called_for_UserRepository()"
-            },
-            "keyword": "When "
-          },
-          {
-            "result": {
-              "duration": 1708520,
-              "status": "passed"
-            },
-            "line": 128,
-            "name": "a list of ids is returned for addNewManager in UserRepository",
-            "match": {
-              "location": "UserRepositorySteps.a_list_of_ids_is_returned_for_addNewManager_in_UserRepository()"
-            },
-            "keyword": "Then "
-          }
-        ]
-      },
-      {
-        "line": 130,
-        "name": "addNewManager throws Exception",
-        "description": "",
-        "id": "check-userrepository;addnewmanager-throws-exception",
-        "type": "scenario",
-        "keyword": "Scenario",
-        "steps": [
-          {
-            "result": {
-              "duration": 1531366,
-              "status": "passed"
-            },
-            "line": 131,
-            "name": "mock UserRepository is initialized",
-            "match": {
-              "location": "UserRepositorySteps.mock_userrepository_is_initialized()"
-            },
-            "keyword": "Given "
-          },
-          {
-            "result": {
-              "duration": 79723,
-              "status": "passed"
-            },
-            "line": 132,
-            "name": "expected empty list of ids is initialized for UserRepository",
-            "match": {
-              "location": "UserRepositorySteps.expected_empty_list_of_ids_is_initialized_ur()"
-            },
-            "keyword": "And "
-          },
-          {
-            "result": {
-              "duration": 175644,
-              "status": "passed"
-            },
-            "line": 133,
-            "name": "addNewManager() is called with Exception for UserRepository",
-            "match": {
-              "location": "UserRepositorySteps.addnewmanager_is_called_with_Exception_for_UserRepository()"
-            },
-            "keyword": "When "
-          },
-          {
-            "result": {
-              "duration": 1205048,
-              "status": "passed"
-            },
-            "line": 134,
-            "name": "a list of ids is empty for addNewManager in UserRepository",
-            "match": {
-              "location": "UserRepositorySteps.a_list_of_ids_is_empty_for_addNewManager_in_UserRepository()"
+              "location": "EmailVerificationSteps.it_should_return_a_key_having_the_same_length_as_a_random_UUID()"
             },
             "keyword": "Then "
           }
         ]
       }
     ],
-    "name": "Check UserRepository",
+    "name": "Check EmailVerification",
     "description": "",
-    "id": "check-userrepository",
+    "id": "check-emailverification",
     "keyword": "Feature",
-    "uri": "cucumber/UserRepository.feature"
+    "uri": "cucumber/EmailVerification.feature"
   }
 ]

@@ -1,5 +1,9 @@
 Manifest-Version: 1.0
+<<<<<<< HEAD
 Built-By: DeMonZ
+=======
+Built-By: Madeline
+>>>>>>> 5ea889a8088b81cb187aa296f56d2dbf70acc0fe
 Created-By: IntelliJ IDEA
 Build-Jdk: 1.8.0_66
 
