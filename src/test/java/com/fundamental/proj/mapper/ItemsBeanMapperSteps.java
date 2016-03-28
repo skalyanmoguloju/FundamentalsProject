@@ -60,7 +60,7 @@ public class ItemsBeanMapperSteps {
         Assert.assertEquals(itemsBean.getItem_id(), items.getItem_id());
         Assert.assertEquals(itemsBean.getItem_name(), items.getItem_name());
         Assert.assertEquals(itemsBean.getOnsale_count(), items.getOnsale_count());
-        Assert.assertEquals(itemsBean.getPrice(), items.getSold_count());
+        Assert.assertEquals(itemsBean.getPrice(), items.getPrice(), 1E-15);
         Assert.assertEquals(itemsBean.getSold_count(), items.getSold_count());
         Assert.assertEquals(itemsBean.getUser_id(), items.getUser_id());
     }
@@ -100,7 +100,7 @@ public class ItemsBeanMapperSteps {
         Assert.assertEquals(itemsBean.getItem_id(), items.getItem_id());
         Assert.assertEquals(itemsBean.getItem_name(), items.getItem_name());
         Assert.assertEquals(itemsBean.getOnsale_count(), items.getOnsale_count());
-        Assert.assertEquals(itemsBean.getPrice(), items.getPrice());
+        Assert.assertEquals(itemsBean.getPrice(), items.getPrice(), 1E-15);
         Assert.assertEquals(itemsBean.getUser_id(), items.getUser_id());
         Assert.assertEquals(itemsBean.getSold_count(), items.getSold_count());
     }
@@ -159,7 +159,7 @@ public class ItemsBeanMapperSteps {
             Assert.assertEquals(listItems.get(x).getItem_id(), listItemsBean.get(x).getItem_id());
             Assert.assertEquals(listItems.get(x).getItem_name(), listItemsBean.get(x).getItem_name());
             Assert.assertEquals(listItems.get(x).getOnsale_count(), listItemsBean.get(x).getOnsale_count());
-            Assert.assertEquals(listItems.get(x).getPrice(), listItemsBean.get(x).getPrice());
+            Assert.assertEquals(listItems.get(x).getPrice(), listItemsBean.get(x).getPrice(), 1E-15);
             Assert.assertEquals(listItems.get(x).getUser_id(), listItemsBean.get(x).getUser_id());
             Assert.assertEquals(listItems.get(x).getSold_count(), listItemsBean.get(x).getSold_count());
         }

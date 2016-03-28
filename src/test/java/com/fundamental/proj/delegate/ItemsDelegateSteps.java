@@ -87,7 +87,7 @@ public class ItemsDelegateSteps {
             Assert.assertEquals(actualListItemsBean.get(x).getItem_name(), expectedListItemBean.get(x).getItem_name());
             Assert.assertEquals(actualListItemsBean.get(x).getItem_description(), expectedListItemBean.get(x).getItem_description());
             Assert.assertEquals(actualListItemsBean.get(x).getOnsale_count(), expectedListItemBean.get(x).getOnsale_count());
-            Assert.assertEquals(actualListItemsBean.get(x).getPrice(), expectedListItemBean.get(x).getPrice());
+            Assert.assertEquals(actualListItemsBean.get(x).getPrice(), expectedListItemBean.get(x).getPrice(), 1E-15);
             Assert.assertEquals(actualListItemsBean.get(x).getUser_id(), expectedListItemBean.get(x).getUser_id());
             Assert.assertEquals(actualListItemsBean.get(x).getSold_count(), expectedListItemBean.get(x).getSold_count());
         }

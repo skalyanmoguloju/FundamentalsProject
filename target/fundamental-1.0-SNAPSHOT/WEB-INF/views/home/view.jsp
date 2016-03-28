@@ -95,10 +95,13 @@
         <head>
             <title>Search Box Example 2 - default placeholder text gets cleared on click</title>
             <meta name="ROBOTS" content="NOINDEX, NOFOLLOW" />
+            <!-- Add jQuery to your website if you don't have it already -->
+            <script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js"></script>
+            <!-- JAVASCRIPT to clear search text when the field is clicked -->
             <script type="text/javascript">
                 $(function() {
                     $("#tfq2b").click(function() {
-                        if ($("#tfq2b").val() == "Search our inventory"){
+                        if ($("#tfq2b").val() == "Search our website"){
                             $("#tfq2b").val("");
                         }
                     });

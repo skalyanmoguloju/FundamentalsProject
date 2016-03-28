@@ -109,7 +109,7 @@ public class ItemsRepositorySteps {
             Assert.assertEquals(actualListItems.get(x).getOnsale_count(), expectedListItems.get(x).getOnsale_count());
             Assert.assertEquals(actualListItems.get(x).getSold_count(), expectedListItems.get(x).getSold_count());
             Assert.assertEquals(actualListItems.get(x).getUser_id(), expectedListItems.get(x).getUser_id());
-            Assert.assertEquals(actualListItems.get(x).getPrice(), expectedListItems.get(x).getPrice());
+            Assert.assertEquals(actualListItems.get(x).getPrice(), expectedListItems.get(x).getPrice(), 1E-15);
         }
 
         // verify getAllItems has been called successfully

@@ -29,7 +29,7 @@ public class Items {
     @Column(name = "images")
     private String images;
     @Column(name = "price")
-    private long price;
+    private double price;
     @Column(name = "date")
     private Date date;
 
@@ -100,11 +100,11 @@ public class Items {
         this.images = images;
     }
 
-    public long getPrice() {
+    public double getPrice() {
         return price;
     }
 
-    public void setPrice(long price) {
+    public void setPrice(double price) {
         this.price = price;
     }
 

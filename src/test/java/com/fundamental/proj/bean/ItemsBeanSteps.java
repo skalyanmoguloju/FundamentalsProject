@@ -250,9 +250,9 @@ public class ItemsBeanSteps {
 
     @Then("^a price is returned$")
     public void a_price_is_returned() throws Throwable {
-        long actualPrice = itemsBean.getPrice();
+        double actualPrice = itemsBean.getPrice();
 
-        Assert.assertEquals(actualPrice, price);
+        Assert.assertEquals(actualPrice, price, 1E-15);
     }
 
     @When("^setPrice\\(\\) is called$")

@@ -84,13 +84,14 @@ public class UserController {
 
     @RequestMapping(value = "/addItem", method = RequestMethod.POST)
     @ResponseBody
-    public List<String> AddeItem(@RequestBody ItemsBean itemsBean) {
+    public List<String> AddItem(@RequestBody ItemsBean itemsBean) {
         //HIBERNETCALLS
         List<String> s = new LinkedList<String>();
         try {
             itemsBean.setDate(Calendar.getInstance().getTime());
             itemsBean.setSold_count(0);
             itemsDelegate.addItem(itemsBean);
+            s.add(itemsBean.getItem_name());
             //String passwordToCompare = itemsDelegate.  .getUserPasswordWithEmail(userBean);
             return s;
 

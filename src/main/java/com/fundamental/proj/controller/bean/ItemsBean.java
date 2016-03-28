@@ -13,7 +13,7 @@ public class ItemsBean {
     private int sold_count;
     private String category;
     private String images;
-    private long price;
+    private double price;
 
     public Date getDate() {
         return date;
@@ -79,11 +79,11 @@ public class ItemsBean {
         this.images = images;
     }
 
-    public long getPrice() {
+    public double getPrice() {
         return price;
     }
 
-    public void setPrice(long price) {
+    public void setPrice(double price) {
         this.price = price;
     }
 

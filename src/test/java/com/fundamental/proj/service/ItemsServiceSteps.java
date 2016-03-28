@@ -91,7 +91,7 @@ public class ItemsServiceSteps {
             Assert.assertEquals(actualListItems.get(x).getItem_description(), expectedListItems.get(x).getItem_description());
             Assert.assertEquals(actualListItems.get(x).getOnsale_count(), expectedListItems.get(x).getOnsale_count());
             Assert.assertEquals(actualListItems.get(x).getSold_count(), expectedListItems.get(x).getSold_count());
-            Assert.assertEquals(actualListItems.get(x).getPrice(), expectedListItems.get(x).getPrice());
+            Assert.assertEquals(actualListItems.get(x).getPrice(), expectedListItems.get(x).getPrice(), 1E-15);
             Assert.assertEquals(actualListItems.get(x).getUser_id(), expectedListItems.get(x).getUser_id());
         }
 

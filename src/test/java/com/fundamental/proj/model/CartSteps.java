@@ -82,7 +82,7 @@ public class CartSteps {
         Items actualItem = cart.getItems();
 
         Assert.assertEquals(actualItem.getUser_id(), items.getUser_id());
-        Assert.assertEquals(actualItem.getPrice(), items.getPrice());
+        Assert.assertEquals(actualItem.getPrice(), items.getPrice(), 1E-15);
         Assert.assertEquals(actualItem.getSold_count(), items.getSold_count());
         Assert.assertEquals(actualItem.getItem_description(), items.getItem_description());
         Assert.assertEquals(actualItem.getImages(), items.getImages());

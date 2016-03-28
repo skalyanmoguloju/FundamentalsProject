@@ -111,7 +111,7 @@ public class ItemsSteps {
 
     @Then("^items getPrice returns (\\d+)$")
     public void items_getPrice_returns(int arg1) throws Throwable {
-        Assert.assertEquals(items.getPrice(), arg1);
+        Assert.assertEquals(items.getPrice(), arg1, 1E-15);
     }
 
     @When("^date  now is set$")

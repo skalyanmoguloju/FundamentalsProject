@@ -31,36 +31,116 @@
                                         });
                             });
                     $scope.additem = function(){
-                        console.log("here");
-                        $http.post('addItem', {
-                            item_name: $scope.name,
-                            item_description:$scope.description,
-                            onsale_count: $scope.stock,
-                            price: $scope.price,
-                            images: $scope.url,
-                            category:$scope.category,
-                            user_id:$scope.userInfo.id
-                        })
-                                .success(function (response) {
-                                    console.log(response);
+                        if($scope.validateForm() == true) {
+                            console.log("here");
+                            document.getElementById('lbltipAddedComment').innerHTML = '';
+                            $http.post('addItem', {
+                                    item_name: $scope.name,
+                                    item_description: $scope.description,
+                                    onsale_count: $scope.stock,
+                                    price: $scope.price,
+                                    images: $scope.url,
+                                    category: $scope.category,
+                                    user_id: $scope.userInfo.id
+                                    })
+                                    .success(function (response) {
+                                        console.log(response);
+                                        if (response.length == 0) {
+                                            document.getElementById('lbltipAddedComment').innerHTML = 'Error in adding item! Please try again';
+                                        } else {
+                                            alert("Successfully added item named '" + response[0] + "' !");
+                                        }
 
-                                });
+                                    });
+                        }
                     };
+                    $scope.validateForm = function() {
+
+                        /* Check Name */
+                        if($scope.name == "" || $scope.name == undefined)
+                        {
+                            document.getElementById('lbltipAddedComment').innerHTML = 'Name of the product cannot be empty';
+                            return false;
+                        }
+                        /* Check Price */
+                        if($scope.price == "" || $scope.price == undefined)
+                        {
+                            document.getElementById('lbltipAddedComment').innerHTML = 'Price cannot be empty';
+                            return false;
+                        }
+                        if (document.getElementById("price").value.match(/^[0]+[.]?[0]*$/)) {
+                            document.getElementById('lbltipAddedComment').innerHTML = 'Price cannot be 0';
+                            return false;
+                        }
+                        if (!document.getElementById("price").value.match(/^[0-9]+[0-9]*$/)) {
+                            if (document.getElementById("price").value.match(/^[0-9]+[.][0-9][0-9][0-9]+$/)) {
+                                document.getElementById('lbltipAddedComment').innerHTML = 'Price can only have maximum of 2 decimal points';
+                                return false;
+                            }
+                            if (!document.getElementById("price").value.match(/^[0-9]+[.][0-9][0-9]?$/)) {
+                                document.getElementById('lbltipAddedComment').innerHTML = 'Wrong format! Price must be integer or decimal number';
+                                return false;
+                            }
+                        }
+
+                        /* Check Available Count */
+                        if($scope.stock == "" || $scope.stock == undefined)
+                        {
+                            document.getElementById('lbltipAddedComment').innerHTML = 'Available Count cannot be empty';
+                            return false;
+                        }
+                        if (document.getElementById("available_count").value.match(/^[0]+$/)) {
+                            document.getElementById('lbltipAddedComment').innerHTML = 'Available Count cannot be 0';
+                            return false;
+                        }
+                        if (!document.getElementById("available_count").value.match(/^[0]*[1-9][0-9]*$/)) {
+                            document.getElementById('lbltipAddedComment').innerHTML = 'Available Count must be an integer number';
+                            return false;
+                        }
+
+                        /* Check Category */
+                        if($scope.category == undefined)
+                        {
+                            document.getElementById('lbltipAddedComment').innerHTML = 'Please choose category';
+                            return false;
+                        }
+                        if(document.getElementById("subject").value == 'na')
+                        {
+                            document.getElementById('lbltipAddedComment').innerHTML = 'Please choose a correct category';
+                            return false;
+                        }
+
+                        /* Check Image URL */
+                        if($scope.url == "" || $scope.url == undefined)
+                        {
+                            document.getElementById('lbltipAddedComment').innerHTML = 'URL cannot be empty';
+                            return false;
+                        }
+
+                        /* Check Description */
+                        if($scope.description == "" || $scope.description == undefined)
+                        {
+                            document.getElementById('lbltipAddedComment').innerHTML = 'Description cannot be empty';
+                            return false;
+                        }
+
+                        return true;
+                    }
 
                 }]);
 </script>
 
 <head>
-    <title></title>
+    <title>Add New Item</title>
     <link rel='stylesheet' href='webjars/bootstrap/3.2.0/css/bootstrap.min.css'>
 </head>
 <body>
 <script type="text/javascript" src="webjars/jquery/2.1.1/jquery.min.js"></script>
 <script type="text/javascript" src="webjars/bootstrap/3.2.0/js/bootstrap.min.js"></script>
 <div class="container" ng-app="myApp">
-    <jsp:include page="header.jsp" />
     <div ng-controller="HomeCtrl as hmectrl">
-    <form class="well span8" style="width: 1100px; align-content: center" ng-submit="additem()">
+        <jsp:include page="header.jsp" />
+        <form class="well span8" style="width: 1100px; align-content: center" ng-submit="additem()">
         <div class="row">
             <div >
                 <table>
@@ -88,17 +168,17 @@
                     </tr>
                     <tr>
                         <td>
-                            <input class="span3" placeholder="Price in $" type="text" style="width: 350px" ng-model="price">
+                            <input id="price" class="span3" placeholder="Price in $" type="text" style="width: 350px" ng-model="price">
                         </td>
                     </tr>
                     <tr>
                         <td>
-                            <label>Avaliable Count</label>
+                            <label>Available Count</label>
                         </td>
                     </tr>
                     <tr>
                         <td>
-                            <input class="span3" placeholder=
+                            <input id="available_count" class="span3" placeholder=
                                     "Count of products for sale" type="text" style="width: 350px" ng-model="stock">
                         </td>
                     </tr>
@@ -110,7 +190,7 @@
                     <tr>
                         <td>
                             <select class="span3" id="subject" name="subject" style="width: 350px" ng-model="category">
-                                <option selected value="na">
+                                <option value="na" selected>
                                     Choose One:
                                 </option>
 
@@ -118,11 +198,11 @@
                                     Computer
                                 </option>
 
-                                <option value="Printer ">
+                                <option value="Printer">
                                     Printer
                                 </option>
 
-                                <option value="">
+                                <option value="Scanner">
                                     Scanner
                                 </option>
                             </select>
@@ -145,6 +225,9 @@
             <button class="btn btn-primary pull-right" type=
                 "submit">Add Item</button>
         </div>
+        <span class="button-checkbox center-block" align="center" style='color:#FF0000'>
+            <label id="lbltipAddedComment"></label>
+        </span>
     </form>
     </div>
 </div>

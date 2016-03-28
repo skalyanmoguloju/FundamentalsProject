@@ -3,264 +3,243 @@
     "line": 1,
     "elements": [
       {
-        "line": 3,
-        "name": "2 random keys are different",
+        "comments": [
+          {
+            "line": 3,
+            "value": "# Test getUsersList"
+          }
+        ],
+        "line": 4,
+        "name": "getUserList returns some users",
         "description": "",
-        "id": "check-emailverification;2-random-keys-are-different",
+        "id": "check-userdelegate;getuserlist-returns-some-users",
         "type": "scenario",
         "keyword": "Scenario",
         "steps": [
           {
             "result": {
-              "duration": 5133544,
-              "status": "passed"
-            },
-            "line": 4,
-            "name": "I have an EmailVerification",
-            "match": {
-              "location": "EmailVerificationSteps.i_have_an_EmailVerification()"
-            },
-            "keyword": "Given "
-          },
-          {
-            "result": {
-              "duration": 7646161,
+              "duration": 95948996,
               "status": "passed"
             },
             "line": 5,
-            "name": "I generate 2 key(s)",
+            "name": "mock UserDelegate is initialized",
             "match": {
-              "arguments": [
-                {
-                  "val": "2",
-                  "offset": 11
-                }
-              ],
-              "location": "EmailVerificationSteps.i_generate_key_s(int)"
+              "location": "UserDelegateSteps.mock_UserDelegate_is_initialized()"
             },
-            "keyword": "When "
+            "keyword": "Given "
           },
           {
             "result": {
-              "duration": 422063,
+              "duration": 825875,
               "status": "passed"
             },
             "line": 6,
-            "name": "they should be different",
+            "name": "expected users are initialized for getUserList",
             "match": {
-              "location": "EmailVerificationSteps.they_should_be_different()"
+              "location": "UserDelegateSteps.expected_users_are_initialized_for_getUserList()"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 837074,
+              "status": "passed"
+            },
+            "line": 7,
+            "name": "getUsersList() is called",
+            "match": {
+              "location": "UserDelegateSteps.getuserslist_is_called()"
+            },
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "duration": 1041660,
+              "error_message": "java.lang.IndexOutOfBoundsException: Index: 0, Size: 0\n\tat java.util.LinkedList.checkElementIndex(LinkedList.java:555)\n\tat java.util.LinkedList.get(LinkedList.java:476)\n\tat com.fundamental.proj.delegate.UserDelegateSteps.a_list_of_users_is_returned_for_getUserList(UserDelegateSteps.java:92)\n\tat ✽.Then a list of users is returned for getUserList(cucumber/UserDelegate.feature:8)\n",
+              "status": "failed"
+            },
+            "line": 8,
+            "name": "a list of users is returned for getUserList",
+            "match": {
+              "location": "UserDelegateSteps.a_list_of_users_is_returned_for_getUserList()"
             },
             "keyword": "Then "
           }
         ]
       },
       {
-        "line": 8,
-        "name": "2 random keys are different",
+        "line": 10,
+        "name": "getUsersList returns null",
         "description": "",
-        "id": "check-emailverification;2-random-keys-are-different",
+        "id": "check-userdelegate;getuserslist-returns-null",
         "type": "scenario",
         "keyword": "Scenario",
         "steps": [
           {
             "result": {
-              "duration": 349607,
-              "status": "passed"
-            },
-            "line": 9,
-            "name": "I have an EmailVerification",
-            "match": {
-              "location": "EmailVerificationSteps.i_have_an_EmailVerification()"
-            },
-            "keyword": "Given "
-          },
-          {
-            "result": {
-              "duration": 350203,
-              "status": "passed"
-            },
-            "line": 10,
-            "name": "I generate 4 key(s)",
-            "match": {
-              "arguments": [
-                {
-                  "val": "4",
-                  "offset": 11
-                }
-              ],
-              "location": "EmailVerificationSteps.i_generate_key_s(int)"
-            },
-            "keyword": "When "
-          },
-          {
-            "result": {
-              "duration": 59823,
+              "duration": 2877389,
               "status": "passed"
             },
             "line": 11,
-            "name": "they should be different",
+            "name": "mock UserDelegate is initialized",
             "match": {
-              "location": "EmailVerificationSteps.they_should_be_different()"
+              "location": "UserDelegateSteps.mock_UserDelegate_is_initialized()"
             },
-            "keyword": "Then "
-          }
-        ]
-      },
-      {
-        "line": 13,
-        "name": "a return key is a random UUID",
-        "description": "",
-        "id": "check-emailverification;a-return-key-is-a-random-uuid",
-        "type": "scenario",
-        "keyword": "Scenario",
-        "steps": [
+            "keyword": "Given "
+          },
           {
             "result": {
-              "duration": 287081,
+              "duration": 231544,
+              "status": "passed"
+            },
+            "line": 12,
+            "name": "expected null users are initialized for getUsersList",
+            "match": {
+              "location": "UserDelegateSteps.expected_null_users_are_initialized_for_getUsersList()"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 4500678,
+              "status": "passed"
+            },
+            "line": 13,
+            "name": "getUsersList() is called",
+            "match": {
+              "location": "UserDelegateSteps.getuserslist_is_called()"
+            },
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "duration": 2221552,
               "status": "passed"
             },
             "line": 14,
-            "name": "I have an EmailVerification",
+            "name": "a list of users is returned as null for getUsersList",
             "match": {
-              "location": "EmailVerificationSteps.i_have_an_EmailVerification()"
-            },
-            "keyword": "Given "
-          },
-          {
-            "result": {
-              "duration": 373765,
-              "status": "passed"
-            },
-            "line": 15,
-            "name": "I generate 1 key(s)",
-            "match": {
-              "arguments": [
-                {
-                  "val": "1",
-                  "offset": 11
-                }
-              ],
-              "location": "EmailVerificationSteps.i_generate_key_s(int)"
-            },
-            "keyword": "When "
-          },
-          {
-            "result": {
-              "duration": 262529,
-              "status": "passed"
-            },
-            "line": 16,
-            "name": "each key should have the same length as a random UUID",
-            "match": {
-              "location": "EmailVerificationSteps.it_should_have_the_same_length_as_a_random_UUID()"
+              "location": "UserDelegateSteps.a_list_of_users_is_returned_as_null_for_getUsersList()"
             },
             "keyword": "Then "
           }
         ]
       },
       {
-        "line": 18,
-        "name": "each return key is a random UUID",
+        "line": 16,
+        "name": "getUsersList returns empty",
         "description": "",
-        "id": "check-emailverification;each-return-key-is-a-random-uuid",
+        "id": "check-userdelegate;getuserslist-returns-empty",
         "type": "scenario",
         "keyword": "Scenario",
         "steps": [
           {
             "result": {
-              "duration": 339534,
+              "duration": 3581790,
+              "status": "passed"
+            },
+            "line": 17,
+            "name": "mock UserDelegate is initialized",
+            "match": {
+              "location": "UserDelegateSteps.mock_UserDelegate_is_initialized()"
+            },
+            "keyword": "Given "
+          },
+          {
+            "result": {
+              "duration": 183503,
+              "status": "passed"
+            },
+            "line": 18,
+            "name": "expected empty users are initialized for getUsersList",
+            "match": {
+              "location": "UserDelegateSteps.expected_empty_users_are_initialized_for_getUsersList()"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 808107,
               "status": "passed"
             },
             "line": 19,
-            "name": "I have an EmailVerification",
+            "name": "getUsersList() is called",
             "match": {
-              "location": "EmailVerificationSteps.i_have_an_EmailVerification()"
-            },
-            "keyword": "Given "
-          },
-          {
-            "result": {
-              "duration": 724197,
-              "status": "passed"
-            },
-            "line": 20,
-            "name": "I generate 3 key(s)",
-            "match": {
-              "arguments": [
-                {
-                  "val": "3",
-                  "offset": 11
-                }
-              ],
-              "location": "EmailVerificationSteps.i_generate_key_s(int)"
+              "location": "UserDelegateSteps.getuserslist_is_called()"
             },
             "keyword": "When "
           },
           {
             "result": {
-              "duration": 2205542,
+              "duration": 800360,
               "status": "passed"
             },
-            "line": 21,
-            "name": "each key should have the same length as a random UUID",
+            "line": 20,
+            "name": "a list of users is empty for getUsersList",
             "match": {
-              "location": "EmailVerificationSteps.it_should_have_the_same_length_as_a_random_UUID()"
+              "location": "UserDelegateSteps.a_list_of_users_is_empty_for_getUsersList()"
             },
             "keyword": "Then "
           }
         ]
       },
       {
+        "comments": [
+          {
+            "line": 22,
+            "value": "# Test addUser"
+          }
+        ],
         "line": 23,
-        "name": "a return key after executing sendEmailVerificationLink is a random UUID",
+        "name": "addUser is called successfully",
         "description": "",
-        "id": "check-emailverification;a-return-key-after-executing-sendemailverificationlink-is-a-random-uuid",
+        "id": "check-userdelegate;adduser-is-called-successfully",
         "type": "scenario",
         "keyword": "Scenario",
         "steps": [
           {
             "result": {
-              "duration": 617269,
+              "duration": 4825319,
               "status": "passed"
             },
             "line": 24,
-            "name": "I have an EmailVerification",
+            "name": "mock UserDelegate is initialized",
             "match": {
-              "location": "EmailVerificationSteps.i_have_an_EmailVerification()"
+              "location": "UserDelegateSteps.mock_UserDelegate_is_initialized()"
             },
             "keyword": "Given "
           },
           {
             "result": {
-              "duration": 3962810638,
+              "duration": 391151,
               "status": "passed"
             },
             "line": 25,
-            "name": "I call sendEmailVerificationLink",
+            "name": "addUser() is called for UsersDelegate",
             "match": {
-              "location": "EmailVerificationSteps.i_call_sendEmailVerificationLink()"
+              "location": "UserDelegateSteps.adduser_is_called_for_UsersDelegate()"
             },
             "keyword": "When "
           },
           {
             "result": {
-              "duration": 105817,
+              "duration": 674061,
               "status": "passed"
             },
             "line": 26,
-            "name": "it should return a key having the same length as a random UUID",
+            "name": "addUser has been called successfully",
             "match": {
-              "location": "EmailVerificationSteps.it_should_return_a_key_having_the_same_length_as_a_random_UUID()"
+              "location": "UserDelegateSteps.adduser_has_been_called_successfully()"
             },
             "keyword": "Then "
           }
         ]
       }
     ],
-    "name": "Check EmailVerification",
+    "name": "Check UserDelegate",
     "description": "",
-    "id": "check-emailverification",
+    "id": "check-userdelegate",
     "keyword": "Feature",
-    "uri": "cucumber/EmailVerification.feature"
+    "uri": "cucumber/UserDelegate.feature"
   }
 ]
