@@ -15,6 +15,7 @@
             .controller('HomeCtrl', ['$scope', '$rootScope','$http','$cookies','$filter',
                 function ($scope, $rootScope,$http,$cookies,$filter) {
                     console.log("jj");
+                    $scope.searchBool = false;
                     var user = $cookies.get("user").toString();
                     //console.log(user.toString());
                     $scope.searchBool = false;
@@ -53,14 +54,21 @@
                                 });
                     };
                     $scope.search = function(searchTerm) {
+                        $scope.searchBool = true;
                         console.log(searchTerm);
-                        $http.post('listResults', {
-                                    searchTerm
-                                })
-                                .success( function (response) {
-                                    $scope.searchList = response;
-                                    console.log($scope.searchList);
-                                });
+                        if(searchTerm != "") {
+                            $http.post('listResults', {
+                                        searchTerm
+                                    })
+                                    .success( function (response) {
+                                        $scope.searchList = response;
+                                        console.log($scope.searchList);
+                                    });
+                        } else {
+                            $scope.searchBool = false;
+                            $scope.searchList = $scope.list;
+                        }
+
                     };
                 }]);
 </script>
@@ -169,7 +177,7 @@
         <body>
         <!-- HTML for SEARCH BAR -->
         <div id="tfheader">
-            <form id="tfnewsearch" ng-submit="search(searchTerm); searchBool=!searchBool">
+            <form id="tfnewsearch" ng-submit="search(searchTerm)">
                 <input type="text" id="tfq2b" class="tftextinput2" name="q" size="21" maxlength="120" value="Search our website" ng-model="searchTerm">
                 <input type="submit" value=">" class="tfbutton2">
             </form>
