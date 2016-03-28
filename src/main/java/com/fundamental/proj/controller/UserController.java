@@ -125,6 +125,14 @@ public class UserController {
 
     }
 
+    @RequestMapping(value = "/listResults", method = RequestMethod.POST)
+    @ResponseBody
+    public List<ItemsBean> getSearchResultItems(@RequestBody String searchTerm) {
+        String term = searchTerm.substring(15,(searchTerm.length()-2));
+        List<ItemsBean> s = itemsDelegate.getAllItemsContainingSearchTerm(term);
+        return s;
+    }
+
     @RequestMapping(value = "/getCart", method = RequestMethod.POST)
     @ResponseBody
     public List<CartBean> userInfo(@RequestBody UserBean userBean) {
