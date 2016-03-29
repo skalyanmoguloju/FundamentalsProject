@@ -252,13 +252,7 @@
                                                     <label id="lbltipAddedComment{{vw.item_id}}"></label>
                                                 </span>
 
-                                                <ul>
-                                                    <li class="active"><a href="#">
-                                                        <span class="badge pull-right">
-                                                            <span class="glyphicon glyphicon-usd">
-                                                            </span>
-                                                            {{vw.price * vw.noofpieces}}
-                                                        </span> Total Price</a>
+
                                                 <ul>
                                                     <li class="active"><a href="#"><span class="badge pull-right"><span class="glyphicon glyphicon-usd"></span>{{vw.price * vw.noofpieces}}</span> Total Price</a>
                                                     </li>
