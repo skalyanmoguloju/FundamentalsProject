@@ -25,6 +25,9 @@ public class ItemsService {
     }
 
     @Transactional
+    public List<Items> getAllItemsContainingSearchTerm(String searchTerm) { return itemsRepository.getAllItemsContainingSearchTerm(searchTerm); }
+
+    @Transactional
     public void addItem(Items items)
     {
         itemsRepository.addItem(items);

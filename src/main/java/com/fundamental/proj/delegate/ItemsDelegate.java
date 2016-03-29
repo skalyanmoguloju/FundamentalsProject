@@ -30,6 +30,13 @@ public class ItemsDelegate {
     }
 
     @Transactional
+    public List<ItemsBean> getAllItemsContainingSearchTerm(String s) {
+        List<Items> items;
+        items = itemsService.getAllItemsContainingSearchTerm(s);
+        return itemsBeanMapper.mapItemBean(items);
+    }
+
+    @Transactional
     public void addItem(ItemsBean itemsBean)
     {
         Items items;
