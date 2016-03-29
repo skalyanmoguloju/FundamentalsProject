@@ -46,6 +46,8 @@
                             document.getElementById('lbltipAddedComment' + vw.item_id).innerHTML = 'Number of products must be an integer';
                         } else if (document.getElementById("exampleInputPassword1" + vw.item_id).value > vw.onsale_count) {
                             document.getElementById('lbltipAddedComment' + vw.item_id).innerHTML = 'Number of available products is only ' + vw.onsale_count + ', Please select a number at most ' + vw.onsale_count + '!';
+                        } else if (vw.onsale_count == 0) {
+                        document.getElementById('lbltipAddedComment' + vw.item_id).innerHTML = 'Product "' + vw.item_name + '" is out of stock! Please select a different product!';
                         } else {
                             $http.post('addCart', {
                                         itemsBean: vw,
@@ -204,7 +206,7 @@
         <!-- HTML for SEARCH BAR -->
         <div id="tfheader">
             <form id="tfnewsearch" ng-submit="search(searchTerm)">
-                <input type="text" id="tfq2b" class="tftextinput2" name="q" size="21" maxlength="120" value="Search our website" ng-model="searchTerm">
+                <input type="text" id="tfq2b" class="tftextinput2" name="q" size="21" maxlength="120" value="Search our website" placeholder="Search.." ng-model="searchTerm">
                 <input type="submit" value=">" class="tfbutton2">
             </form>
             <div class="tfclear"></div>
