@@ -32,50 +32,136 @@
                                 console.log(responseCart);
                                 $scope.cart = responseCart;
                                 for (var i=0; i<$scope.cart.length; i++){
-                                    $scope.total = $scope.total+($scope.cart[i].itemsBean.price * $scope.cart[i].quantity);
+                                    if ($scope.cart[i].quantity > 0) {
+                                        $scope.total = $scope.total+($scope.cart[i].itemsBean.price * $scope.cart[i].quantity);
+                                    }
                                 }
                             });
+                    $scope.checkOut = function() {
+                        if ($scope.validateQuantity() == true) {
+                            if ($scope.cart.length == 0) {
+                                document.getElementById('lbltipAddedComment').innerHTML = 'You have no products in Cart, cannot checkout!';
+                            } else {
+                                // trigger modal popup
+                                $('#squarespaceModal').modal('show');
+                            }
+                        }
+                    };
                     $scope.orderUp= function(vw){
                         console.log(vw);
-                        $http.post('order', {
-                            item_id: vw.item_id,
-                            user_id:$scope.userInfo.id,
-                            price: $scope.total,
-                            quantity: vw.noofpieces,
-                            card_number: vw.cardNo,
-                            card_exp:vw.dateExp,
-                            card_cvv:vw.cvvNo
-                        })
+                        if ($scope.validateCard() == true) {
+                            $http.post('order', {
+                                    item_id: vw.item_id,
+                                    user_id: $scope.userInfo.id,
+                                    price: $scope.total,
+                                    quantity: vw.noofpieces,
+                                    card_number: vw.cardNo,
+                                    card_exp: vw.dateExp,
+                                    card_cvv: vw.cvvNo
+                                })
                                 .success(function (response) {
                                     console.log(response);
-
+                                    alert("Congratulations!\n You've successfully completed the purchase!");
+                                    window.location.href = "/home";
                                 });
+                        }
+                    };
+                    $scope.validateCard = function() {
+
+                        /* Check Card Number */
+                        if (document.getElementById('cardNumber').value == "" || document.getElementById('cardNumber').value == undefined) {
+                            document.getElementById('lbltipAddedCommentCard').innerHTML = 'Card Number cannot be empty';
+                            return false;
+                        }
+                        if (!document.getElementById('cardNumber').value.match(/^[0-9]+$/)) {
+                            document.getElementById('lbltipAddedCommentCard').innerHTML = 'Card Number must contain only numbers';
+                            return false;
+                        }
+                        if (document.getElementById('cardNumber').value.length > 16 || document.getElementById('cardNumber').value.length < 16) {
+                            document.getElementById('lbltipAddedCommentCard').innerHTML = 'Card Number must be 16-digit number';
+                            return false;
+                        }
+                        /* Check Exp Date */
+                        if (document.getElementById('expityDate').value.match(/^[0][0][/][0-9][0-9]$/) || document.getElementById('expityDate').value.match(/^[1][3-9][/][0-9][0-9]$/)) {
+                            document.getElementById('lbltipAddedCommentCard').innerHTML = 'EXP Month is not valid';
+                            return false;
+                        }
+                        if (!document.getElementById('expityDate').value.match(/^(([0][1-9])|([1][1-2]))[/][0-9][0-9]$/)) {
+                            document.getElementById('lbltipAddedCommentCard').innerHTML = 'EXP Date is not valid';
+                            return false;
+                        }
+                        var twoDigitsCurrentMonth = parseInt(new Date().getMonth());
+                        var twoDigitsCurrentYear = parseInt(new Date().getFullYear().toString().substr(2,2));
+                        var month = parseInt(document.getElementById('expityDate').value.split("/")[0]);
+                        var year = parseInt(document.getElementById('expityDate').value.split("/")[1]);
+                        if (twoDigitsCurrentYear > year || (twoDigitsCurrentMonth > month && twoDigitsCurrentYear == year)) {
+                            document.getElementById('lbltipAddedCommentCard').innerHTML = 'Card has expired';
+                            return false;
+                        }
+
+                        /* Check CVV Code */
+                        if (document.getElementById('cvCode').value == "" | document.getElementById('cvCode').value == undefined) {
+                            document.getElementById('lbltipAddedCommentCard').innerHTML = 'CVV Code cannot be empty';
+                            return false;
+                        }
+                        if (!document.getElementById('cvCode').value.match(/^[0-9]+$/)) {
+                            document.getElementById('lbltipAddedCommentCard').innerHTML = 'CVV code must contain only numbers';
+                            return false;
+                        }
+                        if (document.getElementById('cvCode').value.length != 3 && document.getElementById('cvCode').value.length != 4) {
+                            document.getElementById('lbltipAddedCommentCard').innerHTML = 'CVV code must be 3-digit number or 4-digit number';
+                            return false;
+                        }
+
+                        document.getElementById('lbltipAddedCommentCard').innerHTML = '';
+                        return true;
+                    }
+                    $scope.validateQuantity = function(){
+                        /* Check Quantity */
+                        var msg = '';
+                        for (var i=0; i<$scope.cart.length; i++) {
+                            if ($scope.cart[i].quantity > 0 && ($scope.cart[i].quantity % 1 === 0)) {
+                                // do nothing
+                            } else if ($scope.cart[i].quantity == 0) {
+                                msg += 'Quantity from product "' + $scope.cart[i].itemsBean.item_name + '" cannot be 0' + '<br/>';
+                            } else if ($scope.cart[i].quantity < 0) {
+                                msg += 'Quantity from product "' + $scope.cart[i].itemsBean.item_name + '" cannot be negative' + '<br/>';
+                            } else {
+                                msg += 'Quantity from product "' + $scope.cart[i].itemsBean.item_name + '" must be an integer' + '<br/>';
+                            }
+                        }
+                        document.getElementById('lbltipAddedComment').innerHTML = msg;
+                        if (msg != '') {
+                            return false;
+                        }
+                        return true;
                     };
                     $scope.quantity = function(vw){
-                        $scope.total = 0
-                        for (var i=0; i<$scope.cart.length; i++){
-                            $scope.total = $scope.total+($scope.cart[i].itemsBean.price * $scope.cart[i].quantity);
+                        if ($scope.validateQuantity() == true) {
+                            $scope.total = 0;
+                            for (var i=0; i<$scope.cart.length; i++){
+                                $scope.total = $scope.total+($scope.cart[i].itemsBean.price * $scope.cart[i].quantity);
+                            }
+                            $http.post('updateCart', {
+                                        itemsBean: vw.itemsBean,
+                                        user_id:$scope.userInfo.id,
+                                        quantity: vw.quantity,
+                                        price: vw.price,
+                                        cart_id: vw.cart_id
+                                    })
+                                    .success(function (response) {
+                                        console.log(response);
+                                    });
                         }
-                        $http.post('updateCart', {
-                            itemsBean: vw.itemsBean,
-                            user_id:$scope.userInfo.id,
-                            quantity: vw.quantity,
-                            price: vw.price,
-                            cart_id: vw.cart_id
-                        })
-                                .success(function (response) {
-                                    console.log(response);
-
-                                });
                     };
                     $scope.delete = function(vw){
                         $http.post('deleteCart', {
-                            itemsBean: vw.itemsBean,
-                            user_id:$scope.userInfo.id,
-                            quantity: vw.quantity,
-                            price: vw.price,
-                            cart_id: vw.cart_id
-                        })
+                                    itemsBean: vw.itemsBean,
+                                    user_id:$scope.userInfo.id,
+                                    quantity: vw.quantity,
+                                    price: vw.price,
+                                    cart_id: vw.cart_id
+                                })
                                 .success(function (response) {
                                     console.log(response);
 
@@ -85,14 +171,13 @@
                         for (var i=0; i<$scope.cart.length; i++){
                             $scope.total = $scope.total+($scope.cart[i].itemsBean.price * $scope.cart[i].quantity);
                         }
-
                     };
 
                 }]);
 </script>
 
 <head>
-    <title></title>
+    <title>Cart</title>
     <link rel='stylesheet' href='webjars/bootstrap/3.2.0/css/bootstrap.min.css'>
 </head>
 <body>
@@ -135,11 +220,17 @@
                 </div>
                 <span class="clearfix borda"></span>
             </article>
-
-<label> Subtotal</label> {{total}}
+            <br/>
+            <label> Subtotal</label> {{total}}
+            <form ng-submit = "checkOut()">
             <div class="right">
-                <button data-toggle="modal" data-target="#squarespaceModal" class="btn btn-primary center-block">Checkout</button>
+                <span class="button-checkbox center-block" align="center" style='color:#FF0000'>
+                    <label id="lbltipAddedComment"></label>
+                </span>
+                <button type="submit" class="btn btn-primary center-block">Checkout</button>
+            <%--<button data-toggle="modal" data-target="#squarespaceModal" class="btn btn-primary center-block">Checkout</button>--%>
             </div>
+            </form>
             <div class="modal fade" id="squarespaceModal" tabindex="-1" role="dialog" aria-labelledby="modalLabel" aria-hidden="true">
                 <div class="modal-dialog">
                     <div class="modal-content">
@@ -175,15 +266,15 @@
                                                     <div class="row">
                                                         <div class="col-xs-7 col-md-7">
                                                             <div class="form-group">
-                                                                <label for="expityMonth">
+                                                                <label for="expityDate">
                                                                     EXPIRY DATE</label>
-                                                                <input type="text" class="form-control" id="expityMonth" placeholder="MM/YY" required ng-model="vw.dateExp"/>
+                                                                <input type="text" class="form-control" id="expityDate" placeholder="MM/YY" required ng-model="vw.dateExp"/>
                                                             </div>
                                                         </div>
                                                         <div class="col-xs-5 col-md-5 pull-right">
                                                             <div class="form-group">
                                                                 <label for="cvCode">
-                                                                    CV CODE</label>
+                                                                    CVV CODE</label>
                                                                 <input type="password" class="form-control" id="cvCode" placeholder="ex. 123" required ng-model="vw.cvvNo"/>
                                                             </div>
                                                         </div>
@@ -195,7 +286,9 @@
                                             <li class="active"><a href="#"><span class="badge pull-right"><span class="glyphicon glyphicon-usd"></span>{{total}}</span> Final Payment</a>
                                             </li>
                                         </ul>
-
+                                        <span class="button-checkbox center-block" align="center" style='color:#FF0000'>
+                                            <label id="lbltipAddedCommentCard"></label>
+                                        </span>
                                         <br/>
                                         <button type="submit" class="btn btn-success btn-lg btn-block" role="button">Pay</button>
                                     </div>

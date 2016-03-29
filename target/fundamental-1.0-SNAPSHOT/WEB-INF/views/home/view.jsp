@@ -36,18 +36,32 @@
                                         });
 
                             });
-                    $scope.cart= function(vw){;
+                    $scope.cart= function(vw){
                         console.log(vw);
-                        $http.post('addCart', {
-                            itemsBean: vw,
-                            user_id:$scope.userInfo.id,
-                            quantity: vw.noofpieces,
-                            price: vw.price
-                        })
-                                .success(function (response) {
-                                    console.log(response);
 
-                                });
+                        /* Check number of products */
+                        if(document.getElementById('exampleInputPassword1' + vw.item_id).value.match(/^[-]?[0]+$/))
+                        {
+                            document.getElementById('lbltipAddedComment' + vw.item_id).innerHTML = 'Number of products cannot be 0';
+                        } else if (document.getElementById("exampleInputPassword1" + vw.item_id).value < 0) {
+                            document.getElementById('lbltipAddedComment' + vw.item_id).innerHTML = 'Number of products must be a positive integer';
+                        } else if (!document.getElementById("exampleInputPassword1" + vw.item_id).value.match(/^[0]*[1-9]+$/)) {
+                            document.getElementById('lbltipAddedComment' + vw.item_id).innerHTML = 'Number of products must be an integer';
+                        } else if (document.getElementById("exampleInputPassword1" + vw.item_id).value > vw.onsale_count) {
+                            document.getElementById('lbltipAddedComment' + vw.item_id).innerHTML = 'Number of available products is only ' + vw.onsale_count + ', Please select a number at most ' + vw.onsale_count + '!';
+                        } else {
+                            $http.post('addCart', {
+                                        itemsBean: vw,
+                                        user_id:$scope.userInfo.id,
+                                        quantity: vw.noofpieces,
+                                        price: vw.price
+                                    })
+                                    .success(function (response) {
+                                        console.log(response);
+                                        alert("Successfully added item with quantity of " + vw.noofpieces + " to cart !");
+                                        window.location.href = "/view";
+                                    });
+                        }
                     };
 
 
@@ -206,11 +220,19 @@
                                         </div>
                                         <div class="form-group">
                                             <div>
-                                                    <ul>
-                                                    <li class="active"><a href="#"><span class="badge pull-right"><span class="glyphicon glyphicon-usd"></span>{{vw.price * vw.noofpieces}}</span> Total Price</a>
+                                                <span class="button-checkbox center-block" align="center" style='color:#FF0000'>
+                                                    <label id="lbltipAddedComment{{vw.item_id}}"></label>
+                                                </span>
+
+                                                <ul>
+                                                    <li class="active"><a href="#">
+                                                        <span class="badge pull-right">
+                                                            <span class="glyphicon glyphicon-usd">
+                                                            </span>
+                                                            {{vw.price * vw.noofpieces}}
+                                                        </span> Total Price</a>
                                                     </li>
                                                 </ul>
-
                                                 <input type="hidden" value="{{vw.price * vw.noofpieces}}" ng-model="vw.totalPrice">
                                                 <br/>
                                                 <button type="submit" class="btn btn-success btn-lg btn-block" role="button">Submit</button>

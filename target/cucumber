@@ -6,62 +6,61 @@
         "comments": [
           {
             "line": 3,
-            "value": "# Test getUsersList"
+            "value": "# Test getAllUsers"
           }
         ],
         "line": 4,
-        "name": "getUserList returns some users",
+        "name": "getAllUsers returns some users",
         "description": "",
-        "id": "check-userdelegate;getuserlist-returns-some-users",
+        "id": "check-userservice;getallusers-returns-some-users",
         "type": "scenario",
         "keyword": "Scenario",
         "steps": [
           {
             "result": {
-              "duration": 95948996,
+              "duration": 22105570,
               "status": "passed"
             },
             "line": 5,
-            "name": "mock UserDelegate is initialized",
+            "name": "mock UserService is initialized",
             "match": {
-              "location": "UserDelegateSteps.mock_UserDelegate_is_initialized()"
+              "location": "UserServiceSteps.mock_userservice_is_initialized()"
             },
             "keyword": "Given "
           },
           {
             "result": {
-              "duration": 825875,
+              "duration": 1864220,
               "status": "passed"
             },
             "line": 6,
-            "name": "expected users are initialized for getUserList",
+            "name": "expected list of users is initialized",
             "match": {
-              "location": "UserDelegateSteps.expected_users_are_initialized_for_getUserList()"
+              "location": "UserServiceSteps.expected_list_of_users_is_initialized()"
             },
             "keyword": "And "
           },
           {
             "result": {
-              "duration": 837074,
+              "duration": 412711,
               "status": "passed"
             },
             "line": 7,
-            "name": "getUsersList() is called",
+            "name": "getAllUsers() is called",
             "match": {
-              "location": "UserDelegateSteps.getuserslist_is_called()"
+              "location": "UserServiceSteps.getallusers_is_called()"
             },
             "keyword": "When "
           },
           {
             "result": {
-              "duration": 1041660,
-              "error_message": "java.lang.IndexOutOfBoundsException: Index: 0, Size: 0\n\tat java.util.LinkedList.checkElementIndex(LinkedList.java:555)\n\tat java.util.LinkedList.get(LinkedList.java:476)\n\tat com.fundamental.proj.delegate.UserDelegateSteps.a_list_of_users_is_returned_for_getUserList(UserDelegateSteps.java:92)\n\tat ✽.Then a list of users is returned for getUserList(cucumber/UserDelegate.feature:8)\n",
-              "status": "failed"
+              "duration": 581373,
+              "status": "passed"
             },
             "line": 8,
-            "name": "a list of users is returned for getUserList",
+            "name": "a list of users is returned for getAllUsers",
             "match": {
-              "location": "UserDelegateSteps.a_list_of_users_is_returned_for_getUserList()"
+              "location": "UserServiceSteps.a_list_of_users_is_returned()"
             },
             "keyword": "Then "
           }
@@ -69,57 +68,57 @@
       },
       {
         "line": 10,
-        "name": "getUsersList returns null",
+        "name": "getAllUsers returns null",
         "description": "",
-        "id": "check-userdelegate;getuserslist-returns-null",
+        "id": "check-userservice;getallusers-returns-null",
         "type": "scenario",
         "keyword": "Scenario",
         "steps": [
           {
             "result": {
-              "duration": 2877389,
+              "duration": 1343052,
               "status": "passed"
             },
             "line": 11,
-            "name": "mock UserDelegate is initialized",
+            "name": "mock UserService is initialized",
             "match": {
-              "location": "UserDelegateSteps.mock_UserDelegate_is_initialized()"
+              "location": "UserServiceSteps.mock_userservice_is_initialized()"
             },
             "keyword": "Given "
           },
           {
             "result": {
-              "duration": 231544,
+              "duration": 65148,
               "status": "passed"
             },
             "line": 12,
-            "name": "expected null users are initialized for getUsersList",
+            "name": "expected null list of users is initialized",
             "match": {
-              "location": "UserDelegateSteps.expected_null_users_are_initialized_for_getUsersList()"
+              "location": "UserServiceSteps.expected_null_list_of_users_is_initialized()"
             },
             "keyword": "And "
           },
           {
             "result": {
-              "duration": 4500678,
+              "duration": 226879,
               "status": "passed"
             },
             "line": 13,
-            "name": "getUsersList() is called",
+            "name": "getAllUsers() is called",
             "match": {
-              "location": "UserDelegateSteps.getuserslist_is_called()"
+              "location": "UserServiceSteps.getallusers_is_called()"
             },
             "keyword": "When "
           },
           {
             "result": {
-              "duration": 2221552,
+              "duration": 287759,
               "status": "passed"
             },
             "line": 14,
-            "name": "a list of users is returned as null for getUsersList",
+            "name": "a list of users is null for getAllUsers",
             "match": {
-              "location": "UserDelegateSteps.a_list_of_users_is_returned_as_null_for_getUsersList()"
+              "location": "UserServiceSteps.a_list_of_users_is_null()"
             },
             "keyword": "Then "
           }
@@ -127,57 +126,57 @@
       },
       {
         "line": 16,
-        "name": "getUsersList returns empty",
+        "name": "getAllUsers returns empty list",
         "description": "",
-        "id": "check-userdelegate;getuserslist-returns-empty",
+        "id": "check-userservice;getallusers-returns-empty-list",
         "type": "scenario",
         "keyword": "Scenario",
         "steps": [
           {
             "result": {
-              "duration": 3581790,
+              "duration": 2604295,
               "status": "passed"
             },
             "line": 17,
-            "name": "mock UserDelegate is initialized",
+            "name": "mock UserService is initialized",
             "match": {
-              "location": "UserDelegateSteps.mock_UserDelegate_is_initialized()"
+              "location": "UserServiceSteps.mock_userservice_is_initialized()"
             },
             "keyword": "Given "
           },
           {
             "result": {
-              "duration": 183503,
+              "duration": 72951,
               "status": "passed"
             },
             "line": 18,
-            "name": "expected empty users are initialized for getUsersList",
+            "name": "expected empty list of users is initialized",
             "match": {
-              "location": "UserDelegateSteps.expected_empty_users_are_initialized_for_getUsersList()"
+              "location": "UserServiceSteps.expected_empty_list_of_users_is_initialized()"
             },
             "keyword": "And "
           },
           {
             "result": {
-              "duration": 808107,
+              "duration": 744208,
               "status": "passed"
             },
             "line": 19,
-            "name": "getUsersList() is called",
+            "name": "getAllUsers() is called",
             "match": {
-              "location": "UserDelegateSteps.getuserslist_is_called()"
+              "location": "UserServiceSteps.getallusers_is_called()"
             },
             "keyword": "When "
           },
           {
             "result": {
-              "duration": 800360,
+              "duration": 424981,
               "status": "passed"
             },
             "line": 20,
-            "name": "a list of users is empty for getUsersList",
+            "name": "a list of users is empty for getAllUsers",
             "match": {
-              "location": "UserDelegateSteps.a_list_of_users_is_empty_for_getUsersList()"
+              "location": "UserServiceSteps.a_list_of_users_is_empty()"
             },
             "keyword": "Then "
           }
@@ -187,59 +186,1191 @@
         "comments": [
           {
             "line": 22,
-            "value": "# Test addUser"
+            "value": "# Test getUserInfo"
           }
         ],
         "line": 23,
-        "name": "addUser is called successfully",
+        "name": "getUserInfo returns some users",
         "description": "",
-        "id": "check-userdelegate;adduser-is-called-successfully",
+        "id": "check-userservice;getuserinfo-returns-some-users",
         "type": "scenario",
         "keyword": "Scenario",
         "steps": [
           {
             "result": {
-              "duration": 4825319,
+              "duration": 1733420,
               "status": "passed"
             },
             "line": 24,
-            "name": "mock UserDelegate is initialized",
+            "name": "mock UserService is initialized",
             "match": {
-              "location": "UserDelegateSteps.mock_UserDelegate_is_initialized()"
+              "location": "UserServiceSteps.mock_userservice_is_initialized()"
             },
             "keyword": "Given "
           },
           {
             "result": {
-              "duration": 391151,
+              "duration": 70118,
               "status": "passed"
             },
             "line": 25,
-            "name": "addUser() is called for UsersDelegate",
+            "name": "expected list of users is initialized",
             "match": {
-              "location": "UserDelegateSteps.adduser_is_called_for_UsersDelegate()"
+              "location": "UserServiceSteps.expected_list_of_users_is_initialized()"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 346571,
+              "status": "passed"
+            },
+            "line": 26,
+            "name": "getUserInfo() is called",
+            "match": {
+              "location": "UserServiceSteps.getuserinfo_is_called()"
             },
             "keyword": "When "
           },
           {
             "result": {
-              "duration": 674061,
+              "duration": 382766,
               "status": "passed"
             },
-            "line": 26,
-            "name": "addUser has been called successfully",
+            "line": 27,
+            "name": "a list of users is returned for getUserInfo",
             "match": {
-              "location": "UserDelegateSteps.adduser_has_been_called_successfully()"
+              "location": "UserServiceSteps.a_list_of_users_is_returned_for_getuserinfo()"
+            },
+            "keyword": "Then "
+          }
+        ]
+      },
+      {
+        "line": 29,
+        "name": "getUserInfo returns null",
+        "description": "",
+        "id": "check-userservice;getuserinfo-returns-null",
+        "type": "scenario",
+        "keyword": "Scenario",
+        "steps": [
+          {
+            "result": {
+              "duration": 992895,
+              "status": "passed"
+            },
+            "line": 30,
+            "name": "mock UserService is initialized",
+            "match": {
+              "location": "UserServiceSteps.mock_userservice_is_initialized()"
+            },
+            "keyword": "Given "
+          },
+          {
+            "result": {
+              "duration": 58655,
+              "status": "passed"
+            },
+            "line": 31,
+            "name": "expected null list of users is initialized",
+            "match": {
+              "location": "UserServiceSteps.expected_null_list_of_users_is_initialized()"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 253842,
+              "status": "passed"
+            },
+            "line": 32,
+            "name": "getUserInfo() is called",
+            "match": {
+              "location": "UserServiceSteps.getuserinfo_is_called()"
+            },
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "duration": 1420191,
+              "status": "passed"
+            },
+            "line": 33,
+            "name": "a list of users is null for getUserInfo",
+            "match": {
+              "location": "UserServiceSteps.a_list_of_users_is_null_for_getUserInfo()"
+            },
+            "keyword": "Then "
+          }
+        ]
+      },
+      {
+        "line": 35,
+        "name": "getUserInfo returns empty list",
+        "description": "",
+        "id": "check-userservice;getuserinfo-returns-empty-list",
+        "type": "scenario",
+        "keyword": "Scenario",
+        "steps": [
+          {
+            "result": {
+              "duration": 4611671,
+              "status": "passed"
+            },
+            "line": 36,
+            "name": "mock UserService is initialized",
+            "match": {
+              "location": "UserServiceSteps.mock_userservice_is_initialized()"
+            },
+            "keyword": "Given "
+          },
+          {
+            "result": {
+              "duration": 60213,
+              "status": "passed"
+            },
+            "line": 37,
+            "name": "expected empty list of users is initialized",
+            "match": {
+              "location": "UserServiceSteps.expected_empty_list_of_users_is_initialized()"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 329457,
+              "status": "passed"
+            },
+            "line": 38,
+            "name": "getUserInfo() is called",
+            "match": {
+              "location": "UserServiceSteps.getuserinfo_is_called()"
+            },
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "duration": 342301,
+              "status": "passed"
+            },
+            "line": 39,
+            "name": "a list of users is empty for getUserInfo",
+            "match": {
+              "location": "UserServiceSteps.a_list_of_users_is_empty_for_getUserInfo()"
+            },
+            "keyword": "Then "
+          }
+        ]
+      },
+      {
+        "comments": [
+          {
+            "line": 41,
+            "value": "# Test validateEmail"
+          }
+        ],
+        "line": 42,
+        "name": "validateEmail returns some ids",
+        "description": "",
+        "id": "check-userservice;validateemail-returns-some-ids",
+        "type": "scenario",
+        "keyword": "Scenario",
+        "steps": [
+          {
+            "result": {
+              "duration": 1188995,
+              "status": "passed"
+            },
+            "line": 43,
+            "name": "mock UserService is initialized",
+            "match": {
+              "location": "UserServiceSteps.mock_userservice_is_initialized()"
+            },
+            "keyword": "Given "
+          },
+          {
+            "result": {
+              "duration": 98733,
+              "status": "passed"
+            },
+            "line": 44,
+            "name": "expected list of ids is initialized",
+            "match": {
+              "location": "UserServiceSteps.expected_list_of_ids_is_initialized()"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 258608,
+              "status": "passed"
+            },
+            "line": 45,
+            "name": "validateEmail() is called",
+            "match": {
+              "location": "UserServiceSteps.validateemail_is_called()"
+            },
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "duration": 377675,
+              "status": "passed"
+            },
+            "line": 46,
+            "name": "a list of ids is returned for validateEmail",
+            "match": {
+              "location": "UserServiceSteps.a_list_of_ids_is_returned_for_validateEmail()"
+            },
+            "keyword": "Then "
+          }
+        ]
+      },
+      {
+        "line": 48,
+        "name": "validateEmail returns null",
+        "description": "",
+        "id": "check-userservice;validateemail-returns-null",
+        "type": "scenario",
+        "keyword": "Scenario",
+        "steps": [
+          {
+            "result": {
+              "duration": 4604692,
+              "status": "passed"
+            },
+            "line": 49,
+            "name": "mock UserService is initialized",
+            "match": {
+              "location": "UserServiceSteps.mock_userservice_is_initialized()"
+            },
+            "keyword": "Given "
+          },
+          {
+            "result": {
+              "duration": 71842,
+              "status": "passed"
+            },
+            "line": 50,
+            "name": "expected null list of ids is initialized",
+            "match": {
+              "location": "UserServiceSteps.expected_null_list_of_ids_is_initialized()"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 250575,
+              "status": "passed"
+            },
+            "line": 51,
+            "name": "validateEmail() is called",
+            "match": {
+              "location": "UserServiceSteps.validateemail_is_called()"
+            },
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "duration": 439410,
+              "status": "passed"
+            },
+            "line": 52,
+            "name": "a list of ids is null for validateEmail",
+            "match": {
+              "location": "UserServiceSteps.a_list_of_ids_is_null_for_validateEmail()"
+            },
+            "keyword": "Then "
+          }
+        ]
+      },
+      {
+        "line": 54,
+        "name": "validateEmail returns empty list",
+        "description": "",
+        "id": "check-userservice;validateemail-returns-empty-list",
+        "type": "scenario",
+        "keyword": "Scenario",
+        "steps": [
+          {
+            "result": {
+              "duration": 6005098,
+              "status": "passed"
+            },
+            "line": 55,
+            "name": "mock UserService is initialized",
+            "match": {
+              "location": "UserServiceSteps.mock_userservice_is_initialized()"
+            },
+            "keyword": "Given "
+          },
+          {
+            "result": {
+              "duration": 66848,
+              "status": "passed"
+            },
+            "line": 56,
+            "name": "expected empty list of ids is initialized",
+            "match": {
+              "location": "UserServiceSteps.expected_empty_list_of_ids_is_initialized()"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 282014,
+              "status": "passed"
+            },
+            "line": 57,
+            "name": "validateEmail() is called",
+            "match": {
+              "location": "UserServiceSteps.validateemail_is_called()"
+            },
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "duration": 867860,
+              "status": "passed"
+            },
+            "line": 58,
+            "name": "a list of ids is empty for validateEmail",
+            "match": {
+              "location": "UserServiceSteps.a_list_of_ids_is_empty_for_validateEmail()"
+            },
+            "keyword": "Then "
+          }
+        ]
+      },
+      {
+        "comments": [
+          {
+            "line": 60,
+            "value": "# Test addUser"
+          }
+        ],
+        "line": 61,
+        "name": "addUser returns some ids",
+        "description": "",
+        "id": "check-userservice;adduser-returns-some-ids",
+        "type": "scenario",
+        "keyword": "Scenario",
+        "steps": [
+          {
+            "result": {
+              "duration": 4610943,
+              "status": "passed"
+            },
+            "line": 62,
+            "name": "mock UserService is initialized",
+            "match": {
+              "location": "UserServiceSteps.mock_userservice_is_initialized()"
+            },
+            "keyword": "Given "
+          },
+          {
+            "result": {
+              "duration": 61276,
+              "status": "passed"
+            },
+            "line": 63,
+            "name": "expected list of ids is initialized",
+            "match": {
+              "location": "UserServiceSteps.expected_list_of_ids_is_initialized()"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 266520,
+              "status": "passed"
+            },
+            "line": 64,
+            "name": "addUser() is called",
+            "match": {
+              "location": "UserServiceSteps.adduser_is_called()"
+            },
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "duration": 8898183,
+              "status": "passed"
+            },
+            "line": 65,
+            "name": "a list of ids is returned for addUser",
+            "match": {
+              "location": "UserServiceSteps.a_list_of_ids_is_returned_for_addUser()"
+            },
+            "keyword": "Then "
+          }
+        ]
+      },
+      {
+        "line": 67,
+        "name": "addUser returns null",
+        "description": "",
+        "id": "check-userservice;adduser-returns-null",
+        "type": "scenario",
+        "keyword": "Scenario",
+        "steps": [
+          {
+            "result": {
+              "duration": 973613,
+              "status": "passed"
+            },
+            "line": 68,
+            "name": "mock UserService is initialized",
+            "match": {
+              "location": "UserServiceSteps.mock_userservice_is_initialized()"
+            },
+            "keyword": "Given "
+          },
+          {
+            "result": {
+              "duration": 49127,
+              "status": "passed"
+            },
+            "line": 69,
+            "name": "expected null list of ids is initialized",
+            "match": {
+              "location": "UserServiceSteps.expected_null_list_of_ids_is_initialized()"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 193046,
+              "status": "passed"
+            },
+            "line": 70,
+            "name": "addUser() is called",
+            "match": {
+              "location": "UserServiceSteps.adduser_is_called()"
+            },
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "duration": 241468,
+              "status": "passed"
+            },
+            "line": 71,
+            "name": "a list of ids is null for addUser",
+            "match": {
+              "location": "UserServiceSteps.a_list_of_ids_is_null_for_addUser()"
+            },
+            "keyword": "Then "
+          }
+        ]
+      },
+      {
+        "line": 73,
+        "name": "addUser returns empty list",
+        "description": "",
+        "id": "check-userservice;adduser-returns-empty-list",
+        "type": "scenario",
+        "keyword": "Scenario",
+        "steps": [
+          {
+            "result": {
+              "duration": 4187716,
+              "status": "passed"
+            },
+            "line": 74,
+            "name": "mock UserService is initialized",
+            "match": {
+              "location": "UserServiceSteps.mock_userservice_is_initialized()"
+            },
+            "keyword": "Given "
+          },
+          {
+            "result": {
+              "duration": 55682,
+              "status": "passed"
+            },
+            "line": 75,
+            "name": "expected empty list of ids is initialized",
+            "match": {
+              "location": "UserServiceSteps.expected_empty_list_of_ids_is_initialized()"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 236306,
+              "status": "passed"
+            },
+            "line": 76,
+            "name": "addUser() is called",
+            "match": {
+              "location": "UserServiceSteps.adduser_is_called()"
+            },
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "duration": 355536,
+              "status": "passed"
+            },
+            "line": 77,
+            "name": "a list of ids is empty for addUser",
+            "match": {
+              "location": "UserServiceSteps.a_list_of_ids_is_empty_for_addUser()"
+            },
+            "keyword": "Then "
+          }
+        ]
+      },
+      {
+        "comments": [
+          {
+            "line": 79,
+            "value": "# Test verifyUser"
+          }
+        ],
+        "line": 80,
+        "name": "verifyUser is called successfully",
+        "description": "",
+        "id": "check-userservice;verifyuser-is-called-successfully",
+        "type": "scenario",
+        "keyword": "Scenario",
+        "steps": [
+          {
+            "result": {
+              "duration": 1047836,
+              "status": "passed"
+            },
+            "line": 81,
+            "name": "mock UserService is initialized",
+            "match": {
+              "location": "UserServiceSteps.mock_userservice_is_initialized()"
+            },
+            "keyword": "Given "
+          },
+          {
+            "result": {
+              "duration": 265859,
+              "status": "passed"
+            },
+            "line": 82,
+            "name": "verifyUser() is called",
+            "match": {
+              "location": "UserServiceSteps.verifyuser_is_called()"
+            },
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "duration": 287009,
+              "status": "passed"
+            },
+            "line": 83,
+            "name": "verifyUser is successfully called",
+            "match": {
+              "location": "UserServiceSteps.verifyuser_is_successfully_called()"
+            },
+            "keyword": "Then "
+          }
+        ]
+      },
+      {
+        "comments": [
+          {
+            "line": 85,
+            "value": "# Test resetPswd"
+          }
+        ],
+        "line": 86,
+        "name": "resetPswd is called successfully",
+        "description": "",
+        "id": "check-userservice;resetpswd-is-called-successfully",
+        "type": "scenario",
+        "keyword": "Scenario",
+        "steps": [
+          {
+            "result": {
+              "duration": 1695685,
+              "status": "passed"
+            },
+            "line": 87,
+            "name": "mock UserService is initialized",
+            "match": {
+              "location": "UserServiceSteps.mock_userservice_is_initialized()"
+            },
+            "keyword": "Given "
+          },
+          {
+            "result": {
+              "duration": 438115,
+              "status": "passed"
+            },
+            "line": 88,
+            "name": "resetPswd() is called",
+            "match": {
+              "location": "UserServiceSteps.resetpswd_is_called()"
+            },
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "duration": 411532,
+              "status": "passed"
+            },
+            "line": 89,
+            "name": "resetPswd is successfully called",
+            "match": {
+              "location": "UserServiceSteps.resetpswd_is_successfully_called()"
+            },
+            "keyword": "Then "
+          }
+        ]
+      },
+      {
+        "comments": [
+          {
+            "line": 91,
+            "value": "# Test getUserInfoWithEmail"
+          }
+        ],
+        "line": 92,
+        "name": "getUserInfoWithEmail returns some passwords",
+        "description": "",
+        "id": "check-userservice;getuserinfowithemail-returns-some-passwords",
+        "type": "scenario",
+        "keyword": "Scenario",
+        "steps": [
+          {
+            "result": {
+              "duration": 1065110,
+              "status": "passed"
+            },
+            "line": 93,
+            "name": "mock UserService is initialized",
+            "match": {
+              "location": "UserServiceSteps.mock_userservice_is_initialized()"
+            },
+            "keyword": "Given "
+          },
+          {
+            "result": {
+              "duration": 178034,
+              "status": "passed"
+            },
+            "line": 94,
+            "name": "expected list of passwords is initialized",
+            "match": {
+              "location": "UserServiceSteps.expected_list_of_passwords_is_initialized()"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 234642,
+              "status": "passed"
+            },
+            "line": 95,
+            "name": "getUserInfoWithEmail() is called",
+            "match": {
+              "location": "UserServiceSteps.getuserinfowithemail_is_called()"
+            },
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "duration": 332175,
+              "status": "passed"
+            },
+            "line": 96,
+            "name": "a list of passwords is returned for getUserInfoWithEmail",
+            "match": {
+              "location": "UserServiceSteps.a_list_of_passwords_is_returned_for_getUserInfoWithEmail()"
+            },
+            "keyword": "Then "
+          }
+        ]
+      },
+      {
+        "line": 98,
+        "name": "getUserInfoWithEmail returns null",
+        "description": "",
+        "id": "check-userservice;getuserinfowithemail-returns-null",
+        "type": "scenario",
+        "keyword": "Scenario",
+        "steps": [
+          {
+            "result": {
+              "duration": 2535424,
+              "status": "passed"
+            },
+            "line": 99,
+            "name": "mock UserService is initialized",
+            "match": {
+              "location": "UserServiceSteps.mock_userservice_is_initialized()"
+            },
+            "keyword": "Given "
+          },
+          {
+            "result": {
+              "duration": 83981,
+              "status": "passed"
+            },
+            "line": 100,
+            "name": "expected null list of passwords is initialized",
+            "match": {
+              "location": "UserServiceSteps.expected_null_list_of_passwords_is_initialized()"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 210094,
+              "status": "passed"
+            },
+            "line": 101,
+            "name": "getUserInfoWithEmail() is called",
+            "match": {
+              "location": "UserServiceSteps.getuserinfowithemail_is_called()"
+            },
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "duration": 1711727,
+              "status": "passed"
+            },
+            "line": 102,
+            "name": "a list of passwords is null for getUserInfoWithEmail",
+            "match": {
+              "location": "UserServiceSteps.a_list_of_passwords_is_null_for_getUserInfoWithEmail()"
+            },
+            "keyword": "Then "
+          }
+        ]
+      },
+      {
+        "line": 104,
+        "name": "addUser returns empty list",
+        "description": "",
+        "id": "check-userservice;adduser-returns-empty-list",
+        "type": "scenario",
+        "keyword": "Scenario",
+        "steps": [
+          {
+            "result": {
+              "duration": 3967399,
+              "status": "passed"
+            },
+            "line": 105,
+            "name": "mock UserService is initialized",
+            "match": {
+              "location": "UserServiceSteps.mock_userservice_is_initialized()"
+            },
+            "keyword": "Given "
+          },
+          {
+            "result": {
+              "duration": 67028,
+              "status": "passed"
+            },
+            "line": 106,
+            "name": "expected empty list of passwords is initialized",
+            "match": {
+              "location": "UserServiceSteps.expected_empty_list_of_passwords_is_initialized()"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 207628,
+              "status": "passed"
+            },
+            "line": 107,
+            "name": "getUserInfoWithEmail() is called",
+            "match": {
+              "location": "UserServiceSteps.getuserinfowithemail_is_called()"
+            },
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "duration": 298380,
+              "status": "passed"
+            },
+            "line": 108,
+            "name": "a list of passwords is empty for getUserInfoWithEmail",
+            "match": {
+              "location": "UserServiceSteps.a_list_of_passwords_is_empty_for_getUserInfoWithEmail()"
+            },
+            "keyword": "Then "
+          }
+        ]
+      },
+      {
+        "comments": [
+          {
+            "line": 110,
+            "value": "# Test addNewAdmin"
+          }
+        ],
+        "line": 111,
+        "name": "addNewAdmin returns some ids",
+        "description": "",
+        "id": "check-userservice;addnewadmin-returns-some-ids",
+        "type": "scenario",
+        "keyword": "Scenario",
+        "steps": [
+          {
+            "result": {
+              "duration": 1224767,
+              "status": "passed"
+            },
+            "line": 112,
+            "name": "mock UserService is initialized",
+            "match": {
+              "location": "UserServiceSteps.mock_userservice_is_initialized()"
+            },
+            "keyword": "Given "
+          },
+          {
+            "result": {
+              "duration": 56823,
+              "status": "passed"
+            },
+            "line": 113,
+            "name": "expected list of ids is initialized",
+            "match": {
+              "location": "UserServiceSteps.expected_list_of_ids_is_initialized()"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 227784,
+              "status": "passed"
+            },
+            "line": 114,
+            "name": "addNewAdmin() is called",
+            "match": {
+              "location": "UserServiceSteps.addnewadmin_is_called()"
+            },
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "duration": 293849,
+              "status": "passed"
+            },
+            "line": 115,
+            "name": "a list of ids is returned for addNewAdmin",
+            "match": {
+              "location": "UserServiceSteps.a_list_of_ids_is_returned_for_addNewAdmin()"
+            },
+            "keyword": "Then "
+          }
+        ]
+      },
+      {
+        "line": 117,
+        "name": "addNewAdmin returns null",
+        "description": "",
+        "id": "check-userservice;addnewadmin-returns-null",
+        "type": "scenario",
+        "keyword": "Scenario",
+        "steps": [
+          {
+            "result": {
+              "duration": 5289739,
+              "status": "passed"
+            },
+            "line": 118,
+            "name": "mock UserService is initialized",
+            "match": {
+              "location": "UserServiceSteps.mock_userservice_is_initialized()"
+            },
+            "keyword": "Given "
+          },
+          {
+            "result": {
+              "duration": 56112,
+              "status": "passed"
+            },
+            "line": 119,
+            "name": "expected null list of ids is initialized",
+            "match": {
+              "location": "UserServiceSteps.expected_null_list_of_ids_is_initialized()"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 189773,
+              "status": "passed"
+            },
+            "line": 120,
+            "name": "addNewAdmin() is called",
+            "match": {
+              "location": "UserServiceSteps.addnewadmin_is_called()"
+            },
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "duration": 259269,
+              "status": "passed"
+            },
+            "line": 121,
+            "name": "a list of ids is null for addNewAdmin",
+            "match": {
+              "location": "UserServiceSteps.a_list_of_ids_is_null_for_addNewAdmin()"
+            },
+            "keyword": "Then "
+          }
+        ]
+      },
+      {
+        "line": 123,
+        "name": "addNewAdmin returns empty list",
+        "description": "",
+        "id": "check-userservice;addnewadmin-returns-empty-list",
+        "type": "scenario",
+        "keyword": "Scenario",
+        "steps": [
+          {
+            "result": {
+              "duration": 929219,
+              "status": "passed"
+            },
+            "line": 124,
+            "name": "mock UserService is initialized",
+            "match": {
+              "location": "UserServiceSteps.mock_userservice_is_initialized()"
+            },
+            "keyword": "Given "
+          },
+          {
+            "result": {
+              "duration": 92223,
+              "status": "passed"
+            },
+            "line": 125,
+            "name": "expected empty list of ids is initialized",
+            "match": {
+              "location": "UserServiceSteps.expected_empty_list_of_ids_is_initialized()"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 1583921,
+              "status": "passed"
+            },
+            "line": 126,
+            "name": "addNewAdmin() is called",
+            "match": {
+              "location": "UserServiceSteps.addnewadmin_is_called()"
+            },
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "duration": 5752297,
+              "status": "passed"
+            },
+            "line": 127,
+            "name": "a list of ids is empty for addNewAdmin",
+            "match": {
+              "location": "UserServiceSteps.a_list_of_ids_is_empty_for_addNewAdmin()"
+            },
+            "keyword": "Then "
+          }
+        ]
+      },
+      {
+        "comments": [
+          {
+            "line": 129,
+            "value": "# Test addNewManager"
+          }
+        ],
+        "line": 130,
+        "name": "addNewManager returns some ids",
+        "description": "",
+        "id": "check-userservice;addnewmanager-returns-some-ids",
+        "type": "scenario",
+        "keyword": "Scenario",
+        "steps": [
+          {
+            "result": {
+              "duration": 1032748,
+              "status": "passed"
+            },
+            "line": 131,
+            "name": "mock UserService is initialized",
+            "match": {
+              "location": "UserServiceSteps.mock_userservice_is_initialized()"
+            },
+            "keyword": "Given "
+          },
+          {
+            "result": {
+              "duration": 59882,
+              "status": "passed"
+            },
+            "line": 132,
+            "name": "expected list of ids is initialized",
+            "match": {
+              "location": "UserServiceSteps.expected_list_of_ids_is_initialized()"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 580087,
+              "status": "passed"
+            },
+            "line": 133,
+            "name": "addNewManager() is called",
+            "match": {
+              "location": "UserServiceSteps.addnewmanager_is_called()"
+            },
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "duration": 349165,
+              "status": "passed"
+            },
+            "line": 134,
+            "name": "a list of ids is returned for addNewManager",
+            "match": {
+              "location": "UserServiceSteps.a_list_of_ids_is_returned_for_addNewManager()"
+            },
+            "keyword": "Then "
+          }
+        ]
+      },
+      {
+        "line": 136,
+        "name": "addNewManager returns null",
+        "description": "",
+        "id": "check-userservice;addnewmanager-returns-null",
+        "type": "scenario",
+        "keyword": "Scenario",
+        "steps": [
+          {
+            "result": {
+              "duration": 2017401,
+              "status": "passed"
+            },
+            "line": 137,
+            "name": "mock UserService is initialized",
+            "match": {
+              "location": "UserServiceSteps.mock_userservice_is_initialized()"
+            },
+            "keyword": "Given "
+          },
+          {
+            "result": {
+              "duration": 53047,
+              "status": "passed"
+            },
+            "line": 138,
+            "name": "expected null list of ids is initialized",
+            "match": {
+              "location": "UserServiceSteps.expected_null_list_of_ids_is_initialized()"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 219884,
+              "status": "passed"
+            },
+            "line": 139,
+            "name": "addNewManager() is called",
+            "match": {
+              "location": "UserServiceSteps.addnewmanager_is_called()"
+            },
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "duration": 277180,
+              "status": "passed"
+            },
+            "line": 140,
+            "name": "a list of ids is null for addNewManager",
+            "match": {
+              "location": "UserServiceSteps.a_list_of_ids_is_null_for_addNewManager()"
+            },
+            "keyword": "Then "
+          }
+        ]
+      },
+      {
+        "line": 142,
+        "name": "addNewManager returns empty list",
+        "description": "",
+        "id": "check-userservice;addnewmanager-returns-empty-list",
+        "type": "scenario",
+        "keyword": "Scenario",
+        "steps": [
+          {
+            "result": {
+              "duration": 658502,
+              "status": "passed"
+            },
+            "line": 143,
+            "name": "mock UserService is initialized",
+            "match": {
+              "location": "UserServiceSteps.mock_userservice_is_initialized()"
+            },
+            "keyword": "Given "
+          },
+          {
+            "result": {
+              "duration": 40257,
+              "status": "passed"
+            },
+            "line": 144,
+            "name": "expected empty list of ids is initialized",
+            "match": {
+              "location": "UserServiceSteps.expected_empty_list_of_ids_is_initialized()"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 599075,
+              "status": "passed"
+            },
+            "line": 145,
+            "name": "addNewManager() is called",
+            "match": {
+              "location": "UserServiceSteps.addnewmanager_is_called()"
+            },
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "duration": 468819,
+              "status": "passed"
+            },
+            "line": 146,
+            "name": "a list of ids is empty for addNewManager",
+            "match": {
+              "location": "UserServiceSteps.a_list_of_ids_is_empty_for_addNewManager()"
             },
             "keyword": "Then "
           }
         ]
       }
     ],
-    "name": "Check UserDelegate",
+    "name": "Check UserService",
     "description": "",
-    "id": "check-userdelegate",
+    "id": "check-userservice",
     "keyword": "Feature",
-    "uri": "cucumber/UserDelegate.feature"
+    "uri": "cucumber/UserService.feature"
   }
 ]
