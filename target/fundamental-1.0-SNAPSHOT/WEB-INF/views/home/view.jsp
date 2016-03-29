@@ -34,13 +34,11 @@
                                                     });
                                         });
                             });
-<<<<<<< HEAD
-                    $scope.cart= function(vw){
+                    $scope.cart= function(vw) {
                         console.log(vw);
 
                         /* Check number of products */
-                        if(document.getElementById('exampleInputPassword1' + vw.item_id).value.match(/^[-]?[0]+$/))
-                        {
+                        if (document.getElementById('exampleInputPassword1' + vw.item_id).value.match(/^[-]?[0]+$/)) {
                             document.getElementById('lbltipAddedComment' + vw.item_id).innerHTML = 'Number of products cannot be 0';
                         } else if (document.getElementById("exampleInputPassword1" + vw.item_id).value < 0) {
                             document.getElementById('lbltipAddedComment' + vw.item_id).innerHTML = 'Number of products must be a positive integer';
@@ -51,7 +49,7 @@
                         } else {
                             $http.post('addCart', {
                                         itemsBean: vw,
-                                        user_id:$scope.userInfo.id,
+                                        user_id: $scope.userInfo.id,
                                         quantity: vw.noofpieces,
                                         price: vw.price
                                     })
@@ -61,35 +59,34 @@
                                         window.location.href = "/view";
                                     });
                         }
-=======
-                    $scope.viewInventory = function() {
+                    };
+                    $scope.viewInventory = function () {
                         $http.post('list')
                                 .success(function (other) {
                                     $scope.list = other;
                                     console.log($scope.list);
                                 });
-                    }
-                    $scope.cart= function(vw){
+                    };
+                    $scope.cart = function (vw) {
                         console.log(vw);
                         $http.post('addCart', {
                                     itemsBean: vw,
-                                    user_id:$scope.userInfo.id,
+                                    user_id: $scope.userInfo.id,
                                     quantity: vw.noofpieces,
                                     price: vw.price
                                 })
                                 .success(function (response) {
                                     console.log(response);
                                 });
->>>>>>> 6e57bb761b8e1f29e3758adce7226e932ef9f728
                     };
-                    $scope.search = function(searchTerm) {
+                    $scope.search = function (searchTerm) {
                         $scope.searchBool = true;
                         console.log(searchTerm);
-                        if(searchTerm != "") {
+                        if (searchTerm != "") {
                             $http.post('listResults', {
                                         searchTerm
                                     })
-                                    .success( function (response) {
+                                    .success(function (response) {
                                         $scope.searchList = response;
                                         console.log($scope.searchList);
                                     });
@@ -251,7 +248,6 @@
                                         </div>
                                         <div class="form-group">
                                             <div>
-<<<<<<< HEAD
                                                 <span class="button-checkbox center-block" align="center" style='color:#FF0000'>
                                                     <label id="lbltipAddedComment{{vw.item_id}}"></label>
                                                 </span>
@@ -263,10 +259,8 @@
                                                             </span>
                                                             {{vw.price * vw.noofpieces}}
                                                         </span> Total Price</a>
-=======
                                                 <ul>
                                                     <li class="active"><a href="#"><span class="badge pull-right"><span class="glyphicon glyphicon-usd"></span>{{vw.price * vw.noofpieces}}</span> Total Price</a>
->>>>>>> 6e57bb761b8e1f29e3758adce7226e932ef9f728
                                                     </li>
                                                 </ul>
                                                 <input type="hidden" value="{{vw.price * vw.noofpieces}}" ng-model="vw.totalPrice">
