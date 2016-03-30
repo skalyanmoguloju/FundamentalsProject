@@ -1,4 +1,5 @@
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%--
   Created by IntelliJ IDEA.
   User: sai
@@ -10,6 +11,7 @@
 <html>
 <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
 <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-cookies.js"></script>
+<link href="<c:url value="/resources/css/main.css" />" rel="stylesheet">
 <script>
     angular.module('myApp', ['ngCookies'])
             .controller('HomeCtrl', ['$scope', '$rootScope','$http','$cookies','$filter',
@@ -100,27 +102,6 @@
                     };
                 }]);
 </script>
-<style type="text/css">
-    .center {
-        margin-top:50px;
-    }
-    .modal-header {
-        padding-bottom: 5px;
-    }
-    .modal-footer {
-        padding: 0;
-    }
-    .modal-footer .btn-group button {
-        height:40px;
-        border-top-left-radius : 0;
-        border-top-right-radius : 0;
-        border: none;
-        border-right: 1px solid #ddd;
-    }
-    .modal-footer .btn-group:last-child > button {
-        border-right: 0;
-    }
-</style>
 <head>
     <title></title>
     <link rel='stylesheet' href='webjars/bootstrap/3.2.0/css/bootstrap.min.css'>
@@ -135,79 +116,11 @@
         <jsp:include page="header.jsp" />
         <!DOCTYPE html>
         <html>
-        <head>
-            <title>Search Box Example 2 - default placeholder text gets cleared on click</title>
-            <meta name="ROBOTS" content="NOINDEX, NOFOLLOW" />
-            <!-- Add jQuery to your website if you don't have it already -->
-            <script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js"></script>
-            <!-- JAVASCRIPT to clear search text when the field is clicked -->
-            <script type="text/javascript">
-                $(function() {
-                    $("#tfq2b").click(function() {
-                        if ($("#tfq2b").val() == "Search our website"){
-                            $("#tfq2b").val("");
-                        }
-                    });
-                });
-            </script>
-            <!-- CSS styles for standard search box with placeholder text-->
-            <style type="text/css">
-                #tfheader{
-                    background-color:#c3dfef;
-                }
-                #tfnewsearch{
-                    float:right;
-                    padding:20px;
-                }
-                .tftextinput2{
-                    margin: 0;
-                    padding: 5px 15px;
-                    font-family: Arial, Helvetica, sans-serif;
-                    font-size:14px;
-                    color:#666;
-                    border:1px solid #0076a3; border-right:0px;
-                    border-top-left-radius: 5px 5px;
-                    border-bottom-left-radius: 5px 5px;
-                }
-                .tfbutton2 {
-                    margin: 0;
-                    padding: 5px 7px;
-                    font-family: Arial, Helvetica, sans-serif;
-                    font-size:14px;
-                    font-weight:bold;
-                    outline: none;
-                    cursor: pointer;
-                    text-align: center;
-                    text-decoration: none;
-                    color: #ffffff;
-                    border: solid 1px #0076a3; border-right:0px;
-                    background: #0095cd;
-                    background: -webkit-gradient(linear, left top, left bottom, from(#00adee), to(#0078a5));
-                    background: -moz-linear-gradient(top,  #00adee,  #0078a5);
-                    border-top-right-radius: 5px 5px;
-                    border-bottom-right-radius: 5px 5px;
-                }
-                .tfbutton2:hover {
-                    text-decoration: none;
-                    background: #007ead;
-                    background: -webkit-gradient(linear, left top, left bottom, from(#0095cc), to(#00678e));
-                    background: -moz-linear-gradient(top,  #0095cc,  #00678e);
-                }
-                /* Fixes submit button height problem in Firefox */
-                .tfbutton2::-moz-focus-inner {
-                    border: 0;
-                }
-                .tfclear{
-                    clear:both;
-                }
-            </style>
-        </head>
         <body>
-        <!-- HTML for SEARCH BAR -->
         <div id="tfheader">
             <form id="tfnewsearch" ng-submit="search(searchTerm)">
-                <input type="text" id="tfq2b" class="tftextinput2" name="q" size="21" maxlength="120" value="Search our website" placeholder="Search.." ng-model="searchTerm">
-                <input type="submit" value=">" class="tfbutton2">
+                <input type="text" id="tfq2b" class="tftextinput2" name="q" size="21" maxlength="120" value="Search our inventory" placeholder="Search our inventory" ng-model="searchTerm">
+                <input type="submit" value="Search" class="tfbutton2">
             </form>
             <div class="tfclear"></div>
         </div>
