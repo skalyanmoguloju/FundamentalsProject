@@ -79,19 +79,20 @@
                                         searchTerm
                                     })
                                     .success(function (response) {
-                                        $scope.searchList = response;
-                                        console.log($scope.searchList);
+                                        $scope.searchBool = false;
+                                        $scope.list = response;
+                                        console.log($scope.list);
                                     });
                         } else {
                             $scope.searchBool = false;
-                            $scope.searchList = $scope.list;
+                            $scope.viewInventory();
                         }
 
                     };
                 }]);
 </script>
 <head>
-    <title></title>
+    <title>View Items</title>
     <link rel='stylesheet' href='webjars/bootstrap/3.2.0/css/bootstrap.min.css'>
 </head>
 <body>
@@ -114,7 +115,6 @@
         </div>
         </body>
         </html>
-
 
         <section class="col-xs-12 col-sm-6 col-md-12" ng-model = "list" ng-hide="searchBool">
             <article class="search-result row" ng-repeat = "vw in list">
@@ -154,7 +154,6 @@
                                                 <span class="button-checkbox center-block" align="center" style='color:#FF0000'>
                                                     <label id="lbltipAddedComment{{vw.item_id}}"></label>
                                                 </span>
-
                                                 <ul>
                                                     <li class="active"><a href="#"><span class="badge pull-right"><span class="glyphicon glyphicon-usd"></span>{{vw.price * vw.noofpieces}}</span> Total Price</a>
                                                     </li>
