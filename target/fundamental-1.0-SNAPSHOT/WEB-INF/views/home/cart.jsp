@@ -87,7 +87,7 @@
                             return false;
                         }
                         if (!document.getElementById('expityDate').value.match(/^(([0][1-9])|([1][1-2]))[/][0-9][0-9]$/)) {
-                            document.getElementById('lbltipAddedCommentCard').innerHTML = 'EXP Date is not valid';
+                            document.getElementById('lbltipAddedCommentCard').innerHTML = 'EXP Year is not valid';
                             return false;
                         }
                         var twoDigitsCurrentMonth = parseInt(new Date().getMonth());
@@ -120,7 +120,13 @@
                         /* Check Quantity */
                         var msg = '';
                         for (var i=0; i<$scope.cart.length; i++) {
-                            if ($scope.cart[i].quantity > 0 && ($scope.cart[i].quantity % 1 === 0)) {
+                            console.log($scope.cart[i].quantity);
+                            console.log($scope.cart[i].itemsBean.onsale_count);
+                            if ($scope.cart[i].itemsBean.onsale_count == 0) {
+                                msg += 'Product "' + $scope.cart[i].itemsBean.item_name + '" is out of stock, Please delete it!'  + '<br/>';
+                            } else if ($scope.cart[i].quantity > $scope.cart[i].itemsBean.onsale_count) {
+                                msg += 'Quantity from product "' + $scope.cart[i].itemsBean.item_name + '" is greater than available, only ' + $scope.cart[i].itemsBean.onsale_count + ' available!'  + '<br/>';
+                            } else if ($scope.cart[i].quantity > 0 && ($scope.cart[i].quantity % 1 === 0)) {
                                 // do nothing
                             } else if ($scope.cart[i].quantity == 0) {
                                 msg += 'Quantity from product "' + $scope.cart[i].itemsBean.item_name + '" cannot be 0' + '<br/>';

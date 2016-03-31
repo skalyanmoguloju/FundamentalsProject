@@ -10,7 +10,7 @@ import org.junit.runner.RunWith;
 @RunWith(Cucumber.class)
 @CucumberOptions(
         format = { "pretty", "json:target/cucumber" },
-        features = "classpath:cucumber/SalesDelegate.feature"
+        features = "classpath:cucumber/UserDelegate.feature"
 )
 public class SalesDelegateRunner {
 }
