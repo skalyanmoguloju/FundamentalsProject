@@ -49,6 +49,7 @@
                                             document.getElementById('lbltipAddedComment').innerHTML = 'Error in adding item! Please try again';
                                         } else {
                                             alert("Successfully added item named '" + response[0] + "' !");
+                                            window.location.href = "/add item";
                                         }
 
                                     });

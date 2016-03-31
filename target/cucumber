@@ -3,190 +3,264 @@
     "line": 1,
     "elements": [
       {
-        "comments": [
-          {
-            "line": 3,
-            "value": "#"
-          },
-          {
-            "line": 4,
-            "value": "# Check mapUserBean()"
-          },
-          {
-            "line": 5,
-            "value": "#"
-          }
-        ],
-        "line": 6,
-        "name": "mapUserBean returns userBean",
+        "line": 3,
+        "name": "2 random keys are different",
         "description": "",
-        "id": "check-userbeanmapper;mapuserbean-returns-userbean",
+        "id": "check-emailverification;2-random-keys-are-different",
         "type": "scenario",
         "keyword": "Scenario",
         "steps": [
           {
             "result": {
-              "duration": 6911209,
+              "duration": 5223298,
               "status": "passed"
             },
-            "line": 7,
-            "name": "UserBeanMapper is initialized",
+            "line": 4,
+            "name": "I have an EmailVerification",
             "match": {
-              "location": "UserBeanMapperSteps.userbeanmapper_is_initialized()"
+              "location": "EmailVerificationSteps.i_have_an_EmailVerification()"
             },
             "keyword": "Given "
           },
           {
             "result": {
-              "duration": 598584,
+              "duration": 4667402,
               "status": "passed"
             },
-            "line": 8,
-            "name": "mapUserBean is called for UserBeanMapper",
+            "line": 5,
+            "name": "I generate 2 key(s)",
             "match": {
-              "location": "UserBeanMapperSteps.mapUserBean_is_called_for_UserBeanMapper()"
+              "arguments": [
+                {
+                  "val": "2",
+                  "offset": 11
+                }
+              ],
+              "location": "EmailVerificationSteps.i_generate_key_s(int)"
             },
             "keyword": "When "
           },
           {
             "result": {
-              "duration": 583791,
+              "duration": 1889436,
+              "status": "passed"
+            },
+            "line": 6,
+            "name": "they should be different",
+            "match": {
+              "location": "EmailVerificationSteps.they_should_be_different()"
+            },
+            "keyword": "Then "
+          }
+        ]
+      },
+      {
+        "line": 8,
+        "name": "2 random keys are different",
+        "description": "",
+        "id": "check-emailverification;2-random-keys-are-different",
+        "type": "scenario",
+        "keyword": "Scenario",
+        "steps": [
+          {
+            "result": {
+              "duration": 442257,
               "status": "passed"
             },
             "line": 9,
-            "name": "mapUserBean returns a userBean",
+            "name": "I have an EmailVerification",
             "match": {
-              "location": "UserBeanMapperSteps.mapuserbean_returns_a_userBean()"
+              "location": "EmailVerificationSteps.i_have_an_EmailVerification()"
+            },
+            "keyword": "Given "
+          },
+          {
+            "result": {
+              "duration": 966379,
+              "status": "passed"
+            },
+            "line": 10,
+            "name": "I generate 4 key(s)",
+            "match": {
+              "arguments": [
+                {
+                  "val": "4",
+                  "offset": 11
+                }
+              ],
+              "location": "EmailVerificationSteps.i_generate_key_s(int)"
+            },
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "duration": 203755,
+              "status": "passed"
+            },
+            "line": 11,
+            "name": "they should be different",
+            "match": {
+              "location": "EmailVerificationSteps.they_should_be_different()"
             },
             "keyword": "Then "
           }
         ]
       },
       {
-        "comments": [
-          {
-            "line": 11,
-            "value": "#"
-          },
-          {
-            "line": 12,
-            "value": "# Check mapBeanToUser()"
-          },
-          {
-            "line": 13,
-            "value": "#"
-          }
-        ],
-        "line": 14,
-        "name": "mapBeanToUser returns user",
+        "line": 13,
+        "name": "a return key is a random UUID",
         "description": "",
-        "id": "check-userbeanmapper;mapbeantouser-returns-user",
+        "id": "check-emailverification;a-return-key-is-a-random-uuid",
         "type": "scenario",
         "keyword": "Scenario",
         "steps": [
           {
             "result": {
-              "duration": 350732,
+              "duration": 283147,
+              "status": "passed"
+            },
+            "line": 14,
+            "name": "I have an EmailVerification",
+            "match": {
+              "location": "EmailVerificationSteps.i_have_an_EmailVerification()"
+            },
+            "keyword": "Given "
+          },
+          {
+            "result": {
+              "duration": 309292,
               "status": "passed"
             },
             "line": 15,
-            "name": "UserBeanMapper is initialized",
+            "name": "I generate 1 key(s)",
             "match": {
-              "location": "UserBeanMapperSteps.userbeanmapper_is_initialized()"
-            },
-            "keyword": "Given "
-          },
-          {
-            "result": {
-              "duration": 253003,
-              "status": "passed"
-            },
-            "line": 16,
-            "name": "mapBeanToUser is called for UserBeanMapper",
-            "match": {
-              "location": "UserBeanMapperSteps.mapBeanToUser_is_called_for_UserBeanMapper()"
+              "arguments": [
+                {
+                  "val": "1",
+                  "offset": 11
+                }
+              ],
+              "location": "EmailVerificationSteps.i_generate_key_s(int)"
             },
             "keyword": "When "
           },
           {
             "result": {
-              "duration": 270355,
+              "duration": 432965,
               "status": "passed"
             },
-            "line": 17,
-            "name": "mapBeanToUser returns an user",
+            "line": 16,
+            "name": "each key should have the same length as a random UUID",
             "match": {
-              "location": "UserBeanMapperSteps.mapbeantouser_returns_an_user()"
+              "location": "EmailVerificationSteps.it_should_have_the_same_length_as_a_random_UUID()"
             },
             "keyword": "Then "
           }
         ]
       },
       {
-        "comments": [
-          {
-            "line": 19,
-            "value": "#"
-          },
-          {
-            "line": 20,
-            "value": "# Check mapUserBean(List)"
-          },
-          {
-            "line": 21,
-            "value": "#"
-          }
-        ],
-        "line": 22,
-        "name": "mapUserBean(List) returns list of userBeans",
+        "line": 18,
+        "name": "each return key is a random UUID",
         "description": "",
-        "id": "check-userbeanmapper;mapuserbean(list)-returns-list-of-userbeans",
+        "id": "check-emailverification;each-return-key-is-a-random-uuid",
         "type": "scenario",
         "keyword": "Scenario",
         "steps": [
           {
             "result": {
-              "duration": 336275,
+              "duration": 222462,
               "status": "passed"
             },
-            "line": 23,
-            "name": "UserBeanMapper is initialized",
+            "line": 19,
+            "name": "I have an EmailVerification",
             "match": {
-              "location": "UserBeanMapperSteps.userbeanmapper_is_initialized()"
+              "location": "EmailVerificationSteps.i_have_an_EmailVerification()"
             },
             "keyword": "Given "
           },
           {
             "result": {
-              "duration": 448175,
+              "duration": 571547,
               "status": "passed"
             },
-            "line": 24,
-            "name": "mapUserBeanList is called for UserBeanMapper",
+            "line": 20,
+            "name": "I generate 3 key(s)",
             "match": {
-              "location": "UserBeanMapperSteps.mapuserbeanlist_is_called_for_UserBeanMapper()"
+              "arguments": [
+                {
+                  "val": "3",
+                  "offset": 11
+                }
+              ],
+              "location": "EmailVerificationSteps.i_generate_key_s(int)"
             },
             "keyword": "When "
           },
           {
             "result": {
-              "duration": 414957,
+              "duration": 2570040,
+              "status": "passed"
+            },
+            "line": 21,
+            "name": "each key should have the same length as a random UUID",
+            "match": {
+              "location": "EmailVerificationSteps.it_should_have_the_same_length_as_a_random_UUID()"
+            },
+            "keyword": "Then "
+          }
+        ]
+      },
+      {
+        "line": 23,
+        "name": "a return key after executing sendEmailVerificationLink is a random UUID",
+        "description": "",
+        "id": "check-emailverification;a-return-key-after-executing-sendemailverificationlink-is-a-random-uuid",
+        "type": "scenario",
+        "keyword": "Scenario",
+        "steps": [
+          {
+            "result": {
+              "duration": 462416,
+              "status": "passed"
+            },
+            "line": 24,
+            "name": "I have an EmailVerification",
+            "match": {
+              "location": "EmailVerificationSteps.i_have_an_EmailVerification()"
+            },
+            "keyword": "Given "
+          },
+          {
+            "result": {
+              "duration": 4173289079,
               "status": "passed"
             },
             "line": 25,
-            "name": "mapUserBeanList returns a list of userBeans",
+            "name": "I call sendEmailVerificationLink",
             "match": {
-              "location": "UserBeanMapperSteps.mapuserbeanlist_returns_a_list_of_userBeans()"
+              "location": "EmailVerificationSteps.i_call_sendEmailVerificationLink()"
+            },
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "duration": 259554,
+              "status": "passed"
+            },
+            "line": 26,
+            "name": "it should return a key having the same length as a random UUID",
+            "match": {
+              "location": "EmailVerificationSteps.it_should_return_a_key_having_the_same_length_as_a_random_UUID()"
             },
             "keyword": "Then "
           }
         ]
       }
     ],
-    "name": "Check UserBeanMapper",
+    "name": "Check EmailVerification",
     "description": "",
-    "id": "check-userbeanmapper",
+    "id": "check-emailverification",
     "keyword": "Feature",
-    "uri": "cucumber/UserBeanMapper.feature"
+    "uri": "cucumber/EmailVerification.feature"
   }
 ]
