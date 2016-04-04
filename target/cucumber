@@ -4,51 +4,57 @@
     "elements": [
       {
         "line": 3,
-        "name": "2 random keys are different",
+        "name": "getOrder_id returns order_id",
         "description": "",
-        "id": "check-emailverification;2-random-keys-are-different",
+        "id": "check-orders;getorder-id-returns-order-id",
         "type": "scenario",
         "keyword": "Scenario",
         "steps": [
           {
             "result": {
-              "duration": 3739270,
+              "duration": 155840925,
               "status": "passed"
             },
             "line": 4,
-            "name": "I have an EmailVerification",
+            "name": "Orders is set up",
             "match": {
-              "location": "EmailVerificationSteps.i_have_an_EmailVerification()"
+              "location": "OrdersSteps.orders_is_set_up()"
             },
             "keyword": "Given "
           },
           {
             "result": {
-              "duration": 4556164,
+              "duration": 17936280,
               "status": "passed"
             },
             "line": 5,
-            "name": "I generate 2 key(s)",
+            "name": "order_id 1 is set",
             "match": {
               "arguments": [
                 {
-                  "val": "2",
-                  "offset": 11
+                  "val": "1",
+                  "offset": 9
                 }
               ],
-              "location": "EmailVerificationSteps.i_generate_key_s(int)"
+              "location": "OrdersSteps.order_id_is_set(int)"
             },
             "keyword": "When "
           },
           {
             "result": {
-              "duration": 81199,
+              "duration": 17986411,
               "status": "passed"
             },
             "line": 6,
-            "name": "they should be different",
+            "name": "getOrder_id returns order_id 1",
             "match": {
-              "location": "EmailVerificationSteps.they_should_be_different()"
+              "arguments": [
+                {
+                  "val": "1",
+                  "offset": 29
+                }
+              ],
+              "location": "OrdersSteps.getorder_id_returns_order_id(int)"
             },
             "keyword": "Then "
           }
@@ -56,51 +62,45 @@
       },
       {
         "line": 8,
-        "name": "2 random keys are different",
+        "name": "getItems returns items",
         "description": "",
-        "id": "check-emailverification;2-random-keys-are-different",
+        "id": "check-orders;getitems-returns-items",
         "type": "scenario",
         "keyword": "Scenario",
         "steps": [
           {
             "result": {
-              "duration": 277755,
+              "duration": 973961,
               "status": "passed"
             },
             "line": 9,
-            "name": "I have an EmailVerification",
+            "name": "Orders is set up",
             "match": {
-              "location": "EmailVerificationSteps.i_have_an_EmailVerification()"
+              "location": "OrdersSteps.orders_is_set_up()"
             },
             "keyword": "Given "
           },
           {
             "result": {
-              "duration": 1008078,
+              "duration": 183470,
               "status": "passed"
             },
             "line": 10,
-            "name": "I generate 4 key(s)",
+            "name": "items is set",
             "match": {
-              "arguments": [
-                {
-                  "val": "4",
-                  "offset": 11
-                }
-              ],
-              "location": "EmailVerificationSteps.i_generate_key_s(int)"
+              "location": "OrdersSteps.items_is_set()"
             },
             "keyword": "When "
           },
           {
             "result": {
-              "duration": 140208,
+              "duration": 260696,
               "status": "passed"
             },
             "line": 11,
-            "name": "they should be different",
+            "name": "getItems returns that items",
             "match": {
-              "location": "EmailVerificationSteps.they_should_be_different()"
+              "location": "OrdersSteps.getitems_returns_that_items()"
             },
             "keyword": "Then "
           }
@@ -108,51 +108,57 @@
       },
       {
         "line": 13,
-        "name": "a return key is a random UUID",
+        "name": "getStatus returns status",
         "description": "",
-        "id": "check-emailverification;a-return-key-is-a-random-uuid",
+        "id": "check-orders;getstatus-returns-status",
         "type": "scenario",
         "keyword": "Scenario",
         "steps": [
           {
             "result": {
-              "duration": 201621,
+              "duration": 903193,
               "status": "passed"
             },
             "line": 14,
-            "name": "I have an EmailVerification",
+            "name": "Orders is set up",
             "match": {
-              "location": "EmailVerificationSteps.i_have_an_EmailVerification()"
+              "location": "OrdersSteps.orders_is_set_up()"
             },
             "keyword": "Given "
           },
           {
             "result": {
-              "duration": 210690,
+              "duration": 5370620,
               "status": "passed"
             },
             "line": 15,
-            "name": "I generate 1 key(s)",
+            "name": "status \"teststatus\" is set for Orders",
             "match": {
               "arguments": [
                 {
-                  "val": "1",
-                  "offset": 11
+                  "val": "teststatus",
+                  "offset": 8
                 }
               ],
-              "location": "EmailVerificationSteps.i_generate_key_s(int)"
+              "location": "OrdersSteps.status_is_set_for_Orders(String)"
             },
             "keyword": "When "
           },
           {
             "result": {
-              "duration": 164931,
+              "duration": 903839,
               "status": "passed"
             },
             "line": 16,
-            "name": "each key should have the same length as a random UUID",
+            "name": "getStatus returns \"teststatus\" for Orders",
             "match": {
-              "location": "EmailVerificationSteps.it_should_have_the_same_length_as_a_random_UUID()"
+              "arguments": [
+                {
+                  "val": "teststatus",
+                  "offset": 19
+                }
+              ],
+              "location": "OrdersSteps.getstatus_returns_for_Orders(String)"
             },
             "keyword": "Then "
           }
@@ -160,51 +166,45 @@
       },
       {
         "line": 18,
-        "name": "each return key is a random UUID",
+        "name": "getMaterialIndent returns materialIndent",
         "description": "",
-        "id": "check-emailverification;each-return-key-is-a-random-uuid",
+        "id": "check-orders;getmaterialindent-returns-materialindent",
         "type": "scenario",
         "keyword": "Scenario",
         "steps": [
           {
             "result": {
-              "duration": 192179,
+              "duration": 1044164,
               "status": "passed"
             },
             "line": 19,
-            "name": "I have an EmailVerification",
+            "name": "Orders is set up",
             "match": {
-              "location": "EmailVerificationSteps.i_have_an_EmailVerification()"
+              "location": "OrdersSteps.orders_is_set_up()"
             },
             "keyword": "Given "
           },
           {
             "result": {
-              "duration": 269635,
+              "duration": 189909,
               "status": "passed"
             },
             "line": 20,
-            "name": "I generate 3 key(s)",
+            "name": "materialindent is set for Orders",
             "match": {
-              "arguments": [
-                {
-                  "val": "3",
-                  "offset": 11
-                }
-              ],
-              "location": "EmailVerificationSteps.i_generate_key_s(int)"
+              "location": "OrdersSteps.materialindent_is_set_for_Orders()"
             },
             "keyword": "When "
           },
           {
             "result": {
-              "duration": 6125877,
+              "duration": 138264,
               "status": "passed"
             },
             "line": 21,
-            "name": "each key should have the same length as a random UUID",
+            "name": "getMaterialIndent returns that materialindent for Orders",
             "match": {
-              "location": "EmailVerificationSteps.it_should_have_the_same_length_as_a_random_UUID()"
+              "location": "OrdersSteps.getmaterialindent_returns_that_materialindent_for_Orders()"
             },
             "keyword": "Then "
           }
@@ -212,55 +212,67 @@
       },
       {
         "line": 23,
-        "name": "a return key after executing sendEmailVerificationLink is a random UUID",
+        "name": "getQuantity returns quantity",
         "description": "",
-        "id": "check-emailverification;a-return-key-after-executing-sendemailverificationlink-is-a-random-uuid",
+        "id": "check-orders;getquantity-returns-quantity",
         "type": "scenario",
         "keyword": "Scenario",
         "steps": [
           {
             "result": {
-              "duration": 3089118,
+              "duration": 1164608,
               "status": "passed"
             },
             "line": 24,
-            "name": "I have an EmailVerification",
+            "name": "Orders is set up",
             "match": {
-              "location": "EmailVerificationSteps.i_have_an_EmailVerification()"
+              "location": "OrdersSteps.orders_is_set_up()"
             },
             "keyword": "Given "
           },
           {
             "result": {
-              "duration": 3904666391,
+              "duration": 759087,
               "status": "passed"
             },
             "line": 25,
-            "name": "I call sendEmailVerificationLink",
+            "name": "quantity 3 is set for Orders",
             "match": {
-              "location": "EmailVerificationSteps.i_call_sendEmailVerificationLink()"
+              "arguments": [
+                {
+                  "val": "3",
+                  "offset": 9
+                }
+              ],
+              "location": "OrdersSteps.quantity_is_set_for_Orders(int)"
             },
             "keyword": "When "
           },
           {
             "result": {
-              "duration": 110448,
+              "duration": 953647,
               "status": "passed"
             },
             "line": 26,
-            "name": "it should return a key having the same length as a random UUID",
+            "name": "getQuantity returns quantity 3 for Orders",
             "match": {
-              "location": "EmailVerificationSteps.it_should_return_a_key_having_the_same_length_as_a_random_UUID()"
+              "arguments": [
+                {
+                  "val": "3",
+                  "offset": 29
+                }
+              ],
+              "location": "OrdersSteps.getquantity_returns_quantity_for_Orders(int)"
             },
             "keyword": "Then "
           }
         ]
       }
     ],
-    "name": "Check EmailVerification",
+    "name": "Check Orders",
     "description": "",
-    "id": "check-emailverification",
+    "id": "check-orders",
     "keyword": "Feature",
-    "uri": "cucumber/EmailVerification.feature"
+    "uri": "cucumber/Orders.feature"
   }
 ]
