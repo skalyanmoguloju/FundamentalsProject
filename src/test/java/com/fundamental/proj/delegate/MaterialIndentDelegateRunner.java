@@ -9,8 +9,8 @@ import org.junit.runner.RunWith;
 @RunWith(Cucumber.class)
 @CucumberOptions(
         format = { "pretty", "json:target/cucumber" },
-        features = "classpath:cucumber/SalesDelegate.feature"
+        features = "classpath:cucumber/MaterialIndentDelegate.feature"
 )
-public class SalesDelegateRunner {
-    // Run SalesDelegate.feature based on SalesDelegateSteps.java
+public class MaterialIndentDelegateRunner {
+    // Run MaterialIndentDelegate.feature based on MaterialIndentDelegateSteps.java
 }

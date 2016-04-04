@@ -4,275 +4,55 @@
     "elements": [
       {
         "line": 3,
-        "name": "getOrder_id returns order_id",
+        "name": "addSale runs successfully",
         "description": "",
-        "id": "check-orders;getorder-id-returns-order-id",
+        "id": "check-materialindentdelegate;addsale-runs-successfully",
         "type": "scenario",
         "keyword": "Scenario",
         "steps": [
           {
             "result": {
-              "duration": 155840925,
+              "duration": 431235458,
               "status": "passed"
             },
             "line": 4,
-            "name": "Orders is set up",
+            "name": "MaterialIndentDelegate is set up",
             "match": {
-              "location": "OrdersSteps.orders_is_set_up()"
+              "location": "MaterialIndentDelegateSteps.MaterialIndentDelegate_is_set_up()"
             },
             "keyword": "Given "
           },
           {
             "result": {
-              "duration": 17936280,
+              "duration": 39637861,
               "status": "passed"
             },
             "line": 5,
-            "name": "order_id 1 is set",
+            "name": "addSale is called for MaterialIndentDelegate",
             "match": {
-              "arguments": [
-                {
-                  "val": "1",
-                  "offset": 9
-                }
-              ],
-              "location": "OrdersSteps.order_id_is_set(int)"
+              "location": "MaterialIndentDelegateSteps.addsale_is_called_for_MaterialIndentDelegate()"
             },
             "keyword": "When "
           },
           {
             "result": {
-              "duration": 17986411,
+              "duration": 16859342,
               "status": "passed"
             },
             "line": 6,
-            "name": "getOrder_id returns order_id 1",
+            "name": "addSale runs successfully for MaterialIndentDelegate",
             "match": {
-              "arguments": [
-                {
-                  "val": "1",
-                  "offset": 29
-                }
-              ],
-              "location": "OrdersSteps.getorder_id_returns_order_id(int)"
-            },
-            "keyword": "Then "
-          }
-        ]
-      },
-      {
-        "line": 8,
-        "name": "getItems returns items",
-        "description": "",
-        "id": "check-orders;getitems-returns-items",
-        "type": "scenario",
-        "keyword": "Scenario",
-        "steps": [
-          {
-            "result": {
-              "duration": 973961,
-              "status": "passed"
-            },
-            "line": 9,
-            "name": "Orders is set up",
-            "match": {
-              "location": "OrdersSteps.orders_is_set_up()"
-            },
-            "keyword": "Given "
-          },
-          {
-            "result": {
-              "duration": 183470,
-              "status": "passed"
-            },
-            "line": 10,
-            "name": "items is set",
-            "match": {
-              "location": "OrdersSteps.items_is_set()"
-            },
-            "keyword": "When "
-          },
-          {
-            "result": {
-              "duration": 260696,
-              "status": "passed"
-            },
-            "line": 11,
-            "name": "getItems returns that items",
-            "match": {
-              "location": "OrdersSteps.getitems_returns_that_items()"
-            },
-            "keyword": "Then "
-          }
-        ]
-      },
-      {
-        "line": 13,
-        "name": "getStatus returns status",
-        "description": "",
-        "id": "check-orders;getstatus-returns-status",
-        "type": "scenario",
-        "keyword": "Scenario",
-        "steps": [
-          {
-            "result": {
-              "duration": 903193,
-              "status": "passed"
-            },
-            "line": 14,
-            "name": "Orders is set up",
-            "match": {
-              "location": "OrdersSteps.orders_is_set_up()"
-            },
-            "keyword": "Given "
-          },
-          {
-            "result": {
-              "duration": 5370620,
-              "status": "passed"
-            },
-            "line": 15,
-            "name": "status \"teststatus\" is set for Orders",
-            "match": {
-              "arguments": [
-                {
-                  "val": "teststatus",
-                  "offset": 8
-                }
-              ],
-              "location": "OrdersSteps.status_is_set_for_Orders(String)"
-            },
-            "keyword": "When "
-          },
-          {
-            "result": {
-              "duration": 903839,
-              "status": "passed"
-            },
-            "line": 16,
-            "name": "getStatus returns \"teststatus\" for Orders",
-            "match": {
-              "arguments": [
-                {
-                  "val": "teststatus",
-                  "offset": 19
-                }
-              ],
-              "location": "OrdersSteps.getstatus_returns_for_Orders(String)"
-            },
-            "keyword": "Then "
-          }
-        ]
-      },
-      {
-        "line": 18,
-        "name": "getMaterialIndent returns materialIndent",
-        "description": "",
-        "id": "check-orders;getmaterialindent-returns-materialindent",
-        "type": "scenario",
-        "keyword": "Scenario",
-        "steps": [
-          {
-            "result": {
-              "duration": 1044164,
-              "status": "passed"
-            },
-            "line": 19,
-            "name": "Orders is set up",
-            "match": {
-              "location": "OrdersSteps.orders_is_set_up()"
-            },
-            "keyword": "Given "
-          },
-          {
-            "result": {
-              "duration": 189909,
-              "status": "passed"
-            },
-            "line": 20,
-            "name": "materialindent is set for Orders",
-            "match": {
-              "location": "OrdersSteps.materialindent_is_set_for_Orders()"
-            },
-            "keyword": "When "
-          },
-          {
-            "result": {
-              "duration": 138264,
-              "status": "passed"
-            },
-            "line": 21,
-            "name": "getMaterialIndent returns that materialindent for Orders",
-            "match": {
-              "location": "OrdersSteps.getmaterialindent_returns_that_materialindent_for_Orders()"
-            },
-            "keyword": "Then "
-          }
-        ]
-      },
-      {
-        "line": 23,
-        "name": "getQuantity returns quantity",
-        "description": "",
-        "id": "check-orders;getquantity-returns-quantity",
-        "type": "scenario",
-        "keyword": "Scenario",
-        "steps": [
-          {
-            "result": {
-              "duration": 1164608,
-              "status": "passed"
-            },
-            "line": 24,
-            "name": "Orders is set up",
-            "match": {
-              "location": "OrdersSteps.orders_is_set_up()"
-            },
-            "keyword": "Given "
-          },
-          {
-            "result": {
-              "duration": 759087,
-              "status": "passed"
-            },
-            "line": 25,
-            "name": "quantity 3 is set for Orders",
-            "match": {
-              "arguments": [
-                {
-                  "val": "3",
-                  "offset": 9
-                }
-              ],
-              "location": "OrdersSteps.quantity_is_set_for_Orders(int)"
-            },
-            "keyword": "When "
-          },
-          {
-            "result": {
-              "duration": 953647,
-              "status": "passed"
-            },
-            "line": 26,
-            "name": "getQuantity returns quantity 3 for Orders",
-            "match": {
-              "arguments": [
-                {
-                  "val": "3",
-                  "offset": 29
-                }
-              ],
-              "location": "OrdersSteps.getquantity_returns_quantity_for_Orders(int)"
+              "location": "MaterialIndentDelegateSteps.addsale_runs_successfully_for_MaterialIndentDelegate()"
             },
             "keyword": "Then "
           }
         ]
       }
     ],
-    "name": "Check Orders",
+    "name": "Check MaterialIndentDelegate",
     "description": "",
-    "id": "check-orders",
+    "id": "check-materialindentdelegate",
     "keyword": "Feature",
-    "uri": "cucumber/Orders.feature"
+    "uri": "cucumber/MaterialIndentDelegate.feature"
   }
 ]
