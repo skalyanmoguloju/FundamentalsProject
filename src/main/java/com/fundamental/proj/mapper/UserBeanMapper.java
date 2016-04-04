@@ -24,6 +24,7 @@ public class UserBeanMapper {
         userBean.setRole(user.getRole());
         userBean.setStatus(user.getStatus());
         userBean.setGender(user.getGender());
+        userBean.setPwsd(user.getPwsd());
         return userBean;
     }
 

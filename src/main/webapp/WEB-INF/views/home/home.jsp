@@ -28,6 +28,7 @@
                                         .success(function (data) {
                                             console.log(data);
                                             $scope.rights = data;
+                                            document.getElementById('welcome').innerHTML = 'Welcome! ' + $scope.userInfo.name + ' ' + $scope.userInfo.lname;
                                 });
                             });
                     $scope.validateEmail = function(val){
@@ -51,7 +52,8 @@
     <div ng-controller="HomeCtrl as hmectrl">
         <jsp:include page="header.jsp" />
     </div>
-
+        <br/>
+        <label id="welcome" class="center-block" align="center"> </label>
 </div>
 </body>
 </html>

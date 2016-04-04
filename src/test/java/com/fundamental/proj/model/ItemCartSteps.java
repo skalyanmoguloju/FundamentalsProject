@@ -18,7 +18,7 @@ public class ItemCartSteps {
 
     @When("^itemcart is called$")
     public void itemcart_is_called() throws Throwable {
-
+        itemCart = new ItemCart();
     }
 
     @Then("^a list of items is returned$")

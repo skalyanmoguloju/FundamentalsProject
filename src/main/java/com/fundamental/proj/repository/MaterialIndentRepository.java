@@ -24,11 +24,6 @@ public class MaterialIndentRepository {
     @Autowired(required = true)
     private SessionFactory sessionFactory;
 
-
-
-
-
-
     @Transactional
     public void AddSale(MaterialIndent materialIndent, List<Cart> carts) {
         List<Long> i = new ArrayList<Long>();

@@ -12,5 +12,5 @@ import org.junit.runner.RunWith;
         features = "classpath:cucumber/OrdersDelegate.feature"
 )
 public class OrdersDelegateRunner {
-    // Run CartDelegate.feature based on CartDelegateSteps.java
+    // Run OrdersDelegate.feature based on OrdersDelegateSteps.java
 }
