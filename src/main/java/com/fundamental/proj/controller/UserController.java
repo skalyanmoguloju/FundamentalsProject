@@ -40,6 +40,9 @@ public class UserController {
     @Autowired
     private MaterialIndentDelegate materialIndentDelegate;
 
+    @Autowired
+    private AddressDelegate addressDelegate;
+
     @RequestMapping(value = "/view")
     public String view() {
         return "WEB-INF/views/home/view";
@@ -198,4 +201,11 @@ public class UserController {
         return "WEB-INF/views/home/vieworders";
     }
 
+    @RequestMapping(value = "/userAddress", method = RequestMethod.POST)
+    @ResponseBody
+    public List<AddressBean> userAddress(@RequestBody UserBean userBean) {
+        //HYBERNETCALLS
+        List<AddressBean> u = addressDelegate.getAddress(userBean.getId());
+        return u;
+    }
 }

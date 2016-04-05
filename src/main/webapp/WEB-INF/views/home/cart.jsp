@@ -9,6 +9,7 @@
 <html>
 <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
 <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-cookies.js"></script>
+<script type="text/javascript" src="http://janssen.npdev.de/typo3conf/ext/npt3theme/Resources/Public/Javascript/validator.min.js"></script>
 <script>
     angular.module('myApp', ['ngCookies'])
 
@@ -17,6 +18,7 @@
                     var user = $cookies.get("user").toString();
                     //console.log(user.toString());
                     $scope.total = 0;
+                    $scope.junkvalue = 0;
                     $http.post('userInfo', {id: user})
                             .success(function (response) {
                                 var date = new Date();
@@ -43,10 +45,21 @@
                                 document.getElementById('lbltipAddedComment').innerHTML = 'You have no products in Cart, cannot checkout!';
                             } else {
                                 // trigger modal popup
-                                $('#squarespaceModal').modal('show');
+                                $http.post('userAddress', {id: user})
+                                        .success(function (responseAddress) {
+                                            console.log(responseAddress)
+                                            $scope.address = responseAddress;
+                                        });
+                                $('#AddressModal').modal('show');
                             }
                         }
                     };
+
+                    $scope.updateAddress = function(addid){
+                        $scope.shipaddress = addid;
+                        $('#AddressModal').modal('hide');
+                        $('#squarespaceModal').modal('show');
+                    }
                     $scope.orderUp= function(vw){
                         console.log(vw);
                         if ($scope.validateCard() == true) {
@@ -237,6 +250,57 @@
             <%--<button data-toggle="modal" data-target="#squarespaceModal" class="btn btn-primary center-block">Checkout</button>--%>
             </div>
             </form>
+            <div class="modal fade" id="AddressModal" tabindex="-1" role="dialog" aria-labelledby="modalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header" ng-model = "address">
+                            <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span><span class="sr-only">Close</span></button>
+                            <h3 class="modal-title" id="addressModalLabel">Address</h3>
+                        </div>
+                        <div class="modal-body">
+
+                            <!-- content goes here -->
+                            <form ng-submit = "updateAddress(add)">
+
+                                <div class="form-group">
+                                    <div>
+                                        <div class="panel panel-default">
+                                            <div class="panel-heading">
+                                                <h3 class="panel-title">
+                                                    Select Shiping Address
+                                                </h3>
+
+                                            </div>
+                                            <div class="panel-body">
+                                                <form role="form" >
+                                                        <div ng-repeat = "add in address">
+                                                    <div class="form-group has-feedback ">
+                                                        <label class="input-group">
+                                                                <span class="input-group-addon">
+                                                                        <input type="radio" name="test" ng-model="junkvalue" ng-change="updateAddress(add)"/>
+                                                                </span>
+                                                            <div class="form-control form-control-static">
+                                                                {{add.line1}}, {{add.line2}},
+                                                                 {{add.city}} - {{add.state}}, {{add.zip}}
+                                                            </div>
+                                                            <span class="glyphicon form-control-feedback "></span>
+                                                        </label>
+                                                    </div>
+                                                        </div>
+                                                </form>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </form>
+
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+
             <div class="modal fade" id="squarespaceModal" tabindex="-1" role="dialog" aria-labelledby="modalLabel" aria-hidden="true">
                 <div class="modal-dialog">
                     <div class="modal-content">
@@ -288,10 +352,14 @@
                                                 </form>
                                             </div>
                                         </div>
-                                        <ul>
-                                            <li class="active"><a href="#"><span class="badge pull-right"><span class="glyphicon glyphicon-usd"></span>{{total}}</span> Final Payment</a>
-                                            </li>
-                                        </ul>
+                                        <div class="form-control form-control-static">
+                                            <a href="#"><span class="badge pull-right"><span class="glyphicon glyphicon-usd"></span>{{total}}</span> <b>Final Payment</b></a>
+                                        </div>
+                                        <br/>
+                                        <div class="form-control form-control-static badge" style="font-weight: normal; height: 25px; font-size: 14px; text-align: left" ng-model ="shipaddress">
+                                            <b>Shipment Address</b> - {{shipaddress.line1}}, {{shipaddress.line2}},
+                                            {{shipaddress.city}} - {{shipaddress.state}}, {{shipaddress.zip}}
+                                        </div>
                                         <span class="button-checkbox center-block" align="center" style='color:#FF0000'>
                                             <label id="lbltipAddedCommentCard"></label>
                                         </span>

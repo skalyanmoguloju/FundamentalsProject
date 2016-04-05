@@ -13,5 +13,6 @@
         <mapping class="com.fundamental.proj.model.Cart"/>
         <mapping class="com.fundamental.proj.model.MaterialIndent"/>
         <mapping class="com.fundamental.proj.model.Orders"/>
+        <mapping class="com.fundamental.proj.model.Address"/>
     </session-factory>
 </hibernate-configuration>

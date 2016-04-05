@@ -106,9 +106,9 @@
         <!DOCTYPE html>
         <html>
         <body>
-        <div id="tfheader">
+        <div id="tfheader" style="background-color: #f5f5f5">
             <form id="tfnewsearch" ng-submit="search(searchTerm)">
-                <input type="text" id="tfq2b" class="tftextinput2" name="q" size="21" maxlength="120" value="Search our inventory" placeholder="Search our inventory" ng-model="searchTerm">
+                <input type="text" id="tfq2b" class="tftextinput2" name="q" size="100" maxlength="120" value="Search our inventory" placeholder="Search our inventory" ng-model="searchTerm">
                 <input type="submit" value="Search" class="tfbutton2">
             </form>
             <div class="tfclear"></div>
@@ -156,7 +156,7 @@
                                                 </span>
 <<<<<<< HEAD
 
-                                                
+
                                                 <ul>
                                                     <li class="active"><a href="#"><span class="badge pull-right"><span class="glyphicon glyphicon-usd"></span>{{vw.price * vw.noofpieces}}</span> Total Price</a>
                                                     </li>
@@ -213,8 +213,7 @@
                                         </div>
                                         <div class="form-group">
                                             <div>
-=======
->>>>>>> origin/master
+
                                                 <ul>
                                                     <li class="active"><a href="#"><span class="badge pull-right"><span class="glyphicon glyphicon-usd"></span>{{vw.price * vw.noofpieces}}</span> Total Price</a>
                                                     </li>
