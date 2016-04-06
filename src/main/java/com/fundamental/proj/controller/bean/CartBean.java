@@ -7,7 +7,7 @@ public class CartBean{
 
 
     private long user_id;
-    private long quantity;
+    private int quantity;
     private float price;
     private ItemsBean itemsBean;
 
@@ -40,11 +40,11 @@ public class CartBean{
         this.user_id = user_id;
     }
 
-    public long getQuantity() {
+    public int getQuantity() {
         return quantity;
     }
 
-    public void setQuantity(long quantity) {
+    public void setQuantity(int quantity) {
         this.quantity = quantity;
     }
 

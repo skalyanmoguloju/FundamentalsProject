@@ -46,17 +46,18 @@
                     $scope.cart= function(vw) {
                         console.log(vw);
 
+                        var available = vw.onsale_count - vw.sold_count;
                         /* Check number of products */
-                        if (document.getElementById('exampleInputPassword1' + vw.item_id).value.match(/^[-]?[0]+$/)) {
+                        if (available == 0) {
+                            document.getElementById('lbltipAddedComment' + vw.item_id).innerHTML = 'Product "' + vw.item_name + '" is out of stock! Please select a different product!';
+                        } else if (document.getElementById('exampleInputPassword1' + vw.item_id).value.match(/^[-]?[0]+$/)) {
                             document.getElementById('lbltipAddedComment' + vw.item_id).innerHTML = 'Number of products cannot be 0';
                         } else if (document.getElementById("exampleInputPassword1" + vw.item_id).value < 0) {
                             document.getElementById('lbltipAddedComment' + vw.item_id).innerHTML = 'Number of products must be a positive integer';
                         } else if (!document.getElementById("exampleInputPassword1" + vw.item_id).value.match(/^[0]*[1-9]+$/)) {
                             document.getElementById('lbltipAddedComment' + vw.item_id).innerHTML = 'Number of products must be an integer';
-                        } else if (document.getElementById("exampleInputPassword1" + vw.item_id).value > vw.onsale_count) {
-                            document.getElementById('lbltipAddedComment' + vw.item_id).innerHTML = 'Number of available products is only ' + vw.onsale_count + ', Please select a number at most ' + vw.onsale_count + '!';
-                        } else if (vw.onsale_count == 0) {
-                            document.getElementById('lbltipAddedComment' + vw.item_id).innerHTML = 'Product "' + vw.item_name + '" is out of stock! Please select a different product!';
+                        } else if (document.getElementById("exampleInputPassword1" + vw.item_id).value > available) {
+                            document.getElementById('lbltipAddedComment' + vw.item_id).innerHTML = 'Number of available products is only ' + available + ', Please select a number at most ' + available + '!';
                         } else {
                             $http.post('addCart', {
                                         itemsBean: vw,
@@ -126,7 +127,7 @@
                     <ul class="meta-search">
                         <li><i class="glyphicon glyphicon-usd"></i> <span> {{vw.price}}</span></li>
                         <li><i class="glyphicon glyphicon-time"></i> <span>Posted Date {{vw.data}}</span></li>
-                        <li><i class="glyphicon glyphicon-asterisk"></i> <span>Available {{vw.onsale_count}}</span></li>
+                        <li><i class="glyphicon glyphicon-asterisk"></i> <span>Available {{vw.onsale_count - vw.sold_count}}</span></li>
                         <li><i class="glyphicon glyphicon-check"></i> <span>Total Sold {{vw.sold_count}}</span></li>
                     </ul>
                 </div>
@@ -146,7 +147,7 @@
                                     <!-- content goes here -->
                                     <form ng-submit = "cart(vw)">
                                         <div class="form-group">
-                                            <label for="exampleInputPassword1{{vw.item_id}}">Number of products (available {{vw.onsale_count}})</label>
+                                            <label for="exampleInputPassword1{{vw.item_id}}">Number of products (available {{vw.onsale_count - vw.sold_count}})</label>
                                             <input type="number" class="form-control" id="exampleInputPassword1{{vw.item_id}}" value="1" ng-model="vw.noofpieces">
                                         </div>
                                         <div class="form-group">
@@ -154,8 +155,6 @@
                                                 <span class="button-checkbox center-block" align="center" style='color:#FF0000'>
                                                     <label id="lbltipAddedComment{{vw.item_id}}"></label>
                                                 </span>
-<<<<<<< HEAD
-
 
                                                 <ul>
                                                     <li class="active"><a href="#"><span class="badge pull-right"><span class="glyphicon glyphicon-usd"></span>{{vw.price * vw.noofpieces}}</span> Total Price</a>
@@ -177,64 +176,6 @@
                 <span class="clearfix borda"></span>
             </article>
         </section>
-
-        <section class="col-xs-12 col-sm-6 col-md-12" ng-model = "searchList" ng-show="searchBool">
-            <article class="search-result row" ng-repeat = "vw in searchList">
-
-                <div class="col-xs-12 col-sm-12 col-md-3">
-                    <a href="#" title="{{vw.item_name}}" class="thumbnail"><img src="{{vw.images}}" style="height: 150px; width: 300px" alt="{{vw.item_name}}" /></a>
-                </div>
-                <div class="col-xs-12 col-sm-12 col-md-2">
-                    <ul class="meta-search">
-                        <li><i class="glyphicon glyphicon-usd"></i> <span> {{vw.price}}</span></li>
-                        <li><i class="glyphicon glyphicon-time"></i> <span>Posted Date {{vw.data}}</span></li>
-                        <li><i class="glyphicon glyphicon-asterisk"></i> <span>Available {{vw.onsale_count}}</span></li>
-                        <li><i class="glyphicon glyphicon-check"></i> <span>Total Sold {{vw.sold_count}}</span></li>
-                    </ul>
-                </div>
-                <div class="col-xs-12 col-sm-12 col-md-7 excerpet">
-                    <h3><a href="#" title="">{{vw.item_name}}</a></h3>
-                    <p>{{vw.item_description}}</p>
-                    <div class="center"><button data-toggle="modal" data-target="#squarespaceModal{{vw.item_id}}" class="btn btn-primary center-block">Add to cart</button></div>
-                    <div class="modal fade" id="squarespaceModal{{vw.item_id}}" tabindex="-1" role="dialog" aria-labelledby="modalLabel" aria-hidden="true">
-                        <div class="modal-dialog">
-                            <div class="modal-content">
-                                <div class="modal-header">
-                                    <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span><span class="sr-only">Close</span></button>
-                                    <h3 class="modal-title" id="lineModalLabel">Add to cart</h3>
-                                </div>
-                                <div class="modal-body">
-
-                                    <!-- content goes here -->
-                                    <form ng-submit = "cart(vw)">
-                                        <div class="form-group">
-                                            <label for="exampleInputPassword1{{vw.item_id}}">Number of products (available {{vw.onsale_count}})</label>
-                                            <input type="number" class="form-control" id="exampleInputPassword1{{vw.item_id}}" value="1" ng-model="vw.noofpieces">
-                                        </div>
-                                        <div class="form-group">
-                                            <div>
-
-                                                <ul>
-                                                    <li class="active"><a href="#"><span class="badge pull-right"><span class="glyphicon glyphicon-usd"></span>{{vw.price * vw.noofpieces}}</span> Total Price</a>
-                                                    </li>
-                                                </ul>
-                                                <input type="hidden" value="{{vw.price * vw.noofpieces}}" ng-model="vw.totalPrice">
-                                                <br/>
-                                                <button type="submit" class="btn btn-success btn-lg btn-block" role="button">Submit</button>
-                                            </div>
-                                        </div>
-                                    </form>
-
-                                </div>
-
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <span class="clearfix borda"></span>
-            </article>
-        </section>
-
     </div>
 </div>
 </body>

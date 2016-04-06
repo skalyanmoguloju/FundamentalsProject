@@ -9,4 +9,4 @@ Feature: Check MaterialIndentRepository
   Scenario: AddSale runs successfully
     Given mock MaterialIndentRepository is initialized
     When AddSale() throws exception
-    Then it has been called successfully
+    Then it has been called with exception

@@ -72,21 +72,21 @@ public class CartServiceSteps {
         cart1.setCart_id(1L);
         cart1.setItems(new Items());
         cart1.setPrice(1);
-        cart1.setQuantity(1L);
+        cart1.setQuantity(1);
 
         Cart cart2 = new Cart();
         cart2.setUser_id(1L);
         cart2.setCart_id(2L);
         cart2.setItems(new Items());
         cart2.setPrice(2);
-        cart2.setQuantity(2L);
+        cart2.setQuantity(2);
 
         Cart cart3 = new Cart();
         cart3.setUser_id(1L);
         cart3.setCart_id(3L);
         cart3.setItems(new Items());
         cart3.setPrice(3);
-        cart3.setQuantity(3L);
+        cart3.setQuantity(3);
 
         expectedListCart = new ArrayList<Cart>();
         expectedListCart.add(cart1);
@@ -140,4 +140,24 @@ public class CartServiceSteps {
         // verify getCart has been called successfully
         Mockito.verify(mockedCartRepository).getCart(1L);
     }
+
+    /************************************************/
+    /*
+     * Test AddToCart()
+     */
+    /***********************************************/
+    @When("^AddToCart\\(\\) is called$")
+    public void addtocart_is_called() throws Throwable {
+        Mockito.doNothing().when(mockedCartRepository).AddToCart(Mockito.any(Cart.class), Mockito.anyInt());
+    }
+
+    @Then("^AddToCart has been called successfully called$")
+    public void addtocart_has_been_called_successfully_called() throws Throwable {
+        Cart cart = new Cart();
+        cartService.AddToCart(cart, 1);
+
+        // verify updateCart has been called successfully
+        Mockito.verify(mockedCartRepository).AddToCart(cart, 1);
+    }
+
 }

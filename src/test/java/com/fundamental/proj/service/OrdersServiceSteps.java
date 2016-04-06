@@ -32,6 +32,7 @@ public class OrdersServiceSteps {
     private OrdersService ordersService;
 
     private List<Orders> expectedListOrders;
+    private List<Long> expectedListSoldCounts;
     /************************************************/
     /*
      * Test getAllOrders()
@@ -56,6 +57,29 @@ public class OrdersServiceSteps {
         List<Orders> actualListOrders = ordersService.getAllOrders(1L);
 
         Assert.assertEquals(actualListOrders.size(), expectedListOrders.size());
+        Assert.assertEquals(actualListOrders.get(0), expectedListOrders.get(0));
+        Mockito.verify(mockedOrdersRepository).getAllOrders(1L);
     }
 
+    /************************************************/
+    /*
+     * Test getTotalSold()
+     */
+    /***********************************************/
+    @When("^getTotalSold\\(\\) is called for OrdersService$")
+    public void getsoldcount_is_called_for_OrdersService() throws Throwable {
+        expectedListSoldCounts = new ArrayList<Long>();
+        expectedListSoldCounts.add(10L);
+
+        Mockito.when(mockedOrdersRepository.getTotalSold(Mockito.anyLong())).thenReturn(expectedListSoldCounts);
+    }
+
+    @Then("^getTotalSold returns list of sold_counts$")
+    public void getsoldcount_returns_list_of_sold_counts() throws Throwable {
+        List<Long> actualListSoldCounts = ordersService.getTotalSold(1L);
+
+        Assert.assertEquals(actualListSoldCounts.size(), expectedListSoldCounts.size());
+        Assert.assertEquals(actualListSoldCounts.get(0), expectedListSoldCounts.get(0));
+        Mockito.verify(mockedOrdersRepository).getTotalSold(1L);
+    }
 }

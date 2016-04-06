@@ -30,3 +30,14 @@ Feature: Check CartRepository
     When getCart() is called
     Then a list of carts is empty for getCart
 
+# Test ClearCart
+  Scenario: ClearCart is called successfully
+    Given mock CartRepository is initialized
+    When ClearCart() is called
+    Then ClearCart has been called successfully called
+
+# Test AddToCart
+  Scenario: ClearCart is called successfully
+    Given mock CartRepository is initialized
+    When AddToCart() is called for CartRepository
+    Then AddToCart has been called successfully called for CartRepository

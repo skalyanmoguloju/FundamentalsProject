@@ -2,6 +2,7 @@ package com.fundamental.proj.service;
 
 import com.fundamental.proj.model.Items;
 import com.fundamental.proj.repository.ItemsRepository;
+import com.sun.mail.imap.protocol.Item;
 import cucumber.api.java.en.And;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
@@ -29,6 +30,7 @@ public class ItemsServiceSteps {
     private ItemsService itemsService;
 
     private List<Items> expectedListItems;
+    private List<Long> expectedListSoldCounts;
 
     @Given("^mock ItemsService is initialized$")
     public void mock_itemsservice_is_initialized() throws Throwable {
@@ -146,5 +148,62 @@ public class ItemsServiceSteps {
 
         // verify addItem method is called
         Mockito.verify(mockedItemsRepository).addItem(items);
+    }
+
+    /************************************************/
+    /*
+     * Test getAllItemsContainingSearchTerm()
+     */
+    /***********************************************/
+    @When("^getAllItemsContainingSearchTerm\\(\\) is called$")
+    public void getallitemscontainingsearchterm_is_called() throws Throwable {
+        Mockito.when(mockedItemsRepository.getAllItemsContainingSearchTerm(Mockito.anyString())).thenReturn(expectedListItems);
+    }
+
+    @Then("^a list of items is returned for getAllItemsContainingSearchTerm in getAllItems$")
+    public void a_list_of_items_is_returned_for_getAllItemsContainingSearchTerm_in_getAllItems() throws Throwable {
+        List<Items> actualListItems = itemsService.getAllItemsContainingSearchTerm("some term");
+
+        Assert.assertEquals(actualListItems.size(), expectedListItems.size());
+        for (int x=0; x<expectedListItems.size(); x++) {
+            Assert.assertEquals(actualListItems.get(x).getCategory(), expectedListItems.get(x).getCategory());
+            Assert.assertEquals(actualListItems.get(x).getDate(), expectedListItems.get(x).getDate());
+            Assert.assertEquals(actualListItems.get(x).getImages(), expectedListItems.get(x).getImages());
+            Assert.assertEquals(actualListItems.get(x).getItem_id(), expectedListItems.get(x).getItem_id());
+            Assert.assertEquals(actualListItems.get(x).getItem_name(), expectedListItems.get(x).getItem_name());
+            Assert.assertEquals(actualListItems.get(x).getItem_description(), expectedListItems.get(x).getItem_description());
+            Assert.assertEquals(actualListItems.get(x).getUser_id(), expectedListItems.get(x).getUser_id());
+            Assert.assertEquals(actualListItems.get(x).getOnsale_count(), expectedListItems.get(x).getOnsale_count());
+            Assert.assertEquals(actualListItems.get(x).getSold_count(), expectedListItems.get(x).getSold_count());
+            Assert.assertEquals(actualListItems.get(x).getPrice(), expectedListItems.get(x).getPrice(), 1E-15);
+        }
+
+        Mockito.verify(mockedItemsRepository).getAllItemsContainingSearchTerm("some term");
+    }
+
+    /************************************************/
+    /*
+     * Test updateSoldCount()
+     */
+    /***********************************************/
+    @Given("^expected list of sold_counts is initialized$")
+    public void expected_list_of_sold_counts_is_initialized() throws Throwable {
+        expectedListSoldCounts = new ArrayList<Long>();
+        expectedListSoldCounts.add(3L);
+    }
+
+    @When("^updateSoldCount\\(\\) is called$")
+    public void updatesoldcount_is_called() throws Throwable {
+        Mockito.when(mockedItemsRepository.updateSoldCount(Mockito.any(Items.class))).thenReturn(expectedListSoldCounts);
+    }
+
+    @Then("^a list of sold_counts is returned for getAllItems$")
+    public void a_list_of_sold_counts_is_returned_for_getAllItems() throws Throwable {
+        Items items = new Items();
+        List<Long> actualListSoldCounts = itemsService.updateSoldCount(items);
+
+        Assert.assertEquals(actualListSoldCounts.size(), expectedListSoldCounts.size());
+        Assert.assertEquals(actualListSoldCounts.get(0), expectedListSoldCounts.get(0));
+        Mockito.verify(mockedItemsRepository).updateSoldCount(items);
     }
 }

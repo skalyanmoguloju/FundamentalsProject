@@ -76,5 +76,22 @@ public class ItemsRepository {
             return i;
         }
     }
+
+    @Transactional
+    public List<Long> updateSoldCount(Items items)
+    {
+        List<Long> i = new ArrayList<Long>();
+        try {
+            Session session = sessionFactory.getCurrentSession();
+            session.update(items);
+            Query query = session.createQuery("select sold_count from Items where item_id=:itemid");
+            query.setParameter("itemid", items.getItem_id());
+            return query.list();
+        }
+        catch (Exception e)
+        {
+            return i;
+        }
+    }
 }
 

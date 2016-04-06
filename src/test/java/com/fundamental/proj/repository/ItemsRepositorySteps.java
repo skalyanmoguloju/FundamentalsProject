@@ -2,6 +2,7 @@ package com.fundamental.proj.repository;
 
 import com.fundamental.proj.model.Items;
 
+import cucumber.api.java.cs.A;
 import cucumber.api.java.en.And;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
@@ -44,6 +45,7 @@ public class ItemsRepositorySteps {
 
     private List<Items> expectedListItems;
     private List<Long> expectedListIDs;
+    private List<Long> expectedListsoldcount;
 
     @Given("^mock ItemsRepository is initialized$")
     public void mock_itemsrespository_is_initialized() throws Throwable {
@@ -152,6 +154,34 @@ public class ItemsRepositorySteps {
         Mockito.verify(mockedSession).createQuery("from Items");
         Mockito.verify(mockedQuery).list();
     }
+    /************************************************/
+    /*
+     * Test getAllItemsContainingSearchTerm()
+     */
+    /***********************************************/
+    @When("^getAllItemsContainingSearchTerm\\(\\) is called for ItemsRepository$")
+    public void getallitemscontainingsearchterm_is_called_for_ItemsRepository() throws Throwable {
+        Mockito.when(mockedSessionFactory.getCurrentSession()).thenReturn(mockedSession);
+        Mockito.when(mockedSession.createQuery("from Items")).thenReturn(mockedQuery);
+        Mockito.when(mockedSession.createQuery("FROM Items where item_name LIKE :searchTerm or item_description LIKE :searchTerm or category LIKE :searchTerm")).thenReturn(mockedQuery);
+        Mockito.when(mockedQuery.list()).thenReturn(expectedListItems);
+    }
+
+    @Then("^a list of items is returned for getAllItemsContainingSearchTerm$")
+    public void a_list_of_items_is_returned_for_getAllItemsContainingSearchTerm() throws Throwable {
+        List<Items> actualListItems = itemsRepository.getAllItemsContainingSearchTerm("");
+        Assert.assertEquals(actualListItems.size(), expectedListItems.size());
+        Assert.assertEquals(actualListItems.get(0), expectedListItems.get(0));
+
+        actualListItems = itemsRepository.getAllItemsContainingSearchTerm("notempty");
+        Assert.assertEquals(actualListItems.size(), expectedListItems.size());
+        Assert.assertEquals(actualListItems.get(0), expectedListItems.get(0));
+        Mockito.verify(mockedSessionFactory, Mockito.atLeastOnce()).getCurrentSession();
+        Mockito.verify(mockedSession).createQuery("FROM Items where item_name LIKE :searchTerm or item_description LIKE :searchTerm or category LIKE :searchTerm");
+        Mockito.verify(mockedSession).createQuery("from Items");
+        Mockito.verify(mockedQuery, Mockito.atLeastOnce()).list();
+    }
+
 
     /************************************************/
     /*
@@ -238,4 +268,54 @@ public class ItemsRepositorySteps {
         Mockito.verify(mockedSession).createQuery("select max(item_id) from Items ");
         Mockito.verify(mockedQuery).list();
     }
+
+    /************************************************/
+    /*
+     * Test updateSoldCount()
+     */
+    /***********************************************/
+    @Given("^expected list of soldcount is initialized$")
+    public void expected_list_of_soldcount_is_initialized() throws Throwable {
+        expectedListsoldcount = new ArrayList<Long>();
+        expectedListsoldcount.add(3L);
+    }
+
+    @When("^updateSoldCount\\(\\) is called for ItemsRepository$")
+    public void updatesoldcount_is_called_for_ItemsRepository() throws Throwable {
+        Mockito.when(mockedSessionFactory.getCurrentSession()).thenReturn(mockedSession);
+        Mockito.when(mockedSession.createQuery("select sold_count from Items where item_id=:itemid")).thenReturn(mockedQuery);
+        Mockito.when(mockedQuery.list()).thenReturn(expectedListsoldcount);
+    }
+
+    @Then("^a list of soldcount is returned for updateSoldCount$")
+    public void a_list_of_soldcount_is_returned_for_updateSoldCount() throws Throwable {
+        Items items = new Items();
+        List<Long> actualListSoldCount = itemsRepository.updateSoldCount(items);
+        Assert.assertEquals(actualListSoldCount.size(), expectedListsoldcount.size());
+        Assert.assertEquals(actualListSoldCount.get(0), expectedListsoldcount.get(0));
+
+        Mockito.verify(mockedSessionFactory).getCurrentSession();
+        Mockito.verify(mockedSession).createQuery("select sold_count from Items where item_id=:itemid");
+        Mockito.verify(mockedQuery).list();
+    }
+
+    @Given("^expected empty list of soldcount is initialized$")
+    public void expected_empty_list_of_soldcount_is_initialized() throws Throwable {
+        expectedListsoldcount = new ArrayList<Long>();
+    }
+
+    @When("^updateSoldCount\\(\\) throws exception$")
+    public void updatesoldcount_throws_exception() throws Throwable {
+        BDDMockito.given(mockedSessionFactory.getCurrentSession()).willThrow(Exception.class);
+    }
+
+    @Then("^a list of soldcount is empty$")
+    @Test (expected = Exception.class)
+    public void a_list_of_soldcount_is_empty() throws Throwable {
+        Items items = new Items();
+        List<Long> actualListSoldCount = itemsRepository.updateSoldCount(items);
+        Assert.assertEquals(actualListSoldCount.size(), expectedListsoldcount.size());
+        Mockito.verify(mockedSessionFactory).getCurrentSession();
+    }
+
 }

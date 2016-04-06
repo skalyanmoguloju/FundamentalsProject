@@ -33,4 +33,9 @@ public class ItemsService {
         itemsRepository.addItem(items);
     }
 
+    @Transactional
+    public List<Long> updateSoldCount(Items items)
+    {
+        return itemsRepository.updateSoldCount(items);
+    }
 }

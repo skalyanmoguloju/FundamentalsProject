@@ -27,10 +27,13 @@ public class UserControllerTest {
     private CartDelegate mockedCartDelegate;
 
     @Mock
-    OrdersDelegate mockedOrdersDelegate;
+    private OrdersDelegate mockedOrdersDelegate;
 
     @Mock
     private MaterialIndentDelegate mockedMaterialIndentDelegate;
+
+    @Mock
+    private AddressDelegate mockedAddressDelegate;
 
     @Mock
     private ItemsBean mockedItemsBean;
@@ -41,7 +44,7 @@ public class UserControllerTest {
     @Before
     public void setUp() throws Throwable {
         MockitoAnnotations.initMocks(this);
-        Mockito.reset(mockedUserDelegate, mockedItemsDelegate, mockedCartDelegate, mockedOrdersDelegate, mockedMaterialIndentDelegate, mockedItemsBean);
+        Mockito.reset(mockedUserDelegate, mockedItemsDelegate, mockedCartDelegate, mockedOrdersDelegate, mockedMaterialIndentDelegate, mockedItemsBean, mockedAddressDelegate);
     }
 
     @Test
@@ -207,4 +210,40 @@ public class UserControllerTest {
         String result = userController.allOrdersPage();
         Assert.assertEquals(result, "WEB-INF/views/home/vieworders");
     }
+
+    @Test
+    public void userAddressTest() {
+        AddressBean addressBean = new AddressBean();
+        List<AddressBean> list = new ArrayList<AddressBean>();
+        list.add(addressBean);
+
+        Mockito.when(mockedAddressDelegate.getAddress(Mockito.anyLong())).thenReturn(list);
+        UserBean userBean = new UserBean();
+        userBean.setId(1L);
+        List<AddressBean> actualList = userController.userAddress(userBean);
+        Assert.assertEquals(actualList.size(), list.size());
+        Assert.assertEquals(actualList.get(0), list.get(0));
+
+        Mockito.verify(mockedAddressDelegate).getAddress(userBean.getId());
+    }
+
+    @Test
+    public void updateSoldCountTest() {
+        List<Long> list = new ArrayList<Long>();
+        list.add(3L);
+
+        ItemsBean itemsBean = new ItemsBean();
+        itemsBean.setItem_id(1L);
+
+        Mockito.when(mockedOrdersDelegate.getTotalSold(Mockito.anyLong())).thenReturn(list);
+        Mockito.when(mockedItemsDelegate.updateSoldCount(itemsBean)).thenReturn(list);
+
+        List<Long> actualList = userController.updateSoldCount(itemsBean);
+        Assert.assertEquals(actualList.size(), list.size());
+        Assert.assertEquals(actualList.get(0), list.get(0));
+
+        Mockito.verify(mockedOrdersDelegate).getTotalSold(itemsBean.getItem_id());
+        Mockito.verify(mockedItemsDelegate).updateSoldCount(itemsBean);
+    }
+
 }

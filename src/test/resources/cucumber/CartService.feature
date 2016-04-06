@@ -25,3 +25,8 @@ Feature: Check CartService
     When getCart() is called
     Then a list of carts is empty for getCart
 
+# Test AddToCart
+  Scenario: AddToCart is called successfully
+    Given mock CartService is initialized
+    When AddToCart() is called
+    Then AddToCart has been called successfully called

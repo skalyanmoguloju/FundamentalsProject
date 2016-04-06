@@ -27,6 +27,10 @@ public class MaterialIndentRepositorySteps {
     @Mock
     private SessionFactory mockedSessionFactory;
 
+    @Mock
+    private Session mockedSession;
+
+    @InjectMocks
     private MaterialIndentRepository materialIndentRepository;
 
     /************************************************/
@@ -36,21 +40,40 @@ public class MaterialIndentRepositorySteps {
     /***********************************************/
     @Given("^mock MaterialIndentRepository is initialized$")
     public void mock_MaterialIndentRepository_is_initialized() throws Throwable {
-        materialIndentRepository = new MaterialIndentRepository();
+        MockitoAnnotations.initMocks(this);
+        Mockito.reset(mockedSessionFactory, mockedSession);
     }
 
     @When("^AddSale\\(\\) is called$")
     public void addsale_is_called() throws Throwable {
-        materialIndentRepository.AddSale(new MaterialIndent(), new ArrayList<Cart>());
+        Mockito.when(mockedSessionFactory.getCurrentSession()).thenReturn(mockedSession);
     }
 
     @Then("^it has been called successfully$")
     public void it_has_been_called_successfully() throws Throwable {
+        MaterialIndent materialIndent = new MaterialIndent();
+        List<Cart> listCart = new ArrayList<Cart>();
+        Cart cart = new Cart();
+        cart.setItems(new Items());
+        cart.setQuantity(3);
+        listCart.add(cart);
 
+        materialIndentRepository.AddSale(materialIndent, listCart);
+        Mockito.verify(mockedSessionFactory).getCurrentSession();
     }
 
     @When("^AddSale\\(\\) throws exception$")
     public void addsale_throws_exception() throws Throwable {
+        BDDMockito.given(mockedSessionFactory.getCurrentSession()).willThrow(Exception.class);
+    }
 
+    @Then("^it has been called with exception$")
+    @Test(expected=Exception.class)
+    public void it_has_been_called_exception() throws Throwable {
+        MaterialIndent materialIndent = new MaterialIndent();
+        List<Cart> listCart = new ArrayList<Cart>();
+
+        materialIndentRepository.AddSale(materialIndent, listCart);
+        Mockito.verify(mockedSessionFactory).getCurrentSession();
     }
 }

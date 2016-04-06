@@ -89,7 +89,7 @@ public class CartDelegateSteps {
         cart1.setItemsBean(itemsBean);
         cart1.setCart_id(1L);
         cart1.setUser_id(1L);
-        cart1.setQuantity(3L);
+        cart1.setQuantity(3);
         cart1.setPrice(1F);
 
         expectedListCartBean = new ArrayList<CartBean>();

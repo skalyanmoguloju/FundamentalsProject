@@ -43,4 +43,11 @@ public class ItemsDelegate {
         items = itemsBeanMapper.mapBeanToItems(itemsBean);
         itemsService.addItem(items);
     }
+
+    @Transactional
+    public List<Long> updateSoldCount(ItemsBean itemsBean)
+    {
+        Items items = itemsBeanMapper.mapBeanToItems(itemsBean);
+        return itemsService.updateSoldCount(items);
+    }
 }

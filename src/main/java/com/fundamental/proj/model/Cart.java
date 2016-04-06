@@ -28,7 +28,7 @@ public class Cart {
     private long user_id;
 
     @Column(name="quantity")
-    private long quantity;
+    private int quantity;
 
     @Column(name ="price")
     private float price;
@@ -42,11 +42,11 @@ public class Cart {
         this.user_id = user_id;
     }
 
-    public long getQuantity() {
+    public int getQuantity() {
         return quantity;
     }
 
-    public void setQuantity(long quantity) {
+    public void setQuantity(int quantity) {
         this.quantity = quantity;
     }
 

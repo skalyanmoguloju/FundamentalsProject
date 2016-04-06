@@ -28,4 +28,13 @@ public class OrdersRepository {
         query.setParameter("uid",user_id);
         return query.list();
     }
+
+    @Transactional
+    public List<Long> getTotalSold(long item_id)
+    {
+        Session session = sessionFactory.getCurrentSession();
+        Query query = session.createQuery("select sum(quantity) from Orders where items.item_id=:iid");
+        query.setParameter("iid",item_id);
+        return query.list();
+    }
 }

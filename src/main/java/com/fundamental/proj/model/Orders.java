@@ -39,7 +39,7 @@ public class Orders {
 
 
     @Column(name = "quantity")
-    private long quantity;
+    private int quantity;
 
     public String getStatus() {
         return status;
@@ -57,11 +57,11 @@ public class Orders {
         this.materialIndent = materialIndent;
     }
 
-    public long getQuantity() {
+    public int getQuantity() {
         return quantity;
     }
 
-    public void setQuantity(long quantity) {
+    public void setQuantity(int quantity) {
         this.quantity = quantity;
     }
 

@@ -1,4 +1,4 @@
-package com.fundamental.proj.model;
+package com.fundamental.proj.service;
 
 import cucumber.api.CucumberOptions;
 import cucumber.api.junit.Cucumber;
@@ -10,8 +10,8 @@ import org.junit.runner.RunWith;
 @RunWith(Cucumber.class)
 @CucumberOptions(
         format = { "pretty", "json:target/cucumber" },
-        features = "classpath:cucumber/ItemCart.feature"
+        features = "classpath:cucumber/AddressService.feature"
 )
-public class ItemCartRunner {
-    // Run Cart.feature based on CartSteps.java
+public class AddressServiceRunner {
+    // Run AddressService.feature based on AddressServiceSteps.java
 }

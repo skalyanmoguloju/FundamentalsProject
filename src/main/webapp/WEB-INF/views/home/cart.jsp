@@ -54,15 +54,15 @@
                             }
                         }
                     };
-
                     $scope.updateAddress = function(addid){
                         $scope.shipaddress = addid;
                         $('#AddressModal').modal('hide');
                         $('#squarespaceModal').modal('show');
-                    }
+                    };
                     $scope.orderUp= function(vw){
                         console.log(vw);
                         if ($scope.validateCard() == true) {
+                            var order = $scope.cart;
                             $http.post('order', {
                                     item_id: vw.item_id,
                                     user_id: $scope.userInfo.id,
@@ -74,6 +74,11 @@
                                 })
                                 .success(function (response) {
                                     console.log(response);
+                                    /* Update sold_count for each purchased product */
+                                    for (var i=0; i<order.length; i++) {
+                                        $scope.updateSoldCount(order[i]);
+                                    }
+
                                     alert("Congratulations!\n You've successfully completed the purchase!");
                                     window.location.href = "/home";
                                 });
@@ -95,11 +100,11 @@
                             return false;
                         }
                         /* Check Exp Date */
-                        if (document.getElementById('expityDate').value.match(/^[0][0][/][0-9][0-9]$/) || document.getElementById('expityDate').value.match(/^[1][3-9][/][0-9][0-9]$/)) {
+                        if (document.getElementById('expityDate').value.match(/^[0][0][/][0-9][0-9]$/) || document.getElementById('expityDate').value.match(/^(([1][3-9])|([2-9][0-9]))[/][0-9][0-9]$/)) {
                             document.getElementById('lbltipAddedCommentCard').innerHTML = 'EXP Month is not valid';
                             return false;
                         }
-                        if (!document.getElementById('expityDate').value.match(/^(([0][1-9])|([1][1-2]))[/][0-9][0-9]$/)) {
+                        if (!document.getElementById('expityDate').value.match(/^(([0][1-9])|([1][0-2]))[/][0-9][0-9]$/)) {
                             document.getElementById('lbltipAddedCommentCard').innerHTML = 'EXP Year is not valid';
                             return false;
                         }
@@ -128,13 +133,46 @@
 
                         document.getElementById('lbltipAddedCommentCard').innerHTML = '';
                         return true;
-                    }
+                    };
+                    $scope.updateSoldCount = function(item) {
+                        $http.post('updateSoldCount', {
+                                    item_id: item.itemsBean.item_id,
+                                    item_name: item.itemsBean.item_name,
+                                    item_description: item.itemsBean.item_description,
+                                    onsale_count: item.itemsBean.onsale_count,
+                                    sold_count: item.itemsBean.sold_count,
+                                    category: item.itemsBean.category,
+                                    images: item.itemsBean.images,
+                                    price: item.itemsBean.price,
+                                    date: item.itemsBean.date,
+                                    user_id: item.itemsBean.user_id
+                                })
+                                .success(function (response) {
+                                    console.log(response);
+                                });
+                    };
+                    $scope.quantity = function(vw){
+                        if ($scope.validateQuantity() == true) {
+                            $scope.total = 0;
+                            for (var i=0; i<$scope.cart.length; i++){
+                                $scope.total = $scope.total+($scope.cart[i].itemsBean.price * $scope.cart[i].quantity);
+                            }
+                            $http.post('updateCart', {
+                                        itemsBean: vw.itemsBean,
+                                        user_id:$scope.userInfo.id,
+                                        quantity: vw.quantity,
+                                        price: vw.price,
+                                        cart_id: vw.cart_id
+                                    })
+                                    .success(function (response) {
+                                        console.log(response);
+                                    });
+                        }
+                    };
                     $scope.validateQuantity = function(){
                         /* Check Quantity */
                         var msg = '';
                         for (var i=0; i<$scope.cart.length; i++) {
-                            console.log($scope.cart[i].quantity);
-                            console.log($scope.cart[i].itemsBean.onsale_count);
                             if ($scope.cart[i].itemsBean.onsale_count == 0) {
                                 msg += 'Product "' + $scope.cart[i].itemsBean.item_name + '" is out of stock, Please delete it!'  + '<br/>';
                             } else if ($scope.cart[i].quantity > $scope.cart[i].itemsBean.onsale_count) {
@@ -154,24 +192,6 @@
                             return false;
                         }
                         return true;
-                    };
-                    $scope.quantity = function(vw){
-                        if ($scope.validateQuantity() == true) {
-                            $scope.total = 0;
-                            for (var i=0; i<$scope.cart.length; i++){
-                                $scope.total = $scope.total+($scope.cart[i].itemsBean.price * $scope.cart[i].quantity);
-                            }
-                            $http.post('updateCart', {
-                                        itemsBean: vw.itemsBean,
-                                        user_id:$scope.userInfo.id,
-                                        quantity: vw.quantity,
-                                        price: vw.price,
-                                        cart_id: vw.cart_id
-                                    })
-                                    .success(function (response) {
-                                        console.log(response);
-                                    });
-                        }
                     };
                     $scope.delete = function(vw){
                         $http.post('deleteCart', {

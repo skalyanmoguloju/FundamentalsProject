@@ -20,7 +20,7 @@ public class CartBeanSteps {
     @InjectMocks
     private CartBean cartBean;
     private long user_id;
-    private long quantity;
+    private int quantity;
     private float price;
     private ItemsBean itemsBean;
     private long cart_id;

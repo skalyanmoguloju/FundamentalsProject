@@ -27,4 +27,9 @@ public class OrdersDelegate {
         return ordersBeanMapper.mapOrdersBean(ordersService.getAllOrders(user_id));
     }
 
+    @Transactional
+    public List<Long> getTotalSold(long item_id)
+    {
+        return ordersService.getTotalSold(item_id);
+    }
 }

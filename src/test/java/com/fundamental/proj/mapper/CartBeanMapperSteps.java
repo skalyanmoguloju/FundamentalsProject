@@ -50,7 +50,7 @@ public class CartBeanMapperSteps {
 
         expectedCart = new Cart();
         expectedCart.setPrice(3L);
-        expectedCart.setQuantity(4L);
+        expectedCart.setQuantity(4);
         expectedCart.setUser_id(1L);
         expectedCart.setCart_id(2L);
         expectedCart.setItems(items);
@@ -107,7 +107,7 @@ public class CartBeanMapperSteps {
 
         expectedCartBean = new CartBean();
         expectedCartBean.setPrice(3F);
-        expectedCartBean.setQuantity(3L);
+        expectedCartBean.setQuantity(3);
         expectedCartBean.setUser_id(1L);
         expectedCartBean.setCart_id(2L);
         expectedCartBean.setItemsBean(itemsBean);
@@ -153,7 +153,7 @@ public class CartBeanMapperSteps {
         expectedCart = new Cart();
 
         expectedCart.setPrice(3L);
-        expectedCart.setQuantity(4L);
+        expectedCart.setQuantity(4);
         expectedCart.setUser_id(1L);
         expectedCart.setCart_id(2L);
         expectedCart.setItems(items);

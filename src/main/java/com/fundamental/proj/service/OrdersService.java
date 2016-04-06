@@ -22,4 +22,10 @@ public class OrdersService {
     {
         return ordersRepository.getAllOrders(user_id);
     }
+
+    @Transactional
+    public List<Long> getTotalSold(long item_id)
+    {
+        return ordersRepository.getTotalSold(item_id);
+    }
 }

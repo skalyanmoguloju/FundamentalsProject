@@ -1,16 +1,14 @@
 package com.fundamental.proj.controller;
 import com.fundamental.proj.controller.bean.*;
 import com.fundamental.proj.delegate.*;
+import com.fundamental.proj.model.Items;
 import com.fundamental.proj.model.MaterialIndent;
 import com.fundamental.proj.model.Orders;
 import com.fundamental.proj.util.EmailVerification;
 import org.joda.time.DateTime;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.multipart.commons.CommonsMultipartFile;
 
@@ -208,4 +206,15 @@ public class UserController {
         List<AddressBean> u = addressDelegate.getAddress(userBean.getId());
         return u;
     }
+
+    @RequestMapping(value = "/updateSoldCount", method = RequestMethod.POST)
+    @ResponseBody
+    public List<Long> updateSoldCount(@RequestBody ItemsBean itemsBean) {
+        //HYBERNETCALLS
+        long sold_count = ordersDelegate.getTotalSold(itemsBean.getItem_id()).get(0);
+        itemsBean.setSold_count((int) sold_count);
+        List<Long> list = itemsDelegate.updateSoldCount(itemsBean);
+        return list;
+    }
+
 }

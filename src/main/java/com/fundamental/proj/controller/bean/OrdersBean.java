@@ -7,7 +7,7 @@ public class OrdersBean {
 
     private long order_id;
     private MaterialIndentBean materialIndentBean;
-    private long quantity;
+    private int quantity;
     private String status;
 
     public ItemsBean getItemsBean() {
@@ -34,11 +34,11 @@ public class OrdersBean {
         this.materialIndentBean = materialIndentBean;
     }
 
-    public long getQuantity() {
+    public int getQuantity() {
         return quantity;
     }
 
-    public void setQuantity(long quantity) {
+    public void setQuantity(int quantity) {
         this.quantity = quantity;
     }
 
