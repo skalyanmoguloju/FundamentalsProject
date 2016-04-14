@@ -38,6 +38,7 @@ public class ItemsDelegateSteps {
     private ItemsDelegate itemsDelegate;
 
     private List<ItemsBean> expectedListItemBean;
+    private List<Long> expectedListSoldCount;
 
     @Given("^mock ItemsDelegate is initialized$")
     public void mock_itemsrespository_is_initialized() throws Throwable {
@@ -149,6 +150,53 @@ public class ItemsDelegateSteps {
         // verify addItem has been called
         Mockito.verify(mockedItemsBeanMapper).mapBeanToItems(itemsBean);
         Mockito.verify(mockedItemsService).addItem(mockedItems);
+    }
+
+    /************************************************/
+    /*
+     * Test getAllItemsContainingSearchTerm()
+     */
+    /***********************************************/
+    @When("^getAllItemsContainingSearchTerm\\(\\) is called for ItemsDelegate$")
+    public void getallitemscontainingsearchterm_is_called_for_ItemsDelegate() throws Throwable {
+        Mockito.when(mockedItemsService.getAllItemsContainingSearchTerm(Mockito.anyString())).thenReturn(mockedListItems);
+        Mockito.when(mockedItemsBeanMapper.mapItemBean(mockedListItems)).thenReturn(expectedListItemBean);
+    }
+
+    @Then("^a list of itembeans is returned for getAllItemsContainingSearchTerm$")
+    public void a_list_of_itembeans_is_returned_for_getAllItemsContainingSearchTerm() throws Throwable {
+        List<ItemsBean> actualList = itemsDelegate.getAllItemsContainingSearchTerm("s");
+        Assert.assertEquals(actualList.size(), expectedListItemBean.size());
+        Assert.assertEquals(actualList.get(0), expectedListItemBean.get(0));
+        Mockito.verify(mockedItemsService).getAllItemsContainingSearchTerm("s");
+        Mockito.verify(mockedItemsBeanMapper).mapItemBean(mockedListItems);
+    }
+
+    /************************************************/
+    /*
+     * Test updateSoldCount()
+     */
+    /***********************************************/
+    @Given("^expected soldcount is initialized$")
+    public void expected_soldcount_is_initialized() throws Throwable {
+        expectedListSoldCount = new ArrayList<Long>();
+        expectedListSoldCount.add(1L);
+    }
+
+    @When("^updateSoldCount\\(\\) is called for ItemsDelegate$")
+    public void updatesoldcount_is_called_for_ItemsDelegate() throws Throwable {
+        Mockito.when(mockedItemsBeanMapper.mapBeanToItems(Mockito.any(ItemsBean.class))).thenReturn(mockedItems);
+        Mockito.when(mockedItemsService.updateSoldCount(mockedItems)).thenReturn(expectedListSoldCount);
+    }
+
+    @Then("^soldcount is returned for updateSoldCount$")
+    public void soldcount_is_returned_for_updateSoldCount() throws Throwable {
+        ItemsBean itemsBean = new ItemsBean();
+        List<Long> actualList = itemsDelegate.updateSoldCount(itemsBean);
+        Assert.assertEquals(actualList.size(), expectedListSoldCount.size());
+        Assert.assertEquals(actualList.get(0), expectedListSoldCount.get(0));
+        Mockito.verify(mockedItemsBeanMapper).mapBeanToItems(itemsBean);
+        Mockito.verify(mockedItemsService).updateSoldCount(mockedItems);
     }
 
 }

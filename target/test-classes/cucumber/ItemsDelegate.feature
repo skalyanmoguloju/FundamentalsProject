@@ -24,3 +24,17 @@ Feature: Check ItemsDelegate
     Given mock ItemsDelegate is initialized
     When addItem() is called for ItemsDelegate
     Then addItem has been called successfully
+
+# Test getAllItemsContainingSearchTerm
+  Scenario: getAllItemsContainingSearchTerm returns some itembeans
+    Given mock ItemsDelegate is initialized
+    And expected list of itembeans is initialized
+    When getAllItemsContainingSearchTerm() is called for ItemsDelegate
+    Then a list of itembeans is returned for getAllItemsContainingSearchTerm
+
+# Test updateSoldCount
+  Scenario: updateSoldCount returns soldcount
+    Given mock ItemsDelegate is initialized
+    And expected soldcount is initialized
+    When updateSoldCount() is called for ItemsDelegate
+    Then soldcount is returned for updateSoldCount

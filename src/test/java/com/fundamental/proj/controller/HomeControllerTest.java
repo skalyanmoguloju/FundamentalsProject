@@ -1,12 +1,10 @@
 package com.fundamental.proj.controller;
 
-import com.fundamental.proj.controller.HomeController;
 import com.fundamental.proj.controller.bean.RolesBean;
 import com.fundamental.proj.controller.bean.UserBean;
 import com.fundamental.proj.delegate.RolesDelegate;
 import com.fundamental.proj.delegate.UserDelegate;
-import com.fundamental.proj.model.User;
-import com.fundamental.proj.util.EmailVerification;
+import com.fundamental.proj.util.EmailNotification;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
@@ -37,7 +35,7 @@ public class HomeControllerTest {
     private UserBean mockedUserBean;
 
     @Mock
-    EmailVerification mockedEmailVerification;
+    EmailNotification mockedEmailVerification;
 
     @InjectMocks
     private HomeController homeController;

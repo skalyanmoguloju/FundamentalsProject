@@ -1,16 +1,10 @@
 package com.fundamental.proj.controller;
 import com.fundamental.proj.controller.bean.*;
 import com.fundamental.proj.delegate.*;
-import com.fundamental.proj.model.Items;
-import com.fundamental.proj.model.MaterialIndent;
-import com.fundamental.proj.model.Orders;
-import com.fundamental.proj.util.EmailVerification;
-import org.joda.time.DateTime;
+import com.fundamental.proj.util.EmailNotification;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.web.multipart.MultipartFile;
-import org.springframework.web.multipart.commons.CommonsMultipartFile;
 
 import java.util.*;
 
@@ -66,15 +60,34 @@ public class UserController {
         return userDelegate.addNewAdmin();
     }
 
-    @RequestMapping(value = "/add manager")
+    @RequestMapping(value = "/manage managers")
     public String addManagerPage() {
-        return "WEB-INF/views/home/addManager";
+        return "WEB-INF/views/home/manageManagers";
     }
 
     @RequestMapping(value = "/addManager", method = RequestMethod.POST)
     @ResponseBody
     public List<Long> addNewManager() {
         return userDelegate.addNewManager();
+    }
+
+    @RequestMapping(value = "/listManagers", method = RequestMethod.POST)
+    @ResponseBody
+    public List<UserBean> getAllManagers() {
+        return userDelegate.getAllManagers();
+    }
+
+    @RequestMapping(value = "/promoteManager", method = RequestMethod.POST)
+    @ResponseBody
+    public List<String> promoteManager(@RequestBody long user_id) {
+        List<String> s = new ArrayList<String>();
+        try {
+            userDelegate.promoteManager(user_id);
+            s.add("" + user_id);
+            return s;
+        } catch (Exception e) {
+            return s;
+        }
     }
 
     @RequestMapping(value = "/add item")
@@ -104,14 +117,49 @@ public class UserController {
 
     @RequestMapping(value = "/order", method = RequestMethod.POST)
     @ResponseBody
-    public List<String> PurchaseItem(@RequestBody MaterialIndentBean materialIndentBean) {
+    public List<Long> PurchaseItem(@RequestBody MaterialIndentBean materialIndentBean) {
         //HIBERNETCALLS
-        List<String> s = new LinkedList<String>();
+        List<Long> s = new LinkedList<Long>();
         try {
             Date date = new Date();
             materialIndentBean.setIndent_date(date);
-            materialIndentDelegate.addSale(materialIndentBean);
+            List<Long> l = materialIndentDelegate.addSale(materialIndentBean);
             //String passwordToCompare = itemsDelegate.  .getUserPasswordWithEmail(userBean);
+
+            return l;
+
+        } catch (Exception e) {
+            return s;
+        }
+
+    }
+
+    @RequestMapping(value = "/newOrderEmailNotification", method = RequestMethod.POST)
+    @ResponseBody
+    public List<String> newOrderEmailNotification(@RequestBody MaterialIndentBean materialIndentBean) {
+        //HIBERNETCALLS
+        List<String> s = new LinkedList<String>();
+        try {
+
+            /* get user's email */
+            UserBean userBean = new UserBean();
+            userBean.setId(materialIndentBean.getUser_id());
+            String email = userDelegate.getUserInfo(userBean).get(0).getEmail();
+
+            /* get list of cartbeans */
+            List<CartBean> cartBeans = cartDelegate.getCart(materialIndentBean.getUser_id());
+
+            /* Clear Cart */
+            cartDelegate.clearCart(materialIndentBean.getUser_id());
+
+            /* send email for purchased items */
+            Date date = new Date();
+            materialIndentBean.setIndent_date(date);
+            EmailNotification ev = new EmailNotification();
+            ev.sendEmailOrderConfirmation(email, materialIndentBean, cartBeans);
+//            ev.sendEmailOrderConfirmation("daniel.dddao@gmail.com", materialIndentBean, cartBeans);
+
+            s.add(email);
             return s;
 
         } catch (Exception e) {

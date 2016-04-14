@@ -69,4 +69,16 @@ public class UserService {
     {
         return userRepository.addNewManager();
     }
+
+    @Transactional
+    public List<User> getAllManagers()
+    {
+        return userRepository.getAllManagers();
+    }
+
+    @Transactional
+    public void promoteManager(long user_id)
+    {
+        userRepository.promoteManager(user_id);
+    }
 }

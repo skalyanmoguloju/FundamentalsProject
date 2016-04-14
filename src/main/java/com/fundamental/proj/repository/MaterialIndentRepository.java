@@ -25,7 +25,7 @@ public class MaterialIndentRepository {
     private SessionFactory sessionFactory;
 
     @Transactional
-    public void AddSale(MaterialIndent materialIndent, List<Cart> carts) {
+    public List<Long> AddSale(MaterialIndent materialIndent, List<Cart> carts) {
         List<Long> i = new ArrayList<Long>();
         try {
             Session session = sessionFactory.getCurrentSession();
@@ -42,10 +42,12 @@ public class MaterialIndentRepository {
                 session.flush();
             }
 
+            Query query = session.createQuery("select max(indent_id) from MaterialIndent");
+            return query.list();
         }
         catch (Exception e)
         {
-
+            return i;
         }
     }
 }

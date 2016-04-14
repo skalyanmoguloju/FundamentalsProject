@@ -4,57 +4,51 @@
     "elements": [
       {
         "line": 3,
-        "name": "getId returns id",
+        "name": "2 random keys are different",
         "description": "",
-        "id": "check-user;getid-returns-id",
+        "id": "check-emailverification;2-random-keys-are-different",
         "type": "scenario",
         "keyword": "Scenario",
         "steps": [
           {
             "result": {
-              "duration": 9156192,
+              "duration": 8987628,
               "status": "passed"
             },
             "line": 4,
-            "name": "user is set up",
+            "name": "I have an EmailVerification",
             "match": {
-              "location": "UserSteps.user_is_set_up()"
+              "location": "EmailVerificationSteps.i_have_an_EmailVerification()"
             },
             "keyword": "Given "
           },
           {
             "result": {
-              "duration": 726265,
+              "duration": 16355989,
               "status": "passed"
             },
             "line": 5,
-            "name": "id 1 is set",
+            "name": "I generate 2 key(s)",
             "match": {
               "arguments": [
                 {
-                  "val": "1",
-                  "offset": 3
+                  "val": "2",
+                  "offset": 11
                 }
               ],
-              "location": "UserSteps.id_is_set(int)"
+              "location": "EmailVerificationSteps.i_generate_key_s(int)"
             },
             "keyword": "When "
           },
           {
             "result": {
-              "duration": 738008,
+              "duration": 107394,
               "status": "passed"
             },
             "line": 6,
-            "name": "getId returns 1",
+            "name": "they should be different",
             "match": {
-              "arguments": [
-                {
-                  "val": "1",
-                  "offset": 14
-                }
-              ],
-              "location": "UserSteps.getid_returns(int)"
+              "location": "EmailVerificationSteps.they_should_be_different()"
             },
             "keyword": "Then "
           }
@@ -62,57 +56,51 @@
       },
       {
         "line": 8,
-        "name": "getName returns name",
+        "name": "2 random keys are different",
         "description": "",
-        "id": "check-user;getname-returns-name",
+        "id": "check-emailverification;2-random-keys-are-different",
         "type": "scenario",
         "keyword": "Scenario",
         "steps": [
           {
             "result": {
-              "duration": 394603,
+              "duration": 477329,
               "status": "passed"
             },
             "line": 9,
-            "name": "user is set up",
+            "name": "I have an EmailVerification",
             "match": {
-              "location": "UserSteps.user_is_set_up()"
+              "location": "EmailVerificationSteps.i_have_an_EmailVerification()"
             },
             "keyword": "Given "
           },
           {
             "result": {
-              "duration": 1323308,
+              "duration": 1831967,
               "status": "passed"
             },
             "line": 10,
-            "name": "name \"testname\" is set",
+            "name": "I generate 4 key(s)",
             "match": {
               "arguments": [
                 {
-                  "val": "testname",
-                  "offset": 6
+                  "val": "4",
+                  "offset": 11
                 }
               ],
-              "location": "UserSteps.name_is_set(String)"
+              "location": "EmailVerificationSteps.i_generate_key_s(int)"
             },
             "keyword": "When "
           },
           {
             "result": {
-              "duration": 364297,
+              "duration": 339894,
               "status": "passed"
             },
             "line": 11,
-            "name": "getName returns \"testname\"",
+            "name": "they should be different",
             "match": {
-              "arguments": [
-                {
-                  "val": "testname",
-                  "offset": 17
-                }
-              ],
-              "location": "UserSteps.getname_returns(String)"
+              "location": "EmailVerificationSteps.they_should_be_different()"
             },
             "keyword": "Then "
           }
@@ -120,57 +108,51 @@
       },
       {
         "line": 13,
-        "name": "getLname returns last name",
+        "name": "a return key is a random UUID",
         "description": "",
-        "id": "check-user;getlname-returns-last-name",
+        "id": "check-emailverification;a-return-key-is-a-random-uuid",
         "type": "scenario",
         "keyword": "Scenario",
         "steps": [
           {
             "result": {
-              "duration": 406393,
+              "duration": 770371,
               "status": "passed"
             },
             "line": 14,
-            "name": "user is set up",
+            "name": "I have an EmailVerification",
             "match": {
-              "location": "UserSteps.user_is_set_up()"
+              "location": "EmailVerificationSteps.i_have_an_EmailVerification()"
             },
             "keyword": "Given "
           },
           {
             "result": {
-              "duration": 284711,
+              "duration": 410834,
               "status": "passed"
             },
             "line": 15,
-            "name": "last name \"testlname\" is set",
+            "name": "I generate 1 key(s)",
             "match": {
               "arguments": [
                 {
-                  "val": "testlname",
+                  "val": "1",
                   "offset": 11
                 }
               ],
-              "location": "UserSteps.last_name_is_set(String)"
+              "location": "EmailVerificationSteps.i_generate_key_s(int)"
             },
             "keyword": "When "
           },
           {
             "result": {
-              "duration": 184723,
+              "duration": 562265,
               "status": "passed"
             },
             "line": 16,
-            "name": "getLname returns \"testlname\"",
+            "name": "each key should have the same length as a random UUID",
             "match": {
-              "arguments": [
-                {
-                  "val": "testlname",
-                  "offset": 18
-                }
-              ],
-              "location": "UserSteps.getlname_returns(String)"
+              "location": "EmailVerificationSteps.it_should_have_the_same_length_as_a_random_UUID()"
             },
             "keyword": "Then "
           }
@@ -178,57 +160,51 @@
       },
       {
         "line": 18,
-        "name": "getEmail returns email",
+        "name": "each return key is a random UUID",
         "description": "",
-        "id": "check-user;getemail-returns-email",
+        "id": "check-emailverification;each-return-key-is-a-random-uuid",
         "type": "scenario",
         "keyword": "Scenario",
         "steps": [
           {
             "result": {
-              "duration": 282985,
+              "duration": 890845,
               "status": "passed"
             },
             "line": 19,
-            "name": "user is set up",
+            "name": "I have an EmailVerification",
             "match": {
-              "location": "UserSteps.user_is_set_up()"
+              "location": "EmailVerificationSteps.i_have_an_EmailVerification()"
             },
             "keyword": "Given "
           },
           {
             "result": {
-              "duration": 274425,
+              "duration": 1864873,
               "status": "passed"
             },
             "line": 20,
-            "name": "email \"test@gmail.com\" is set",
+            "name": "I generate 3 key(s)",
             "match": {
               "arguments": [
                 {
-                  "val": "test@gmail.com",
-                  "offset": 7
+                  "val": "3",
+                  "offset": 11
                 }
               ],
-              "location": "UserSteps.email_is_set(String)"
+              "location": "EmailVerificationSteps.i_generate_key_s(int)"
             },
             "keyword": "When "
           },
           {
             "result": {
-              "duration": 2519139,
+              "duration": 6242727,
               "status": "passed"
             },
             "line": 21,
-            "name": "getEmail returns \"test@gmail.com\"",
+            "name": "each key should have the same length as a random UUID",
             "match": {
-              "arguments": [
-                {
-                  "val": "test@gmail.com",
-                  "offset": 18
-                }
-              ],
-              "location": "UserSteps.getemail_returns(String)"
+              "location": "EmailVerificationSteps.it_should_have_the_same_length_as_a_random_UUID()"
             },
             "keyword": "Then "
           }
@@ -236,299 +212,55 @@
       },
       {
         "line": 23,
-        "name": "getPwsd returns password",
+        "name": "a return key after executing sendEmailVerificationLink is a random UUID",
         "description": "",
-        "id": "check-user;getpwsd-returns-password",
+        "id": "check-emailverification;a-return-key-after-executing-sendemailverificationlink-is-a-random-uuid",
         "type": "scenario",
         "keyword": "Scenario",
         "steps": [
           {
             "result": {
-              "duration": 474016,
+              "duration": 1304575,
               "status": "passed"
             },
             "line": 24,
-            "name": "user is set up",
+            "name": "I have an EmailVerification",
             "match": {
-              "location": "UserSteps.user_is_set_up()"
+              "location": "EmailVerificationSteps.i_have_an_EmailVerification()"
             },
             "keyword": "Given "
           },
           {
             "result": {
-              "duration": 444620,
+              "duration": 3380384464,
               "status": "passed"
             },
             "line": 25,
-            "name": "password \"testpassword\" is set",
+            "name": "I call sendEmailVerificationLink",
             "match": {
-              "arguments": [
-                {
-                  "val": "testpassword",
-                  "offset": 10
-                }
-              ],
-              "location": "UserSteps.password_is_set(String)"
+              "location": "EmailVerificationSteps.i_call_sendEmailVerificationLink()"
             },
             "keyword": "When "
           },
           {
             "result": {
-              "duration": 189353,
+              "duration": 128847,
               "status": "passed"
             },
             "line": 26,
-            "name": "getPwsd returns \"testpassword\"",
+            "name": "it should return a key having the same length as a random UUID",
             "match": {
-              "arguments": [
-                {
-                  "val": "testpassword",
-                  "offset": 17
-                }
-              ],
-              "location": "UserSteps.getpwsd_returns(String)"
-            },
-            "keyword": "Then "
-          }
-        ]
-      },
-      {
-        "line": 28,
-        "name": "getDob returns date of birth",
-        "description": "",
-        "id": "check-user;getdob-returns-date-of-birth",
-        "type": "scenario",
-        "keyword": "Scenario",
-        "steps": [
-          {
-            "result": {
-              "duration": 275427,
-              "status": "passed"
-            },
-            "line": 29,
-            "name": "user is set up",
-            "match": {
-              "location": "UserSteps.user_is_set_up()"
-            },
-            "keyword": "Given "
-          },
-          {
-            "result": {
-              "duration": 626644,
-              "status": "passed"
-            },
-            "line": 30,
-            "name": "date \"2000-01-01\" is set",
-            "match": {
-              "arguments": [
-                {
-                  "val": "2000-01-01",
-                  "offset": 6
-                }
-              ],
-              "location": "UserSteps.date_is_set(String)"
-            },
-            "keyword": "When "
-          },
-          {
-            "result": {
-              "duration": 896286,
-              "status": "passed"
-            },
-            "line": 31,
-            "name": "getDob returns \"2000-01-01\"",
-            "match": {
-              "arguments": [
-                {
-                  "val": "2000-01-01",
-                  "offset": 16
-                }
-              ],
-              "location": "UserSteps.getdob_returns(String)"
-            },
-            "keyword": "Then "
-          }
-        ]
-      },
-      {
-        "line": 33,
-        "name": "getRole returns role",
-        "description": "",
-        "id": "check-user;getrole-returns-role",
-        "type": "scenario",
-        "keyword": "Scenario",
-        "steps": [
-          {
-            "result": {
-              "duration": 186484,
-              "status": "passed"
-            },
-            "line": 34,
-            "name": "user is set up",
-            "match": {
-              "location": "UserSteps.user_is_set_up()"
-            },
-            "keyword": "Given "
-          },
-          {
-            "result": {
-              "duration": 138476,
-              "status": "passed"
-            },
-            "line": 35,
-            "name": "role \"User\" is set",
-            "match": {
-              "arguments": [
-                {
-                  "val": "User",
-                  "offset": 6
-                }
-              ],
-              "location": "UserSteps.role_is_set(String)"
-            },
-            "keyword": "When "
-          },
-          {
-            "result": {
-              "duration": 94514,
-              "status": "passed"
-            },
-            "line": 36,
-            "name": "getRole returns \"User\"",
-            "match": {
-              "arguments": [
-                {
-                  "val": "User",
-                  "offset": 17
-                }
-              ],
-              "location": "UserSteps.getrole_returns(String)"
-            },
-            "keyword": "Then "
-          }
-        ]
-      },
-      {
-        "line": 38,
-        "name": "getStatus returns status",
-        "description": "",
-        "id": "check-user;getstatus-returns-status",
-        "type": "scenario",
-        "keyword": "Scenario",
-        "steps": [
-          {
-            "result": {
-              "duration": 247957,
-              "status": "passed"
-            },
-            "line": 39,
-            "name": "user is set up",
-            "match": {
-              "location": "UserSteps.user_is_set_up()"
-            },
-            "keyword": "Given "
-          },
-          {
-            "result": {
-              "duration": 128350,
-              "status": "passed"
-            },
-            "line": 40,
-            "name": "status \"Activate\" is set",
-            "match": {
-              "arguments": [
-                {
-                  "val": "Activate",
-                  "offset": 8
-                }
-              ],
-              "location": "UserSteps.status_is_set(String)"
-            },
-            "keyword": "When "
-          },
-          {
-            "result": {
-              "duration": 106527,
-              "status": "passed"
-            },
-            "line": 41,
-            "name": "getStatus returns \"Activate\"",
-            "match": {
-              "arguments": [
-                {
-                  "val": "Activate",
-                  "offset": 19
-                }
-              ],
-              "location": "UserSteps.getstatus_returns(String)"
-            },
-            "keyword": "Then "
-          }
-        ]
-      },
-      {
-        "line": 43,
-        "name": "getGender returns gender",
-        "description": "",
-        "id": "check-user;getgender-returns-gender",
-        "type": "scenario",
-        "keyword": "Scenario",
-        "steps": [
-          {
-            "result": {
-              "duration": 214186,
-              "status": "passed"
-            },
-            "line": 44,
-            "name": "user is set up",
-            "match": {
-              "location": "UserSteps.user_is_set_up()"
-            },
-            "keyword": "Given "
-          },
-          {
-            "result": {
-              "duration": 115658,
-              "status": "passed"
-            },
-            "line": 45,
-            "name": "gender \"M\" is set",
-            "match": {
-              "arguments": [
-                {
-                  "val": "M",
-                  "offset": 8
-                }
-              ],
-              "location": "UserSteps.gender_is_set(String)"
-            },
-            "keyword": "When "
-          },
-          {
-            "result": {
-              "duration": 139104,
-              "status": "passed"
-            },
-            "line": 46,
-            "name": "getGender returns \"M\"",
-            "match": {
-              "arguments": [
-                {
-                  "val": "M",
-                  "offset": 19
-                }
-              ],
-              "location": "UserSteps.getgender_returns(String)"
+              "location": "EmailVerificationSteps.it_should_return_a_key_having_the_same_length_as_a_random_UUID()"
             },
             "keyword": "Then "
           }
         ]
       }
     ],
-    "name": "Check User",
+    "name": "Check EmailVerification",
     "description": "",
-    "id": "check-user",
+    "id": "check-emailverification",
     "keyword": "Feature",
-    "uri": "cucumber/User.feature"
+    "uri": "cucumber/EmailVerification.feature"
   }
 ]

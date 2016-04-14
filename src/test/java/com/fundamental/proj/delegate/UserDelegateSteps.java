@@ -1,5 +1,6 @@
 package com.fundamental.proj.delegate;
 
+import cucumber.api.java.cs.A;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import com.fundamental.proj.mapper.UserBeanMapper;
@@ -41,6 +42,9 @@ public class UserDelegateSteps {
     private UserDelegate userDelegate;
 
     private List<UserBean> expectedListUserBean;
+    private List<Long> expectedListIds;
+    private List<String> listpswd;
+
     @Given("^mock UserDelegate is initialized$")
     public void mock_UserDelegate_is_initialized() throws Throwable {
         MockitoAnnotations.initMocks(this);
@@ -150,4 +154,132 @@ public class UserDelegateSteps {
         Mockito.verify(mockedUserBeanMapper).mapBeanToUser(userBean);
         Mockito.verify(mockedUserService).addUser(mockedUser);
     }
+
+    @When("^getUserInfo\\(\\) is called for UserDelegate$")
+    public void getuserinfo_is_called_for_UserDelegate() throws Throwable {
+        Mockito.when(mockedUserService.getUserInfo(Mockito.any(UserBean.class))).thenReturn(mockedListUser);
+        Mockito.when(mockedUserBeanMapper.mapUserBean(mockedListUser)).thenReturn(expectedListUserBean);
+    }
+
+    @Then("^a list of users is returned for getUserInfo in UserDelegate$")
+    public void a_list_of_users_is_returned_for_getUserInfo_in_UserDelegate() throws Throwable {
+        UserBean userBean = new UserBean();
+        List<UserBean> actualList = userDelegate.getUserInfo(userBean);
+        Assert.assertEquals(actualList.size(), expectedListUserBean.size());
+        Assert.assertEquals(actualList.get(0), expectedListUserBean.get(0));
+        Mockito.verify(mockedUserService).getUserInfo(userBean);
+        Mockito.verify(mockedUserBeanMapper).mapUserBean(mockedListUser);
+    }
+
+    @Given("^expected list of ids are initialized for validateEmail")
+    public void expected_list_of_ids_are_initialized_for_validateEmail() throws Throwable {
+        expectedListIds = new ArrayList<Long>();
+        expectedListIds.add(1L);
+    }
+
+    @When("^validateEmail\\(\\) is called for UserDelegate$")
+    public void validateemail_is_called_for_UserDelegate() throws Throwable {
+        Mockito.when(mockedUserService.validateEmail(Mockito.any(UserBean.class))).thenReturn(expectedListIds);
+    }
+
+    @Then("^a list of ids is returned for validateEmail in UserDelegate$")
+    public void a_list_of_ids_is_returned_for_validateEmail_in_UserDelegate() throws Throwable {
+        UserBean userBean = new UserBean();
+        List<Long> actualList = userDelegate.validateEmail(userBean);
+        Assert.assertEquals(actualList.size(), expectedListIds.size());
+        Assert.assertEquals(actualList.get(0), expectedListIds.get(0));
+        Mockito.verify(mockedUserService).validateEmail(userBean);
+    }
+
+    @When("^verifyUser\\(\\) is called for UsersDelegate$")
+    public void verifyuser_is_called_for_UsersDelegate() throws Throwable {
+        Mockito.doNothing().when(mockedUserService).verifyUser(Mockito.anyLong());
+    }
+
+    @Then("^verifyUser has been called successfully$")
+    public void verifyuser_has_been_called_successfully() throws Throwable {
+        userDelegate.verifyUser(1L);
+        Mockito.verify(mockedUserService).verifyUser(1L);
+    }
+
+    @When("^resetPassword\\(\\) is called for UsersDelegate$")
+    public void resetpassword_is_called_for_UsersDelegate() throws Throwable {
+        Mockito.doNothing().when(mockedUserService).resetPswd(Mockito.anyLong(), Mockito.anyString());
+    }
+
+    @Then("^resetPassword has been called successfully$")
+    public void resetpassword_has_been_called_successfully() throws Throwable {
+        userDelegate.resetPassword(1L, "pswd");
+        Mockito.verify(mockedUserService).resetPswd(1L, "pswd");
+    }
+
+    @Given("^expected list of pswd is initialized for getUserPasswordWithEmail$")
+    public void expected_list_of_pswd_is_initialized_for_getUserPasswordWithEmail() throws Throwable {
+        listpswd = new ArrayList<String>();
+        listpswd.add("ps1");
+        listpswd.add("ps2");
+    }
+
+    @When("^getUserPasswordWithEmail\\(\\) is called for UserDelegate$")
+    public void getuserpasswordwithemail_is_called_for_UserDelegate() throws Throwable {
+        Mockito.when(mockedUserService.getUserInfoWithEmail(Mockito.any(UserBean.class))).thenReturn(listpswd);
+    }
+
+    @Then("^a pswd is returned for getUserPasswordWithEmail in UserDelegate$")
+    public void a_pswd_is_returned_for_getUserPasswordWithEmail_in_UserDelegate() throws Throwable {
+        UserBean userBean = new UserBean();
+        String result = userDelegate.getUserPasswordWithEmail(userBean);
+        Assert.assertEquals(result, listpswd.get(0));
+    }
+
+    @Given("^expected empty list of pswd is initialized for getUserPasswordWithEmail$")
+    public void expected_empty_list_of_pswd_is_initialized_for_getUserPasswordWithEmail() throws Throwable {
+        listpswd = new ArrayList<String>();
+    }
+
+    @Then("^an empty pswd is returned for getUserPasswordWithEmail in UserDelegate$")
+    public void an_empty_pswd_is_returned_for_getUserPasswordWithEmail_in_UserDelegate() throws Throwable {
+        UserBean userBean = new UserBean();
+        String result = userDelegate.getUserPasswordWithEmail(userBean);
+        Assert.assertEquals(result, "");
+    }
+
+    @Given("^expected list of ids is initialized for addNewAdmin$")
+    public void expected_list_of_ids_is_initialized_for_addNewAdmin() throws Throwable {
+        expectedListIds = new ArrayList<Long>();
+        expectedListIds.add(1L);
+    }
+
+    @When("^addNewAdmin\\(\\) is called for UserDelegate$")
+    public void addnewadmin_is_called_for_UserDelegate() throws Throwable {
+        Mockito.when(mockedUserService.addNewAdmin()).thenReturn(expectedListIds);
+    }
+
+    @Then("^a list of ids is returned for addNewAdmin in UserDelegate$")
+    public void a_list_of_ids_is_returned_for_addNewAdmin_in_UserDelegate() throws Throwable {
+        List<Long> actualList = userDelegate.addNewAdmin();
+        Assert.assertEquals(actualList.size(), expectedListIds.size());
+        Assert.assertEquals(actualList.get(0), expectedListIds.get(0));
+        Mockito.verify(mockedUserService).addNewAdmin();
+    }
+
+    @Given("^expected list of ids is initialized for addNewManager$")
+    public void expected_list_of_ids_is_initialized_for_addNewManager() throws Throwable {
+        expectedListIds = new ArrayList<Long>();
+        expectedListIds.add(2L);
+    }
+
+    @When("^addNewManager\\(\\) is called for UserDelegate$")
+    public void addnewmanager_is_called_for_UserDelegate() throws Throwable {
+        Mockito.when(mockedUserService.addNewManager()).thenReturn(expectedListIds);
+    }
+
+    @Then("^a list of ids is returned for addNewManager in UserDelegate$")
+    public void a_list_of_ids_is_returned_for_addNewManager_in_UserDelegate() throws Throwable {
+        List<Long> actualList = userDelegate.addNewManager();
+        Assert.assertEquals(actualList.size(), expectedListIds.size());
+        Assert.assertEquals(actualList.get(0), expectedListIds.get(0));
+        Mockito.verify(mockedUserService).addNewManager();
+    }
+
 }

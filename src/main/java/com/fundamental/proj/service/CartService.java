@@ -34,4 +34,10 @@ public class CartService {
     {
         cartRepository.AddToCart(cart, flag);
     }
+
+    @Transactional
+    public void clearCart(long user_id)
+    {
+        cartRepository.ClearCart(user_id);
+    }
 }

@@ -37,6 +37,9 @@ public class CartDelegateSteps {
     private Cart mockedCart;
 
     @Mock
+    private CartBean mockedCartBean;
+
+    @Mock
     private List<Cart> mockedListCart;
 
     @InjectMocks
@@ -47,7 +50,7 @@ public class CartDelegateSteps {
     @Given("^mock CartDelegate is initialized$")
     public void mock_CartDelegate_is_initialized() throws Throwable {
         MockitoAnnotations.initMocks(this);
-        Mockito.reset(mockedCartService, mockedCartBeanMapper, mockedCart, mockedListCart);
+        Mockito.reset(mockedCartService, mockedCartBeanMapper, mockedCart, mockedListCart, mockedCartBean);
     }
 
     /************************************************/
@@ -147,5 +150,26 @@ public class CartDelegateSteps {
         // verify getCart has been called successfully
         Mockito.verify(mockedCartService).getCart(userid);
         Mockito.verify(mockedCartBeanMapper).mapItemsBean(mockedListCart);
+    }
+
+    /************************************************/
+    /*
+     * Test AddToCart()
+     */
+    /***********************************************/
+
+    @When("^AddToCart\\(\\) is called for CartDelegate$")
+    public void addtocart_is_called_for_CartDelegate() throws Throwable {
+        Mockito.when(mockedCartBeanMapper.mapBeanToCart(Mockito.any(CartBean.class))).thenReturn(mockedCart);
+        Mockito.doNothing().when(mockedCartService).AddToCart(Mockito.eq(mockedCart), Mockito.anyInt());
+    }
+
+    @Then("^AddToCart has been called successfully$")
+    public void addtocart_has_been_called_successfully() throws Throwable {
+        CartBean cartBean = new CartBean();
+        int flag = 0;
+        cartDelegate.AddToCart(cartBean, flag);
+        Mockito.verify(mockedCartBeanMapper).mapBeanToCart(cartBean);
+        Mockito.verify(mockedCartService).AddToCart(mockedCart, flag);
     }
 }

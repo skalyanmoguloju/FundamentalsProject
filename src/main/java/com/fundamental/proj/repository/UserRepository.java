@@ -164,4 +164,23 @@ public class UserRepository {
             return i;
         }
     }
+
+    @Transactional
+    public List<User> getAllManagers(){
+        Session session = sessionFactory.getCurrentSession();
+        Query query = session.createQuery("from User where role=:rolename and status!=:statusname");
+        query.setParameter("rolename", "Manager");
+        query.setParameter("statusname", "null");
+        return query.list();
+    }
+
+    @Transactional
+    public void promoteManager(long user_id){
+        Session session = sessionFactory.getCurrentSession();
+        Query query = session.createQuery("update User set role=:role where id=:id");
+        query.setParameter("role", "Admin");
+        query.setParameter("id", user_id);
+        query.executeUpdate();
+        session.flush();
+    }
 }

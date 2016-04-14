@@ -40,4 +40,10 @@ public class CartDelegate {
     {
         cartService.AddToCart(cartBeanMapper.mapBeanToCart(cartBean),flag);
     }
+
+    @Transactional
+    public void clearCart(long user_id)
+    {
+        cartService.clearCart(user_id);
+    }
 }

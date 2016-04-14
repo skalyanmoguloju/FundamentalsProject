@@ -25,4 +25,9 @@ Feature: Check CartDelegate
     When getCart() is called for CartDelegate
     Then a list of cartbeans is empty for CartDelegate
 
+# Test AddToCart
+  Scenario: AddToCart is called successfully
+    Given mock CartDelegate is initialized
+    When AddToCart() is called for CartDelegate
+    Then AddToCart has been called successfully
 

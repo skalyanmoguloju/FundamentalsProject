@@ -2,7 +2,7 @@ package com.fundamental.proj.controller;
 import com.fundamental.proj.controller.bean.RolesBean;
 import com.fundamental.proj.delegate.RolesDelegate;
 import com.fundamental.proj.delegate.UserDelegate;
-import com.fundamental.proj.util.EmailVerification;
+import com.fundamental.proj.util.EmailNotification;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.context.annotation.Bean;
@@ -11,13 +11,10 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.web.bind.annotation.*;
 import java.util.Collections;
 import com.fundamental.proj.controller.bean.UserBean;
-import org.apache.commons.io.FileUtils;
-import javax.servlet.ServletContext;
-import java.io.*;
+
 import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
-import java.util.SimpleTimeZone;
 
 /**
  * Created by sai on 2/17/16.
@@ -36,7 +33,7 @@ public class HomeController {
 
     @RequestMapping(value = "/", method = RequestMethod.GET)
     public String login(){
-        EmailVerification em = new EmailVerification();
+        EmailNotification em = new EmailNotification();
 
         //em.sendEmailPasswordReset("kalyansaim@gmail.com");
         return "WEB-INF/views/login/login";
@@ -94,7 +91,7 @@ public class HomeController {
                 String encryptedPass = passwordEncoder().encode(p);
                 userBean.setPwsd(encryptedPass);
                 List<Long> id = userDelegate.adduser(userBean);
-                EmailVerification eVerification = new EmailVerification();
+                EmailNotification eVerification = new EmailNotification();
                 userBean.setId(id.get(0));
                 eVerification.sendEmailVerificationLink(userBean.getEmail(),userBean.getId());
                 s.add("Done");
@@ -119,7 +116,7 @@ public class HomeController {
         List<Long> u = userDelegate.validateEmail(userBean);
         if(u.size()>0)
         {
-            EmailVerification eVer= new EmailVerification();
+            EmailNotification eVer= new EmailNotification();
             eVer.sendEmailPasswordReset(userBean.getEmail(), u.get(0));
         }
         return u;
@@ -185,7 +182,7 @@ public class HomeController {
 
     @RequestMapping(value = "/resetPassword", method = RequestMethod.GET)
     public String reset(){
-        EmailVerification em = new EmailVerification();
+        EmailNotification em = new EmailNotification();
         //em.sendEmailPasswordReset("kalyansaim@gmail.com");
         return "WEB-INF/views/reset";
 

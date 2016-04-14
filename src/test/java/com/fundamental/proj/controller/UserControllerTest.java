@@ -2,12 +2,10 @@ package com.fundamental.proj.controller;
 
 import com.fundamental.proj.controller.bean.*;
 import com.fundamental.proj.delegate.*;
-import com.fundamental.proj.util.EmailVerification;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 import org.mockito.*;
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -129,7 +127,7 @@ public class UserControllerTest {
         MaterialIndentBean materialIndentBean = new MaterialIndentBean();
 
         Mockito.doNothing().when(mockedMaterialIndentDelegate).addSale(Mockito.any(MaterialIndentBean.class));
-        List<String> result = userController.PurchaseItem(materialIndentBean);
+        List<Long> result = userController.PurchaseItem(materialIndentBean);
         Assert.assertEquals(result.size(), 0);
         Mockito.verify(mockedMaterialIndentDelegate).addSale(materialIndentBean);
     }

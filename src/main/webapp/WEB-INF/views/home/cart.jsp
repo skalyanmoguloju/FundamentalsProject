@@ -74,13 +74,27 @@
                                 })
                                 .success(function (response) {
                                     console.log(response);
+
                                     /* Update sold_count for each purchased product */
                                     for (var i=0; i<order.length; i++) {
                                         $scope.updateSoldCount(order[i]);
                                     }
-
                                     alert("Congratulations!\n You've successfully completed the purchase!");
                                     window.location.href = "/home";
+
+                                    /* send email notification for new order */
+                                    $http.post('newOrderEmailNotification', {
+                                                indent_id: response[0],
+                                                user_id: $scope.userInfo.id,
+                                                price: $scope.total,
+                                                card_number: vw.cardNo,
+                                                card_exp: vw.dateExp,
+                                                card_cvv: vw.cvvNo
+                                            })
+                                            .success(function (response) {
+                                                console.log(response);
+                                            });
+
                                 });
                         }
                     };

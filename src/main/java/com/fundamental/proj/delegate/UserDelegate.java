@@ -80,5 +80,18 @@ public class UserDelegate {
     public List<Long> addNewManager(){
         return userService.addNewManager();
     }
+
+    @Transactional
+    public List<UserBean> getAllManagers(){
+        List<User> users;
+        users = userService.getAllManagers();
+        List<UserBean> userBeans = userBeanMapper.mapUserBean(users);
+        return  userBeans;
+    }
+
+    @Transactional
+    public void promoteManager(long user_id){
+        userService.promoteManager(user_id);
+    }
 }
 

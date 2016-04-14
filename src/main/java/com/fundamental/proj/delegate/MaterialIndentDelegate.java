@@ -10,6 +10,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.List;
+
 /**
  * Created by sai on 3/24/16.
  */
@@ -23,10 +25,10 @@ public class MaterialIndentDelegate {
     private MaterialIndentMapper materialIndentMapper;
 
     @Transactional
-    public void addSale(MaterialIndentBean materialIndentBean)
+    public List<Long> addSale(MaterialIndentBean materialIndentBean)
     {
         MaterialIndent materialIndent;
         materialIndent = materialIndentMapper.mapBeanToMaterialIndent(materialIndentBean);
-        materialIndentService.addSale(materialIndent);
+        return materialIndentService.addSale(materialIndent);
     }
 }
