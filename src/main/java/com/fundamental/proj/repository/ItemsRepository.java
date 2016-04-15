@@ -53,7 +53,7 @@ public class ItemsRepository {
             return query.list();
         } else {
             Query query = session.createQuery("FROM Items where item_name LIKE :searchTerm or item_description LIKE :searchTerm or category LIKE :searchTerm");
-            query.setParameter("searchTerm", term);
+            query.setParameter("searchTerm", term+'%');
 
             return query.list();
         }
