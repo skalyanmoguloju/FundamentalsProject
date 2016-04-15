@@ -49,7 +49,7 @@ public class AddressBeanMapperSteps {
     @When("^mapItemBean is called for AddressBeanMapper$")
     public void mapitembean_is_called_for_AddressBeanMapper() throws Throwable {
         addressBeanMapper = new AddressBeanMapper();
-        actualAddressBean = addressBeanMapper.mapItemBean(expectedAddress);
+        actualAddressBean = addressBeanMapper.mapAddressBean(expectedAddress);
     }
 
     @Then("^mapItemBean returns a addressBean$")
@@ -109,7 +109,7 @@ public class AddressBeanMapperSteps {
     @When("^mapItemsBeanList is called for AddressBeanMapper$")
     public void mapitemsbeanlist_is_called_for_AddressBeanMapper() throws Throwable {
         addressBeanMapper = new AddressBeanMapper();
-        actualListAdress = addressBeanMapper.mapItemsBean(addressList);
+        actualListAdress = addressBeanMapper.mapAddressBean(addressList);
     }
 
     @Then("^mapItemsBeanList returns some addressBeans$")

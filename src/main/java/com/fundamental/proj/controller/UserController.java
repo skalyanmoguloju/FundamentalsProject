@@ -117,13 +117,13 @@ public class UserController {
 
     @RequestMapping(value = "/order", method = RequestMethod.POST)
     @ResponseBody
-    public List<Long> PurchaseItem(@RequestBody MaterialIndentBean materialIndentBean) {
+    public List<Long> PurchaseItem(@RequestBody MaterialIndentBean materialIndentBean, @RequestBody AddressBean addressBean) {
         //HIBERNETCALLS
         List<Long> s = new LinkedList<Long>();
         try {
             Date date = new Date();
             materialIndentBean.setIndent_date(date);
-            List<Long> l = materialIndentDelegate.addSale(materialIndentBean);
+            List<Long> l = materialIndentDelegate.addSale(materialIndentBean, addressBean.getAddress_Id());
             //String passwordToCompare = itemsDelegate.  .getUserPasswordWithEmail(userBean);
 
             return l;
@@ -143,14 +143,14 @@ public class UserController {
 
             /* get user's email */
             UserBean userBean = new UserBean();
-            userBean.setId(materialIndentBean.getUser_id());
+            userBean.setId(materialIndentBean.getUserBean().getId());
             String email = userDelegate.getUserInfo(userBean).get(0).getEmail();
 
             /* get list of cartbeans */
-            List<CartBean> cartBeans = cartDelegate.getCart(materialIndentBean.getUser_id());
+            List<CartBean> cartBeans = cartDelegate.getCart(materialIndentBean.getUserBean().getId());
 
             /* Clear Cart */
-            cartDelegate.clearCart(materialIndentBean.getUser_id());
+            cartDelegate.clearCart(materialIndentBean.getUserBean().getId());
 
             /* send email for purchased items */
             Date date = new Date();
@@ -263,6 +263,26 @@ public class UserController {
         itemsBean.setSold_count((int) sold_count);
         List<Long> list = itemsDelegate.updateSoldCount(itemsBean);
         return list;
+    }
+
+    @RequestMapping(value = "/received orders")
+    public String receivedOrdersPage() {
+        return "WEB-INF/views/home/receivedorders";
+    }
+    @RequestMapping(value = "/recvorders", method = RequestMethod.POST)
+    @ResponseBody
+    public List<OrdersBean> getReceivedOrders(@RequestBody UserBean userBean) {
+        //HIBERNETCALLS
+        return ordersDelegate.getReceivedORders(userBean.getId());
+    }
+
+    @RequestMapping(value = "/approveOrder", method = RequestMethod.POST)
+    @ResponseBody
+    public List<String> ApproveOrders(@RequestBody OrdersBean orders) {
+        //HIBERNETCALLS
+        ordersDelegate.udpateOrders(orders.getOrder_id());
+        List<String> s = new LinkedList<String>();
+        return s;
     }
 
 }

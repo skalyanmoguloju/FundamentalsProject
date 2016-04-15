@@ -28,7 +28,14 @@ public class OrdersRepository {
         query.setParameter("uid",user_id);
         return query.list();
     }
-
+    @Transactional
+    public List<Orders> getReceivedOrders(long user_id)
+    {
+        Session session = sessionFactory.getCurrentSession();
+        Query query = session.createQuery("from Orders where items.user_id=:uid");
+        query.setParameter("uid",user_id);
+        return query.list();
+    }
     @Transactional
     public List<Long> getTotalSold(long item_id)
     {
@@ -36,5 +43,15 @@ public class OrdersRepository {
         Query query = session.createQuery("select sum(quantity) from Orders where items.item_id=:iid");
         query.setParameter("iid",item_id);
         return query.list();
+    }
+    @Transactional
+    public void udpateOrders(long order_id)
+    {
+        Session session = sessionFactory.getCurrentSession();
+        Query query = session.createQuery("update Orders set status=:val where order_id=:iid");
+        query.setParameter("iid",order_id);
+        query.setParameter("val", "Delivered");
+        query.executeUpdate();
+        session.flush();
     }
 }

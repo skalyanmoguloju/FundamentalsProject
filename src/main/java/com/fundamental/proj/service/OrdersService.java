@@ -22,10 +22,20 @@ public class OrdersService {
     {
         return ordersRepository.getAllOrders(user_id);
     }
-
+    @Transactional
+    public List<Orders> getReceivedOrders(long user_id)
+    {
+        return ordersRepository.getReceivedOrders(user_id);
+    }
     @Transactional
     public List<Long> getTotalSold(long item_id)
     {
         return ordersRepository.getTotalSold(item_id);
+    }
+
+    @Transactional
+    public void udpateOrders(long order_id)
+    {
+        ordersRepository.udpateOrders(order_id);
     }
 }

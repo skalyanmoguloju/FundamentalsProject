@@ -14,8 +14,11 @@ public class MaterialIndent {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long indent_id;
 
-    @Column(name = "user_id")
-    private long user_id;
+
+    @ManyToOne
+    @JoinColumn(name = "user_id")
+    private User user;
+
 
     @Column(name = "price")
     private float price;
@@ -48,12 +51,12 @@ public class MaterialIndent {
         this.indent_id = indent_id;
     }
 
-    public long getUser_id() {
-        return user_id;
+    public User getUser() {
+        return user;
     }
 
-    public void setUser_id(long user_id) {
-        this.user_id = user_id;
+    public void setUser(User user) {
+        this.user = user;
     }
 
     public float getPrice() {

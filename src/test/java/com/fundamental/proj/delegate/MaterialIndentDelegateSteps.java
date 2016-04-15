@@ -4,6 +4,7 @@ import com.fundamental.proj.controller.bean.MaterialIndentBean;
 import com.fundamental.proj.controller.bean.SalesBean;
 import com.fundamental.proj.mapper.MaterialIndentMapper;
 import com.fundamental.proj.mapper.SalesBeanMapper;
+import com.fundamental.proj.model.Address;
 import com.fundamental.proj.model.MaterialIndent;
 import com.fundamental.proj.model.Sales;
 import com.fundamental.proj.service.MaterialIndentService;
@@ -41,16 +42,20 @@ public class MaterialIndentDelegateSteps {
 
     @When("^addSale is called for MaterialIndentDelegate$")
     public void addsale_is_called_for_MaterialIndentDelegate() throws Throwable {
+
+        MaterialIndentBean materialIndentBean = new MaterialIndentBean();
+        Address address =new Address();
         Mockito.when(mockedMaterialIndentMapper.mapBeanToMaterialIndent(Mockito.any(MaterialIndentBean.class))).thenReturn(mockedMaterialIndent);
-        Mockito.doNothing().when(mockedMaterialIndentService).addSale(mockedMaterialIndent);
+        Mockito.doNothing().when(mockedMaterialIndentService).addSale(mockedMaterialIndent,address.getAddress_Id());
     }
 
     @Then("^addSale runs successfully for MaterialIndentDelegate$")
     public void addsale_runs_successfully_for_MaterialIndentDelegate() throws Throwable {
         MaterialIndentBean materialIndentBean = new MaterialIndentBean();
-        materialIndentDelegate.addSale(materialIndentBean);
+        Address address =new Address();
+        materialIndentDelegate.addSale(materialIndentBean, address.getAddress_Id());
 
         Mockito.verify(mockedMaterialIndentMapper).mapBeanToMaterialIndent(materialIndentBean);
-        Mockito.verify(mockedMaterialIndentService).addSale(mockedMaterialIndent);
+        Mockito.verify(mockedMaterialIndentService).addSale(mockedMaterialIndent, address.getAddress_Id());
     }
 }

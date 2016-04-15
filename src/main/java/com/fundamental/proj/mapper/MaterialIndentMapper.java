@@ -14,12 +14,13 @@ import java.util.List;
 public class MaterialIndentMapper {
     public MaterialIndentBean mapItemBean(MaterialIndent materialIndent){
         MaterialIndentBean materialIndentBean = new MaterialIndentBean();
+        UserBeanMapper userBeanMapper = new UserBeanMapper();
         materialIndentBean.setCard_cvv(materialIndent.getCard_cvv());
         materialIndentBean.setCard_exp(materialIndent.getCard_exp());
         materialIndentBean.setCard_number(materialIndent.getCard_number());
         materialIndentBean.setIndent_id(materialIndent.getIndent_id());
         materialIndentBean.setPrice(materialIndent.getPrice());
-        materialIndentBean.setUser_id(materialIndent.getUser_id());
+        materialIndentBean.setUserBean(userBeanMapper.mapUserBean(materialIndent.getUser()));
         materialIndentBean.setIndent_date(materialIndent.getIndent_date());
 
         return materialIndentBean;
@@ -27,12 +28,13 @@ public class MaterialIndentMapper {
 
     public MaterialIndent mapBeanToMaterialIndent(MaterialIndentBean materialIndentBean){
         MaterialIndent materialIndent = new MaterialIndent();
+        UserBeanMapper userBeanMapper = new UserBeanMapper();
         materialIndent.setCard_cvv(materialIndentBean.getCard_cvv());
         materialIndent.setCard_exp(materialIndentBean.getCard_exp());
         materialIndent.setCard_number(materialIndentBean.getCard_number());
         materialIndent.setIndent_id(materialIndentBean.getIndent_id());
         materialIndent.setPrice(materialIndentBean.getPrice());
-        materialIndent.setUser_id(materialIndentBean.getUser_id());
+        materialIndent.setUser(userBeanMapper.mapBeanToUser(materialIndentBean.getUserBean()));
         materialIndent.setIndent_date(materialIndentBean.getIndent_date());
         return materialIndent;
     }

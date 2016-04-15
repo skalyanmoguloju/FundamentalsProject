@@ -34,6 +34,26 @@ public class OrdersBean {
         this.materialIndentBean = materialIndentBean;
     }
 
+    private long rejected_quantity;
+
+    private AddressBean addressBean;
+
+    public long getRejected_quantity() {
+        return rejected_quantity;
+    }
+
+    public void setRejected_quantity(long rejected_quantity) {
+        this.rejected_quantity = rejected_quantity;
+    }
+
+    public AddressBean getAddressBean() {
+        return addressBean;
+    }
+
+    public void setAddressBean(AddressBean addressBean) {
+        this.addressBean = addressBean;
+    }
+
     public int getQuantity() {
         return quantity;
     }

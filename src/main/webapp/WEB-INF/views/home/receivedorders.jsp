@@ -14,9 +14,10 @@
 
             .controller('HomeCtrl', ['$scope', '$rootScope','$http','$cookies','$filter',
                 function ($scope, $rootScope,$http,$cookies,$filter) {
-                    console.log("jj");
+                    $scope.orderList = [];
                     $scope.orders = [];
                     $scope.ordersShp = [];
+                    console.log("jj");
                     var user = $cookies.get("user").toString();
                     //console.log(user.toString());
                     $http.post('userInfo', {id: user})
@@ -30,7 +31,7 @@
                                         .success(function (data) {
                                             console.log(data);
                                             $scope.rights = data;
-                                            $http.post('allorders', {id : user})
+                                            $http.post('recvorders', {id : user})
                                                     .success(function (data) {
                                                         for(var i =0; i< data.length; i++) {
                                                             console.log(data[i])
@@ -44,13 +45,43 @@
 
                                                         }
 
-
                                                     });
                                         });
                             });
 
 
 
+                    $scope.selectOrder = function(orderid){
+                        if($scope.orderList.indexOf(orderid)>-1)
+                        {
+                            $scope.orderList.splice($scope.orderList.indexOf(orderid),1);
+                        }
+                        else
+                        {
+                            $scope.orderList.push(orderid);
+                        }
+                        console.log($scope.orderList);
+                    };
+                    $scope.approveOrders = function(){
+                        if($scope.orderList.length == 0)
+                        {
+                            alert("Select orders for approval");
+                        }
+                        else{
+                            for(var i =0;i<$scope.orderList.length;i++)
+                            {
+                                $http.post('approveOrder', {order_id : $scope.orderList[i]})
+                                        .success(function (response) {
+                                            console.log(response);
+
+                                        });
+
+                            }
+                            location.reload();
+
+                        }
+
+                    };
                 }]);
 </script>
 
@@ -62,18 +93,24 @@
 <script type="text/javascript" src="webjars/jquery/2.1.1/jquery.min.js"></script>
 <script type="text/javascript" src="webjars/bootstrap/3.2.0/js/bootstrap.min.js"></script>
 <div class="container" ng-app="myApp">
+
     <div ng-controller="HomeCtrl as hmectrl">
         <jsp:include page="header.jsp" />
+
         <div style="margin-top: 50px">
             <ul id="tabs" class="nav nav-tabs" style="margin-left: 0px;left: 150px; top: 100px" data-tabs="tabs">
-                <li class="active"><a href="#red" data-toggle="tab">Purshased Orders</a></li>
-                <li><a href="#orange" data-toggle="tab">Delivered Orders</a></li>
-                <li><a href="#yellow" data-toggle="tab">Return Status</a></li>
+                <li class="active"><a href="#red" data-toggle="tab">Pending Orders</a></li>
+                <li><a href="#orange" data-toggle="tab">Approved Orders</a></li>
+                <li><a href="#yellow" data-toggle="tab">Returned Orders</a></li>
             </ul>
-            <div id="my-tab-content" class="tab-content" style="height: 500px" >
+            <div id="my-tab-content" class="tab-content">
                 <div class="tab-pane active" id="red">
                     <section class="col-xs-12 col-sm-6 col-md-12" ng-model = "orders">
                         <article class="search-result row" ng-repeat = "order in orders">
+
+                            <div class="col-xs-12 col-sm-12 col-md-3" style="height: 50px; width: 30px;align-content: center;vertical-align: middle">
+                                <input type="checkbox" ng-model="junkvalue" ng-change="selectOrder(order.order_id)">
+                                </div>
                             <div class="col-xs-12 col-sm-12 col-md-3" style="height: 50px; width: 110px">
                                 <a href="#" title="{{order.itemsBean.item_name}}" class="thumbnail"><img src="{{order.itemsBean.images}}" style="height: 50px; width: 105px" alt="{{vw.itemsBean.item_name}}" /></a>
                             </div>
@@ -82,12 +119,12 @@
                                     <tr>
 
                                         <td style="width: 200px;" colspan="3">
-                                            <div class="modal fade" id="squarespaceModal" tabindex="-1" role="dialog" aria-labelledby="modalLabel" aria-hidden="true">
+                                            <div class="modal fade" id="squarespaceModal{{order.order_id}}" tabindex="-1" role="dialog" aria-labelledby="modalLabel" aria-hidden="true">
                                                 <div class="modal-dialog">
                                                     <div class="modal-content">
                                                         <div class="modal-header">
                                                             <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span><span class="sr-only">Close</span></button>
-                                                            <h3 class="modal-title" id="lineModalLabel">Payment</h3>
+                                                            <h3 class="modal-title" id="lineModalLabel">Information</h3>
                                                         </div>
                                                         <div class="modal-body">
 
@@ -99,47 +136,40 @@
                                                                         <div class="panel panel-default">
                                                                             <div class="panel-heading">
                                                                                 <h3 class="panel-title">
-                                                                                    Payment Details
+                                                                                    Order details
                                                                                 </h3>
 
                                                                             </div>
                                                                             <div class="panel-body">
                                                                                 <form role="form">
                                                                                     <div class="form-group">
-                                                                                        <label for="cardNumber">
-                                                                                            CARD NUMBER</label>
+                                                                                        <label >
+                                                                                            Email Id</label>
                                                                                         <div class="input-group">
-                                                                                            <input type="text" class="form-control" id="cardNumber" placeholder="Valid Card Number"
-                                                                                                   required autofocus ng-model="vw.cardNo"/>
-                                                                                            <span class="input-group-addon"><span class="glyphicon glyphicon-lock"></span></span>
+                                                                                            <label class="form-control" >{{order.materialIndentBean.userBean.email}}</label>
+                                                                                            <span class="input-group-addon"><span class="glyphicon glyphicon-envelope"></span></span>
                                                                                         </div>
                                                                                     </div>
                                                                                     <div class="row">
                                                                                         <div class="col-xs-7 col-md-7">
                                                                                             <div class="form-group">
                                                                                                 <label for="expityMonth">
-                                                                                                    EXPIRY DATE</label>
-                                                                                                <input type="text" class="form-control" id="expityMonth" placeholder="MM/YY" required ng-model="vw.dateExp"/>
+                                                                                                    Shipping address</label>
+                                                                                                <br/>
+                                                                                                <span><b>Address line 1: </b> {{order.addressBean.line1}}</span>
+                                                                                                <br/>
+                                                                                                <span><b>Address line 2: </b> {{order.addressBean.line2}}</span>
+                                                                                                <br/>
+                                                                                                <span><b>City: </b> {{order.addressBean.city}}</span>
+                                                                                                <br/>
+                                                                                                <span><b>State: </b> {{order.addressBean.state}}<b> Zip: </b> {{order.addressBean.zip}}</span>
                                                                                             </div>
                                                                                         </div>
-                                                                                        <div class="col-xs-5 col-md-5 pull-right">
-                                                                                            <div class="form-group">
-                                                                                                <label for="cvCode">
-                                                                                                    CV CODE</label>
-                                                                                                <input type="password" class="form-control" id="cvCode" placeholder="ex. 123" required ng-model="vw.cvvNo"/>
-                                                                                            </div>
-                                                                                        </div>
+
                                                                                     </div>
                                                                                 </form>
                                                                             </div>
                                                                         </div>
-                                                                        <ul>
-                                                                            <li class="active"><a href="#"><span class="badge pull-right"><span class="glyphicon glyphicon-usd"></span>{{total}}</span> Final Payment</a>
-                                                                            </li>
-                                                                        </ul>
-
-                                                                        <br/>
-                                                                        <button type="submit" class="btn btn-success btn-lg btn-block" role="button">Pay</button>
                                                                     </div>
                                                                 </div>
                                                             </form>
@@ -150,7 +180,7 @@
                                                 </div>
                                             </div>
 
-                                            <h3 style="margin-top: 5px"><a data-toggle="modal" data-target="#squarespaceModal"  href="#" title="">{{order.itemsBean.item_name}} : <small>{{order.itemsBean.category}}</small></a></h3>
+                                            <h3 style="margin-top: 5px"><a data-toggle="modal" data-target="#squarespaceModal{{order.order_id}}"  href="#" title="">{{order.itemsBean.item_name}} : <small>{{order.itemsBean.category}}</small></a></h3>
                                         </td>
                                     </tr>
                                     <tr>
@@ -175,9 +205,10 @@
 
 
                     </section>
-                    </div>
+                    <button type="button" class="btn btn-success btn-lg btn-block" role="button" ng-click="approveOrders()">Approve</button>
+                </div>
                 <div class="tab-pane" id="orange">
-                    <section class="col-xs-12 col-sm-6 col-md-12" ng-model = "ordersShp">
+                    <section class="col-xs-12 col-sm-6 col-md-12" ng-model = "orders">
                         <article class="search-result row" ng-repeat = "order in ordersShp">
 
                             <div class="col-xs-12 col-sm-12 col-md-3" style="height: 50px; width: 110px">

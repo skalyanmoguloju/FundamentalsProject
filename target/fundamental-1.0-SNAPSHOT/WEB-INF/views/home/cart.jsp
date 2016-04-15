@@ -70,8 +70,9 @@
                                     quantity: vw.noofpieces,
                                     card_number: vw.cardNo,
                                     card_exp: vw.dateExp,
-                                    card_cvv: vw.cvvNo
-                                })
+                                    card_cvv: vw.cvvNo,
+                                    address_id: $scope.shipaddress
+                            })
                                 .success(function (response) {
                                     console.log(response);
 

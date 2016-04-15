@@ -67,4 +67,28 @@ public class Orders {
 
     @Column(name = "status")
     private String status;
+
+
+    @Column(name = "rejected_quantity")
+    private long rejected_quantity;
+
+    public long getRejected_quantity() {
+        return rejected_quantity;
+    }
+
+    public void setRejected_quantity(long rejected_quantity) {
+        this.rejected_quantity = rejected_quantity;
+    }
+
+    public Address getAddress() {
+        return address;
+    }
+
+    public void setAddress(Address address) {
+        this.address = address;
+    }
+
+    @ManyToOne
+    @JoinColumn(name = "address_id")
+    private Address address;
 }

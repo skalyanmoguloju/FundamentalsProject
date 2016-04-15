@@ -13,7 +13,7 @@ import java.util.List;
 @Component
 public class AddressBeanMapper {
 
-    public AddressBean mapItemBean(Address address){
+    public AddressBean mapAddressBean(Address address){
         ItemsBeanMapper itemsBeanMapper = new ItemsBeanMapper();
         AddressBean addressBean = new AddressBean();
         addressBean.setAddress_Id(address.getAddress_Id());
@@ -39,11 +39,11 @@ public class AddressBeanMapper {
         return address;
     }
 
-    public List<AddressBean> mapItemsBean(List<Address> addresss)
+    public List<AddressBean> mapAddressBean(List<Address> addresss)
     {
         List<AddressBean> addressBeans = new ArrayList<AddressBean>();
         for(Address address:addresss){
-            addressBeans.add((mapItemBean(address)));
+            addressBeans.add(mapAddressBean(address));
         }
         return addressBeans;
     }

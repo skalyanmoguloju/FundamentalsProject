@@ -3,6 +3,7 @@ package com.fundamental.proj.service;
 import com.fundamental.proj.model.Cart;
 import com.fundamental.proj.model.Items;
 import com.fundamental.proj.model.MaterialIndent;
+import com.fundamental.proj.model.Address;
 import com.fundamental.proj.repository.CartRepository;
 import com.fundamental.proj.repository.ItemsRepository;
 import com.fundamental.proj.repository.MaterialIndentRepository;
@@ -56,7 +57,7 @@ public class MaterialIndentServiceSteps {
     @Then("^addSale has been called successfully$")
     public void addsale_has_been_called_successfully() throws Throwable {
 
-        materialIndentService.addSale(new MaterialIndent());
+        materialIndentService.addSale(new MaterialIndent(), new Address().getAddress_Id());
     }
 
 }
