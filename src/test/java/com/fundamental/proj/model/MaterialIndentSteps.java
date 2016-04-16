@@ -23,12 +23,12 @@ public class MaterialIndentSteps {
 
     @When("^items user_id (\\d+) is set for MaterialIndent$")
     public void items_user_id_is_set_for_MaterialIndent(int arg1) throws Throwable {
-        materialIndent.setUser_id(arg1);
+        materialIndent.getUser().setId(arg1);
     }
 
     @Then("^items getUser_id returns (\\d+) for MaterialIndent$")
     public void items_getUser_id_returns_for_MaterialIndent(int arg1) throws Throwable {
-        Assert.assertEquals(materialIndent.getUser_id(), arg1);
+        Assert.assertEquals(materialIndent.getUser(), arg1);
     }
 
     @Given("^indent_id is set up for MaterialIndent$")

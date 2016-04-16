@@ -9,7 +9,7 @@ import java.util.Date;
  */
 public class MaterialIndentBean {
     private long indent_id;
-    private long user_id;
+    private UserBean userBean;
 
     private float price;
 
@@ -18,12 +18,13 @@ public class MaterialIndentBean {
     private String card_cvv;
     private String card_exp;
 
-    public long getUser_id() {
-        return user_id;
+
+    public UserBean getUserBean() {
+        return userBean;
     }
 
-    public void setUser_id(long user_id) {
-        this.user_id = user_id;
+    public void setUserBean(UserBean userBean) {
+        this.userBean = userBean;
     }
 
     public long getIndent_id() {

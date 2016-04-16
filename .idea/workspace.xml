@@ -2,7 +2,76 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="84acadb4-a700-44e8-b911-7a2452b05e93" name="Default" comment="fixed conflicts">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/home/receivedorders.jsp" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/fundamental-1.0-SNAPSHOT/WEB-INF/views/home/receivedorders.jsp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/fundamental/proj/controller/UserController.class" afterPath="$PROJECT_DIR$/target/classes/com/fundamental/proj/controller/UserController.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/fundamental/proj/controller/bean/MaterialIndentBean.class" afterPath="$PROJECT_DIR$/target/classes/com/fundamental/proj/controller/bean/MaterialIndentBean.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/fundamental/proj/controller/bean/OrdersBean.class" afterPath="$PROJECT_DIR$/target/classes/com/fundamental/proj/controller/bean/OrdersBean.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/fundamental/proj/delegate/AddressDelegate.class" afterPath="$PROJECT_DIR$/target/classes/com/fundamental/proj/delegate/AddressDelegate.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/fundamental/proj/delegate/MaterialIndentDelegate.class" afterPath="$PROJECT_DIR$/target/classes/com/fundamental/proj/delegate/MaterialIndentDelegate.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/fundamental/proj/delegate/OrdersDelegate.class" afterPath="$PROJECT_DIR$/target/classes/com/fundamental/proj/delegate/OrdersDelegate.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/fundamental/proj/mapper/AddressBeanMapper.class" afterPath="$PROJECT_DIR$/target/classes/com/fundamental/proj/mapper/AddressBeanMapper.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/fundamental/proj/mapper/MaterialIndentMapper.class" afterPath="$PROJECT_DIR$/target/classes/com/fundamental/proj/mapper/MaterialIndentMapper.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/fundamental/proj/mapper/OrdersBeanMapper.class" afterPath="$PROJECT_DIR$/target/classes/com/fundamental/proj/mapper/OrdersBeanMapper.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/fundamental/proj/model/MaterialIndent.class" afterPath="$PROJECT_DIR$/target/classes/com/fundamental/proj/model/MaterialIndent.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/fundamental/proj/model/Orders.class" afterPath="$PROJECT_DIR$/target/classes/com/fundamental/proj/model/Orders.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/fundamental/proj/repository/ItemsRepository.class" afterPath="$PROJECT_DIR$/target/classes/com/fundamental/proj/repository/ItemsRepository.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/fundamental/proj/repository/MaterialIndentRepository.class" afterPath="$PROJECT_DIR$/target/classes/com/fundamental/proj/repository/MaterialIndentRepository.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/fundamental/proj/repository/OrdersRepository.class" afterPath="$PROJECT_DIR$/target/classes/com/fundamental/proj/repository/OrdersRepository.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/fundamental/proj/service/MaterialIndentService.class" afterPath="$PROJECT_DIR$/target/classes/com/fundamental/proj/service/MaterialIndentService.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/fundamental/proj/service/OrdersService.class" afterPath="$PROJECT_DIR$/target/classes/com/fundamental/proj/service/OrdersService.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/fundamental-1.0-SNAPSHOT/WEB-INF/classes/com/fundamental/proj/controller/UserController.class" afterPath="$PROJECT_DIR$/target/fundamental-1.0-SNAPSHOT/WEB-INF/classes/com/fundamental/proj/controller/UserController.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/fundamental-1.0-SNAPSHOT/WEB-INF/classes/com/fundamental/proj/controller/bean/MaterialIndentBean.class" afterPath="$PROJECT_DIR$/target/fundamental-1.0-SNAPSHOT/WEB-INF/classes/com/fundamental/proj/controller/bean/MaterialIndentBean.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/fundamental-1.0-SNAPSHOT/WEB-INF/classes/com/fundamental/proj/controller/bean/OrdersBean.class" afterPath="$PROJECT_DIR$/target/fundamental-1.0-SNAPSHOT/WEB-INF/classes/com/fundamental/proj/controller/bean/OrdersBean.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/fundamental-1.0-SNAPSHOT/WEB-INF/classes/com/fundamental/proj/delegate/AddressDelegate.class" afterPath="$PROJECT_DIR$/target/fundamental-1.0-SNAPSHOT/WEB-INF/classes/com/fundamental/proj/delegate/AddressDelegate.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/fundamental-1.0-SNAPSHOT/WEB-INF/classes/com/fundamental/proj/delegate/MaterialIndentDelegate.class" afterPath="$PROJECT_DIR$/target/fundamental-1.0-SNAPSHOT/WEB-INF/classes/com/fundamental/proj/delegate/MaterialIndentDelegate.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/fundamental-1.0-SNAPSHOT/WEB-INF/classes/com/fundamental/proj/delegate/OrdersDelegate.class" afterPath="$PROJECT_DIR$/target/fundamental-1.0-SNAPSHOT/WEB-INF/classes/com/fundamental/proj/delegate/OrdersDelegate.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/fundamental-1.0-SNAPSHOT/WEB-INF/classes/com/fundamental/proj/mapper/AddressBeanMapper.class" afterPath="$PROJECT_DIR$/target/fundamental-1.0-SNAPSHOT/WEB-INF/classes/com/fundamental/proj/mapper/AddressBeanMapper.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/fundamental-1.0-SNAPSHOT/WEB-INF/classes/com/fundamental/proj/mapper/MaterialIndentMapper.class" afterPath="$PROJECT_DIR$/target/fundamental-1.0-SNAPSHOT/WEB-INF/classes/com/fundamental/proj/mapper/MaterialIndentMapper.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/fundamental-1.0-SNAPSHOT/WEB-INF/classes/com/fundamental/proj/mapper/OrdersBeanMapper.class" afterPath="$PROJECT_DIR$/target/fundamental-1.0-SNAPSHOT/WEB-INF/classes/com/fundamental/proj/mapper/OrdersBeanMapper.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/fundamental-1.0-SNAPSHOT/WEB-INF/classes/com/fundamental/proj/model/MaterialIndent.class" afterPath="$PROJECT_DIR$/target/fundamental-1.0-SNAPSHOT/WEB-INF/classes/com/fundamental/proj/model/MaterialIndent.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/fundamental-1.0-SNAPSHOT/WEB-INF/classes/com/fundamental/proj/model/Orders.class" afterPath="$PROJECT_DIR$/target/fundamental-1.0-SNAPSHOT/WEB-INF/classes/com/fundamental/proj/model/Orders.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/fundamental-1.0-SNAPSHOT/WEB-INF/classes/com/fundamental/proj/repository/ItemsRepository.class" afterPath="$PROJECT_DIR$/target/fundamental-1.0-SNAPSHOT/WEB-INF/classes/com/fundamental/proj/repository/ItemsRepository.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/fundamental-1.0-SNAPSHOT/WEB-INF/classes/com/fundamental/proj/repository/MaterialIndentRepository.class" afterPath="$PROJECT_DIR$/target/fundamental-1.0-SNAPSHOT/WEB-INF/classes/com/fundamental/proj/repository/MaterialIndentRepository.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/fundamental-1.0-SNAPSHOT/WEB-INF/classes/com/fundamental/proj/repository/OrdersRepository.class" afterPath="$PROJECT_DIR$/target/fundamental-1.0-SNAPSHOT/WEB-INF/classes/com/fundamental/proj/repository/OrdersRepository.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/fundamental-1.0-SNAPSHOT/WEB-INF/classes/com/fundamental/proj/service/MaterialIndentService.class" afterPath="$PROJECT_DIR$/target/fundamental-1.0-SNAPSHOT/WEB-INF/classes/com/fundamental/proj/service/MaterialIndentService.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/fundamental-1.0-SNAPSHOT/WEB-INF/classes/com/fundamental/proj/service/OrdersService.class" afterPath="$PROJECT_DIR$/target/fundamental-1.0-SNAPSHOT/WEB-INF/classes/com/fundamental/proj/service/OrdersService.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/test-classes/com/fundamental/proj/controller/UserControllerTest.class" afterPath="$PROJECT_DIR$/target/test-classes/com/fundamental/proj/controller/UserControllerTest.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/test-classes/com/fundamental/proj/delegate/AddressDelegateSteps.class" afterPath="$PROJECT_DIR$/target/test-classes/com/fundamental/proj/delegate/AddressDelegateSteps.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/test-classes/com/fundamental/proj/delegate/MaterialIndentDelegateSteps.class" afterPath="$PROJECT_DIR$/target/test-classes/com/fundamental/proj/delegate/MaterialIndentDelegateSteps.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/test-classes/com/fundamental/proj/mapper/AddressBeanMapperSteps.class" afterPath="$PROJECT_DIR$/target/test-classes/com/fundamental/proj/mapper/AddressBeanMapperSteps.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/test-classes/com/fundamental/proj/model/MaterialIndentSteps.class" afterPath="$PROJECT_DIR$/target/test-classes/com/fundamental/proj/model/MaterialIndentSteps.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/test-classes/com/fundamental/proj/repository/MaterialIndentRepositorySteps.class" afterPath="$PROJECT_DIR$/target/test-classes/com/fundamental/proj/repository/MaterialIndentRepositorySteps.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/test-classes/com/fundamental/proj/service/MaterialIndentServiceSteps.class" afterPath="$PROJECT_DIR$/target/test-classes/com/fundamental/proj/service/MaterialIndentServiceSteps.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/fundamental/proj/controller/UserController.java" afterPath="$PROJECT_DIR$/src/main/java/com/fundamental/proj/controller/UserController.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/fundamental/proj/controller/bean/MaterialIndentBean.java" afterPath="$PROJECT_DIR$/src/main/java/com/fundamental/proj/controller/bean/MaterialIndentBean.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/fundamental/proj/controller/bean/OrdersBean.java" afterPath="$PROJECT_DIR$/src/main/java/com/fundamental/proj/controller/bean/OrdersBean.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/fundamental/proj/delegate/AddressDelegate.java" afterPath="$PROJECT_DIR$/src/main/java/com/fundamental/proj/delegate/AddressDelegate.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/fundamental/proj/delegate/MaterialIndentDelegate.java" afterPath="$PROJECT_DIR$/src/main/java/com/fundamental/proj/delegate/MaterialIndentDelegate.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/fundamental/proj/delegate/OrdersDelegate.java" afterPath="$PROJECT_DIR$/src/main/java/com/fundamental/proj/delegate/OrdersDelegate.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/fundamental/proj/mapper/AddressBeanMapper.java" afterPath="$PROJECT_DIR$/src/main/java/com/fundamental/proj/mapper/AddressBeanMapper.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/fundamental/proj/mapper/MaterialIndentMapper.java" afterPath="$PROJECT_DIR$/src/main/java/com/fundamental/proj/mapper/MaterialIndentMapper.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/fundamental/proj/mapper/OrdersBeanMapper.java" afterPath="$PROJECT_DIR$/src/main/java/com/fundamental/proj/mapper/OrdersBeanMapper.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/fundamental/proj/model/MaterialIndent.java" afterPath="$PROJECT_DIR$/src/main/java/com/fundamental/proj/model/MaterialIndent.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/fundamental/proj/model/Orders.java" afterPath="$PROJECT_DIR$/src/main/java/com/fundamental/proj/model/Orders.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/fundamental/proj/repository/ItemsRepository.java" afterPath="$PROJECT_DIR$/src/main/java/com/fundamental/proj/repository/ItemsRepository.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/fundamental/proj/repository/MaterialIndentRepository.java" afterPath="$PROJECT_DIR$/src/main/java/com/fundamental/proj/repository/MaterialIndentRepository.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/fundamental/proj/repository/OrdersRepository.java" afterPath="$PROJECT_DIR$/src/main/java/com/fundamental/proj/repository/OrdersRepository.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/fundamental/proj/service/MaterialIndentService.java" afterPath="$PROJECT_DIR$/src/main/java/com/fundamental/proj/service/MaterialIndentService.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/fundamental/proj/service/OrdersService.java" afterPath="$PROJECT_DIR$/src/main/java/com/fundamental/proj/service/OrdersService.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/home/cart.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/home/cart.jsp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/home/vieworders.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/home/vieworders.jsp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/test/java/com/fundamental/proj/controller/UserControllerTest.java" afterPath="$PROJECT_DIR$/src/test/java/com/fundamental/proj/controller/UserControllerTest.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/test/java/com/fundamental/proj/delegate/AddressDelegateSteps.java" afterPath="$PROJECT_DIR$/src/test/java/com/fundamental/proj/delegate/AddressDelegateSteps.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/test/java/com/fundamental/proj/delegate/MaterialIndentDelegateSteps.java" afterPath="$PROJECT_DIR$/src/test/java/com/fundamental/proj/delegate/MaterialIndentDelegateSteps.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/test/java/com/fundamental/proj/mapper/AddressBeanMapperSteps.java" afterPath="$PROJECT_DIR$/src/test/java/com/fundamental/proj/mapper/AddressBeanMapperSteps.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/test/java/com/fundamental/proj/model/MaterialIndentSteps.java" afterPath="$PROJECT_DIR$/src/test/java/com/fundamental/proj/model/MaterialIndentSteps.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/test/java/com/fundamental/proj/repository/MaterialIndentRepositorySteps.java" afterPath="$PROJECT_DIR$/src/test/java/com/fundamental/proj/repository/MaterialIndentRepositorySteps.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/test/java/com/fundamental/proj/service/MaterialIndentServiceSteps.java" afterPath="$PROJECT_DIR$/src/test/java/com/fundamental/proj/service/MaterialIndentServiceSteps.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/fundamental-1.0-SNAPSHOT/META-INF/MANIFEST.MF" afterPath="$PROJECT_DIR$/target/fundamental-1.0-SNAPSHOT/META-INF/MANIFEST.MF" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/fundamental-1.0-SNAPSHOT/WEB-INF/views/home/cart.jsp" afterPath="$PROJECT_DIR$/target/fundamental-1.0-SNAPSHOT/WEB-INF/views/home/cart.jsp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/fundamental-1.0-SNAPSHOT/WEB-INF/views/home/vieworders.jsp" afterPath="$PROJECT_DIR$/target/fundamental-1.0-SNAPSHOT/WEB-INF/views/home/vieworders.jsp" />
     </list>
     <ignored path="fundamental.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -809,7 +878,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="90000" />
+    <option name="totallyTimeSpent" value="116000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1276" height="800" extended-state="6" />
@@ -910,7 +979,7 @@
         <state vertical-scroll-proportion="0.8076923">
           <caret line="31" column="40" selection-start-line="31" selection-start-column="40" selection-end-line="31" selection-end-column="40" />
           <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="imports" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1165,8 +1234,8 @@
         <state vertical-scroll-proportion="0.46153846">
           <caret line="22" column="38" selection-start-line="22" selection-start-column="38" selection-end-line="22" selection-end-column="38" />
           <folding>
-            <element signature="e#552#553#0" expanded="false" />
-            <element signature="e#613#614#0" expanded="false" />
+            <element signature="e#834#835#0" expanded="false" />
+            <element signature="e#895#896#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1284,12 +1353,11 @@
           <caret line="159" column="14" selection-start-line="159" selection-start-column="14" selection-end-line="159" selection-end-column="14" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#7989#8007#0" expanded="true" />
-            <element signature="e#8175#8187#0" expanded="true" />
-            <element signature="e#9127#9139#0" expanded="true" />
-            <element signature="e#10650#10656#0" expanded="true" />
-            <element signature="e#11184#11190#0" expanded="true" />
-            <element signature="e#11595#11601#0" expanded="true" />
+            <element signature="e#8321#8339#0" expanded="true" />
+            <element signature="e#8507#8519#0" expanded="true" />
+            <element signature="e#9459#9471#0" expanded="true" />
+            <element signature="e#10995#11001#0" expanded="true" />
+            <element signature="e#11529#11535#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -1329,7 +1397,7 @@
     <entry file="file://$PROJECT_DIR$/.idea/workspace.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <caret line="1" column="0" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
           <folding />
         </state>
       </provider>

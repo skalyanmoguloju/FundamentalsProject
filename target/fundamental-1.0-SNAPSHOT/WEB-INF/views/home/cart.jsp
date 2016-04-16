@@ -72,8 +72,13 @@
                                     card_number: vw.cardNo,
                                     card_exp: vw.dateExp,
                                     card_cvv: vw.cvvNo,
+<<<<<<< HEAD
                                     indent_date: date
                                 })
+=======
+                                    address_id: $scope.shipaddress
+                            })
+>>>>>>> 36c0c129fcaeec63cd0c2c9d315c273bb7dee186
                                 .success(function (response) {
                                     console.log(response);
 

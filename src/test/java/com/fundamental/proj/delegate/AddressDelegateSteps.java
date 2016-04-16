@@ -85,7 +85,7 @@ public class AddressDelegateSteps {
     @When("^getAddress\\(\\) is called for AddressDelegate$")
     public void getaddress_is_called_for_AddressDelegate() throws Throwable {
         Mockito.when(mockedAddressService.getAddress(Mockito.anyLong())).thenReturn(mockedAddressList);
-        Mockito.when(mockedAddressBeanMapper.mapItemsBean(mockedAddressList)).thenReturn(expectedListAddressBean);
+        Mockito.when(mockedAddressBeanMapper.mapAddressBean(mockedAddressList)).thenReturn(expectedListAddressBean);
     }
 
     @Then("^a list of addressBeans is returned for getAddress$")
@@ -94,7 +94,7 @@ public class AddressDelegateSteps {
         Assert.assertEquals(actualList.size(), expectedListAddressBean.size());
         Assert.assertEquals(actualList.get(0), expectedListAddressBean.get(0));
         Mockito.verify(mockedAddressService).getAddress(1L);
-        Mockito.verify(mockedAddressBeanMapper).mapItemsBean(mockedAddressList);
+        Mockito.verify(mockedAddressBeanMapper).mapAddressBean(mockedAddressList);
     }
 
 }

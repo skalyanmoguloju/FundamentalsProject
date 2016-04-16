@@ -33,7 +33,7 @@ public class AddressDelegate {
     @Transactional
     public List<AddressBean> getAddress(long user_id)
     {
-        return addressBeanMapper.mapItemsBean(addressService.getAddress(user_id));
+        return addressBeanMapper.mapAddressBean(addressService.getAddress(user_id));
     }
 
 }

@@ -1,5 +1,6 @@
 package com.fundamental.proj.repository;
 
+import com.fundamental.proj.model.Address;
 import com.fundamental.proj.model.Cart;
 import com.fundamental.proj.model.Items;
 import com.fundamental.proj.model.MaterialIndent;
@@ -52,13 +53,14 @@ public class MaterialIndentRepositorySteps {
     @Then("^it has been called successfully$")
     public void it_has_been_called_successfully() throws Throwable {
         MaterialIndent materialIndent = new MaterialIndent();
+        Address address = new Address();
         List<Cart> listCart = new ArrayList<Cart>();
         Cart cart = new Cart();
         cart.setItems(new Items());
         cart.setQuantity(3);
         listCart.add(cart);
 
-        materialIndentRepository.AddSale(materialIndent, listCart);
+        materialIndentRepository.AddSale(materialIndent, listCart, address.getAddress_Id());
         Mockito.verify(mockedSessionFactory).getCurrentSession();
     }
 
@@ -71,9 +73,10 @@ public class MaterialIndentRepositorySteps {
     @Test(expected=Exception.class)
     public void it_has_been_called_exception() throws Throwable {
         MaterialIndent materialIndent = new MaterialIndent();
+        Address address = new Address();
         List<Cart> listCart = new ArrayList<Cart>();
 
-        materialIndentRepository.AddSale(materialIndent, listCart);
+        materialIndentRepository.AddSale(materialIndent, listCart, address.getAddress_Id());
         Mockito.verify(mockedSessionFactory).getCurrentSession();
     }
 }
