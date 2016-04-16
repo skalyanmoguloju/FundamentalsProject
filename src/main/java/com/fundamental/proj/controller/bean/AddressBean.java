@@ -12,6 +12,7 @@ public class AddressBean {
     private String city;
     private String state;
     private long zip;
+    private String phone;
 
     public long getAddress_Id() {
         return address_Id;
@@ -67,5 +68,13 @@ public class AddressBean {
 
     public void setZip(long zip) {
         this.zip = zip;
+    }
+
+    public String getPhone() {
+        return phone;
+    }
+
+    public void setPhone(String phone) {
+        this.phone = phone;
     }
 }

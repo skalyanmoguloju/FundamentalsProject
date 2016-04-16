@@ -76,7 +76,7 @@
     }
 </style>
 <head>
-    <title>Add Manager</title>
+    <title>Manage Managers</title>
     <link rel='stylesheet' href='webjars/bootstrap/3.2.0/css/bootstrap.min.css'>
 </head>
 <body>

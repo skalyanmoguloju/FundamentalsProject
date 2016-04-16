@@ -14,6 +14,9 @@ public class ItemsBean {
     private String category;
     private String images;
     private double price;
+    private Date date;
+    private long user_id;
+    private String size;
 
     public Date getDate() {
         return date;
@@ -87,15 +90,19 @@ public class ItemsBean {
         this.price = price;
     }
 
-    private Date date;
-
-    private long user_id;
-
     public long getUser_id() {
         return user_id;
     }
 
     public void setUser_id(long user_id) {
         this.user_id = user_id;
+    }
+
+    public String getSize() {
+        return size;
+    }
+
+    public void setSize(String size) {
+        this.size = size;
     }
 }

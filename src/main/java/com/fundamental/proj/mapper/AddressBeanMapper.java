@@ -23,6 +23,7 @@ public class AddressBeanMapper {
         addressBean.setState(address.getState());
         addressBean.setUser_id(address.getUser_id());
         addressBean.setZip(address.getZip());
+        addressBean.setPhone(address.getPhone());
         return addressBean;
     }
 
@@ -36,6 +37,7 @@ public class AddressBeanMapper {
         address.setLine2(addressBean.getLine2());
         address.setState(addressBean.getState());
         address.setZip(addressBean.getZip());
+        address.setPhone(addressBean.getPhone());
         return address;
     }
 

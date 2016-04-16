@@ -63,6 +63,7 @@
                         console.log(vw);
                         if ($scope.validateCard() == true) {
                             var order = $scope.cart;
+                            var date = new Date();
                             $http.post('order', {
                                     item_id: vw.item_id,
                                     user_id: $scope.userInfo.id,
@@ -70,7 +71,8 @@
                                     quantity: vw.noofpieces,
                                     card_number: vw.cardNo,
                                     card_exp: vw.dateExp,
-                                    card_cvv: vw.cvvNo
+                                    card_cvv: vw.cvvNo,
+                                    indent_date: date
                                 })
                                 .success(function (response) {
                                     console.log(response);
@@ -89,7 +91,8 @@
                                                 price: $scope.total,
                                                 card_number: vw.cardNo,
                                                 card_exp: vw.dateExp,
-                                                card_cvv: vw.cvvNo
+                                                card_cvv: vw.cvvNo,
+                                                indent_date: date
                                             })
                                             .success(function (response) {
                                                 console.log(response);

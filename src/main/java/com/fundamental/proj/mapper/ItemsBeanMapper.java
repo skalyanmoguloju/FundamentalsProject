@@ -24,6 +24,7 @@ public class ItemsBeanMapper {
         itemsBean.setPrice(items.getPrice());
         itemsBean.setSold_count(items.getSold_count());
         itemsBean.setUser_id(items.getUser_id());
+        itemsBean.setSize(items.getSize());
         return itemsBean;
     }
 
@@ -39,6 +40,7 @@ public class ItemsBeanMapper {
         items.setPrice(itemsBean.getPrice());
         items.setSold_count(itemsBean.getSold_count());
         items.setUser_id(itemsBean.getUser_id());
+        items.setSize(itemsBean.getSize());
         return items;
     }
 
