@@ -63,6 +63,7 @@
                         console.log(vw);
                         if ($scope.validateCard() == true) {
                             var order = $scope.cart;
+<<<<<<< HEAD
                             $http.post('order1', {
                                 id:$scope.userInfo.id
                             });
@@ -70,6 +71,9 @@
                             $http.post('order2', {
                                 address_Id:$scope.shipaddress.address_Id
                             });
+=======
+                            var date = new Date();
+>>>>>>> origin/master
                             $http.post('order', {
                                     item_id: vw.item_id,
                                     UserBean: $scope.userInfo,
@@ -78,8 +82,17 @@
                                     card_number: vw.cardNo,
                                     card_exp: vw.dateExp,
                                     card_cvv: vw.cvvNo,
+<<<<<<< HEAD
                                     AddressBean: $scope.shipaddress
+=======
+<<<<<<< HEAD
+                                    indent_date: date
+                                })
+=======
+                                    address_id: $scope.shipaddress
+>>>>>>> origin/master
                             })
+>>>>>>> 36c0c129fcaeec63cd0c2c9d315c273bb7dee186
                                 .success(function (response) {
                                     console.log(response);
 
@@ -97,7 +110,8 @@
                                                 price: $scope.total,
                                                 card_number: vw.cardNo,
                                                 card_exp: vw.dateExp,
-                                                card_cvv: vw.cvvNo
+                                                card_cvv: vw.cvvNo,
+                                                indent_date: date
                                             })
                                             .success(function (response) {
                                                 console.log(response);

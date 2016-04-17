@@ -26,6 +26,8 @@ public class Address {
     private String state;
     @Column(name = "zip")
     private long zip;
+    @Column(name = "phone")
+    private String phone;
 
     public long getAddress_Id() {
         return address_Id;
@@ -81,5 +83,13 @@ public class Address {
 
     public void setZip(long zip) {
         this.zip = zip;
+    }
+
+    public String getPhone() {
+        return phone;
+    }
+
+    public void setPhone(String phone) {
+        this.phone = phone;
     }
 }

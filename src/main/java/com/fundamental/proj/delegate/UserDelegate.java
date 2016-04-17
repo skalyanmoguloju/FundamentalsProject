@@ -93,5 +93,11 @@ public class UserDelegate {
     public void promoteManager(long user_id){
         userService.promoteManager(user_id);
     }
+
+    @Transactional
+    public void updateOtherInfo(UserBean userBean){
+        User user = userBeanMapper.mapBeanToUser(userBean);
+        userService.updateOtherInfo(user);
+    }
 }
 

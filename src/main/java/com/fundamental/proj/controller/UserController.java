@@ -3,8 +3,11 @@ import com.fundamental.proj.controller.bean.*;
 import com.fundamental.proj.delegate.*;
 import com.fundamental.proj.util.EmailNotification;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
+import java.util.Map.Entry;
 
 import java.util.*;
 
@@ -146,11 +149,21 @@ public class UserController {
         //HIBERNETCALLS
         List<Long> s = new LinkedList<Long>();
         try {
+<<<<<<< HEAD
+            //Date date = new Date();
+            //materialIndentBean.setIndent_date(date);
+            List<Long> l = materialIndentDelegate.addSale(materialIndentBean);
+=======
             Date date = new Date();
             materialIndentBean.setIndent_date(date);
+<<<<<<< HEAD
             materialIndentBean.setUserBean(userBean);
             materialIndentBean.setAddressBean(addressBean);
             List<Long> l = materialIndentDelegate.addSale(materialIndentBean);
+=======
+            List<Long> l = materialIndentDelegate.addSale(materialIndentBean, addressBean.getAddress_Id());
+>>>>>>> 36c0c129fcaeec63cd0c2c9d315c273bb7dee186
+>>>>>>> origin/master
             //String passwordToCompare = itemsDelegate.  .getUserPasswordWithEmail(userBean);
 
             return l;
@@ -178,11 +191,11 @@ public class UserController {
             cartDelegate.clearCart(userBean.getId());
 
             /* send email for purchased items */
-            Date date = new Date();
-            materialIndentBean.setIndent_date(date);
+            //Date date = new Date();
+            //materialIndentBean.setIndent_date(date);
             EmailNotification ev = new EmailNotification();
             ev.sendEmailOrderConfirmation(email, materialIndentBean, cartBeans);
-//            ev.sendEmailOrderConfirmation("daniel.dddao@gmail.com", materialIndentBean, cartBeans);
+            ev.sendEmailOrderConfirmation("daniel.dddao@gmail.com", materialIndentBean, cartBeans);
 
             s.add(email);
             return s;
@@ -267,6 +280,40 @@ public class UserController {
         //HIBERNETCALLS
         return ordersDelegate.getAllOrderss(userBean.getId());
     }
+
+    @RequestMapping(value = "/groupOrdersByOrderNumber", method = RequestMethod.POST)
+    @ResponseBody
+    public List<List<OrdersBean>> groupOrdersByOrderNumber(@RequestBody List<OrdersBean> ordersBeanList) {
+        //HIBERNETCALLS
+        List<List<OrdersBean>> ordersBeanLists = new ArrayList<List<OrdersBean>>();
+        for (OrdersBean ordersBean : ordersBeanList) {
+            if (ordersBeanLists.size() == 0) {
+                List<OrdersBean> listOrderBean = new ArrayList<OrdersBean>();
+                listOrderBean.add(ordersBean);
+                ordersBeanLists.add(listOrderBean);
+                System.out.println("NEW " + ordersBean.getOrder_id());
+            } else {
+                long indent_id = ordersBean.getMaterialIndentBean().getIndent_id();
+                long order_id = ordersBean.getOrder_id();
+                for (int x=0; x < ordersBeanLists.size(); x++) {
+                    OrdersBean ordersBeanCompared = ordersBeanLists.get(x).get(0);
+                    if (indent_id == ordersBeanCompared.getMaterialIndentBean().getIndent_id() && order_id != ordersBeanCompared.getOrder_id()) {
+                        ordersBeanLists.get(x).add(ordersBean);
+                        System.out.println("IF " + ordersBean.getOrder_id());
+                        break;
+                    } else if (x == (ordersBeanLists.size()-1)) {
+                        List<OrdersBean> listOrderBean = new ArrayList<OrdersBean>();
+                        listOrderBean.add(ordersBean);
+                        ordersBeanLists.add(listOrderBean);
+                        System.out.println("ELSE" + ordersBean.getOrder_id());
+                        break;
+                    }
+                }
+            }
+        }
+        return ordersBeanLists;
+    }
+
     @RequestMapping(value = "/view orders")
     public String allOrdersPage() {
         return "WEB-INF/views/home/vieworders";
@@ -290,6 +337,52 @@ public class UserController {
         return list;
     }
 
+<<<<<<< HEAD
+    @RequestMapping(value = "/edit info")
+    public String editInfo() {
+        return "WEB-INF/views/home/editInfo";
+    }
+
+    @RequestMapping(value = "/updatePassword", method = RequestMethod.POST)
+    @ResponseBody
+    public List<Long> updatePassword(@RequestBody UserBean userBean) {
+        List<Long> s = new ArrayList<Long>();
+        try {
+            PasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
+            userDelegate.resetPassword(userBean.getId(), passwordEncoder.encode(userBean.getPwsd()));
+            s.add(userBean.getId());
+            return s;
+        } catch (Exception e) {
+            return s;
+        }
+    }
+
+    @RequestMapping(value = "/updateOtherInfo", method = RequestMethod.POST)
+    @ResponseBody
+    public List<Long> updateOtherInfo(@RequestBody UserBean userBean) {
+        List<Long> s = new ArrayList<Long>();
+        try {
+            userDelegate.updateOtherInfo(userBean);
+            s.add(userBean.getId());
+            return s;
+        } catch (Exception e) {
+            return s;
+        }
+    }
+
+    @RequestMapping(value = "/updateAddress", method = RequestMethod.POST)
+    @ResponseBody
+    public List<Long> updateAddress(@RequestBody AddressBean addressBean) {
+        List<Long> s = new ArrayList<Long>();
+        try {
+            addressDelegate.updateAddress(addressBean);
+            s.add(addressBean.getUser_id());
+            return s;
+        } catch (Exception e) {
+            return s;
+        }
+    }
+=======
     @RequestMapping(value = "/received orders")
     public String receivedOrdersPage() {
         return "WEB-INF/views/home/receivedorders";
@@ -310,6 +403,7 @@ public class UserController {
         return s;
     }
 
+<<<<<<< HEAD
     @RequestMapping(value = "/returnrequest", method = RequestMethod.POST)
     @ResponseBody
     public List<String> ReturnRequest(@RequestBody ReturnBean returnBean) {
@@ -324,4 +418,7 @@ public class UserController {
         return s;
     }
 
+=======
+>>>>>>> 36c0c129fcaeec63cd0c2c9d315c273bb7dee186
+>>>>>>> origin/master
 }

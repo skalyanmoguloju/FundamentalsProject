@@ -32,9 +32,10 @@ public class Items {
     private double price;
     @Column(name = "date")
     private Date date;
-
     @Column(name= "user_id")
     private long user_id;
+    @Column(name= "size")
+    private String size;
 
     public long getUser_id() {
         return user_id;
@@ -114,5 +115,13 @@ public class Items {
 
     public void setDate(Date date) {
         this.date = date;
+    }
+
+    public String getSize() {
+        return size;
+    }
+
+    public void setSize(String size) {
+        this.size = size;
     }
 }

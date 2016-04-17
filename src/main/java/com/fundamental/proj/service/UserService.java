@@ -81,4 +81,10 @@ public class UserService {
     {
         userRepository.promoteManager(user_id);
     }
+
+    @Transactional
+    public void updateOtherInfo(User user)
+    {
+        userRepository.updateOtherInfo(user);
+    }
 }

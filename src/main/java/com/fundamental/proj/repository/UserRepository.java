@@ -183,4 +183,19 @@ public class UserRepository {
         query.executeUpdate();
         session.flush();
     }
+
+    @Transactional
+    public void updateOtherInfo(User user)
+    {
+        Session session = sessionFactory.getCurrentSession();
+        Query query = session.createQuery("update User set name=:name,lname=:lname, email=:email, gender=:gender, dob=:dob where id=:id");
+        query.setParameter("id", user.getId());
+        query.setParameter("name", user.getName());
+        query.setParameter("lname", user.getLname());
+        query.setParameter("email", user.getEmail());
+        query.setParameter("gender", user.getGender());
+        query.setParameter("dob", user.getDob());
+        query.executeUpdate();
+        session.flush();
+    }
 }

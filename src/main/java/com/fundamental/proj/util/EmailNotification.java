@@ -1,14 +1,12 @@
 package com.fundamental.proj.util;
 
 import com.fundamental.proj.controller.bean.CartBean;
+import com.fundamental.proj.controller.bean.ItemsBean;
 import com.fundamental.proj.controller.bean.MaterialIndentBean;
 import org.apache.commons.mail.DefaultAuthenticator;
 import org.apache.commons.mail.HtmlEmail;
 
-import java.util.Calendar;
-import java.util.Date;
-import java.util.List;
-import java.util.UUID;
+import java.util.*;
 
 /**
  * Created by sai on 2/25/16.
@@ -86,31 +84,70 @@ public class EmailNotification {
 
     }
 
+    public String[] getArrivalDates (Date purchasedDate, ItemsBean itemsBean) {
+        String[] arrivalDates = new String[2];
+        Calendar cal = Calendar.getInstance();
+        cal.setTime(purchasedDate);
+
+        int arrivalDay;
+        int arrivalMonth;
+        int arrivalYear;
+
+        if (itemsBean.getSize().equals("Small")) {
+            cal.add(Calendar.DATE, 1);
+            arrivalDay = cal.get(Calendar.DATE);
+            arrivalMonth = cal.get(Calendar.MONTH);
+            arrivalYear = cal.get(Calendar.YEAR);
+            arrivalDates[0] = (arrivalMonth + 1) + "/" + arrivalDay + "/" + arrivalYear;
+            cal.add(Calendar.DATE, 3);
+            arrivalDay = cal.get(Calendar.DATE);
+            arrivalMonth = cal.get(Calendar.MONTH);
+            arrivalYear = cal.get(Calendar.YEAR);
+            arrivalDates[1] = (arrivalMonth + 1) + "/" + arrivalDay + "/" + arrivalYear;
+        } else if (itemsBean.getSize().equals("Medium")) {
+            cal.add(Calendar.DATE, 3);
+            arrivalDay = cal.get(Calendar.DATE);
+            arrivalMonth = cal.get(Calendar.MONTH);
+            arrivalYear = cal.get(Calendar.YEAR);
+            arrivalDates[0] = (arrivalMonth + 1) + "/" + arrivalDay + "/" + arrivalYear;
+            cal.add(Calendar.DATE, 5);
+            arrivalDay = cal.get(Calendar.DATE);
+            arrivalMonth = cal.get(Calendar.MONTH);
+            arrivalYear = cal.get(Calendar.YEAR);
+            arrivalDates[1] = (arrivalMonth + 1) + "/" + arrivalDay + "/" + arrivalYear;
+        } else {
+            cal.add(Calendar.DATE, 5);
+            arrivalDay = cal.get(Calendar.DATE);
+            arrivalMonth = cal.get(Calendar.MONTH);
+            arrivalYear = cal.get(Calendar.YEAR);
+            arrivalDates[0] = (arrivalMonth + 1) + "/" + arrivalDay + "/" + arrivalYear;
+            cal.add(Calendar.DATE, 7);
+            arrivalDay = cal.get(Calendar.DATE);
+            arrivalMonth = cal.get(Calendar.MONTH);
+            arrivalYear = cal.get(Calendar.YEAR);
+            arrivalDates[1] = (arrivalMonth + 1) + "/" + arrivalDay + "/" + arrivalYear;
+        }
+
+        return  arrivalDates;
+    }
+
     public void sendEmailOrderConfirmation(String email, MaterialIndentBean materialIndentBean, List<CartBean> cartbeans) {
 
         Date purchasedDate = materialIndentBean.getIndent_date();
-        Calendar cal = Calendar.getInstance();
-        cal.setTime(purchasedDate);
-        cal.add(Calendar.DATE, 7);
-        int arrivalDay1 = cal.get(Calendar.DATE);
-        int arrivalMonth1 = cal.get(Calendar.MONTH);
-        cal.add(Calendar.DATE, 7);
-        int arrivalDay2 = cal.get(Calendar.DATE);
-        int arrivalMonth2 = cal.get(Calendar.MONTH);
 
         String subject = "Order#" + materialIndentBean.getIndent_id() + " Confirmation!";
         String carts = "";
         for (CartBean cartbean : cartbeans) {
-            carts +=  "<tr> <td>" + cartbean.getItemsBean().getItem_name() + "</td> <td>" + cartbean.getItemsBean().getItem_description() + "</td> <td>" + cartbean.getQuantity() + "</td> <td>" + cartbean.getPrice() + "</td> </tr>";
+            String[] arrivalDates = getArrivalDates(purchasedDate, cartbean.getItemsBean());
+            carts +=  "<tr> <td>" + cartbean.getItemsBean().getItem_name() + "</td> <td>" + cartbean.getItemsBean().getItem_description() + cartbean.getItemsBean().getSize() + "</td> <td>" + cartbean.getQuantity() + "</td> <td>" + cartbean.getPrice() + "</td> <td>" + "</td> <td>" + arrivalDates[0] + " - " + arrivalDates[1] + "</td> </tr>";
         }
         String msg = "<html>" + "<head>" + "<style>" + "table, th, td {border: 1px solid black; border-collapse: collapse;}" + "</style> </head>" +
                 "<body>" +
                 "Thank you for your purchase!" +
                 "<p style=\"font-size:14px\">Your order number is <b style=\"font-size:20px\">" + materialIndentBean.getIndent_id() + "</b> </p>" +
-                "<p style=\"font-size:14px\">Estimated Arrival Date: <b style=\"font-size:18px\">" + (arrivalMonth1 + 1) + "/" + arrivalDay1 + " to " + (arrivalMonth2 + 1) + "/" + arrivalDay2 + "</b> </p>" +
                 "<p>Below is the information of your order: </p>" +
                 "<table style=\"width:100%\">" +
-                "<tr>" + "<td>Item Name</td>" + "<td>Description</td>" + "<td>Quantity</td>" + "<td>Price</td>" + "</tr>" +
+                "<tr>" + "<td>Item Name</td>" + "<td>Description</td>" + "<td>Size</td>" + "<td>Quantity</td>" + "<td>Price</td>"  + "<td>Estimated Arrival Date</td>" + "</tr>" +
                 carts + "</table>" +
                 "<table style=\"width:100%\">" +
                 "<tr>" + "<td align=\"center\">Total </td>" + "<td align=\"center\">" + materialIndentBean.getPrice() + "</td>" + "</tr>" +
