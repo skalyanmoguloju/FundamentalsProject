@@ -57,7 +57,7 @@ public class MaterialIndentServiceSteps {
     @Then("^addSale has been called successfully$")
     public void addsale_has_been_called_successfully() throws Throwable {
 
-        materialIndentService.addSale(new MaterialIndent(), new Address().getAddress_Id());
+        materialIndentService.addSale(new MaterialIndent());
     }
 
 }

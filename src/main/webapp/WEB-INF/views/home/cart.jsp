@@ -63,15 +63,22 @@
                         console.log(vw);
                         if ($scope.validateCard() == true) {
                             var order = $scope.cart;
+                            $http.post('order1', {
+                                id:$scope.userInfo.id
+                            });
+                            console.log($scope.shipaddress)
+                            $http.post('order2', {
+                                address_Id:$scope.shipaddress.address_Id
+                            });
                             $http.post('order', {
                                     item_id: vw.item_id,
-                                    user_id: $scope.userInfo.id,
+                                    UserBean: $scope.userInfo,
                                     price: $scope.total,
                                     quantity: vw.noofpieces,
                                     card_number: vw.cardNo,
                                     card_exp: vw.dateExp,
                                     card_cvv: vw.cvvNo,
-                                    address_id: $scope.shipaddress
+                                    AddressBean: $scope.shipaddress
                             })
                                 .success(function (response) {
                                     console.log(response);
@@ -190,8 +197,8 @@
                         for (var i=0; i<$scope.cart.length; i++) {
                             if ($scope.cart[i].itemsBean.onsale_count == 0) {
                                 msg += 'Product "' + $scope.cart[i].itemsBean.item_name + '" is out of stock, Please delete it!'  + '<br/>';
-                            } else if ($scope.cart[i].quantity > $scope.cart[i].itemsBean.onsale_count) {
-                                msg += 'Quantity from product "' + $scope.cart[i].itemsBean.item_name + '" is greater than available, only ' + $scope.cart[i].itemsBean.onsale_count + ' available!'  + '<br/>';
+                            } else if ($scope.cart[i].quantity > $scope.cart[i].itemsBean.onsale_count-$scope.cart[i].itemsBean.sold_count) {
+                                msg += 'Quantity from product "' + $scope.cart[i].itemsBean.item_name + '" is greater than available, only ' + ($scope.cart[i].itemsBean.onsale_count-$scope.cart[i].itemsBean.sold_count) + ' available!'  + '<br/>';
                             } else if ($scope.cart[i].quantity > 0 && ($scope.cart[i].quantity % 1 === 0)) {
                                 // do nothing
                             } else if ($scope.cart[i].quantity == 0) {

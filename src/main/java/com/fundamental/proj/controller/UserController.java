@@ -23,8 +23,17 @@ public class UserController {
     @Autowired
     private CartDelegate cartDelegate;
 
+
+    private AddressBean addressBean = new AddressBean();
+
+
+    private UserBean userBean = new UserBean();
+
     @Autowired
     private OrdersDelegate ordersDelegate;
+
+    @Autowired
+    private ReturnDelegate returnDelegate;
 
     @Autowired
     private UserDelegate userDelegate;
@@ -114,16 +123,34 @@ public class UserController {
         }
 
     }
+    @RequestMapping(value = "/order1", method = RequestMethod.POST)
+    @ResponseBody
+    public List<Long> saveUser(@RequestBody UserBean userBean1)
+    {
+        List<Long> s = new LinkedList<Long>();
+        userBean = userBean1;
+        return s;
+    }
+    @RequestMapping(value = "/order2", method = RequestMethod.POST)
+    @ResponseBody
+    public List<Long> saveAddress(@RequestBody AddressBean addressBean1)
+    {
+        List<Long> s = new LinkedList<Long>();
+        addressBean = addressBean1;
+        return s;
+    }
 
     @RequestMapping(value = "/order", method = RequestMethod.POST)
     @ResponseBody
-    public List<Long> PurchaseItem(@RequestBody MaterialIndentBean materialIndentBean, @RequestBody AddressBean addressBean) {
+    public List<Long> PurchaseItem(@RequestBody MaterialIndentBean materialIndentBean) {
         //HIBERNETCALLS
         List<Long> s = new LinkedList<Long>();
         try {
             Date date = new Date();
             materialIndentBean.setIndent_date(date);
-            List<Long> l = materialIndentDelegate.addSale(materialIndentBean, addressBean.getAddress_Id());
+            materialIndentBean.setUserBean(userBean);
+            materialIndentBean.setAddressBean(addressBean);
+            List<Long> l = materialIndentDelegate.addSale(materialIndentBean);
             //String passwordToCompare = itemsDelegate.  .getUserPasswordWithEmail(userBean);
 
             return l;
@@ -142,15 +169,13 @@ public class UserController {
         try {
 
             /* get user's email */
-            UserBean userBean = new UserBean();
-            userBean.setId(materialIndentBean.getUserBean().getId());
             String email = userDelegate.getUserInfo(userBean).get(0).getEmail();
 
             /* get list of cartbeans */
-            List<CartBean> cartBeans = cartDelegate.getCart(materialIndentBean.getUserBean().getId());
+            List<CartBean> cartBeans = cartDelegate.getCart(userBean.getId());
 
             /* Clear Cart */
-            cartDelegate.clearCart(materialIndentBean.getUserBean().getId());
+            cartDelegate.clearCart(userBean.getId());
 
             /* send email for purchased items */
             Date date = new Date();
@@ -282,6 +307,20 @@ public class UserController {
         //HIBERNETCALLS
         ordersDelegate.udpateOrders(orders.getOrder_id());
         List<String> s = new LinkedList<String>();
+        return s;
+    }
+
+    @RequestMapping(value = "/returnrequest", method = RequestMethod.POST)
+    @ResponseBody
+    public List<String> ReturnRequest(@RequestBody ReturnBean returnBean) {
+        //HIBERNETCALLS
+
+        OrdersBean ordersBean = new OrdersBean();
+        ordersBean.setOrder_id(returnBean.getReturn_id());
+        returnBean.setOrdersBean(ordersDelegate.getOrders(returnBean.getReturn_id()).get(0));
+        returnBean.setReturn_id(0);
+        List<String> s = new LinkedList<String>();
+        s.add(returnDelegate.returnRequest(returnBean));
         return s;
     }
 

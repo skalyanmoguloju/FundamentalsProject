@@ -22,6 +22,15 @@ public class MaterialIndentBean {
     public UserBean getUserBean() {
         return userBean;
     }
+    private AddressBean addressBean;
+
+    public AddressBean getAddressBean() {
+        return addressBean;
+    }
+
+    public void setAddressBean(AddressBean addressBean) {
+        this.addressBean = addressBean;
+    }
 
     public void setUserBean(UserBean userBean) {
         this.userBean = userBean;

@@ -23,10 +23,10 @@ public class MaterialIndentService {
     private CartRepository cartRepository;
 
     @Transactional
-    public List<Long> addSale(MaterialIndent materialIndent, long address_id)
+    public List<Long> addSale(MaterialIndent materialIndent)
     {
 
-        List<Long> list = materialIndentRepository.AddSale(materialIndent,cartRepository.getCart(materialIndent.getUser().getId()), address_id);
+        List<Long> list = materialIndentRepository.AddSale(materialIndent,cartRepository.getCart(materialIndent.getUser().getId()));
 
         return list;
     }

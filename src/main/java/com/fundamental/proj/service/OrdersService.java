@@ -38,4 +38,11 @@ public class OrdersService {
     {
         ordersRepository.udpateOrders(order_id);
     }
+
+    @Transactional
+    public List<Orders> getOrder(long order_id)
+    {
+        return ordersRepository.getOrderById(order_id);
+    }
+
 }

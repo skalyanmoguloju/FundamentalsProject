@@ -126,10 +126,10 @@ public class UserControllerTest {
     public void purchaseItemTest() {
         MaterialIndentBean materialIndentBean = new MaterialIndentBean();
         AddressBean address = new AddressBean();
-        Mockito.doNothing().when(mockedMaterialIndentDelegate).addSale(Mockito.any(MaterialIndentBean.class),Mockito.any(AddressBean.class).getAddress_Id());
-        List<Long> result = userController.PurchaseItem(materialIndentBean, address);
+        Mockito.doNothing().when(mockedMaterialIndentDelegate).addSale(Mockito.any(MaterialIndentBean.class));
+        List<Long> result = userController.PurchaseItem(materialIndentBean);
         Assert.assertEquals(result.size(), 0);
-        Mockito.verify(mockedMaterialIndentDelegate).addSale(materialIndentBean, address.getAddress_Id());
+        Mockito.verify(mockedMaterialIndentDelegate).addSale(materialIndentBean);
     }
 
     @Test

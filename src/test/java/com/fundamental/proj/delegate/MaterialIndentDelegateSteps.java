@@ -46,16 +46,16 @@ public class MaterialIndentDelegateSteps {
         MaterialIndentBean materialIndentBean = new MaterialIndentBean();
         Address address =new Address();
         Mockito.when(mockedMaterialIndentMapper.mapBeanToMaterialIndent(Mockito.any(MaterialIndentBean.class))).thenReturn(mockedMaterialIndent);
-        Mockito.doNothing().when(mockedMaterialIndentService).addSale(mockedMaterialIndent,address.getAddress_Id());
+        Mockito.doNothing().when(mockedMaterialIndentService).addSale(mockedMaterialIndent);
     }
 
     @Then("^addSale runs successfully for MaterialIndentDelegate$")
     public void addsale_runs_successfully_for_MaterialIndentDelegate() throws Throwable {
         MaterialIndentBean materialIndentBean = new MaterialIndentBean();
         Address address =new Address();
-        materialIndentDelegate.addSale(materialIndentBean, address.getAddress_Id());
+        materialIndentDelegate.addSale(materialIndentBean);
 
         Mockito.verify(mockedMaterialIndentMapper).mapBeanToMaterialIndent(materialIndentBean);
-        Mockito.verify(mockedMaterialIndentService).addSale(mockedMaterialIndent, address.getAddress_Id());
+        Mockito.verify(mockedMaterialIndentService).addSale(mockedMaterialIndent);
     }
 }

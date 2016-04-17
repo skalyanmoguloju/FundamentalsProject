@@ -27,7 +27,7 @@ public class OrdersBeanMapper {
         ordersBean.setOrder_id(orders.getOrder_id());
         ordersBean.setRejected_quantity(orders.getRejected_quantity());
         ordersBean.setItemsBean(itemsBeanMapper.mapItemBean(orders.getItems()));
-        ordersBean.setAddressBean(addressBeanMapper.mapAddressBean(orders.getAddress()));
+        ordersBean.setType(orders.getType());
         return ordersBean;
     }
 
@@ -42,7 +42,7 @@ public class OrdersBeanMapper {
         orders.setOrder_id(ordersBean.getOrder_id());
         orders.setRejected_quantity((ordersBean.getRejected_quantity()));
         orders.setItems(itemsBeanMapper.mapBeanToItems(ordersBean.getItemsBean()));
-        orders.setAddress(addressBeanMapper.mapBeanToAddress(ordersBean.getAddressBean()));
+        orders.setType(ordersBean.getType());
         return orders;
     }
 

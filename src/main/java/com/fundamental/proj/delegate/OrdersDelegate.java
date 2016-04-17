@@ -28,6 +28,12 @@ public class OrdersDelegate {
     }
 
     @Transactional
+    public List<OrdersBean> getOrders(long order_id)
+    {
+        return ordersBeanMapper.mapOrdersBean(ordersService.getOrder(order_id));
+    }
+
+    @Transactional
     public List<OrdersBean> getReceivedORders(long user_id)
     {
         return ordersBeanMapper.mapOrdersBean(ordersService.getReceivedOrders(user_id));

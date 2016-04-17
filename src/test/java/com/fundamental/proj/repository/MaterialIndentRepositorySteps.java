@@ -60,7 +60,7 @@ public class MaterialIndentRepositorySteps {
         cart.setQuantity(3);
         listCart.add(cart);
 
-        materialIndentRepository.AddSale(materialIndent, listCart, address.getAddress_Id());
+        materialIndentRepository.AddSale(materialIndent, listCart);
         Mockito.verify(mockedSessionFactory).getCurrentSession();
     }
 
@@ -76,7 +76,7 @@ public class MaterialIndentRepositorySteps {
         Address address = new Address();
         List<Cart> listCart = new ArrayList<Cart>();
 
-        materialIndentRepository.AddSale(materialIndent, listCart, address.getAddress_Id());
+        materialIndentRepository.AddSale(materialIndent, listCart);
         Mockito.verify(mockedSessionFactory).getCurrentSession();
     }
 }

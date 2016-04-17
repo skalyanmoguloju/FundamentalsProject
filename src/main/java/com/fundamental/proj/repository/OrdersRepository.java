@@ -21,10 +21,19 @@ public class OrdersRepository {
     private SessionFactory sessionFactory;
 
     @Transactional
+    public List<Orders> getOrderById(long orderid)
+    {
+        Session session = sessionFactory.getCurrentSession();
+        Query query = session.createQuery("from Orders where order_id=:oid");
+        query.setParameter("oid",orderid);
+        return query.list();
+    }
+
+    @Transactional
     public List<Orders> getAllOrders(long user_id)
     {
         Session session = sessionFactory.getCurrentSession();
-        Query query = session.createQuery("from Orders where materialIndent.user_id=:uid");
+        Query query = session.createQuery("from Orders where materialIndent.user.id=:uid");
         query.setParameter("uid",user_id);
         return query.list();
     }

@@ -14,5 +14,6 @@
         <mapping class="com.fundamental.proj.model.MaterialIndent"/>
         <mapping class="com.fundamental.proj.model.Orders"/>
         <mapping class="com.fundamental.proj.model.Address"/>
+        <mapping class="com.fundamental.proj.model.Returns"/>
     </session-factory>
 </hibernate-configuration>

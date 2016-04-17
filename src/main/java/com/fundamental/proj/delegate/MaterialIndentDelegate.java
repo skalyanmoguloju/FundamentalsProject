@@ -25,10 +25,10 @@ public class MaterialIndentDelegate {
     private MaterialIndentMapper materialIndentMapper;
 
     @Transactional
-    public List<Long> addSale(MaterialIndentBean materialIndentBean, long address_id)
+    public List<Long> addSale(MaterialIndentBean materialIndentBean)
     {
         MaterialIndent materialIndent;
         materialIndent = materialIndentMapper.mapBeanToMaterialIndent(materialIndentBean);
-        return materialIndentService.addSale(materialIndent, address_id);
+        return materialIndentService.addSale(materialIndent);
     }
 }
