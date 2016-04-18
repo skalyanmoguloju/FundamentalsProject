@@ -1,6 +1,7 @@
 package com.fundamental.proj.model;
 
 import javax.persistence.*;
+import java.util.Date;
 
 /**
  * Created by sai on 4/16/16.
@@ -31,6 +32,17 @@ public class Returns {
 
     @Column(name ="return_count")
     private int return_count;
+
+    @Column(name ="return_date")
+    private Date return_date;
+
+    public Date getReturn_date() {
+        return return_date;
+    }
+
+    public void setReturn_date(Date return_date) {
+        this.return_date = return_date;
+    }
 
     public int getReturn_count() {
         return return_count;

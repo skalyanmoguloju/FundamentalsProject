@@ -28,6 +28,8 @@ public class OrdersBeanMapper {
         ordersBean.setRejected_quantity(orders.getRejected_quantity());
         ordersBean.setItemsBean(itemsBeanMapper.mapItemBean(orders.getItems()));
         ordersBean.setType(orders.getType());
+        ordersBean.setPurchase_date(orders.getPurchase_date());
+        ordersBean.setDelivery_date(orders.getDelivery_date());
         return ordersBean;
     }
 
@@ -43,6 +45,8 @@ public class OrdersBeanMapper {
         orders.setRejected_quantity((ordersBean.getRejected_quantity()));
         orders.setItems(itemsBeanMapper.mapBeanToItems(ordersBean.getItemsBean()));
         orders.setType(ordersBean.getType());
+        orders.setDelivery_date(ordersBean.getDelivery_date());
+        orders.setPurchase_date(ordersBean.getPurchase_date());
         return orders;
     }
 

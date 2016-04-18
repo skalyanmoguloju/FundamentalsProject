@@ -1,6 +1,7 @@
 package com.fundamental.proj.controller.bean;
 
 import javax.persistence.criteria.Order;
+import java.util.Date;
 
 /**
  * Created by sai on 4/16/16.
@@ -11,6 +12,15 @@ public class ReturnBean {
     private String description;
     private String resolution;
     private int return_count;
+    private Date return_date;
+
+    public Date getReturn_date() {
+        return return_date;
+    }
+
+    public void setReturn_date(Date return_date) {
+        this.return_date = return_date;
+    }
 
     public int getReturn_count() {
         return return_count;

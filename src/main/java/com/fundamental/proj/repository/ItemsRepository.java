@@ -83,7 +83,12 @@ public class ItemsRepository {
         List<Long> i = new ArrayList<Long>();
         try {
             Session session = sessionFactory.getCurrentSession();
-            session.update(items);
+            Query query1 = session.createQuery("update Items set sold_count=:val where item_id=:iid");
+            query1.setParameter("iid",items.getItem_id());
+            query1.setParameter("val", items.getSold_count());
+            query1.executeUpdate();
+            session.flush();
+            //session.update(items);
             Query query = session.createQuery("select sold_count from Items where item_id=:itemid");
             query.setParameter("itemid", items.getItem_id());
             return query.list();

@@ -4,9 +4,13 @@ import com.fundamental.proj.model.Orders;
 import com.fundamental.proj.model.Returns;
 import com.fundamental.proj.repository.OrdersRepository;
 import com.fundamental.proj.repository.ReturnRepository;
+import org.hibernate.Query;
+import org.hibernate.Session;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+
+import java.util.List;
 
 /**
  * Created by sai on 4/16/16.
@@ -35,7 +39,7 @@ public class ReturnService {
                 newOrder.setQuantity(returns.getReturn_count());
                 newOrder.setType("Return");
                 newOrder.setRejected_quantity(0);
-                newOrder.setStatus("Purchased");
+                newOrder.setStatus("Re-Purchased");
                 returnRepository.AddNewOrder(newOrder);
                 returnRepository.updateSaleCount(newOrder.getItems().getItem_id(), (newOrder.getItems().getSold_count() + newOrder.getQuantity()));
                 returns.setResolution("Replaced a new order for same product");
@@ -66,5 +70,17 @@ public class ReturnService {
             returns.setOrders(ordersRepository.getOrderById(orders_id).get(0));
             return "Nothing";
         }
+    }
+
+    @Transactional
+    public List<Returns> getRecRetOrders(long user_id)
+    {
+        return returnRepository.getRecRetOrders(user_id);
+    }
+
+    @Transactional
+    public List<Returns> getRetOrders(long user_id)
+    {
+        return returnRepository.getRetOrders(user_id);
     }
 }

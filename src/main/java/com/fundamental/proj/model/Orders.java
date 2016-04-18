@@ -1,6 +1,9 @@
 package com.fundamental.proj.model;
 
+import org.hibernate.exception.DataException;
+
 import javax.persistence.*;
+import java.util.Date;
 
 /**
  * Created by sai on 3/24/16.
@@ -90,7 +93,25 @@ public class Orders {
         this.rejected_quantity = rejected_quantity;
     }
 
+    @Column(name = "purchase_date")
+    private Date purchase_date;
 
+    @Column(name = "delivery_date")
+    private  Date delivery_date;
 
+    public Date getPurchase_date() {
+        return purchase_date;
+    }
 
+    public void setPurchase_date(Date purchase_date) {
+        this.purchase_date = purchase_date;
+    }
+
+    public Date getDelivery_date() {
+        return delivery_date;
+    }
+
+    public void setDelivery_date(Date delivery_date) {
+        this.delivery_date = delivery_date;
+    }
 }

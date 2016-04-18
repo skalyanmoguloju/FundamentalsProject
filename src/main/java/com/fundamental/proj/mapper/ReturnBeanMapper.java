@@ -21,6 +21,7 @@ public class ReturnBeanMapper {
         returnBean.setOrdersBean(ordersBeanMapper.mapOrdersBean(returns.getOrders()));
         returnBean.setReturn_count(returns.getReturn_count());
         returnBean.setReturn_id(returns.getReturn_id());
+        returnBean.setReturn_date(returns.getReturn_date());
         return returnBean;
     }
 
@@ -32,6 +33,7 @@ public class ReturnBeanMapper {
         returns.setResolution(returnBean.getResolution());
         returns.setReturn_id(returnBean.getReturn_id());
         returns.setReturn_count(returnBean.getReturn_count());
+        returns.setReturn_date(returnBean.getReturn_date());
         return returns;
     }
 

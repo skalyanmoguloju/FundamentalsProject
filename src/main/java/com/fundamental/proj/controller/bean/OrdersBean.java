@@ -1,5 +1,7 @@
 package com.fundamental.proj.controller.bean;
 
+import java.util.Date;
+
 /**
  * Created by sai on 3/25/16.
  */
@@ -36,7 +38,25 @@ public class OrdersBean {
 
     private int rejected_quantity;
 
+    private Date purchase_date;
 
+    private Date delivery_date;
+
+    public Date getPurchase_date() {
+        return purchase_date;
+    }
+
+    public void setPurchase_date(Date purchase_date) {
+        this.purchase_date = purchase_date;
+    }
+
+    public Date getDelivery_date() {
+        return delivery_date;
+    }
+
+    public void setDelivery_date(Date delivery_date) {
+        this.delivery_date = delivery_date;
+    }
 
     public int getRejected_quantity() {
         return rejected_quantity;

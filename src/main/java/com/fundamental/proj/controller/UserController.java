@@ -126,18 +126,18 @@ public class UserController {
         }
 
     }
+
     @RequestMapping(value = "/order1", method = RequestMethod.POST)
     @ResponseBody
-    public List<Long> saveUser(@RequestBody UserBean userBean1)
-    {
+    public List<Long> saveUser(@RequestBody UserBean userBean1) {
         List<Long> s = new LinkedList<Long>();
         userBean = userBean1;
         return s;
     }
+
     @RequestMapping(value = "/order2", method = RequestMethod.POST)
     @ResponseBody
-    public List<Long> saveAddress(@RequestBody AddressBean addressBean1)
-    {
+    public List<Long> saveAddress(@RequestBody AddressBean addressBean1) {
         List<Long> s = new LinkedList<Long>();
         addressBean = addressBean1;
         return s;
@@ -149,21 +149,17 @@ public class UserController {
         //HIBERNETCALLS
         List<Long> s = new LinkedList<Long>();
         try {
-<<<<<<< HEAD
+
             //Date date = new Date();
             //materialIndentBean.setIndent_date(date);
-            List<Long> l = materialIndentDelegate.addSale(materialIndentBean);
-=======
+
             Date date = new Date();
             materialIndentBean.setIndent_date(date);
-<<<<<<< HEAD
+
             materialIndentBean.setUserBean(userBean);
             materialIndentBean.setAddressBean(addressBean);
             List<Long> l = materialIndentDelegate.addSale(materialIndentBean);
-=======
-            List<Long> l = materialIndentDelegate.addSale(materialIndentBean, addressBean.getAddress_Id());
->>>>>>> 36c0c129fcaeec63cd0c2c9d315c273bb7dee186
->>>>>>> origin/master
+
             //String passwordToCompare = itemsDelegate.  .getUserPasswordWithEmail(userBean);
 
             return l;
@@ -215,7 +211,7 @@ public class UserController {
     @RequestMapping(value = "/listResults", method = RequestMethod.POST)
     @ResponseBody
     public List<ItemsBean> getSearchResultItems(@RequestBody String searchTerm) {
-        String term = searchTerm.substring(15,(searchTerm.length()-2));
+        String term = searchTerm.substring(15, (searchTerm.length() - 2));
         List<ItemsBean> s = itemsDelegate.getAllItemsContainingSearchTerm(term);
         return s;
     }
@@ -274,6 +270,7 @@ public class UserController {
         }
 
     }
+
     @RequestMapping(value = "/allorders", method = RequestMethod.POST)
     @ResponseBody
     public List<OrdersBean> getAllOrders(@RequestBody UserBean userBean) {
@@ -295,13 +292,13 @@ public class UserController {
             } else {
                 long indent_id = ordersBean.getMaterialIndentBean().getIndent_id();
                 long order_id = ordersBean.getOrder_id();
-                for (int x=0; x < ordersBeanLists.size(); x++) {
+                for (int x = 0; x < ordersBeanLists.size(); x++) {
                     OrdersBean ordersBeanCompared = ordersBeanLists.get(x).get(0);
                     if (indent_id == ordersBeanCompared.getMaterialIndentBean().getIndent_id() && order_id != ordersBeanCompared.getOrder_id()) {
                         ordersBeanLists.get(x).add(ordersBean);
                         System.out.println("IF " + ordersBean.getOrder_id());
                         break;
-                    } else if (x == (ordersBeanLists.size()-1)) {
+                    } else if (x == (ordersBeanLists.size() - 1)) {
                         List<OrdersBean> listOrderBean = new ArrayList<OrdersBean>();
                         listOrderBean.add(ordersBean);
                         ordersBeanLists.add(listOrderBean);
@@ -337,7 +334,7 @@ public class UserController {
         return list;
     }
 
-<<<<<<< HEAD
+
     @RequestMapping(value = "/edit info")
     public String editInfo() {
         return "WEB-INF/views/home/editInfo";
@@ -382,11 +379,12 @@ public class UserController {
             return s;
         }
     }
-=======
+
     @RequestMapping(value = "/received orders")
     public String receivedOrdersPage() {
         return "WEB-INF/views/home/receivedorders";
     }
+
     @RequestMapping(value = "/recvorders", method = RequestMethod.POST)
     @ResponseBody
     public List<OrdersBean> getReceivedOrders(@RequestBody UserBean userBean) {
@@ -403,7 +401,7 @@ public class UserController {
         return s;
     }
 
-<<<<<<< HEAD
+
     @RequestMapping(value = "/returnrequest", method = RequestMethod.POST)
     @ResponseBody
     public List<String> ReturnRequest(@RequestBody ReturnBean returnBean) {
@@ -417,8 +415,18 @@ public class UserController {
         s.add(returnDelegate.returnRequest(returnBean));
         return s;
     }
+    @RequestMapping(value = "/recvretorders", method = RequestMethod.POST)
+    @ResponseBody
+    public List<ReturnBean> getRecReturnedOrders(@RequestBody UserBean userBean) {
+        //HIBERNETCALLS
+        return returnDelegate.getRecRetOrders(userBean.getId());
+    }
 
-=======
->>>>>>> 36c0c129fcaeec63cd0c2c9d315c273bb7dee186
->>>>>>> origin/master
+    @RequestMapping(value = "/retorders", method = RequestMethod.POST)
+    @ResponseBody
+    public List<ReturnBean> getReturnedOrders(@RequestBody UserBean userBean) {
+        //HIBERNETCALLS
+        return returnDelegate.getRetOrders(userBean.getId());
+    }
 }
+

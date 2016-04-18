@@ -10,6 +10,7 @@ import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -66,6 +67,8 @@ public class ReturnRepository {
     @Transactional
     public void AddReturn(Returns returns)
     {
+        Date dt = new Date();
+        returns.setReturn_date(dt);
         Session session = sessionFactory.getCurrentSession();
         session.saveOrUpdate(returns);
         session.flush();
@@ -81,7 +84,16 @@ public class ReturnRepository {
         return query.list();
     }
     @Transactional
-    public List<Orders> getReceivedOrders(long user_id)
+    public List<Returns> getRetOrders(long user_id)
+    {
+        Session session = sessionFactory.getCurrentSession();
+        Query query = session.createQuery("from Returns where orders.materialIndent.user.id=:uid");
+        query.setParameter("uid",user_id);
+        return query.list();
+    }
+
+    @Transactional
+    public List<Returns> getRecRetOrders(long user_id)
     {
         Session session = sessionFactory.getCurrentSession();
         Query query = session.createQuery("from Returns where orders.items.user_id=:uid");

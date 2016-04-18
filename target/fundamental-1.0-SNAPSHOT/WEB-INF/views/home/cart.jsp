@@ -63,7 +63,6 @@
                         console.log(vw);
                         if ($scope.validateCard() == true) {
                             var order = $scope.cart;
-<<<<<<< HEAD
                             $http.post('order1', {
                                 id:$scope.userInfo.id
                             });
@@ -71,9 +70,8 @@
                             $http.post('order2', {
                                 address_Id:$scope.shipaddress.address_Id
                             });
-=======
                             var date = new Date();
->>>>>>> origin/master
+
                             $http.post('order', {
                                     item_id: vw.item_id,
                                     UserBean: $scope.userInfo,
@@ -82,17 +80,11 @@
                                     card_number: vw.cardNo,
                                     card_exp: vw.dateExp,
                                     card_cvv: vw.cvvNo,
-<<<<<<< HEAD
-                                    AddressBean: $scope.shipaddress
-=======
-<<<<<<< HEAD
+
+
                                     indent_date: date
-                                })
-=======
-                                    address_id: $scope.shipaddress
->>>>>>> origin/master
+
                             })
->>>>>>> 36c0c129fcaeec63cd0c2c9d315c273bb7dee186
                                 .success(function (response) {
                                     console.log(response);
 
@@ -172,16 +164,7 @@
                     };
                     $scope.updateSoldCount = function(item) {
                         $http.post('updateSoldCount', {
-                                    item_id: item.itemsBean.item_id,
-                                    item_name: item.itemsBean.item_name,
-                                    item_description: item.itemsBean.item_description,
-                                    onsale_count: item.itemsBean.onsale_count,
-                                    sold_count: item.itemsBean.sold_count,
-                                    category: item.itemsBean.category,
-                                    images: item.itemsBean.images,
-                                    price: item.itemsBean.price,
-                                    date: item.itemsBean.date,
-                                    user_id: item.itemsBean.user_id
+                                    item_id: item.itemsBean.item_id
                                 })
                                 .success(function (response) {
                                     console.log(response);

@@ -32,12 +32,12 @@
                                             $scope.rights = data;
                                             $http.post('allorders', {id : user})
                                                     .success(function (data) {
-<<<<<<< HEAD
+
                                                         console.log(data);
-                                                        $scope.groupOrdersByOrderNumber(data);
-=======
+
                                                         for(var i =0; i< data.length; i++) {
-                                                            console.log(data[i])
+                                                            data[i].delivery_date= $filter('date')(data[i].delivery_date , "dd/MM/yyyy");
+                                                            data[i].purchase_date= $filter('date')(data[i].purchase_date , "dd/MM/yyyy");
                                                             if(data[i].status =="Purchased" || data[i].status =="Re-Purchased")
                                                             {
                                                                 $scope.orders.push(data[i]);
@@ -47,13 +47,17 @@
                                                             }
 
                                                         }
-
-
->>>>>>> 36c0c129fcaeec63cd0c2c9d315c273bb7dee186
+                                                    });
+                                            $http.post('retorders', {id : user})
+                                                    .success(function (data) {
+                                                        for(var i =0; i< data.length; i++) {
+                                                            data[i].return_date = $filter('date')(data[i].return_date, "dd/MM/yyyy");
+                                                        }
+                                                        $scope.returns = data;
                                                     });
                                         });
                             });
-<<<<<<< HEAD
+
                     $scope.returnSubmit = function(order){
                         console.log(order);
                         $http.post('returnrequest', {
@@ -66,7 +70,6 @@
                     };
 
 
-=======
                     $scope.groupOrdersByOrderNumber= function(vw){
                         $http.post('groupOrdersByOrderNumber', vw)
                                 .success(function (response) {
@@ -121,7 +124,7 @@
                         var result = (d.getMonth() + 1) + "/" + d.getDate() + "/" + d.getFullYear();
                         return result;
                     };
->>>>>>> origin/master
+
                 }]);
 </script>
 
@@ -135,93 +138,12 @@
 <div class="container" ng-app="myApp">
     <div ng-controller="HomeCtrl as hmectrl">
         <jsp:include page="header.jsp" />
-<<<<<<< HEAD
-        <section class="col-xs-12 col-sm-6 col-md-12" ng-model = "listOrders">
-            <article class="search-result row" ng-repeat = "orders in listOrders">
-                <form class="well span8">
-                    <h4 style="text-align: center"><b>(Order Date: {{getDate(orders[0].materialIndentBean.indent_date)}}) - Order# {{orders[0].materialIndentBean.indent_id}}:</b></h4>
-                    <br/>
-                    <article class="search-result row" ng-repeat = "order in orders">
-                        <div class="col-xs-12 col-sm-12 col-md-3" style="height: 50px; width: 110px">
-                            <a href="#" title="{{order.itemsBean.item_name}}" class="thumbnail"><img src="{{order.itemsBean.images}}" style="height: 50px; width: 105px" alt="{{vw.itemsBean.item_name}}" /></a>
-                        </div>
-                        <div class="col-xs-12 col-sm-12 col-md-7 excerpet">
-                            <table style="width: 950px;">
-                                <tr>
 
-                                    <td style="width: 200px;" colspan="3">
-                                        <div class="modal fade" id="squarespaceModal" tabindex="-1" role="dialog" aria-labelledby="modalLabel" aria-hidden="true">
-                                            <div class="modal-dialog">
-                                                <div class="modal-content">
-                                                    <div class="modal-header">
-                                                        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span><span class="sr-only">Close</span></button>
-                                                        <h3 class="modal-title" id="lineModalLabel">Payment</h3>
-                                                    </div>
-                                                    <div class="modal-body">
 
-                                                        <!-- content goes here -->
-                                                        <form ng-submit = "orderUp(vw)">
 
-                                                            <div class="form-group">
-                                                                <div>
-                                                                    <div class="panel panel-default">
-                                                                        <div class="panel-heading">
-                                                                            <h3 class="panel-title">
-                                                                                Payment Details
-                                                                            </h3>
 
-                                                                        </div>
-                                                                        <div class="panel-body">
-                                                                            <form role="form">
-                                                                                <div class="form-group">
-                                                                                    <label for="cardNumber">
-                                                                                        CARD NUMBER</label>
-                                                                                    <div class="input-group">
-                                                                                        <input type="text" class="form-control" id="cardNumber" placeholder="Valid Card Number"
-                                                                                               required autofocus ng-model="vw.cardNo"/>
-                                                                                        <span class="input-group-addon"><span class="glyphicon glyphicon-lock"></span></span>
-                                                                                    </div>
-                                                                                </div>
-                                                                                <div class="row">
-                                                                                    <div class="col-xs-7 col-md-7">
-                                                                                        <div class="form-group">
-                                                                                            <label for="expityMonth">
-                                                                                                EXPIRY DATE</label>
-                                                                                            <input type="text" class="form-control" id="expityMonth" placeholder="MM/YY" required ng-model="vw.dateExp"/>
-                                                                                        </div>
-                                                                                    </div>
-                                                                                    <div class="col-xs-5 col-md-5 pull-right">
-                                                                                        <div class="form-group">
-                                                                                            <label for="cvCode">
-                                                                                                CV CODE</label>
-                                                                                            <input type="password" class="form-control" id="cvCode" placeholder="ex. 123" required ng-model="vw.cvvNo"/>
-                                                                                        </div>
-                                                                                    </div>
-                                                                                </div>
-                                                                            </form>
-                                                                        </div>
-                                                                    </div>
-                                                                    <ul>
-                                                                        <li class="active"><a href="#"><span class="badge pull-right"><span class="glyphicon glyphicon-usd"></span>{{total}}</span> Final Payment</a>
-                                                                        </li>
-                                                                    </ul>
 
-                                                                    <br/>
-                                                                    <button type="submit" class="btn btn-success btn-lg btn-block" role="button">Pay</button>
-                                                                </div>
-                                                            </div>
-                                                        </form>
 
-                                                    </div>
-
-                                                </div>
-                                            </div>
-                                        </div>
-
-                                        <h3 style="margin-top: 5px"><a data-toggle="modal" data-target="#squarespaceModal"  href="#" title="">{{order.itemsBean.item_name}} : <small>{{order.itemsBean.category}}</small></a></h3>
-                                    </td>
-                                </tr>
-=======
         <div style="margin-top: 50px">
             <ul id="tabs" class="nav nav-tabs" style="margin-left: 0px;left: 150px; top: 100px" data-tabs="tabs">
                 <li class="active"><a href="#red" data-toggle="tab">Purshased Orders</a></li>
@@ -236,7 +158,7 @@
                                 <a href="#" title="{{order.itemsBean.item_name}}" class="thumbnail"><img src="{{order.itemsBean.images}}" style="height: 50px; width: 105px" alt="{{vw.itemsBean.item_name}}" /></a>
                             </div>
                             <div class="col-xs-12 col-sm-12 col-md-7 excerpet">
-                                <table style="width: 850px;">
+                                <table style="width: 1050px;">
                                     <tr>
 
                                         <td style="width: 200px;" colspan="3">
@@ -279,6 +201,14 @@
                                                                                             <span class="input-group-addon"><span class="glyphicon glyphicon-usd"></span></span>
                                                                                         </div>
                                                                                     </div>
+                                                                                    <div class="form-group">
+                                                                                        <label >
+                                                                                            Purchased Date</label>
+                                                                                        <div class="input-group">
+                                                                                            <label class="form-control" >{{order.purchase_date}}</label>
+                                                                                            <span class="input-group-addon"></span>
+                                                                                        </div>
+                                                                                    </div>
                                                                                     <div class="row">
                                                                                         <div class="col-xs-7 col-md-7">
                                                                                             <div class="form-group">
@@ -316,6 +246,9 @@
                                         <td>
                                             <p><b>Description</b> : {{order.itemsBean.item_description}}</p>
                                         </td>
+                                        <td style="width: 250px;">
+                                            <p><b>Exp delivery</b> : {{order.delivery_date}}</p>
+                                        </td>
                                         <td style="width: 150px;">
                                             <p><b>Quantity</b> : {{order.quantity}}</p>
                                         </td>
@@ -344,7 +277,7 @@
                                 <a href="#" title="{{order.itemsBean.item_name}}" class="thumbnail"><img src="{{order.itemsBean.images}}" style="height: 50px; width: 105px" alt="{{vw.itemsBean.item_name}}" /></a>
                             </div>
                             <div class="col-xs-12 col-sm-12 col-md-7 excerpet" >
-                                <table style="width: 850px;">
+                                <table style="width: 1050px;">
                                     <tr>
 
                                         <td style="width: 200px;" colspan="3">
@@ -387,7 +320,22 @@
                                                                                             <span class="input-group-addon"><span class="glyphicon glyphicon-usd"></span></span>
                                                                                         </div>
                                                                                     </div>
-
+                                                                                    <div class="form-group">
+                                                                                        <label >
+                                                                                            Purchased Date</label>
+                                                                                        <div class="input-group">
+                                                                                            <label class="form-control" >{{order.purchase_date}}</label>
+                                                                                            <span class="input-group-addon"></span>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                    <div class="form-group">
+                                                                                        <label >
+                                                                                            Delivered Date</label>
+                                                                                        <div class="input-group">
+                                                                                            <label class="form-control" >{{order.delivery_date}}</label>
+                                                                                            <span class="input-group-addon"></span>
+                                                                                        </div>
+                                                                                    </div>
                                                                                     <div class="row">
                                                                                         <div class="col-xs-7 col-md-7">
                                                                                             <div class="form-group">
@@ -422,7 +370,7 @@
                                             <h3 style="margin-top: 5px"><a data-toggle="modal" data-target="#squarespaceModal1{{order.order_id}}"  href="#" title="">{{order.itemsBean.item_name}} : <small>{{order.itemsBean.category}}</small></a></h3>
                                         </td>
                                     </tr>
->>>>>>> 36c0c129fcaeec63cd0c2c9d315c273bb7dee186
+
                                     <tr>
                                         <td>
                                             <p><b>Description</b> : {{order.itemsBean.item_description}}</p>
@@ -433,7 +381,7 @@
                                         <td style="width: 200px;">
                                             <p><b>Status</b> : {{order.status}}</p>
                                         </td>
-<<<<<<< HEAD
+
                                         <td style="width: 200px;">
 
                                                         <a data-toggle="collapse" data-parent="#accordion" href="#znajomi{{order.order_id}}">
@@ -471,46 +419,113 @@
                                             </div>
                                         </div>
                                         </td>
-=======
-<<<<<<< HEAD
-                                        <td style="width: 380px;">
-                                            <p><b>Estimated Arrival Date</b>: {{arrivalDate(order)}} </p>
-                                        </td>
+
+
                                     </tr>
                             </table>
                         </div>
                         <hr>
                         <br style="width: 850px"/>
                     </article>
-                </form>
-            </article>
-            <br/>
-        </section>
-=======
->>>>>>> origin/master
-                                    </tr>
-                                </table>
-                            </div>
-                            <hr>
-                            <br style="width: 850px"/>
-                        </article>
-
-
-
-
 
                     </section>
                     </div>
                 </div>
                 <div class="tab-pane" id="yellow">
-                    <h1>Yellow</h1>
-                    <p>yellow yellow yellow yellow yellow</p>
+                    <section class="col-xs-12 col-sm-6 col-md-12" ng-model = "returns">
+                    <article class="search-result row" ng-repeat = "return in returns">
+                        <div class="col-xs-12 col-sm-12 col-md-3" style="height: 50px; width: 110px">
+                            <a href="#" title="{{return.ordersBean.itemsBean.item_name}}" class="thumbnail"><img src="{{return.ordersBean.itemsBean.images}}" style="height: 50px; width: 105px" alt="{{vw.itemsBean.item_name}}" /></a>
+                        </div>
+                        <div class="col-xs-12 col-sm-12 col-md-7 excerpet">
+                            <table style="width: 1050px;">
+                                <tr>
+
+                                    <td style="width: 200px;" colspan="3">
+                                        <div class="modal fade" id="squarespaceModal{{return.return_id}}" tabindex="-1" role="dialog" aria-labelledby="modalLabel" aria-hidden="true">
+                                            <div class="modal-dialog">
+                                                <div class="modal-content">
+                                                    <div class="modal-header">
+                                                        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span><span class="sr-only">Close</span></button>
+                                                        <h3 class="modal-title" id="lineModalLabel">Information</h3>
+                                                    </div>
+                                                    <div class="modal-body">
+
+                                                        <!-- content goes here -->
+                                                        <form ng-submit = "orderUp(vw)">
+
+                                                            <div class="form-group">
+                                                                <div>
+                                                                    <div class="panel panel-default">
+                                                                        <div class="panel-heading">
+                                                                            <h3 class="panel-title">
+                                                                                Return details
+                                                                            </h3>
+
+                                                                        </div>
+                                                                        <div class="panel-body">
+                                                                            <form role="form">
+                                                                                <div class="form-group">
+                                                                                    <label >
+                                                                                        Email Id</label>
+                                                                                    <div class="input-group">
+                                                                                        <label class="form-control" >{{return.ordersBean.materialIndentBean.userBean.email}}</label>
+                                                                                        <span class="input-group-addon"><span class="glyphicon glyphicon-envelope"></span></span>
+                                                                                    </div>
+                                                                                </div>
+                                                                                <div class="form-group">
+                                                                                    <label >
+                                                                                        Resolution</label>
+                                                                                    <div class="input-group">
+                                                                                        <label class="form-control" >{{return.resolution}}</label>
+                                                                                        <span class="input-group-addon"></span>
+                                                                                    </div>
+                                                                                </div>
+
+                                                                            </form>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </form>
+
+                                                    </div>
+
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <h3 style="margin-top: 5px"><a data-toggle="modal" data-target="#squarespaceModal{{return.return_id}}"  href="#" title="">{{return.ordersBean.itemsBean.item_name}} : <small>{{return.order.itemsBean.category}}</small></a></h3>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <p><b>Reason</b> : {{return.description}}</p>
+                                    </td>
+                                    <td style="width: 350px;">
+                                        <p><b>Returned Date</b> : {{return.return_date}}</p>
+                                    </td>
+                                    <td style="width: 250px;">
+                                        <p><b>Quantity</b> : {{return.ordersBean.quantity}}</p>
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+                        <hr>
+                        <br style="width: 850px"/>
+                    </article>
+
+
+
+
+
+                </section>
                 </div>
 
             </div>
         </div>
 
->>>>>>> 36c0c129fcaeec63cd0c2c9d315c273bb7dee186
+
     </div>
 
 </div>
