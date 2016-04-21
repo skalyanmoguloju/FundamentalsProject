@@ -89,6 +89,7 @@ public class UserController {
         return userDelegate.getAllManagers();
     }
 
+
     @RequestMapping(value = "/promoteManager", method = RequestMethod.POST)
     @ResponseBody
     public List<String> promoteManager(@RequestBody long user_id) {
@@ -96,6 +97,38 @@ public class UserController {
         try {
             userDelegate.promoteManager(user_id);
             s.add("" + user_id);
+            return s;
+        } catch (Exception e) {
+            return s;
+        }
+    }
+
+    @RequestMapping(value = "/listNewManagers", method = RequestMethod.POST)
+    @ResponseBody
+    public List<UserBean> getAllNewManagers() {
+        return userDelegate.getAllNewManagers();
+    }
+
+    @RequestMapping(value = "/approveManager", method = RequestMethod.POST)
+    @ResponseBody
+    public List<Long> approveManager(@RequestBody long user_id) {
+        List<Long> s = new ArrayList<Long>();
+        try {
+            userDelegate.approveManager(user_id);
+            s.add(user_id);
+            return s;
+        } catch (Exception e) {
+            return s;
+        }
+    }
+
+    @RequestMapping(value = "/declineManager", method = RequestMethod.POST)
+    @ResponseBody
+    public List<Long> declineManager(@RequestBody long user_id) {
+        List<Long> s = new ArrayList<Long>();
+        try {
+            userDelegate.declineManager(user_id);
+            s.add(user_id);
             return s;
         } catch (Exception e) {
             return s;
@@ -153,9 +186,6 @@ public class UserController {
             //Date date = new Date();
             //materialIndentBean.setIndent_date(date);
 
-            Date date = new Date();
-            materialIndentBean.setIndent_date(date);
-
             materialIndentBean.setUserBean(userBean);
             materialIndentBean.setAddressBean(addressBean);
             List<Long> l = materialIndentDelegate.addSale(materialIndentBean);
@@ -191,7 +221,6 @@ public class UserController {
             //materialIndentBean.setIndent_date(date);
             EmailNotification ev = new EmailNotification();
             ev.sendEmailOrderConfirmation(email, materialIndentBean, cartBeans);
-            ev.sendEmailOrderConfirmation("daniel.dddao@gmail.com", materialIndentBean, cartBeans);
 
             s.add(email);
             return s;
@@ -280,7 +309,7 @@ public class UserController {
 
     @RequestMapping(value = "/groupOrdersByOrderNumber", method = RequestMethod.POST)
     @ResponseBody
-    public List<List<OrdersBean>> groupOrdersByOrderNumber(@RequestBody List<OrdersBean> ordersBeanList) {
+    public List<List<OrdersBean>> groupOrdersByOrderNumber(@RequestBody OrdersBean[] ordersBeanList) {
         //HIBERNETCALLS
         List<List<OrdersBean>> ordersBeanLists = new ArrayList<List<OrdersBean>>();
         for (OrdersBean ordersBean : ordersBeanList) {
@@ -288,7 +317,6 @@ public class UserController {
                 List<OrdersBean> listOrderBean = new ArrayList<OrdersBean>();
                 listOrderBean.add(ordersBean);
                 ordersBeanLists.add(listOrderBean);
-                System.out.println("NEW " + ordersBean.getOrder_id());
             } else {
                 long indent_id = ordersBean.getMaterialIndentBean().getIndent_id();
                 long order_id = ordersBean.getOrder_id();
@@ -296,13 +324,11 @@ public class UserController {
                     OrdersBean ordersBeanCompared = ordersBeanLists.get(x).get(0);
                     if (indent_id == ordersBeanCompared.getMaterialIndentBean().getIndent_id() && order_id != ordersBeanCompared.getOrder_id()) {
                         ordersBeanLists.get(x).add(ordersBean);
-                        System.out.println("IF " + ordersBean.getOrder_id());
                         break;
                     } else if (x == (ordersBeanLists.size() - 1)) {
                         List<OrdersBean> listOrderBean = new ArrayList<OrdersBean>();
                         listOrderBean.add(ordersBean);
                         ordersBeanLists.add(listOrderBean);
-                        System.out.println("ELSE" + ordersBean.getOrder_id());
                         break;
                     }
                 }

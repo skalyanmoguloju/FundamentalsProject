@@ -102,7 +102,7 @@
     <div class="row" style="padding-top:50px">
         <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 text-center" ng-controller="HomeCtrl as hmectrl">
 
-            <div class="list-group list-group-horizontal" ng-model = "rights"  style="text-align: left" >
+            <div class="list-group list-group-horizontal" ng-model = "rights"  style="width: 700px; text-align: left" >
                 <a href="/home" class="list-group-item">Home</a>
                 <a  ng-href="/{{rig | lowercase}}" ng-repeat="rig in rights" class="list-group-item">{{rig}}</a>
             </div>

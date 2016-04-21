@@ -90,8 +90,26 @@ public class UserDelegate {
     }
 
     @Transactional
+    public List<UserBean> getAllNewManagers(){
+        List<User> users;
+        users = userService.getAllNewManagers();
+        List<UserBean> userBeans = userBeanMapper.mapUserBean(users);
+        return  userBeans;
+    }
+
+    @Transactional
     public void promoteManager(long user_id){
         userService.promoteManager(user_id);
+    }
+
+    @Transactional
+    public void approveManager(long user_id){
+        userService.approveManager(user_id);
+    }
+
+    @Transactional
+    public void declineManager(long user_id){
+        userService.declineManager(user_id);
     }
 
     @Transactional

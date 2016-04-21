@@ -80,8 +80,6 @@
                                     card_number: vw.cardNo,
                                     card_exp: vw.dateExp,
                                     card_cvv: vw.cvvNo,
-
-
                                     indent_date: date
 
                             })

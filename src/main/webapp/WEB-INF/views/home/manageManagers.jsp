@@ -25,7 +25,7 @@
                                 $scope.userInfo.dob= $filter('date')(response[0].dob , "dd/MM/yyyy");
                                 $http.post('rights', {role: response[0].role})
                                         .success(function (data) {
-                                            $scope.rights = data
+                                            $scope.rights = data;
                                             $scope.listManagers();
                                         });
                             });
@@ -85,7 +85,7 @@
 <div class="container" ng-app="myApp">
     <div  ng-controller="HomeCtrl as hmectrl" >
         <jsp:include page="header.jsp" />
-        <br><br>
+        <br>
         <form class="well span8 center-block" style="width: 500px; align-content: center" ng-submit="addManager()">
             <div class="manager_id">
                 <span class="button-checkbox center-block" align="center">
@@ -96,25 +96,26 @@
             <button class="btn btn-primary center-block"  type="submit">Add New Manager</button>
         </form>
 
-        <br>
-        <section class="col-xs-12 col-sm-6 col-md-20 well" style="left:320px; width: 500px" ng-model = "list">
-           <h4 style="text-align: center"><b>List of all registered managers:</b></h4>
-            <br>
-            <article class="row" ng-repeat = "vw in list">
-                <form id="promoteManager{{vw.id}}" class="well span8 center-block" ng-submit="promoteManager(vw.id)">
-                    <h5>Manager No.{{vw.id}}'s Info:</h5>
-                    <ul>
-                        <li><span>ID: {{vw.id}}</span></li>
-                        <li><span>Name: {{vw.lname}}, {{vw.name}}</span></li>
-                        <li><span>Email: {{vw.email}}</span></li>
-                        <li><span>Role: {{vw.role}}</span></li>
-                        <li><span>Status: {{vw.status}}</span></li>
-                        <li><span>Gender: {{vw.gender}}</span></li>
-                    </ul>
-                    <button class="btn btn-success center-block"  type="submit">Promote to Admin</button>
-                </form>
-            </article>
-        </section>
+        <h4 style="text-align: center;"><b style='color:#FF0000'>List of all registered managers:</b></h4>
+        <div id="regManagers" style="height:410px;width:500px;margin-left: 320px;border:1px solid #ccc;font:16px/26px Georgia, Garamond, Serif;overflow:auto;">
+            <section class="col-xs-12 col-sm-6 col-md-20" style="width:500px" ng-model = "list">
+                <br>
+                <article class="row" ng-repeat = "vw in list">
+                    <form id="promoteManager{{vw.id}}" class="well span8 center-block" ng-submit="promoteManager(vw.id)">
+                        <h5>Manager No.{{vw.id}}'s Info:</h5>
+                        <ul>
+                            <li><span>ID: {{vw.id}}</span></li>
+                            <li><span>Name: {{vw.lname}}, {{vw.name}}</span></li>
+                            <li><span>Email: {{vw.email}}</span></li>
+                            <li><span>Role: {{vw.role}}</span></li>
+                            <li><span>Status: {{vw.status}}</span></li>
+                            <li><span>Gender: {{vw.gender}}</span></li>
+                        </ul>
+                        <button class="btn btn-success center-block"  type="submit">Promote to Admin</button>
+                    </form>
+                </article>
+            </section>
+        </div>
 
     </div>
 </div>

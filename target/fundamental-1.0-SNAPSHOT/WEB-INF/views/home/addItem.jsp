@@ -41,7 +41,8 @@
                                     price: $scope.price,
                                     images: $scope.url,
                                     category: $scope.category,
-                                    user_id: $scope.userInfo.id
+                                    user_id: $scope.userInfo.id,
+                                    size: $scope.size
                                     })
                                     .success(function (response) {
                                         console.log(response);
@@ -111,10 +112,22 @@
                             return false;
                         }
 
+                        /* Check Size */
+                        if($scope.size == undefined)
+                        {
+                            document.getElementById('lbltipAddedComment').innerHTML = 'Please choose a size';
+                            return false;
+                        }
+                        if(document.getElementById("size").value == 'na')
+                        {
+                            document.getElementById('lbltipAddedComment').innerHTML = 'Please choose a correct size';
+                            return false;
+                        }
+
                         /* Check Image URL */
                         if($scope.url == "" || $scope.url == undefined)
                         {
-                            document.getElementById('lbltipAddedComment').innerHTML = 'URL cannot be empty';
+                            document.getElementById('lbltipAddedComment').innerHTML = 'Image URL cannot be empty';
                             return false;
                         }
 
@@ -205,6 +218,32 @@
 
                                 <option value="Scanner">
                                     Scanner
+                                </option>
+                            </select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <label>Size</label>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <select class="span3" id="size" name="size" style="width: 350px" ng-model="size">
+                                <option value="na" selected>
+                                    Choose One:
+                                </option>
+
+                                <option value="Small">
+                                    Small
+                                </option>
+
+                                <option value="Medium">
+                                    Medium
+                                </option>
+
+                                <option value="Large">
+                                    Large
                                 </option>
                             </select>
                         </td>

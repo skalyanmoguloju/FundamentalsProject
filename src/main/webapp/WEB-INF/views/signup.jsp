@@ -57,7 +57,17 @@
                                                 if(response[0]=="Done") {
                                                     document.getElementById('lbltipAddedComment').innerHTML = 'Successfully Signed Up';
                                                     alert("Please verify your account by opening the link sent to your email and then try Signing in");
-                                                    window.location.href = "/"
+                                                    window.location.href = "/";
+
+                                                    /* Send email verification link */
+                                                    $http.post('emailVerification', {
+                                                        email: response[2],
+                                                        id: response[1]
+                                                    })
+                                                            .success(function (response) {
+                                                                console.log("email");
+                                                                console.log(response);
+                                                            });
                                                 }
                                                 else{
                                                     alert("Email ID already exists!!!");

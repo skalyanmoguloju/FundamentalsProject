@@ -32,21 +32,21 @@
                                             $scope.rights = data;
                                             $http.post('allorders', {id : user})
                                                     .success(function (data) {
-
-                                                        console.log(data);
-
+                                                        //console.log(data);
+                                                        var list = [];
                                                         for(var i =0; i< data.length; i++) {
-                                                            data[i].delivery_date= $filter('date')(data[i].delivery_date , "dd/MM/yyyy");
-                                                            data[i].purchase_date= $filter('date')(data[i].purchase_date , "dd/MM/yyyy");
                                                             if(data[i].status =="Purchased" || data[i].status =="Re-Purchased")
                                                             {
-                                                                $scope.orders.push(data[i]);
+                                                                list.push(data[i]);
                                                             }
                                                             else{
+                                                                data[i].delivery_date= $filter('date')(data[i].delivery_date , "dd/MM/yyyy");
+                                                                data[i].purchase_date= $filter('date')(data[i].purchase_date , "dd/MM/yyyy");
                                                                 $scope.ordersShp.push(data[i]);
                                                             }
 
                                                         }
+                                                        $scope.groupOrdersByOrderNumber(list);
                                                     });
                                             $http.post('retorders', {id : user})
                                                     .success(function (data) {
@@ -68,13 +68,11 @@
 
                                 });
                     };
-
-
-                    $scope.groupOrdersByOrderNumber= function(vw){
-                        $http.post('groupOrdersByOrderNumber', vw)
+                    $scope.groupOrdersByOrderNumber= function(purchasedOrders){
+                        $http.post('groupOrdersByOrderNumber', purchasedOrders)
                                 .success(function (response) {
                                     $scope.listOrders = response;
-                                    //console.log($scope.listOrders);
+                                    console.log(response);
                                 });
                     };
                     $scope.arrivalDate= function(order){
@@ -82,7 +80,7 @@
                         var dateArrival = new Date();
                         var result = "";
 
-                        if (order.itemsBean.size == "Small") {
+                        if (order.itemsBean.size == "Small" | order.itemsBean.size == "small") {
                             dateArrival.setDate(date.getDate() + 1);
                             var arrivalDay = dateArrival.getDate();
                             var arrivalMonth = dateArrival.getMonth();
@@ -93,7 +91,7 @@
                             arrivalMonth = dateArrival.getMonth();
                             arrivalYear = dateArrival.getFullYear();
                             result += " - " + (arrivalMonth + 1) + "/" + arrivalDay + "/" + arrivalYear;
-                        } else if (order.itemsBean.size == "Medium") {
+                        } else if (order.itemsBean.size == "Medium" | order.itemsBean.size == "medium") {
                             dateArrival.setDate(date.getDate() + 3);
                             arrivalDay = dateArrival.getDate();
                             arrivalMonth = dateArrival.getMonth();
@@ -139,135 +137,132 @@
     <div ng-controller="HomeCtrl as hmectrl">
         <jsp:include page="header.jsp" />
 
-
-
-
-
-
         <div style="margin-top: 50px">
             <ul id="tabs" class="nav nav-tabs" style="margin-left: 0px;left: 150px; top: 100px" data-tabs="tabs">
-                <li class="active"><a href="#red" data-toggle="tab">Purshased Orders</a></li>
+                <li class="active"><a href="#red" data-toggle="tab">Purchased Orders</a></li>
                 <li><a href="#orange" data-toggle="tab">Delivered Orders</a></li>
                 <li><a href="#yellow" data-toggle="tab">Return Status</a></li>
             </ul>
             <div id="my-tab-content" class="tab-content" style="height: 500px" >
                 <div class="tab-pane active" id="red">
-                    <section class="col-xs-12 col-sm-6 col-md-12" ng-model = "orders">
-                        <article class="search-result row" ng-repeat = "order in orders">
-                            <div class="col-xs-12 col-sm-12 col-md-3" style="height: 50px; width: 110px">
-                                <a href="#" title="{{order.itemsBean.item_name}}" class="thumbnail"><img src="{{order.itemsBean.images}}" style="height: 50px; width: 105px" alt="{{vw.itemsBean.item_name}}" /></a>
-                            </div>
-                            <div class="col-xs-12 col-sm-12 col-md-7 excerpet">
-                                <table style="width: 1050px;">
-                                    <tr>
+                    <section class="col-xs-12 col-sm-6 col-md-12" ng-model = "listOrders">
+                        <article class="search-result row" ng-repeat = "orders in listOrders">
+                            <form class="well span8">
+                                <h4 style="text-align: center"><b>(Order Date: {{getDate(orders[0].materialIndentBean.indent_date)}}) - Order# {{orders[0].materialIndentBean.indent_id}}:</b></h4>
+                                <br/>
+                                <article class="search-result row" ng-repeat = "order in orders">
+                                    <div class="col-xs-12 col-sm-12 col-md-3" style="height: 50px; width: 110px">
+                                        <a href="#" title="{{order.itemsBean.item_name}}" class="thumbnail"><img src="{{order.itemsBean.images}}" style="height: 50px; width: 105px" alt="{{vw.itemsBean.item_name}}" /></a>
+                                    </div>
+                                    <div class="col-xs-12 col-sm-12 col-md-7 excerpet">
+                                        <table style="width: 1000px;">
+                                            <tr>
 
-                                        <td style="width: 200px;" colspan="3">
-                                            <div class="modal fade" id="squarespaceModal{{order.order_id}}" tabindex="-1" role="dialog" aria-labelledby="modalLabel" aria-hidden="true">
-                                                <div class="modal-dialog">
-                                                    <div class="modal-content">
-                                                        <div class="modal-header">
-                                                            <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span><span class="sr-only">Close</span></button>
-                                                            <h3 class="modal-title" id="lineModalLabel">Information</h3>
-                                                        </div>
-                                                        <div class="modal-body">
+                                                <td style="width: 200px;" colspan="3">
+                                                    <div class="modal fade" id="squarespaceModal{{order.order_id}}" tabindex="-1" role="dialog" aria-labelledby="modalLabel" aria-hidden="true">
+                                                        <div class="modal-dialog">
+                                                            <div class="modal-content">
+                                                                <div class="modal-header">
+                                                                    <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span><span class="sr-only">Close</span></button>
+                                                                    <h3 class="modal-title" id="lineModalLabelRed">Information</h3>
+                                                                </div>
+                                                                <div class="modal-body">
 
-                                                            <!-- content goes here -->
-                                                            <form ng-submit = "orderUp(vw)">
+                                                                    <!-- content goes here -->
+                                                                    <form ng-submit = "orderUp(vw)">
 
-                                                                <div class="form-group">
-                                                                    <div>
-                                                                        <div class="panel panel-default">
-                                                                            <div class="panel-heading">
-                                                                                <h3 class="panel-title">
-                                                                                    Order details
-                                                                                </h3>
+                                                                        <div class="form-group">
+                                                                            <div>
+                                                                                <div class="panel panel-default">
+                                                                                    <div class="panel-heading">
+                                                                                        <h3 class="panel-title">
+                                                                                            Order details
+                                                                                        </h3>
 
-                                                                            </div>
-                                                                            <div class="panel-body">
-                                                                                <form role="form">
-                                                                                    <div class="form-group">
-                                                                                        <label >
-                                                                                            Email Id</label>
-                                                                                        <div class="input-group">
-                                                                                            <label class="form-control" >{{order.materialIndentBean.userBean.email}}</label>
-                                                                                            <span class="input-group-addon"><span class="glyphicon glyphicon-envelope"></span></span>
-                                                                                        </div>
                                                                                     </div>
-                                                                                    <div class="form-group">
-                                                                                        <label >
-                                                                                            Total price</label>
-                                                                                        <div class="input-group">
-                                                                                            <label class="form-control" >{{order.materialIndentBean.price}}</label>
-                                                                                            <span class="input-group-addon"><span class="glyphicon glyphicon-usd"></span></span>
-                                                                                        </div>
-                                                                                    </div>
-                                                                                    <div class="form-group">
-                                                                                        <label >
-                                                                                            Purchased Date</label>
-                                                                                        <div class="input-group">
-                                                                                            <label class="form-control" >{{order.purchase_date}}</label>
-                                                                                            <span class="input-group-addon"></span>
-                                                                                        </div>
-                                                                                    </div>
-                                                                                    <div class="row">
-                                                                                        <div class="col-xs-7 col-md-7">
+                                                                                    <div class="panel-body">
+                                                                                        <form role="form">
                                                                                             <div class="form-group">
-                                                                                                <label>
-                                                                                                    Shipping address</label>
-                                                                                                <br/>
-                                                                                                <span><b>Address line 1: </b> {{order.materialIndentBean.addressBean.line1}}</span>
-                                                                                                <br/>
-                                                                                                <span><b>Address line 2: </b> {{order.materialIndentBean.addressBean.line2}}</span>
-                                                                                                <br/>
-                                                                                                <span><b>City: </b> {{order.materialIndentBean.addressBean.city}}</span>
-                                                                                                <br/>
-                                                                                                <span><b>State: </b> {{order.materialIndentBean.addressBean.state}}<b> Zip: </b> {{order.materialIndentBean.addressBean.zip}}</span>
+                                                                                                <label >
+                                                                                                    Email Id</label>
+                                                                                                <div class="input-group">
+                                                                                                    <label class="form-control" >{{order.materialIndentBean.userBean.email}}</label>
+                                                                                                    <span class="input-group-addon"><span class="glyphicon glyphicon-envelope"></span></span>
+                                                                                                </div>
                                                                                             </div>
-                                                                                        </div>
+                                                                                            <div class="form-group">
+                                                                                                <label >
+                                                                                                    Total price</label>
+                                                                                                <div class="input-group">
+                                                                                                    <label class="form-control" >{{order.materialIndentBean.price}}</label>
+                                                                                                    <span class="input-group-addon"><span class="glyphicon glyphicon-usd"></span></span>
+                                                                                                </div>
+                                                                                            </div>
+                                                                                            <div class="form-group">
+                                                                                                <label >
+                                                                                                    Purchased Date</label>
+                                                                                                <div class="input-group">
+                                                                                                    <label class="form-control" >{{order.purchase_date}}</label>
+                                                                                                    <span class="input-group-addon"></span>
+                                                                                                </div>
+                                                                                            </div>
+                                                                                            <div class="row">
+                                                                                                <div class="col-xs-7 col-md-7">
+                                                                                                    <div class="form-group">
+                                                                                                        <label>
+                                                                                                            Shipping address</label>
+                                                                                                        <br/>
+                                                                                                        <span><b>Address line 1: </b> {{order.materialIndentBean.addressBean.line1}}</span>
+                                                                                                        <br/>
+                                                                                                        <span><b>Address line 2: </b> {{order.materialIndentBean.addressBean.line2}}</span>
+                                                                                                        <br/>
+                                                                                                        <span><b>City: </b> {{order.materialIndentBean.addressBean.city}}</span>
+                                                                                                        <br/>
+                                                                                                        <span><b>State: </b> {{order.materialIndentBean.addressBean.state}}<b> Zip: </b> {{order.materialIndentBean.addressBean.zip}}</span>
+                                                                                                    </div>
+                                                                                                </div>
 
+                                                                                            </div>
+                                                                                        </form>
                                                                                     </div>
-                                                                                </form>
+                                                                                </div>
                                                                             </div>
                                                                         </div>
-                                                                    </div>
+                                                                    </form>
+
                                                                 </div>
-                                                            </form>
 
+                                                            </div>
                                                         </div>
-
                                                     </div>
-                                                </div>
-                                            </div>
 
-                                            <h3 style="margin-top: 5px"><a data-toggle="modal" data-target="#squarespaceModal{{order.order_id}}"  href="#" title="">{{order.itemsBean.item_name}} : <small>{{order.itemsBean.category}}</small></a></h3>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            <p><b>Description</b> : {{order.itemsBean.item_description}}</p>
-                                        </td>
-                                        <td style="width: 250px;">
-                                            <p><b>Exp delivery</b> : {{order.delivery_date}}</p>
-                                        </td>
-                                        <td style="width: 150px;">
-                                            <p><b>Quantity</b> : {{order.quantity}}</p>
-                                        </td>
-                                        <td style="width: 200px;">
-                                            <p><b>Status</b> : {{order.status}}</p>
-                                        </td>
-                                    </tr>
-                                </table>
-                            </div>
-                            <hr>
-                            <br style="width: 850px"/>
+                                                    <h3 style="margin-top: 5px"><a data-toggle="modal" data-target="#squarespaceModal{{order.order_id}}"  href="#" title="">{{order.itemsBean.item_name}} : <small>{{order.itemsBean.category}}</small></a></h3>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    <p><b>Description</b> : {{order.itemsBean.item_description}}</p>
+                                                </td>
+                                                <td style="width: 150px;">
+                                                    <p><b>Quantity</b> : {{order.quantity}}</p>
+                                                </td>
+                                                <td style="width: 200px;">
+                                                    <p><b>Status</b> : {{order.status}}</p>
+                                                </td>
+                                                <td style="width: 200px;">
+                                                    <p><b>Estimated delivery</b> :<br/> {{arrivalDate(order)}}</p>
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    </div>
+                                    <hr>
+                                    <br style="width: 850px"/>
+                                </article>
+                            </form>
                         </article>
-
-
-
-
-
                     </section>
-                    </div>
+                </div>
+
                 <div class="tab-pane" id="orange">
                     <div id="accordion" class="panel-group">
                     <section class="col-xs-12 col-sm-6 col-md-12" ng-model = "ordersShp">
@@ -286,7 +281,7 @@
                                                     <div class="modal-content">
                                                         <div class="modal-header">
                                                             <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span><span class="sr-only">Close</span></button>
-                                                            <h3 class="modal-title" id="lineModalLabel">Information</h3>
+                                                            <h3 class="modal-title" id="lineModalLabelOrange">Information</h3>
                                                         </div>
                                                         <div class="modal-body">
 

@@ -48,7 +48,6 @@ public class UserRepository {
     public List<User> getUserInfo(UserBean userBean){
         Session session = sessionFactory.getCurrentSession();
         Query query = session.createQuery("from User where id=:id");
-
         query.setParameter("id", userBean.getId());
 
         return query.list();
@@ -95,20 +94,32 @@ public class UserRepository {
     @Transactional
     public void verifyUser(Long id)
     {
-        String sts = "Active";
         Session session = sessionFactory.getCurrentSession();
-        Query query = session.createQuery("update User set status=:sts where id=:id");
-        query.setParameter("sts", sts);
+        Query query = session.createQuery("select role from User where id=:id");
         query.setParameter("id", id);
-        query.executeUpdate();
+        List<String> list = query.list();
         session.flush();
+        if (list.get(0).equals("Manager")) {
+            query = session.createQuery("update User set status=:sts, role=:role where id=:id");
+            query.setParameter("sts", "Pending Manager");
+            query.setParameter("role", "User");
+            query.setParameter("id", id);
+            query.executeUpdate();
+            session.flush();
+        } else {
+            query = session.createQuery("update User set status=:sts where id=:id");
+            query.setParameter("sts", "Active");
+            query.setParameter("id", id);
+            query.executeUpdate();
+            session.flush();
+        }
     }
 
     @Transactional
     public void resetPswd(Long id, String pswd)
     {
         Session session = sessionFactory.getCurrentSession();
-        Query query = session.createQuery("update User set password=:pswd where id=:id");
+        Query query = session.createQuery("update User set pwsd=:pswd where id=:id");
         query.setParameter("pswd", pswd);
         query.setParameter("id", id);
         query.executeUpdate();
@@ -175,10 +186,41 @@ public class UserRepository {
     }
 
     @Transactional
+    public List<User> getAllNewManagers(){
+        Session session = sessionFactory.getCurrentSession();
+        Query query = session.createQuery("from User where role=:rolename and status=:statusname");
+        query.setParameter("rolename", "User");
+        query.setParameter("statusname", "Pending Manager");
+        return query.list();
+    }
+
+    @Transactional
     public void promoteManager(long user_id){
         Session session = sessionFactory.getCurrentSession();
         Query query = session.createQuery("update User set role=:role where id=:id");
         query.setParameter("role", "Admin");
+        query.setParameter("id", user_id);
+        query.executeUpdate();
+        session.flush();
+    }
+
+    @Transactional
+    public void approveManager(long user_id){
+        Session session = sessionFactory.getCurrentSession();
+        Query query = session.createQuery("update User set role=:role, status=:status where id=:id");
+        query.setParameter("role", "Manager");
+        query.setParameter("status", "Active");
+        query.setParameter("id", user_id);
+        query.executeUpdate();
+        session.flush();
+    }
+
+    @Transactional
+    public void declineManager(long user_id){
+        Session session = sessionFactory.getCurrentSession();
+        Query query = session.createQuery("update User set role=:role, status=:status where id=:id");
+        query.setParameter("role", "User");
+        query.setParameter("status", "Active");
         query.setParameter("id", user_id);
         query.executeUpdate();
         session.flush();

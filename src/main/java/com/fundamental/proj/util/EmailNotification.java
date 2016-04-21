@@ -93,24 +93,24 @@ public class EmailNotification {
         int arrivalMonth;
         int arrivalYear;
 
-        if (itemsBean.getSize().equals("Small")) {
+        if (itemsBean.getSize().equals("small") | itemsBean.getSize().equals("Small")) {
             cal.add(Calendar.DATE, 1);
             arrivalDay = cal.get(Calendar.DATE);
             arrivalMonth = cal.get(Calendar.MONTH);
             arrivalYear = cal.get(Calendar.YEAR);
             arrivalDates[0] = (arrivalMonth + 1) + "/" + arrivalDay + "/" + arrivalYear;
-            cal.add(Calendar.DATE, 3);
+            cal.add(Calendar.DATE, 2);
             arrivalDay = cal.get(Calendar.DATE);
             arrivalMonth = cal.get(Calendar.MONTH);
             arrivalYear = cal.get(Calendar.YEAR);
             arrivalDates[1] = (arrivalMonth + 1) + "/" + arrivalDay + "/" + arrivalYear;
-        } else if (itemsBean.getSize().equals("Medium")) {
+        } else if (itemsBean.getSize().equals("medium") | itemsBean.getSize().equals("Medium")) {
             cal.add(Calendar.DATE, 3);
             arrivalDay = cal.get(Calendar.DATE);
             arrivalMonth = cal.get(Calendar.MONTH);
             arrivalYear = cal.get(Calendar.YEAR);
             arrivalDates[0] = (arrivalMonth + 1) + "/" + arrivalDay + "/" + arrivalYear;
-            cal.add(Calendar.DATE, 5);
+            cal.add(Calendar.DATE, 2);
             arrivalDay = cal.get(Calendar.DATE);
             arrivalMonth = cal.get(Calendar.MONTH);
             arrivalYear = cal.get(Calendar.YEAR);
@@ -121,7 +121,7 @@ public class EmailNotification {
             arrivalMonth = cal.get(Calendar.MONTH);
             arrivalYear = cal.get(Calendar.YEAR);
             arrivalDates[0] = (arrivalMonth + 1) + "/" + arrivalDay + "/" + arrivalYear;
-            cal.add(Calendar.DATE, 7);
+            cal.add(Calendar.DATE, 2);
             arrivalDay = cal.get(Calendar.DATE);
             arrivalMonth = cal.get(Calendar.MONTH);
             arrivalYear = cal.get(Calendar.YEAR);
@@ -139,7 +139,7 @@ public class EmailNotification {
         String carts = "";
         for (CartBean cartbean : cartbeans) {
             String[] arrivalDates = getArrivalDates(purchasedDate, cartbean.getItemsBean());
-            carts +=  "<tr> <td>" + cartbean.getItemsBean().getItem_name() + "</td> <td>" + cartbean.getItemsBean().getItem_description() + cartbean.getItemsBean().getSize() + "</td> <td>" + cartbean.getQuantity() + "</td> <td>" + cartbean.getPrice() + "</td> <td>" + "</td> <td>" + arrivalDates[0] + " - " + arrivalDates[1] + "</td> </tr>";
+            carts +=  "<tr> <td>" + cartbean.getItemsBean().getItem_name() + "</td> <td>" + cartbean.getItemsBean().getItem_description() + "</td> <td>" + cartbean.getItemsBean().getSize() + "</td> <td>" + cartbean.getQuantity() + "</td> <td>" + cartbean.getPrice() + "</td> <td>" + arrivalDates[0] + " - " + arrivalDates[1] + "</td> </tr>";
         }
         String msg = "<html>" + "<head>" + "<style>" + "table, th, td {border: 1px solid black; border-collapse: collapse;}" + "</style> </head>" +
                 "<body>" +

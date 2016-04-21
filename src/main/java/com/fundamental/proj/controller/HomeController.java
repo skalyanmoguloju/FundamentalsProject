@@ -91,10 +91,10 @@ public class HomeController {
                 String encryptedPass = passwordEncoder().encode(p);
                 userBean.setPwsd(encryptedPass);
                 List<Long> id = userDelegate.adduser(userBean);
-                EmailNotification eVerification = new EmailNotification();
                 userBean.setId(id.get(0));
-                eVerification.sendEmailVerificationLink(userBean.getEmail(),userBean.getId());
                 s.add("Done");
+                s.add(userBean.getId() + "");
+                s.add(userBean.getEmail());
             }
             else{
                 s.add("repeat");
@@ -106,6 +106,16 @@ public class HomeController {
             return s;
         }
 
+    }
+
+    @RequestMapping(value = "/emailVerification", method = RequestMethod.POST)
+    @ResponseBody
+    public List<Long> sendEmailVerification(@RequestBody UserBean userBean) {
+        //HIBERNETCALLS
+        List<Long> u = new ArrayList<Long>();
+        EmailNotification emailNotification = new EmailNotification();
+        emailNotification.sendEmailVerificationLink(userBean.getEmail(), userBean.getId());
+        return u;
     }
 
     @RequestMapping(value = "/forgotCtrl", method = RequestMethod.POST)
