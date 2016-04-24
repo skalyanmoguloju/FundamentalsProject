@@ -30,12 +30,24 @@ public class ItemsDelegate {
     }
 
     @Transactional
-    public List<ItemsBean> getAllItemsContainingSearchTerm(String s) {
+    public List<String> getAllCatgs(){
+        List<String> items;
+        items = itemsService.getAllCatgs();
+        return items;
+    }
+    @Transactional
+    public List<ItemsBean> getAllItemsContainingSearchTerm(String s, String cat) {
         List<Items> items;
-        items = itemsService.getAllItemsContainingSearchTerm(s);
+        items = itemsService.getAllItemsContainingSearchTerm(s,cat);
         return itemsBeanMapper.mapItemBean(items);
     }
 
+    @Transactional
+    public List<ItemsBean> getAllCatItemsContainingSearchTerm(String s) {
+        List<Items> items;
+        items = itemsService.getAllCatItemsContainingSearchTerm(s);
+        return itemsBeanMapper.mapItemBean(items);
+    }
     @Transactional
     public void addItem(ItemsBean itemsBean)
     {

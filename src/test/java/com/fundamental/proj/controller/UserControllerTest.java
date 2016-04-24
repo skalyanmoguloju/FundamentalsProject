@@ -140,15 +140,16 @@ public class UserControllerTest {
 
     @Test
     public void getSearchResultItemsTest() {
-        String searchterm = "test search term123456";
+        ItemsBean itemsBean = new ItemsBean();
+        String cat = "kkk";
         List<ItemsBean> list = new ArrayList<ItemsBean>();
         list.add(new ItemsBean());
 
-        Mockito.when(mockedItemsDelegate.getAllItemsContainingSearchTerm(Mockito.anyString())).thenReturn(list);
-        List<ItemsBean> result = userController.getSearchResultItems(searchterm);
+        Mockito.when(mockedItemsDelegate.getAllItemsContainingSearchTerm(Mockito.anyString(),Mockito.anyString())).thenReturn(list);
+        List<ItemsBean> result = userController.getSearchResultItems(itemsBean);
         Assert.assertEquals(result.size(), list.size());
         Assert.assertEquals(result.get(0), list.get(0));
-        Mockito.verify(mockedItemsDelegate).getAllItemsContainingSearchTerm("m1234");
+        Mockito.verify(mockedItemsDelegate).getAllItemsContainingSearchTerm("m1234","ss");
     }
 
     @Test

@@ -140,6 +140,8 @@ public class HomeController {
         return u;
     }
 
+
+
     @RequestMapping(value="/rights", method = RequestMethod.POST)
     @ResponseBody
     public List<String> getRights(@RequestBody RolesBean rolesBean) {

@@ -157,12 +157,12 @@ public class ItemsServiceSteps {
     /***********************************************/
     @When("^getAllItemsContainingSearchTerm\\(\\) is called$")
     public void getallitemscontainingsearchterm_is_called() throws Throwable {
-        Mockito.when(mockedItemsRepository.getAllItemsContainingSearchTerm(Mockito.anyString())).thenReturn(expectedListItems);
+        Mockito.when(mockedItemsRepository.getAllItemsContainingSearchTerm(Mockito.anyString(),Mockito.anyString())).thenReturn(expectedListItems);
     }
 
     @Then("^a list of items is returned for getAllItemsContainingSearchTerm in getAllItems$")
     public void a_list_of_items_is_returned_for_getAllItemsContainingSearchTerm_in_getAllItems() throws Throwable {
-        List<Items> actualListItems = itemsService.getAllItemsContainingSearchTerm("some term");
+        List<Items> actualListItems = itemsService.getAllItemsContainingSearchTerm("some term","v");
 
         Assert.assertEquals(actualListItems.size(), expectedListItems.size());
         for (int x=0; x<expectedListItems.size(); x++) {
@@ -178,7 +178,7 @@ public class ItemsServiceSteps {
             Assert.assertEquals(actualListItems.get(x).getPrice(), expectedListItems.get(x).getPrice(), 1E-15);
         }
 
-        Mockito.verify(mockedItemsRepository).getAllItemsContainingSearchTerm("some term");
+        Mockito.verify(mockedItemsRepository).getAllItemsContainingSearchTerm("some term","vv");
     }
 
     /************************************************/

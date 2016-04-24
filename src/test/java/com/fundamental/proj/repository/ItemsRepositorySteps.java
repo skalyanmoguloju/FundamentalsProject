@@ -169,11 +169,11 @@ public class ItemsRepositorySteps {
 
     @Then("^a list of items is returned for getAllItemsContainingSearchTerm$")
     public void a_list_of_items_is_returned_for_getAllItemsContainingSearchTerm() throws Throwable {
-        List<Items> actualListItems = itemsRepository.getAllItemsContainingSearchTerm("");
+        List<Items> actualListItems = itemsRepository.getAllItemsContainingSearchTerm("","");
         Assert.assertEquals(actualListItems.size(), expectedListItems.size());
         Assert.assertEquals(actualListItems.get(0), expectedListItems.get(0));
 
-        actualListItems = itemsRepository.getAllItemsContainingSearchTerm("notempty");
+        actualListItems = itemsRepository.getAllItemsContainingSearchTerm("notempty","no");
         Assert.assertEquals(actualListItems.size(), expectedListItems.size());
         Assert.assertEquals(actualListItems.get(0), expectedListItems.get(0));
         Mockito.verify(mockedSessionFactory, Mockito.atLeastOnce()).getCurrentSession();

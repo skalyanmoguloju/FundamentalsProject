@@ -60,6 +60,14 @@ public class UserController {
         return s;
     }
 
+    @RequestMapping(value = "/catList", method = RequestMethod.POST)
+    @ResponseBody
+    public List<String> getAllCatgs() {
+        //HIBERNETCALLS
+        List<String> s = itemsDelegate.getAllCatgs();
+        return s;
+    }
+
     @RequestMapping(value = "/add admin")
     public String addAdminPage() {
         return "WEB-INF/views/home/addAdmin";
@@ -239,12 +247,20 @@ public class UserController {
 
     @RequestMapping(value = "/listResults", method = RequestMethod.POST)
     @ResponseBody
-    public List<ItemsBean> getSearchResultItems(@RequestBody String searchTerm) {
-        String term = searchTerm.substring(15, (searchTerm.length() - 2));
-        List<ItemsBean> s = itemsDelegate.getAllItemsContainingSearchTerm(term);
+    public List<ItemsBean> getSearchResultItems(@RequestBody ItemsBean itemsBean) {
+        String searchTerm = itemsBean.getItem_name();
+        String cat = itemsBean.getCategory();
+
+        List<ItemsBean> s = itemsDelegate.getAllItemsContainingSearchTerm(searchTerm,cat);
         return s;
     }
+    @RequestMapping(value = "/catgResults", method = RequestMethod.POST)
+    @ResponseBody
+    public List<ItemsBean> getCatgResultItems(@RequestBody ItemsBean itemsBean) {
+        List<ItemsBean> s = itemsDelegate.getAllCatItemsContainingSearchTerm(itemsBean.getCategory());
 
+        return s;
+    }
     @RequestMapping(value = "/getCart", method = RequestMethod.POST)
     @ResponseBody
     public List<CartBean> userInfo(@RequestBody UserBean userBean) {

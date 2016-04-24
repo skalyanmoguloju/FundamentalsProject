@@ -25,7 +25,14 @@ public class ItemsService {
     }
 
     @Transactional
-    public List<Items> getAllItemsContainingSearchTerm(String searchTerm) { return itemsRepository.getAllItemsContainingSearchTerm(searchTerm); }
+    public List<String> getAllCatgs()
+    {
+        return itemsRepository.getAllCatgs();
+    }
+    @Transactional
+    public List<Items> getAllItemsContainingSearchTerm(String searchTerm, String cat) { return itemsRepository.getAllItemsContainingSearchTerm(searchTerm, cat); }
+    @Transactional
+    public List<Items> getAllCatItemsContainingSearchTerm(String searchTerm) { return itemsRepository.getAllCatItemsContainingSearchTerm(searchTerm); }
 
     @Transactional
     public void addItem(Items items)

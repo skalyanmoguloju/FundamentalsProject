@@ -42,25 +42,64 @@ public class ItemsRepository {
 
         return query.list();
     }
-
     @Transactional
-    public List<Items> getAllItemsContainingSearchTerm(String term)
+    public List<String> getAllCatgs()
     {
         Session session = sessionFactory.getCurrentSession();
-        if(term == "") {
+        Query query = session.createQuery("select distinct category from Items");
+
+        return query.list();
+    }
+    @Transactional
+    public List<Items> getAllItemsContainingSearchTerm(String term, String cat)
+    {
+        if(cat =="All") {
+            Session session = sessionFactory.getCurrentSession();
+            if (term == "") {
+                Query query = session.createQuery("from Items");
+
+                return query.list();
+            } else {
+                Query query = session.createQuery("FROM Items where item_name LIKE :searchTerm or item_description LIKE :searchTerm") ;
+                query.setParameter("searchTerm", term + '%');
+
+                return query.list();
+            }
+        }
+        else
+        {
+            Session session = sessionFactory.getCurrentSession();
+            if (term == "") {
+                Query query = session.createQuery("from Items");
+
+                return query.list();
+            } else {
+                Query query = session.createQuery("FROM Items where item_name LIKE :searchTerm or item_description LIKE :searchTerm and category =:catg");
+                query.setParameter("searchTerm", term + '%');
+                query.setParameter("catg", cat);
+                return query.list();
+            }
+        }
+    }
+
+    @Transactional
+    public List<Items> getAllCatItemsContainingSearchTerm(String term)
+    {
+        Session session = sessionFactory.getCurrentSession();
+        if(term.trim().equals("All")) {
             Query query = session.createQuery("from Items");
 
             return query.list();
         } else {
-            Query query = session.createQuery("FROM Items where item_name LIKE :searchTerm or item_description LIKE :searchTerm or category LIKE :searchTerm");
-            query.setParameter("searchTerm", term+'%');
+            Query query = session.createQuery("FROM Items where category = :searchTerm") ;
+            query.setParameter("searchTerm", term);
 
             return query.list();
         }
     }
 
     @Transactional
-    public List<Long> addItem(Items items)
+  public List<Long> addItem(Items items)
     {
         List<Long> i = new ArrayList<Long>();
         try {
