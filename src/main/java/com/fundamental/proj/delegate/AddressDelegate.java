@@ -24,9 +24,9 @@ public class AddressDelegate {
     private AddressBeanMapper addressBeanMapper;
 
     @Transactional
-    public void updateAddress(AddressBean  addressBean)
+    public void updateAddress(AddressBean  addressBean1)
     {
-        Address address = addressBeanMapper.mapBeanToAddress(addressBean);
+        Address address = addressBeanMapper.mapBeanToAddress(addressBean1);
         addressService.updateAddress(address);
     }
 

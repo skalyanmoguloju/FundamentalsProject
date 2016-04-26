@@ -1,6 +1,7 @@
 package com.fundamental.proj.controller;
 import com.fundamental.proj.controller.bean.*;
 import com.fundamental.proj.delegate.*;
+import com.fundamental.proj.mapper.AddressBeanMapper;
 import com.fundamental.proj.util.EmailNotification;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
@@ -29,6 +30,7 @@ public class UserController {
 
     private AddressBean addressBean = new AddressBean();
 
+    private AddressBeanMapper addressBeanMapper = new AddressBeanMapper();
 
     private UserBean userBean = new UserBean();
 
@@ -184,6 +186,13 @@ public class UserController {
         return s;
     }
 
+    @RequestMapping(value ="/newAddress", method = RequestMethod.POST)
+    @ResponseBody
+    public List<Long> saveNewAddress(@RequestBody AddressBean addressBean1) {
+        List<Long> s = new LinkedList<Long>();
+        addressBean = addressBean1;
+        return s;
+    }
     @RequestMapping(value = "/order", method = RequestMethod.POST)
     @ResponseBody
     public List<Long> PurchaseItem(@RequestBody MaterialIndentBean materialIndentBean) {
@@ -300,6 +309,18 @@ public class UserController {
 
     }
 
+    @RequestMapping(value = "/updateAddress", method = RequestMethod.POST)
+    @ResponseBody
+    public List<String> updateAddress(@RequestBody AddressBean addressBean) {
+        List<String> s = new LinkedList<String>();
+        try {
+            addressDelegate.updateAddress(addressBean);
+            return s;
+        } catch (Exception e) {
+            return s;
+        }
+    }
+
     @RequestMapping(value = "/deleteCart", method = RequestMethod.POST)
     @ResponseBody
     public List<String> deleteCart(@RequestBody CartBean cartBean) {
@@ -409,17 +430,19 @@ public class UserController {
         }
     }
 
-    @RequestMapping(value = "/updateAddress", method = RequestMethod.POST)
+    @RequestMapping(value = "/updateShippingAddress", method = RequestMethod.POST)
     @ResponseBody
-    public List<Long> updateAddress(@RequestBody AddressBean addressBean) {
+    public List<Long> updateShippingAddress(@RequestBody AddressBean addressBean1) {
         List<Long> s = new ArrayList<Long>();
-        try {
-            addressDelegate.updateAddress(addressBean);
-            s.add(addressBean.getUser_id());
-            return s;
-        } catch (Exception e) {
-            return s;
-        }
+        addressDelegate.updateAddress(addressBean1);
+//        try {
+//            addressDelegate.updateAddress(addressBean);
+//            return s;
+//        } catch (Exception e) {
+//            return s;
+//        }
+
+        return s;
     }
 
     @RequestMapping(value = "/received orders")
