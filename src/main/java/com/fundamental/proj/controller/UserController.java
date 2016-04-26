@@ -8,7 +8,6 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
-import java.util.Map.Entry;
 
 import java.util.*;
 
@@ -186,13 +185,6 @@ public class UserController {
         return s;
     }
 
-    @RequestMapping(value ="/newAddress", method = RequestMethod.POST)
-    @ResponseBody
-    public List<Long> saveNewAddress(@RequestBody AddressBean addressBean1) {
-        List<Long> s = new LinkedList<Long>();
-        addressBean = addressBean1;
-        return s;
-    }
     @RequestMapping(value = "/order", method = RequestMethod.POST)
     @ResponseBody
     public List<Long> PurchaseItem(@RequestBody MaterialIndentBean materialIndentBean) {
@@ -337,6 +329,16 @@ public class UserController {
 
     }
 
+    @RequestMapping(value = "/addAddress", method = RequestMethod.POST)
+    @ResponseBody
+    public List<AddressBean> newAddress(@RequestBody AddressBean addressBean1) {
+        List<AddressBean> s = new LinkedList<AddressBean>();
+        List<Long> id = addressDelegate.addAddress(addressBean1);
+        addressBean1.setAddress_Id(id.get(0)+1);
+        s.add(addressBean1);
+        return s;
+    }
+
     @RequestMapping(value = "/allorders", method = RequestMethod.POST)
     @ResponseBody
     public List<OrdersBean> getAllOrders(@RequestBody UserBean userBean) {
@@ -435,13 +437,6 @@ public class UserController {
     public List<Long> updateShippingAddress(@RequestBody AddressBean addressBean1) {
         List<Long> s = new ArrayList<Long>();
         addressDelegate.updateAddress(addressBean1);
-//        try {
-//            addressDelegate.updateAddress(addressBean);
-//            return s;
-//        } catch (Exception e) {
-//            return s;
-//        }
-
         return s;
     }
 

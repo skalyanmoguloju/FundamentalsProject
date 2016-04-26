@@ -1,10 +1,8 @@
 package com.fundamental.proj.delegate;
 
 import com.fundamental.proj.controller.bean.AddressBean;
-import com.fundamental.proj.controller.bean.CartBean;
 import com.fundamental.proj.mapper.AddressBeanMapper;
 import com.fundamental.proj.model.Address;
-import com.fundamental.proj.model.Cart;
 import com.fundamental.proj.service.AddressService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -28,6 +26,13 @@ public class AddressDelegate {
     {
         Address address = addressBeanMapper.mapBeanToAddress(addressBean1);
         addressService.updateAddress(address);
+    }
+
+    @Transactional
+    public List<Long> addAddress(AddressBean addressBean){
+        Address address = new Address();
+        address = addressBeanMapper.mapBeanToAddress(addressBean);
+        return addressService.addAddress(address);
     }
 
     @Transactional

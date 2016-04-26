@@ -28,4 +28,12 @@ public class AddressService{
     {
         return addressRepository.getAddress(user_id);
     }
+
+    @Transactional
+    public List<Long> addAddress(Address address)
+    {
+        return addressRepository.addAddress(address);
+    }
+
+
 }

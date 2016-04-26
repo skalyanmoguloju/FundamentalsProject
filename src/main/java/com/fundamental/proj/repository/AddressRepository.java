@@ -10,6 +10,7 @@ import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -58,5 +59,18 @@ public class AddressRepository {
         Query query = session.createQuery("from Address where user_id=:uid");
         query.setParameter("uid", user_id);
         return query.list();
+    }
+
+    @Transactional
+    public List<Long> addAddress(Address address)
+    {
+        List<Long> i = new ArrayList<Long>();
+        Session session = sessionFactory.getCurrentSession();
+        //session.persist(address);
+        Query query = session.createQuery("select max(address_Id) from Address");
+        query.list();
+        session.flush();
+        return query.list();
+
     }
 }
