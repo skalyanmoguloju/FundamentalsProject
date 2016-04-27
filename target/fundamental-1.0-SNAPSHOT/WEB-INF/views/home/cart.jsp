@@ -40,6 +40,9 @@
                                 }
                             });
                     $scope.checkOut = function() {
+                        $scope.hideBtns = true;
+                        $scope.updatingAddress = false;
+                        $scope.addingNewAddress = false;
                         if ($scope.validateQuantity() == true) {
                             if ($scope.cart.length == 0) {
                                 document.getElementById('lbltipAddedComment').innerHTML = 'You have no products in Cart, cannot checkout!';
@@ -217,16 +220,11 @@
 
                     $scope.updateAnAddress = function() {
                         $scope.updatingAddress = true;
+                        $scope.hideBtns = false;
                     };
 
-                    $scope.submitUpdateAddress = function(addr,add1) {
-                        console.log(add1);
+                    $scope.submitUpdateAddress = function(addr) {
                         console.log(addr);
-                        addr.city = add1.city;
-                        addr.zip = add1.zip;
-                        addr.line1 = add1.line1;
-                        addr.line2 = add1.line2;
-                        addr.state = add1.state;
 
                         $http.post('updateShippingAddress', addr)
                                 .success(function (response) {
@@ -237,10 +235,12 @@
 
                     $scope.cancelUpdate = function() {
                         $scope.updatingAddress = false;
+                        $scope.hideBtns = true;
                     };
 
                     $scope.addAnAddress = function() {
                         $scope.addingNewAddress = true;
+                        $scope.hideBtns = false;
                     };
 
                     $scope.submitAddAddress = function(newAdd) {
@@ -249,12 +249,15 @@
                         $http.post('addAddress', newAdd)
                                 .success(function (response) {
                                     console.log(response);
+                                    $scope.address.push(response[0]);
+                                    $scope.newAdd = "";
                                     $scope.addingNewAddress = false;
                                 });
                     };
 
                     $scope.cancelAdd = function() {
                         $scope.addingNewAddress = false;
+                        $scope.hideBtns = true;
                     };
 
                     $scope.delete = function(vw){
@@ -355,7 +358,7 @@
                                                     Select Shipping Address
                                                 </h3>
                                                 <h3 class="panel-title" ng-show="updatingAddress">
-                                                    Update Address Information
+                                                    Update Address Information (Select One)
                                                 </h3>
                                                 <h3 class="panel-title" ng-show="addingNewAddress">
                                                     Add New Address
@@ -368,7 +371,7 @@
                                                         <label class="input-group">
                                                                 <span class="input-group-addon">
                                                                         <%--ng-change="updateAddress(add)--%>
-                                                                        <input type="radio" id="test" ng-model="junkvalue"/>
+                                                                        <input type="radio" id="test" ng-model="junkvalue" ng-change="updateAddress(addr)"/>
                                                                 </span>
                                                             <div class="form-control form-control-static novalidate">
                                                                 {{addr.line1}}, {{addr.line2}},
@@ -376,49 +379,53 @@
                                                             </div>
                                                             <span class="glyphicon form-control-feedback "></span>
                                                         </label>
-                                                        <button class="submit btn btn-primary" ng-click="updateAddress(add)">Ship To Address Selected</button>
-                                                        <button class="btn btn-primary pull-right" ng-click="addAnAddress()">Add</button>
-                                                        <button class="btn btn-primary pull-right" ng-click="updateAnAddress()">Update</button>
+
                                                     </div>
 
                                                         <div ng-show="updatingAddress" class="panel-group">
                                                             <div class="panel panel-default">
                                                                 <div class="panel-heading">
                                                                     <label class="panel-title">
-                                                                        <a data-toggle="collapse" href="#collapse1">{{addr.line1}}, {{addr.line2}}, {{addr.city}} - {{addr.state}}, {{addr.zip}}</a>
+                                                                        <a data-toggle="collapse" href="#collapse1{{addr.address_Id}}">{{addr.line1}}, {{addr.line2}}, {{addr.city}} - {{addr.state}}, {{addr.zip}}</a>
                                                                     </label>
                                                                 </div>
-                                                                <div id="collapse1" class="panel-collapse !collapse form-group">
-                                                                    <input type="text" class="form-control" id="add1" placeholder="{{addr.line1}}" required ng-model="add1.line1"/>
-                                                                    <input type="text" class="form-control" id="add2" placeholder="{{addr.line2}}" ng-model="add1.line2"/>
-                                                                    <input type="text" class="form-control" id="city" placeholder="{{addr.city}}" required ng-model="add1.city"/>
-                                                                    <input type="text" class="form-control" id="state" placeholder="{{addr.state}}" required ng-model="add1.state"/>
-                                                                    <input type="text" class="form-control" id="zip" placeholder="{{addr.zip}}" required ng-model="add1.zip"/>
-                                                                    <button type="submit" class="btn btn-primary" ng-click="submitUpdateAddress(addr,add1)">Update Address</button>
-                                                                    <button class="btn btn-primary" ng-click="cancelUpdate()">Cancel</button>
+                                                                <div id="collapse1{{addr.address_Id}}" class="panel-collapse collapse form-group">
+                                                                    <input type="text" class="form-control" id="add1" placeholder="{{addr.line1}}" required ng-model="addr.line1"/>
+                                                                    <input type="text" class="form-control" id="add2" placeholder="{{addr.line2}}" ng-model="addr.line2"/>
+                                                                    <input type="text" class="form-control" id="city" placeholder="{{addr.city}}" required ng-model="addr.city"/>
+                                                                    <input type="text" class="form-control" id="state" placeholder="{{addr.state}}" required ng-model="addr.state"/>
+                                                                    <input type="text" class="form-control" id="zip" placeholder="{{addr.zip}}" required ng-model="addr.zip"/>
+                                                                    <button type="submit" class="btn btn-primary" ng-click="submitUpdateAddress(addr)">Update Address</button>
+
                                                                 </div>
                                                             </div>
                                                         </div>
 
-                                                        <div ng-show="addingNewAddress" class="panel-group">
-                                                            <div class="panel panel-default">
-                                                                <div class="panel-heading">
-                                                                    <label class="panel-title">
-                                                                        <a data-toggle="collapse2" href="#collapse2">Fill Out Every Field To Add New Shipping Address}</a>
-                                                                    </label>
-                                                                </div>
-                                                                <div id="collapse2" class="panel-collapse !collapse2">
-                                                                    <input type="text" class="form-control" id="newAdd1" placeholder="Address Line 1" required ng-model="newAdd.line1"/>
-                                                                    <input type="text" class="form-control novalidate" id="newAdd2" placeholder="Address Line 2" ng-model="newAdd.line2"/>
-                                                                    <input type="text" class="form-control novalidate" id="newAddCity" placeholder="City" required ng-model="newAdd.city"/>
-                                                                    <input type="text" class="form-control novalidate" id="newAddState" placeholder="State" required ng-model="newAdd.state"/>
-                                                                    <input type="text" class="form-control novalidate" id="newAddZip" placeholder="Zipcode" required ng-model="newAdd.zip"/>
-                                                                    <button type="submit" ng-click="submitAddAddress(newAdd)" class="btn btn-primary">Add Address</button>
-                                                                    <button class="btn btn-primary" ng-click="cancelAdd()">Cancel</button>
-                                                                </div>
+
+                                                    </div>
+                                                    <div ng-show="addingNewAddress" class="panel-group">
+                                                        <div class="panel panel-default">
+                                                            <div class="panel-heading">
+                                                                <label class="panel-title">
+                                                                    <a data-toggle="collapse2" href="#collapse2">Fill Out Every Field To Add New Shipping Address</a>
+                                                                </label>
+                                                            </div>
+                                                            <div id="collapse2" class="panel-collapse !collapse2">
+                                                                <input type="text" class="form-control" id="newAdd1" placeholder="Address Line 1" required ng-model="newAdd.line1"/>
+                                                                <input type="text" class="form-control novalidate" id="newAdd2" placeholder="Address Line 2" ng-model="newAdd.line2"/>
+                                                                <input type="text" class="form-control novalidate" id="newAddCity" placeholder="City" required ng-model="newAdd.city"/>
+                                                                <input type="text" class="form-control novalidate" id="newAddState" placeholder="State" required ng-model="newAdd.state"/>
+                                                                <input type="text" class="form-control novalidate" id="newAddZip" placeholder="Zipcode" required ng-model="newAdd.zip"/>
+
+
                                                             </div>
                                                         </div>
                                                     </div>
+                                                    <button type="submit" ng-show="addingNewAddress" ng-click="submitAddAddress(newAdd)" class="btn btn-primary">Add Address</button>
+                                                    <button class="btn btn-primary" ng-show="addingNewAddress" ng-click="cancelAdd()">Cancel</button>
+                                                    <button class="btn btn-primary pull-right" ng-show="hideBtns" ng-click="addAnAddress()">Add</button>
+                                                    <button class="btn btn-primary pull-right"ng-show="hideBtns" ng-click="updateAnAddress()">Update</button>
+                                                    <button class="btn btn-primary" ng-show="updatingAddress" ng-click="cancelUpdate()">Cancel</button>
                                                 </form>
                                             </div>
                                         </div>

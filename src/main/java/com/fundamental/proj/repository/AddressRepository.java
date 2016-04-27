@@ -28,23 +28,9 @@ public class AddressRepository {
     public void updateAddress(Address address)
     {
         try {
-            List<Address> list = getAddress(address.getUser_id());
-            Session session = sessionFactory.getCurrentSession();
 
-            if (list.size() > 0) {
-                Query query = session.createQuery("update Address set line1=:line1, line2=:line2, city=:city, state=:state, zip=:zip, phone=:phone where user_id=:id");
-                query.setParameter("id", address.getUser_id());
-                query.setParameter("line1", address.getLine1());
-                query.setParameter("line2", address.getLine2());
-                query.setParameter("city", address.getCity());
-                query.setParameter("state", address.getState());
-                query.setParameter("zip", address.getZip());
-                query.setParameter("phone", address.getPhone());
-                query.executeUpdate();
-                session.flush();
-            } else {
+            Session session = sessionFactory.getCurrentSession();
                 session.persist(address);
-            }
         }
         catch (Exception e)
         {
@@ -66,7 +52,7 @@ public class AddressRepository {
     {
         List<Long> i = new ArrayList<Long>();
         Session session = sessionFactory.getCurrentSession();
-        //session.persist(address);
+        session.persist(address);
         Query query = session.createQuery("select max(address_Id) from Address");
         query.list();
         session.flush();

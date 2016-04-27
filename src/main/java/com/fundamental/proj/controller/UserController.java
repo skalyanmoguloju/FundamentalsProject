@@ -334,7 +334,7 @@ public class UserController {
     public List<AddressBean> newAddress(@RequestBody AddressBean addressBean1) {
         List<AddressBean> s = new LinkedList<AddressBean>();
         List<Long> id = addressDelegate.addAddress(addressBean1);
-        addressBean1.setAddress_Id(id.get(0)+1);
+        addressBean1.setAddress_Id(id.get(0));
         s.add(addressBean1);
         return s;
     }
