@@ -229,6 +229,7 @@
                         $http.post('updateShippingAddress', addr)
                                 .success(function (response) {
                                    console.log(response);
+                                    alert("Updated successfully")
                                     $scope.updatingAddress = false;
                                 });
                     };
@@ -251,6 +252,7 @@
                                     console.log(response);
                                     $scope.address.push(response[0]);
                                     $scope.newAdd = "";
+                                    alert("Address added successfully");
                                     $scope.addingNewAddress = false;
                                 });
                     };
