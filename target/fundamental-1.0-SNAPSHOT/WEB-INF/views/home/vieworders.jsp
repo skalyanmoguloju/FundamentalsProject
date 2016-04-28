@@ -65,7 +65,8 @@
                             return_count : order.returnCount,
                             description : order.returnDesc})
                                 .success(function (data){
-
+                                    alert("Return submted, Thankyou!!")
+                                    location.reload();
                                 });
                     };
                     $scope.groupOrdersByOrderNumber= function(purchasedOrders){

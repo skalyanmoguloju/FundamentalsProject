@@ -231,6 +231,7 @@
                                    console.log(response);
                                     alert("Updated successfully")
                                     $scope.updatingAddress = false;
+                                    $scope.hideBtns = true;
                                 });
                     };
 
@@ -254,6 +255,7 @@
                                     $scope.newAdd = "";
                                     alert("Address added successfully");
                                     $scope.addingNewAddress = false;
+                                    $scope.hideBtns = true;
                                 });
                     };
 

@@ -30,7 +30,8 @@ public class AddressRepository {
         try {
 
             Session session = sessionFactory.getCurrentSession();
-                session.persist(address);
+                session.update(address);
+            session.flush();
         }
         catch (Exception e)
         {

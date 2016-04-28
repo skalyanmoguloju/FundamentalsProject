@@ -86,7 +86,7 @@
                                     .success(function (response) {
                                         console.log(response);
                                         alert("Successfully added item with quantity of " + vw.noofpieces + " to cart !");
-                                        window.location.href = "/view";
+                                        window.location.href = "home";
                                     });
                         }
                     };

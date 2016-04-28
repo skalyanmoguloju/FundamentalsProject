@@ -81,6 +81,7 @@
                                 $http.post('approveOrder', {order_id : $scope.orderList[i]})
                                         .success(function (response) {
                                             console.log(response);
+                                            alert("Items have been shipped!!")
 
                                         });
 
