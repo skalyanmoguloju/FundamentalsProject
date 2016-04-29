@@ -38,8 +38,54 @@
                                                     .success(function (response) {
                                                         $scope.Catgs = response;
                                                     });
+
+                                            /* show notifications for only admin */
+                                            if ($scope.userInfo.role == "Admin") {
+                                                document.getElementById('notificationHeader').style.display = 'block';
+                                                $scope.listNewManagers();
+                                            }
                                         });
                             });
+                    $scope.listNewManagers= function(){
+                        $http.post('listNewManagers')
+                                .success(function (data) {
+                                    console.log(data);
+                                    $scope.listNewManagers = data;
+                                    document.getElementById('notification').innerHTML = data.length;
+                                    if (data.length == 0) {
+                                        document.getElementById('notificationInfo').innerHTML = "There's no notifications!";
+                                        document.getElementById('notificationBody').style.display = 'none';
+                                    } else if (data.length == 1) {
+                                        document.getElementById('notificationInfo').innerHTML = "There's 1 newly registered manager!";
+                                        document.getElementById('notificationBody').style.display = 'block';
+                                    } else {
+                                        document.getElementById('notificationInfo').innerHTML = "There're " + data.length + " newly registered managers";
+                                        document.getElementById('notificationBody').style.display = 'block';
+                                    }
+                                });
+                    };
+                    $scope.approveManager = function(id){
+                        $http.post('approveManager', id)
+                                .success(function (response) {
+                                    if (response == null || response == "" || response == undefined) {
+                                        alert("Something is wrong! please try again!");
+                                    } else {
+                                        alert("Successfully Approve manager No." + response + "!");
+                                    }
+                                    window.location.href = "/home";
+                                });
+                    };
+                    $scope.declineManager = function(id){
+                        $http.post('declineManager', id)
+                                .success(function (response) {
+                                    if (response == null || response == "" || response == undefined) {
+                                        alert("Something is wrong! please try again!");
+                                    } else {
+                                        alert("Successfully Decline manager No." + response + "!");
+                                    }
+                                    window.location.href = "/home";
+                                });
+                    };
                     $scope.viewInventory = function () {
                         $http.post('list')
                                 .success(function (other) {
@@ -51,8 +97,8 @@
                     {
                         $scope.searchTerm = "";
                         $http.post('catgResults', {
-                            category:$scope.catg
-                        })
+                                    category:$scope.catg
+                                })
                                 .success(function (response) {
                                     $scope.searchBool = false;
                                     $scope.list = response;
@@ -78,11 +124,11 @@
                             document.getElementById('lbltipAddedComment' + vw.item_id).innerHTML = 'Number of available products is only ' + available + ', Please select a number at most ' + available + '!';
                         } else {
                             $http.post('addCart', {
-                                itemsBean: vw,
-                                user_id: $scope.userInfo.id,
-                                quantity: vw.noofpieces,
-                                price: vw.price
-                            })
+                                        itemsBean: vw,
+                                        user_id: $scope.userInfo.id,
+                                        quantity: vw.noofpieces,
+                                        price: vw.price
+                                    })
                                     .success(function (response) {
                                         console.log(response);
                                         alert("Successfully added item with quantity of " + vw.noofpieces + " to cart !");
@@ -95,9 +141,9 @@
                         console.log(searchTerm);
                         if (searchTerm != "") {
                             $http.post('listResults', {
-                                item_name:searchTerm,
-                                category:$scope.catg
-                            })
+                                        item_name:searchTerm,
+                                        category:$scope.catg
+                                    })
                                     .success(function (response) {
                                         $scope.searchBool = false;
                                         $scope.list = response;
@@ -132,8 +178,8 @@
                     <tr>
                         <td style="width: 250px">
                             <select name="role" value="" class="form-control input-lg" ng-model = "catg" ng-change="update()" style="height: 28px">
-                                    <option value="All" selected>All</option>
-                                    <option id="{{rol}}" ng-repeat="cat in Catgs" value="{{cat}}">{{cat}}</option>
+                                <option value="All" selected>All</option>
+                                <option id="{{rol}}" ng-repeat="cat in Catgs" value="{{cat}}">{{cat}}</option>
 
                             </select>
                         </td>
@@ -165,6 +211,7 @@
                         <li><i class="glyphicon glyphicon-check"></i> <span>Total Sold {{vw.sold_count}}</span></li>
                     </ul>
                 </div>
+
                 <div class="col-xs-12 col-sm-12 col-md-7 excerpet">
                     <h3><a href="#" title="">{{vw.item_name}}</a></h3>
                     <p>{{vw.item_description}}</p>
@@ -210,6 +257,45 @@
                 <span class="clearfix borda"></span>
             </article>
         </section>
+
+        <div class="modal fade" id="squarespaceModalNotifications" tabindex="-1" role="dialog" aria-labelledby="modalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span><span class="sr-only">Close</span></button>
+                        <h3 class="modal-title" id="lineModalLabelNotification" style='color:#FF0000'> <label id="notificationInfo"> </label></h3>
+                    </div>
+                    <div class="modal-body">
+                        <div id="notificationBody" style="height:550px;width:580px;#ccc;font:16px/26px Georgia, Garamond, Serif;overflow:auto;display:none;">
+                            <section class="col-xs-12 col-sm-6 col-md-20" style="width: 570px" ng-model = "listNewManagers">
+                                <article class="row" ng-repeat = "manager in listNewManagers">
+                                    <article id="approveManager{{manager.id}}" class="well span8 center-block">
+                                        <h5>Manager No.{{manager.id}}'s Info:</h5>
+                                        <ul>
+                                            <li><span>ID: {{manager.id}}</span></li>
+                                            <li><span>Name: {{manager.lname}}, {{manager.name}}</span></li>
+                                            <li><span>Email: {{manager.email}}</span></li>
+                                        </ul>
+                                        <h4 style="text-align: center"><b style='color:#FF0000'>Do you want to approve this manager?</b></h4>
+                                        <div class="row">
+                                            <form ng-submit="approveManager(manager.id)">
+                                                <input type="submit" class="btn btn-success center-block" value="Approve">
+                                            </form>
+                                            <form ng-submit="declineManager(manager.id)">
+                                                <input type="submit" class="btn btn-primary center-block" value="Decline">
+                                            </form>
+                                        </div>
+                                    </article>
+                                </article>
+                            </section>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
     </div>
 </div>
 </body>

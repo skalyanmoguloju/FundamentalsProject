@@ -29,15 +29,25 @@
                                             $scope.listManagers();
                                         });
                             });
+                    $scope.addAdmin= function(){
+                        $http.post('addAdmin')
+                                .success(function (response) {
+                                    if (response.length == 0) {
+                                        document.getElementById('lbAdminID').innerHTML = 'Failed to add new admin! Please try again!';
+                                    } else {
+                                        document.getElementById('lbAdminID').innerHTML = 'Successfully added new admin!' + '<br>' + 'Assigned ID for New Admin = ' + response[0];
+                                    }
+                                });
+                    };
                     $scope.addManager= function(){
                         $http.post('addManager')
-                            .success(function (response) {
-                                if (response.length == 0) {
-                                    document.getElementById('lbManagerID').innerHTML = 'Failed to add new manager! Please try again!';
-                                } else {
-                                    document.getElementById('lbManagerID').innerHTML = 'Successfully added new manager!' + '<br>' + 'Assigned ID for New Manager = ' + response[0];
-                                }
-                            });
+                                .success(function (response) {
+                                    if (response.length == 0) {
+                                        document.getElementById('lbManagerID').innerHTML = 'Failed to add new manager! Please try again!';
+                                    } else {
+                                        document.getElementById('lbManagerID').innerHTML = 'Successfully added new manager!' + '<br>' + 'Assigned ID for New Manager = ' + response[0];
+                                    }
+                                });
                     };
                     $scope.listManagers= function(){
                         $http.post('listManagers')
@@ -48,15 +58,15 @@
                     };
                     $scope.promoteManager= function(vw){
                         $http.post('promoteManager', vw)
-                            .success(function (response) {
-                                if (response == null || response == "" || response == undefined) {
-                                    alert("Something is wrong! please try again!");
-                                } else {
-                                    alert("Successfully promoted Manager No." + response + " to Admin");
-                                }
-                                $scope.listManagers();
-                                window.location.href = "/manage managers";
-                            });
+                                .success(function (response) {
+                                    if (response == null || response == "" || response == undefined) {
+                                        alert("Something is wrong! please try again!");
+                                    } else {
+                                        alert("Successfully promoted Manager No." + response + " to Admin");
+                                    }
+                                    $scope.listManagers();
+                                    window.location.href = "/manage managers";
+                                });
                     };
 
                 }]);
@@ -85,19 +95,35 @@
 <div class="container" ng-app="myApp">
     <div  ng-controller="HomeCtrl as hmectrl" >
         <jsp:include page="header.jsp" />
-        <br>
-        <form class="well span8 center-block" style="width: 500px; align-content: center" ng-submit="addManager()">
-            <div class="manager_id">
-                <span class="button-checkbox center-block" align="center">
-                    <label id="lbManagerID"> </label>
-                </span>
-            </div>
+        <br/>
+        <table style="width:100%">
+            <tr>
+                <td>
+                    <form class="well span8 center-block" style="width: 500px; align-content: center" ng-submit="addAdmin()">
+                        <div class="admin_id">
+                        <span class="button-checkbox center-block" align="center">
+                            <label id="lbAdminID"><br/><br/> </label>
+                        </span>
+                        </div>
 
-            <button class="btn btn-primary center-block"  type="submit">Add New Manager</button>
-        </form>
+                        <button class="btn btn-primary center-block"  type="submit">Add New Admin</button>
+                    </form>
+                </td>
+                <td>
+                    <form class="well span8 center-block" style="width: 500px; align-content: center" ng-submit="addManager()">
+                        <div class="manager_id">
+                        <span class="button-checkbox center-block" align="center">
+                            <label id="lbManagerID"> </label>
+                        </span>
+                        </div>
+                        <button class="btn btn-primary center-block"  type="submit">Add New Manager</button>
+                    </form>
+                </td>
+            </tr>
+        </table>
 
         <h4 style="text-align: center;"><b style='color:#FF0000'>List of all registered managers:</b></h4>
-        <div id="regManagers" style="height:410px;width:500px;margin-left: 320px;border:1px solid #ccc;font:16px/26px Georgia, Garamond, Serif;overflow:auto;">
+        <div id="regManagers" style="height:405px;width:500px;margin-left: 320px;border:1px solid #ccc;font:16px/26px Georgia, Garamond, Serif;overflow:auto;">
             <section class="col-xs-12 col-sm-6 col-md-20" style="width:500px" ng-model = "list">
                 <br>
                 <article class="row" ng-repeat = "vw in list">
@@ -107,9 +133,6 @@
                             <li><span>ID: {{vw.id}}</span></li>
                             <li><span>Name: {{vw.lname}}, {{vw.name}}</span></li>
                             <li><span>Email: {{vw.email}}</span></li>
-                            <li><span>Role: {{vw.role}}</span></li>
-                            <li><span>Status: {{vw.status}}</span></li>
-                            <li><span>Gender: {{vw.gender}}</span></li>
                         </ul>
                         <button class="btn btn-success center-block"  type="submit">Promote to Admin</button>
                     </form>

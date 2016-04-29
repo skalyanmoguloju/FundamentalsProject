@@ -81,9 +81,9 @@ public class UserController {
         return userDelegate.addNewAdmin();
     }
 
-    @RequestMapping(value = "/manage managers")
+    @RequestMapping(value = "/manage users")
     public String addManagerPage() {
-        return "WEB-INF/views/home/manageManagers";
+        return "WEB-INF/views/home/manageUsers";
     }
 
     @RequestMapping(value = "/addManager", method = RequestMethod.POST)
