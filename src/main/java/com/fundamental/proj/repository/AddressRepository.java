@@ -53,7 +53,7 @@ public class AddressRepository {
     {
         List<Long> i = new ArrayList<Long>();
         Session session = sessionFactory.getCurrentSession();
-        session.persist(address);
+        session.saveOrUpdate(address);
         Query query = session.createQuery("select max(address_Id) from Address");
         query.list();
         session.flush();

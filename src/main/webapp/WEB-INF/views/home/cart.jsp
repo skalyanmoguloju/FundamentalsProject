@@ -398,7 +398,8 @@
                                                                     <input type="text" class="form-control" id="add2" placeholder="{{addr.line2}}" ng-model="addr.line2"/>
                                                                     <input type="text" class="form-control" id="city" placeholder="{{addr.city}}" required ng-model="addr.city"/>
                                                                     <input type="text" class="form-control" id="state" placeholder="{{addr.state}}" required ng-model="addr.state"/>
-                                                                    <input type="text" class="form-control" id="zip" placeholder="{{addr.zip}}" required ng-model="addr.zip"/>
+                                                                    <input type="number" class="form-control" id="zip" placeholder="{{addr.zip}}" required ng-model="addr.zip"/>
+                                                                    <input type="number" class="form-control" id="phone" placeholder="{{addr.phone}}" required ng-model="addr.phone"/>
                                                                     <button type="submit" class="btn btn-primary" ng-click="submitUpdateAddress(addr)">Update Address</button>
 
                                                                 </div>
@@ -419,8 +420,8 @@
                                                                 <input type="text" class="form-control novalidate" id="newAdd2" placeholder="Address Line 2" ng-model="newAdd.line2"/>
                                                                 <input type="text" class="form-control novalidate" id="newAddCity" placeholder="City" required ng-model="newAdd.city"/>
                                                                 <input type="text" class="form-control novalidate" id="newAddState" placeholder="State" required ng-model="newAdd.state"/>
-                                                                <input type="text" class="form-control novalidate" id="newAddZip" placeholder="Zipcode" required ng-model="newAdd.zip"/>
-
+                                                                <input type="number" class="form-control novalidate" id="newAddZip" placeholder="Zipcode" required ng-model="newAdd.zip"/>
+                                                                <input type="number" class="form-control novalidate" id="newAddPhone" placeholder="Phone" required ng-model="newAdd.phone"/>
 
                                                             </div>
                                                         </div>

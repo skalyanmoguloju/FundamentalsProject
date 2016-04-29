@@ -27,7 +27,7 @@ public class Address {
     @Column(name = "zip")
     private long zip;
     @Column(name = "phone")
-    private String phone;
+    private long phone;
 
     public long getAddress_Id() {
         return address_Id;
@@ -85,11 +85,11 @@ public class Address {
         this.zip = zip;
     }
 
-    public String getPhone() {
+    public long getPhone() {
         return phone;
     }
 
-    public void setPhone(String phone) {
+    public void setPhone(long phone) {
         this.phone = phone;
     }
 }
