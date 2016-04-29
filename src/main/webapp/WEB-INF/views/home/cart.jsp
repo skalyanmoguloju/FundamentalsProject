@@ -50,7 +50,7 @@
                                 // trigger modal popup
                                 $http.post('userAddress', {id: user})
                                         .success(function (responseAddress) {
-                                            console.log(responseAddress)
+                                            console.log(responseAddress);
                                             $scope.address = responseAddress;
                                         });
                                 $('#AddressModal').modal('show');
@@ -73,7 +73,7 @@
                             $http.post('order1', {
                                 id:$scope.userInfo.id
                             });
-                            console.log($scope.shipaddress)
+                            console.log($scope.shipaddress);
                             $http.post('order2', {
                                 address_Id:$scope.shipaddress.address_Id
                             });
@@ -225,16 +225,63 @@
 
                     $scope.submitUpdateAddress = function(addr) {
                         console.log(addr);
-
-                        $http.post('updateShippingAddress', addr)
-                                .success(function (response) {
-                                   console.log(response);
-                                    alert("Updated successfully")
-                                    $scope.updatingAddress = false;
-                                    $scope.hideBtns = true;
-                                });
+                        if($scope.validateUpdateAddressForm(addr) == true) {
+                            $http.post('updateShippingAddress', addr)
+                                    .success(function (response) {
+                                        console.log(response);
+                                        document.getElementById('lbUpdateAddressID' + addr.address_Id).innerHTML = '';
+                                        alert("Updated successfully");
+                                        $scope.updatingAddress = false;
+                                        $scope.hideBtns = true;
+                                    });
+                        }
                     };
-
+                    $scope.validateUpdateAddressForm = function(newAdd){
+                        if(newAdd == "" || newAdd == undefined) {
+                            document.getElementById('lbUpdateAddressID' + newAdd.address_Id).innerHTML = 'Please enter new address!';
+                            return false;
+                        }
+                        else if(newAdd.line1 == "" || newAdd.line1 == undefined)
+                        {
+                            document.getElementById('lbUpdateAddressID' + newAdd.address_Id).innerHTML = 'Address Line 1 cannot be empty';
+                            return false;
+                        }
+                        else if(newAdd.city == "" || newAdd.city == undefined)
+                        {
+                            document.getElementById('lbUpdateAddressID' + newAdd.address_Id).innerHTML = 'City cannot be empty';
+                            return false;
+                        }
+                        else if(newAdd.state == "" || newAdd.state == undefined)
+                        {
+                            document.getElementById('lbUpdateAddressID' + newAdd.address_Id).innerHTML = 'State cannot be empty';
+                            return false;
+                        }
+                        else if(!newAdd.state.match(/^([a-z]|[A-Z])([a-z]|[A-Z])$/i)) {
+                            document.getElementById('lbUpdateAddressID' + newAdd.address_Id).innerHTML = 'Please enter 2-letter state (E.g. IA)';
+                            return false;
+                        }
+                        else if(newAdd.zip == "" || newAdd.zip == undefined)
+                        {
+                            document.getElementById('lbUpdateAddressID' + newAdd.address_Id).innerHTML = 'Zipcode cannot be empty';
+                            return false;
+                        }
+                        else if(!newAdd.zip.match(/^[0-9][0-9][0-9][0-9][0-9]$/i))
+                        {
+                            document.getElementById('lbUpdateAddressID' + newAdd.address_Id).innerHTML = 'Please enter 5-digit zipcode (E.g. 52240)';
+                            return false;
+                        }
+                        else if(newAdd.phone == "" || newAdd.phone == undefined)
+                        {
+                            document.getElementById('lbUpdateAddressID' + newAdd.address_Id).innerHTML = 'Phone Number cannot be empty';
+                            return false;
+                        }
+                        else if(!newAdd.phone.match(/^[0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9]$/i))
+                        {
+                            document.getElementById('lbUpdateAddressID' + newAdd.address_Id).innerHTML = 'Please enter 10-digit phone number (E.g. 3191234567)';
+                            return false;
+                        }
+                        return true;
+                    };
                     $scope.cancelUpdate = function() {
                         $scope.updatingAddress = false;
                         $scope.hideBtns = true;
@@ -247,18 +294,22 @@
 
                     $scope.submitAddAddress = function(newAdd) {
                         console.log(newAdd);
-                        newAdd.user_id = $scope.userInfo.id;
-                        $http.post('addAddress', newAdd)
-                                .success(function (response) {
-                                    console.log(response);
-                                    $scope.address.push(response[0]);
-                                    $scope.newAdd = "";
-                                    alert("Address added successfully");
-                                    $scope.addingNewAddress = false;
-                                    $scope.hideBtns = true;
-                                });
+                        if($scope.validateAddAddressForm(newAdd) == true) {
+                            newAdd.user_id = $scope.userInfo.id;
+                            newAdd.city = newAdd.city.toUpperCase();
+                            newAdd.state = newAdd.state.toUpperCase();
+                            $http.post('addAddress', newAdd)
+                                    .success(function (response) {
+                                        console.log(response);
+                                        $scope.address.push(response[0]);
+                                        $scope.newAdd = "";
+                                        document.getElementById('lbAddAddressID').innerHTML = "";
+                                        alert("Address added successfully");
+                                        $scope.addingNewAddress = false;
+                                        $scope.hideBtns = true;
+                                    });
+                        }
                     };
-
                     $scope.cancelAdd = function() {
                         $scope.addingNewAddress = false;
                         $scope.hideBtns = true;
@@ -277,12 +328,57 @@
 
                                 });
                         $scope.cart.pop(vw);
-                        $scope.total = 0
+                        $scope.total = 0;
                         for (var i=0; i<$scope.cart.length; i++){
                             $scope.total = $scope.total+($scope.cart[i].itemsBean.price * $scope.cart[i].quantity);
                         }
                     };
-
+                    $scope.validateAddAddressForm = function(newAdd){
+                        if(newAdd == "" || newAdd == undefined) {
+                            document.getElementById('lbAddAddressID').innerHTML = 'Please enter new address!';
+                            return false;
+                        }
+                        else if(newAdd.line1 == "" || newAdd.line1 == undefined)
+                        {
+                            document.getElementById('lbAddAddressID').innerHTML = 'Address Line 1 cannot be empty';
+                            return false;
+                        }
+                        else if(newAdd.city == "" || newAdd.city == undefined)
+                        {
+                            document.getElementById('lbAddAddressID').innerHTML = 'City cannot be empty';
+                            return false;
+                        }
+                        else if(newAdd.state == "" || newAdd.state == undefined)
+                        {
+                            document.getElementById('lbAddAddressID').innerHTML = 'State cannot be empty';
+                            return false;
+                        }
+                        else if(!newAdd.state.match(/^([a-z]|[A-Z])([a-z]|[A-Z])$/i)) {
+                            document.getElementById('lbAddAddressID').innerHTML = 'Please enter 2-letter state (E.g. IA)';
+                            return false;
+                        }
+                        else if(newAdd.zip == "" || newAdd.zip == undefined)
+                        {
+                            document.getElementById('lbAddAddressID').innerHTML = 'Zipcode cannot be empty';
+                            return false;
+                        }
+                        else if(!newAdd.zip.match(/^[0-9][0-9][0-9][0-9][0-9]$/i))
+                        {
+                            document.getElementById('lbAddAddressID').innerHTML = 'Please enter 5-digit zipcode (E.g. 52240)';
+                            return false;
+                        }
+                        else if(newAdd.phone == "" || newAdd.phone == undefined)
+                        {
+                            document.getElementById('lbAddAddressID').innerHTML = 'Phone Number cannot be empty';
+                            return false;
+                        }
+                        else if(!newAdd.phone.match(/^[0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9]$/i))
+                        {
+                            document.getElementById('lbAddAddressID').innerHTML = 'Please enter 10-digit phone number (E.g. 3191234567)';
+                            return false;
+                        }
+                        return true;
+                    };
                 }]);
 </script>
 
@@ -379,7 +475,7 @@
                                                                 </span>
                                                             <div class="form-control form-control-static novalidate">
                                                                 {{addr.line1}}, {{addr.line2}},
-                                                                 {{addr.city}} - {{addr.state}}, {{addr.zip}}
+                                                                 {{addr.city}} - {{addr.state}}, {{addr.zip}}, {{addr.phone}}
                                                             </div>
                                                             <span class="glyphicon form-control-feedback "></span>
                                                         </label>
@@ -390,18 +486,20 @@
                                                             <div class="panel panel-default">
                                                                 <div class="panel-heading">
                                                                     <label class="panel-title">
-                                                                        <a data-toggle="collapse" href="#collapse1{{addr.address_Id}}">{{addr.line1}}, {{addr.line2}}, {{addr.city}} - {{addr.state}}, {{addr.zip}}</a>
+                                                                        <a data-toggle="collapse" href="#collapse1{{addr.address_Id}}">{{addr.line1}}, {{addr.line2}}, {{addr.city}} - {{addr.state}}, {{addr.zip}}, {{addr.phone}}</a>
                                                                     </label>
                                                                 </div>
                                                                 <div id="collapse1{{addr.address_Id}}" class="panel-collapse collapse form-group">
-                                                                    <input type="text" class="form-control" id="add1" placeholder="{{addr.line1}}" required ng-model="addr.line1"/>
-                                                                    <input type="text" class="form-control" id="add2" placeholder="{{addr.line2}}" ng-model="addr.line2"/>
-                                                                    <input type="text" class="form-control" id="city" placeholder="{{addr.city}}" required ng-model="addr.city"/>
-                                                                    <input type="text" class="form-control" id="state" placeholder="{{addr.state}}" required ng-model="addr.state"/>
-                                                                    <input type="number" class="form-control" id="zip" placeholder="{{addr.zip}}" required ng-model="addr.zip"/>
-                                                                    <input type="number" class="form-control" id="phone" placeholder="{{addr.phone}}" required ng-model="addr.phone"/>
+                                                                    <input type="text" class="form-control" id="add1" placeholder="Line 1: {{addr.line1}}" required ng-model="addr.line1"/>
+                                                                    <input type="text" class="form-control" id="add2" placeholder="Line 2: {{addr.line2}}" ng-model="addr.line2"/>
+                                                                    <input type="text" class="form-control" id="city" placeholder="City: {{addr.city}}" required ng-model="addr.city"/>
+                                                                    <input type="text" class="form-control" id="state" placeholder="State: {{addr.state}}" required ng-model="addr.state"/>
+                                                                    <input type="text" class="form-control" id="zip" placeholder="Zipcode: {{addr.zip}}" required ng-model="addr.zip"/>
+                                                                    <input type="text" class="form-control" id="phone" placeholder="Phone: {{addr.phone}}" required ng-model="addr.phone"/>
+                                                                    <span class="button-checkbox center-block" align="center" style='color:#FF0000'>
+                                                                        <label id="lbUpdateAddressID{{addr.address_Id}}"> </label>
+                                                                    </span>
                                                                     <button type="submit" class="btn btn-primary" ng-click="submitUpdateAddress(addr)">Update Address</button>
-
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -420,9 +518,11 @@
                                                                 <input type="text" class="form-control novalidate" id="newAdd2" placeholder="Address Line 2" ng-model="newAdd.line2"/>
                                                                 <input type="text" class="form-control novalidate" id="newAddCity" placeholder="City" required ng-model="newAdd.city"/>
                                                                 <input type="text" class="form-control novalidate" id="newAddState" placeholder="State" required ng-model="newAdd.state"/>
-                                                                <input type="number" class="form-control novalidate" id="newAddZip" placeholder="Zipcode" required ng-model="newAdd.zip"/>
-                                                                <input type="number" class="form-control novalidate" id="newAddPhone" placeholder="Phone" required ng-model="newAdd.phone"/>
-
+                                                                <input type="text" class="form-control novalidate" id="newAddZip" placeholder="Zipcode" required ng-model="newAdd.zip"/>
+                                                                <input type="text" class="form-control novalidate" id="newAddPhone" placeholder="Phone" required ng-model="newAdd.phone"/>
+                                                                <span class="button-checkbox center-block" align="center" style='color:#FF0000'>
+                                                                    <label id="lbAddAddressID"> </label>
+                                                                </span>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -502,7 +602,7 @@
                                         <br/>
                                         <div class="form-control form-control-static badge" style="font-weight: normal; height: 25px; font-size: 14px; text-align: left" ng-model ="shipaddress">
                                             <b>Shipment Address</b> - {{shipaddress.line1}}, {{shipaddress.line2}},
-                                            {{shipaddress.city}} - {{shipaddress.state}}, {{shipaddress.zip}}
+                                            {{shipaddress.city}} - {{shipaddress.state}}, {{shipaddress.zip}}, {{shipaddress.phone}}
                                         </div>
                                         <span class="button-checkbox center-block" align="center" style='color:#FF0000'>
                                             <label id="lbltipAddedCommentCard"></label>
