@@ -282,4 +282,72 @@ public class UserDelegateSteps {
         Mockito.verify(mockedUserService).addNewManager();
     }
 
+    @When("^getAllManagers\\(\\) is called for UserDelegate$")
+    public void getallmanagers_is_called_for_UserDelegate() throws Throwable {
+        Mockito.when(mockedUserService.getAllManagers()).thenReturn(mockedListUser);
+        Mockito.when(mockedUserBeanMapper.mapUserBean(mockedListUser)).thenReturn(expectedListUserBean);
+    }
+
+    @Then("^a list of users is returned for getAllManagers in UserDelegate$")
+    public void a_list_of_users_is_returned_for_getAllManagers_in_UserDelegate() throws Throwable {
+        List<UserBean> list = userDelegate.getAllManagers();
+        Assert.assertEquals(list.size(), expectedListUserBean.size());
+        Assert.assertEquals(list.get(0), expectedListUserBean.get(0));
+    }
+
+    @When("^getAllNewManagers\\(\\) is called for UserDelegate$")
+    public void getallnewmanagers_is_called_for_UserDelegate() throws Throwable {
+        Mockito.when(mockedUserService.getAllNewManagers()).thenReturn(mockedListUser);
+        Mockito.when(mockedUserBeanMapper.mapUserBean(mockedListUser)).thenReturn(expectedListUserBean);
+    }
+
+    @Then("^a list of users is returned for getAllNewManagers in UserDelegate$")
+    public void a_list_of_users_is_returned_for_getAllNewManagers_in_UserDelegate() throws Throwable {
+        List<UserBean> list = userDelegate.getAllNewManagers();
+        Assert.assertEquals(list.size(), expectedListUserBean.size());
+        Assert.assertEquals(list.get(0), expectedListUserBean.get(0));
+    }
+
+    @When("^promoteManager\\(\\) is called for UsersDelegate$")
+    public void promotemanager_is_called_for_UsersDelegate() throws Throwable {
+        Mockito.doNothing().when(mockedUserService).promoteManager(Mockito.anyLong());
+    }
+
+    @Then("^promoteManager has been called successfully$")
+    public void promotemanager_has_been_called_successfully() throws Throwable {
+        userDelegate.promoteManager(1L);
+    }
+
+    @When("^approveManager\\(\\) is called for UsersDelegate$")
+    public void approvemanager_is_called_for_UsersDelegate() throws Throwable {
+        Mockito.doNothing().when(mockedUserService).approveManager(Mockito.anyLong());
+
+    }
+
+    @Then("^approveManager has been called successfully$")
+    public void approvemanager_has_been_called_successfully() throws Throwable {
+        userDelegate.approveManager(1L);
+    }
+
+    @When("^declineManager\\(\\) is called for UsersDelegate$")
+    public void declinemanager_is_called_for_UsersDelegate() throws Throwable {
+        Mockito.doNothing().when(mockedUserService).declineManager(Mockito.anyLong());
+    }
+
+    @Then("^declineManager has been called successfully$")
+    public void declinemanager_has_been_called_successfully() throws Throwable {
+        userDelegate.declineManager(1L);
+    }
+
+    @When("^updateOtherInfo\\(\\) is called for UsersDelegate$")
+    public void updateotherinfo_is_called_for_UsersDelegate() throws Throwable {
+        Mockito.when(mockedUserBeanMapper.mapBeanToUser(Mockito.any(UserBean.class))).thenReturn(mockedUser);
+        Mockito.doNothing().when(mockedUserService).updateOtherInfo(mockedUser);
+    }
+
+    @Then("^updateOtherInfo has been called successfully$")
+    public void updateotherinfo_has_been_called_successfully() throws Throwable {
+        userDelegate.updateOtherInfo(new UserBean());
+    }
+
 }

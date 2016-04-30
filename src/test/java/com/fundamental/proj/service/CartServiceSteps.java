@@ -160,4 +160,15 @@ public class CartServiceSteps {
         Mockito.verify(mockedCartRepository).AddToCart(cart, 1);
     }
 
+    @When("^clearCart\\(\\) is called$")
+    public void clearcart_is_called() throws Throwable {
+        Mockito.doNothing().when(mockedCartRepository).ClearCart(Mockito.anyLong());
+    }
+
+    @Then("^clearCart has been called successfully called$")
+    public void clearcart_has_been_called_successfully_called() throws Throwable {
+        cartService.clearCart(1L);
+        Mockito.verify(mockedCartRepository).ClearCart(1);
+    }
+
 }

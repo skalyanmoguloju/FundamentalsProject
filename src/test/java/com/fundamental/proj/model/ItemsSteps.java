@@ -127,4 +127,16 @@ public class ItemsSteps {
         Date dateOne = df.parse("2011-02-08 10:00:00 +0200");
         Assert.assertEquals(items.getDate(), dateOne);
     }
+
+    @When("^size \"(.*?)\" is set$")
+    public void size_is_set(String arg1) throws Throwable {
+        items.setSize(arg1);
+    }
+
+    @Then("^getSize returns \"(.*?)\"$")
+    public void getsize_returns(String arg1) throws Throwable {
+        Assert.assertEquals(items.getSize(), arg1);
+    }
+
+
 }

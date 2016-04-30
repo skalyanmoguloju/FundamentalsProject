@@ -31,3 +31,9 @@ Feature: Check CartDelegate
     When AddToCart() is called for CartDelegate
     Then AddToCart has been called successfully
 
+# Test ClearCart
+  Scenario: clearCart is called successfully
+    Given mock CartDelegate is initialized
+    When clearCart() is called for CartDelegate
+    Then clearCart has been called successfully
+

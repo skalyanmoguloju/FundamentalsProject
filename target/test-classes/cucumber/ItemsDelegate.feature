@@ -19,6 +19,13 @@ Feature: Check ItemsDelegate
     When getAllItems() is called for ItemsDelegate
     Then a list of itembeans is empty for getAllItems
 
+# Test getAllCatgs
+  Scenario: getAllCatgs returns some items
+    Given mock ItemsDelegate is initialized
+    And expected list of items is initialized for getAllCatgs
+    When getAllCatgs() is called for ItemsDelegate
+    Then a list of items is returned for getAllCatgs
+
 # Test addItem
   Scenario: addItem is called successfully
     Given mock ItemsDelegate is initialized
@@ -31,6 +38,13 @@ Feature: Check ItemsDelegate
     And expected list of itembeans is initialized
     When getAllItemsContainingSearchTerm() is called for ItemsDelegate
     Then a list of itembeans is returned for getAllItemsContainingSearchTerm
+
+# Test getAllCatItemsContainingSearchTerm
+  Scenario: getAllCatItemsContainingSearchTerm returns some itembeans
+    Given mock ItemsDelegate is initialized
+    And expected list of itembeans is initialized
+    When getAllCatItemsContainingSearchTerm() is called for ItemsDelegate
+    Then a list of itembeans is returned for getAllCatItemsContainingSearchTerm
 
 # Test updateSoldCount
   Scenario: updateSoldCount returns soldcount

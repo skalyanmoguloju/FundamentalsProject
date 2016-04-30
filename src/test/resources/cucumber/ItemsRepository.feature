@@ -19,7 +19,7 @@ Feature: Check ItemsRepository
     When getAllItems() is called
     Then a list of items is empty for getAllItems
 
-# Test getAllItems
+# Test getAllItemsContainingSearchTerm
   Scenario: getAllItemsContainingSearchTerm returns some items
     Given mock ItemsRepository is initialized
     And expected list of items is initialized
@@ -57,3 +57,17 @@ Feature: Check ItemsRepository
     And expected empty list of soldcount is initialized
     When updateSoldCount() throws exception
     Then a list of soldcount is empty
+
+# Test getAllCatgs
+  Scenario: getAllCatgs returns some catgs
+    Given mock ItemsRepository is initialized
+    And expected list of catgs is initialized
+    When getAllCatgs() is called for ItemsRepository
+    Then a list of catgs is returned for getAllCatgs
+
+# Test getAllCatItemsContainingSearchTerm
+  Scenario: getAllCatItemsContainingSearchTerm returns some items
+    Given mock ItemsRepository is initialized
+    And expected list of items is initialized
+    When getAllCatItemsContainingSearchTerm() is called for ItemsRepository
+    Then a list of items is returned for getAllCatItemsContainingSearchTerm

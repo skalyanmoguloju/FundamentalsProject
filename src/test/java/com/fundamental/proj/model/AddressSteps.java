@@ -90,4 +90,15 @@ public class AddressSteps {
     public void getzip_returns_zip(int arg1) throws Throwable {
         Assert.assertEquals(address.getZip(), arg1);
     }
+
+    @When("^phone (\\d+) is set$")
+    public void phone_is_set(int arg1) throws Throwable {
+        address.setPhone(arg1);
+    }
+
+    @Then("^getPhone returns zip (\\d+)$")
+    public void getphone_returns_zip(int arg1) throws Throwable {
+        Assert.assertEquals(address.getPhone(), arg1, 1E-15);
+    }
+
 }

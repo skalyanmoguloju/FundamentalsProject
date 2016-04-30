@@ -348,7 +348,7 @@ public class UserController {
 
     @RequestMapping(value = "/groupOrdersByOrderNumber", method = RequestMethod.POST)
     @ResponseBody
-    public List<List<OrdersBean>> groupOrdersByOrderNumber(@RequestBody OrdersBean[] ordersBeanList) {
+    public List<List<OrdersBean>> groupOrdersByOrderNumber(@RequestBody List<OrdersBean> ordersBeanList) {
         //HIBERNETCALLS
         List<List<OrdersBean>> ordersBeanLists = new ArrayList<List<OrdersBean>>();
         for (OrdersBean ordersBean : ordersBeanList) {

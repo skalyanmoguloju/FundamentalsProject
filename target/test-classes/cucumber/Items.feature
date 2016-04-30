@@ -49,3 +49,8 @@ Feature: Check Items
     Given items is set up
     When date  now is set
     Then getDate returns current date
+
+  Scenario: getSize returns size
+    Given items is set up
+    When size "small" is set
+    Then getSize returns "small"

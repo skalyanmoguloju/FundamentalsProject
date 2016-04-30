@@ -34,3 +34,8 @@ Feature: Check MaterialIndent
     Given exp is set up
     When exp "11/12" is set
     Then getCard_exp returns "11/12"
+
+  Scenario: getAddress returns address
+    Given address is set up
+    When an address is set
+    Then getAddress returns address

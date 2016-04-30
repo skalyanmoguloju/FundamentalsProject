@@ -1,9 +1,6 @@
 package com.fundamental.proj.service;
 
-import com.fundamental.proj.model.Cart;
-import com.fundamental.proj.model.Items;
-import com.fundamental.proj.model.MaterialIndent;
-import com.fundamental.proj.model.Address;
+import com.fundamental.proj.model.*;
 import com.fundamental.proj.repository.CartRepository;
 import com.fundamental.proj.repository.ItemsRepository;
 import com.fundamental.proj.repository.MaterialIndentRepository;
@@ -38,6 +35,8 @@ public class MaterialIndentServiceSteps {
 
     @InjectMocks
     private MaterialIndentService materialIndentService;
+
+    private List<Long> expectedListIds;
     /************************************************/
     /*
      * Test addSale()
@@ -51,13 +50,21 @@ public class MaterialIndentServiceSteps {
 
     @When("^addSale\\(\\) is called for MaterialIndentService$")
     public void addsale_is_called_for_MaterialIndentService() throws Throwable {
-        Mockito.doNothing().when(mockedCartRepository).ClearCart(Mockito.anyLong());
+        expectedListIds = new ArrayList<Long>();
+        expectedListIds.add(1L);
+        Mockito.when(mockedCartRepository.getCart(Mockito.anyLong())).thenReturn(mockedListCart);
+        Mockito.when(mockedMaterialIndentRepository.AddSale(Mockito.any(MaterialIndent.class), Mockito.eq(mockedListCart))).thenReturn(expectedListIds);
     }
 
     @Then("^addSale has been called successfully$")
     public void addsale_has_been_called_successfully() throws Throwable {
-
-        materialIndentService.addSale(new MaterialIndent());
+        MaterialIndent materialIndent = new MaterialIndent();
+        User user = new User();
+        user.setId(1L);
+        materialIndent.setUser(user);
+        List<Long> result = materialIndentService.addSale(materialIndent);
+        Assert.assertEquals(result.size(), expectedListIds.size());
+        Assert.assertEquals(result.get(0), expectedListIds.get(0));
     }
 
 }

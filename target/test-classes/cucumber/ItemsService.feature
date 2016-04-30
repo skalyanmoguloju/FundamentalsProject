@@ -38,3 +38,17 @@ Feature: Check ItemsService
     And expected list of sold_counts is initialized
     When updateSoldCount() is called
     Then a list of sold_counts is returned for getAllItems
+
+# Test getAllCatItemsContainingSearchTerm
+  Scenario: getAllCatItemsContainingSearchTerm returns some items
+    Given mock ItemsService is initialized
+    And expected list of items is initialized
+    When getAllCatItemsContainingSearchTerm() is called
+    Then a list of items is returned for getAllCatItemsContainingSearchTerm
+
+# Test getAllCatgs
+  Scenario: getAllCatgs returns some catgs
+    Given mock ItemsService is initialized
+    And expected list of catgs is initialized for getAllCatgs in ItemsService
+    When getAllCatgs() is called
+    Then a list of catgs is returned for getAllCatgs in ItemsService

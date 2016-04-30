@@ -9,6 +9,7 @@ import cucumber.api.java.en.And;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
+import org.hibernate.search.indexes.serialization.javaserialization.impl.Add;
 import org.junit.Assert;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
@@ -31,6 +32,7 @@ public class AddressServiceSteps {
     private AddressService addressService;
 
     private List<Address> expectedListAddress;
+    private List<Long> expectedListIds;
 
     @Given("^mock AddressService is initialized$")
     public void mock_addressservice_is_initialized() throws Throwable {
@@ -79,5 +81,22 @@ public class AddressServiceSteps {
         Mockito.verify(mockedAddressRepository).getAddress(1L);
     }
 
+    @Given("^expected list of ids is initialized for addAddress$")
+    public void expected_list_of_ids_is_initialized_for_addAddress() throws Throwable {
+        expectedListIds = new ArrayList<Long>();
+        expectedListIds.add(1L);
+    }
+
+    @When("^addAddress\\(\\) is called$")
+    public void addaddress_is_called() throws Throwable {
+        Mockito.when(mockedAddressRepository.addAddress(Mockito.any(Address.class))).thenReturn(expectedListIds);
+    }
+
+    @Then("^a list of ids is returned for addAddress$")
+    public void a_list_of_ids_is_returned_for_addAddress() throws Throwable {
+        List<Long> result = addressService.addAddress(new Address());
+        Assert.assertEquals(result.size(), expectedListIds.size());
+        Assert.assertEquals(result.get(0), expectedListIds.get(0));
+    }
 
 }

@@ -62,9 +62,57 @@ public class OrdersDelegateSteps {
 
         Assert.assertEquals(actualListOrdersBean.size(), expectedListOrdersBean.size());
         Assert.assertEquals(actualListOrdersBean.get(0), expectedListOrdersBean.get(0));
-
         Mockito.verify(mockedOrdersService).getAllOrders(1L);
         Mockito.verify(mockedOrdersBeanMapper).mapOrdersBean(mockedListOrders);
+    }
+
+    @When("^getOrders is called$")
+    public void getorders_is_called() throws Throwable {
+        expectedListOrdersBean = new ArrayList<OrdersBean>();
+        expectedListOrdersBean.add(new OrdersBean());
+        Mockito.when(mockedOrdersService.getOrder(Mockito.anyLong())).thenReturn(mockedListOrders);
+        Mockito.when(mockedOrdersBeanMapper.mapOrdersBean(mockedListOrders)).thenReturn(expectedListOrdersBean);
+    }
+
+    @Then("^getOrders returns ordersBeans$")
+    public void getorders_returns_ordersBeans() throws Throwable {
+        List<OrdersBean> actualListOrdersBean = ordersDelegate.getOrders(2L);
+
+        Assert.assertEquals(actualListOrdersBean.size(), expectedListOrdersBean.size());
+        Assert.assertEquals(actualListOrdersBean.get(0), expectedListOrdersBean.get(0));
+
+        Mockito.verify(mockedOrdersService).getOrder(2L);
+        Mockito.verify(mockedOrdersBeanMapper).mapOrdersBean(mockedListOrders);
+    }
+
+    @When("^getReceivedORders is called$")
+    public void getreceivedorders_is_called() throws Throwable {
+        expectedListOrdersBean = new ArrayList<OrdersBean>();
+        expectedListOrdersBean.add(new OrdersBean());
+        Mockito.when(mockedOrdersService.getReceivedOrders(Mockito.anyLong())).thenReturn(mockedListOrders);
+        Mockito.when(mockedOrdersBeanMapper.mapOrdersBean(mockedListOrders)).thenReturn(expectedListOrdersBean);
+    }
+
+    @Then("^getReceivedORders returns ordersBeans$")
+    public void getreceivedorders_returns_ordersBeans() throws Throwable {
+        List<OrdersBean> actualListOrdersBean = ordersDelegate.getReceivedORders(2L);
+
+        Assert.assertEquals(actualListOrdersBean.size(), expectedListOrdersBean.size());
+        Assert.assertEquals(actualListOrdersBean.get(0), expectedListOrdersBean.get(0));
+
+        Mockito.verify(mockedOrdersService).getReceivedOrders(2L);
+        Mockito.verify(mockedOrdersBeanMapper).mapOrdersBean(mockedListOrders);
+    }
+
+    @When("^udpateOrders is called$")
+    public void udpateorders_is_called() throws Throwable {
+        Mockito.doNothing().when(mockedOrdersService).udpateOrders(Mockito.anyLong());
+    }
+
+    @Then("^udpateOrders is called successfully$")
+    public void udpateorders_is_called_successfully() throws Throwable {
+        ordersDelegate.udpateOrders(1L);
+        Mockito.verify(mockedOrdersService).udpateOrders(1L);
     }
 
     @When("^getTotalSold is called$")

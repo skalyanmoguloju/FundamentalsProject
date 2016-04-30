@@ -31,6 +31,7 @@ public class ItemsServiceSteps {
 
     private List<Items> expectedListItems;
     private List<Long> expectedListSoldCounts;
+    private List<String> expectedListCatgs;
 
     @Given("^mock ItemsService is initialized$")
     public void mock_itemsservice_is_initialized() throws Throwable {
@@ -178,7 +179,7 @@ public class ItemsServiceSteps {
             Assert.assertEquals(actualListItems.get(x).getPrice(), expectedListItems.get(x).getPrice(), 1E-15);
         }
 
-        Mockito.verify(mockedItemsRepository).getAllItemsContainingSearchTerm("some term","vv");
+        Mockito.verify(mockedItemsRepository).getAllItemsContainingSearchTerm("some term","v");
     }
 
     /************************************************/
@@ -206,4 +207,49 @@ public class ItemsServiceSteps {
         Assert.assertEquals(actualListSoldCounts.get(0), expectedListSoldCounts.get(0));
         Mockito.verify(mockedItemsRepository).updateSoldCount(items);
     }
+
+    @When("^getAllCatItemsContainingSearchTerm\\(\\) is called$")
+    public void getallcatitemscontainingsearchterm_is_called() throws Throwable {
+        Mockito.when(mockedItemsRepository.getAllCatItemsContainingSearchTerm(Mockito.anyString())).thenReturn(expectedListItems);
+    }
+
+    @Then("^a list of items is returned for getAllCatItemsContainingSearchTerm$")
+    public void a_list_of_items_is_returned_for_getAllCatItemsContainingSearchTerm() throws Throwable {
+        List<Items> actualListItems = itemsService.getAllCatItemsContainingSearchTerm("some term");
+
+        Assert.assertEquals(actualListItems.size(), expectedListItems.size());
+        for (int x=0; x<expectedListItems.size(); x++) {
+            Assert.assertEquals(actualListItems.get(x).getCategory(), expectedListItems.get(x).getCategory());
+            Assert.assertEquals(actualListItems.get(x).getDate(), expectedListItems.get(x).getDate());
+            Assert.assertEquals(actualListItems.get(x).getImages(), expectedListItems.get(x).getImages());
+            Assert.assertEquals(actualListItems.get(x).getItem_id(), expectedListItems.get(x).getItem_id());
+            Assert.assertEquals(actualListItems.get(x).getItem_name(), expectedListItems.get(x).getItem_name());
+            Assert.assertEquals(actualListItems.get(x).getItem_description(), expectedListItems.get(x).getItem_description());
+            Assert.assertEquals(actualListItems.get(x).getUser_id(), expectedListItems.get(x).getUser_id());
+            Assert.assertEquals(actualListItems.get(x).getOnsale_count(), expectedListItems.get(x).getOnsale_count());
+            Assert.assertEquals(actualListItems.get(x).getPrice(), expectedListItems.get(x).getPrice(), 1E-15);
+            Assert.assertEquals(actualListItems.get(x).getSold_count(), expectedListItems.get(x).getSold_count());
+        }
+
+        Mockito.verify(mockedItemsRepository).getAllCatItemsContainingSearchTerm("some term");
+    }
+
+    @Given("^expected list of catgs is initialized for getAllCatgs in ItemsService$")
+    public void expected_list_of_catgs_is_initialized_for_getAllCatgs_in_ItemsService() throws Throwable {
+        expectedListCatgs = new ArrayList<String>();
+        expectedListCatgs.add("cat1");
+    }
+
+    @When("^getAllCatgs\\(\\) is called$")
+    public void getallcatgs_is_called() throws Throwable {
+       Mockito.when(mockedItemsRepository.getAllCatgs()).thenReturn(expectedListCatgs);
+    }
+
+    @Then("^a list of catgs is returned for getAllCatgs in ItemsService$")
+    public void a_list_of_catgs_is_returned_for_getAllCatgs_in_ItemsService() throws Throwable {
+        List<String> result = itemsService.getAllCatgs();
+        Assert.assertEquals(result.size(), expectedListCatgs.size());
+        Assert.assertEquals(result.get(0), expectedListCatgs.get(0));
+    }
+
 }
