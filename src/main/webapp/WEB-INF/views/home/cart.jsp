@@ -225,7 +225,7 @@
 
                     $scope.submitUpdateAddress = function(addr) {
                         console.log(addr);
-                        if($scope.validateUpdateAddressForm(addr) == true) {
+                        if(true ) {
                             $http.post('updateShippingAddress', addr)
                                     .success(function (response) {
                                         console.log(response);
@@ -254,10 +254,6 @@
                         else if(newAdd.state == "" || newAdd.state == undefined)
                         {
                             document.getElementById('lbUpdateAddressID' + newAdd.address_Id).innerHTML = 'State cannot be empty';
-                            return false;
-                        }
-                        else if(!newAdd.state.match(/^([a-z]|[A-Z])([a-z]|[A-Z])$/i)) {
-                            document.getElementById('lbUpdateAddressID' + newAdd.address_Id).innerHTML = 'Please enter 2-letter state (E.g. IA)';
                             return false;
                         }
                         else if(newAdd.zip == "" || newAdd.zip == undefined)

@@ -82,11 +82,11 @@
                                         .success(function (response) {
                                             console.log(response);
                                             alert("Items have been shipped!!")
-
+                                            location.reload();
                                         });
 
                             }
-                            location.reload();
+
 
                         }
 

@@ -65,7 +65,7 @@
                                         alert("Successfully promoted Manager No." + response + " to Admin");
                                     }
                                     $scope.listManagers();
-                                    window.location.href = "/manage managers";
+                                    window.location.href = "/manage users";
                                 });
                     };
 
