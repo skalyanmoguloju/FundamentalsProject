@@ -132,3 +132,41 @@ Feature: Check UserRepository
     And expected empty list of ids is initialized for UserRepository
     When addNewManager() is called with Exception for UserRepository
     Then a list of ids is empty for addNewManager in UserRepository
+
+# Test getAllManagers
+  Scenario: getAllManagers returns some users
+    Given mock UserRepository is initialized
+    And expected list of users is initialized
+    When getAllManagers() is called
+    Then a list of users is returned for getAllManagers
+
+# Test getAllNewManagers
+  Scenario: getAllNewManagers returns some users
+    Given mock UserRepository is initialized
+    And expected list of users is initialized
+    When getAllNewManagers() is called
+    Then a list of users is returned for getAllNewManagers
+
+# Test promoteManager
+  Scenario: promoteManager is called successfully
+    Given mock UserRepository is initialized
+    When promoteManager() is called
+    Then promoteManager is successfully called
+
+# Test approveManager
+  Scenario: approveManager is called successfully
+    Given mock UserRepository is initialized
+    When approveManager() is called
+    Then approveManager is successfully called
+
+# Test declineManager
+  Scenario: declineManager is called successfully
+    Given mock UserRepository is initialized
+    When declineManager() is called
+    Then declineManager is successfully called
+
+# Test updateOtherInfo
+  Scenario: updateOtherInfo is called successfully
+    Given mock UserRepository is initialized
+    When updateOtherInfo() is called
+    Then updateOtherInfo is successfully called

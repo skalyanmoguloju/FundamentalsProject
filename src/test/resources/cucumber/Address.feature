@@ -34,3 +34,8 @@ Feature: Check Address
     Given Address is set up
     When zip 52240 is set
     Then getZip returns zip 52240
+
+  Scenario: getPhone returns phone
+    Given Address is set up
+    When phone 111111111111 is set
+    Then getPhone returns zip 111111111111

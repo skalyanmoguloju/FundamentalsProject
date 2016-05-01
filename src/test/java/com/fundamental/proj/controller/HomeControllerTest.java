@@ -102,11 +102,22 @@ public class HomeControllerTest {
         Mockito.when(mockedUserDelegate.getUserPasswordWithEmail(Mockito.any(UserBean.class))).thenReturn("");
         Mockito.when(mockedUserDelegate.adduser(Mockito.any(UserBean.class))).thenReturn(id);
         actualList = homeController.Signup(userBean);
-        Assert.assertEquals(actualList.size(), 1);
+        Assert.assertEquals(actualList.size(), 3);
         Assert.assertEquals(actualList.get(0), "Done");
 
         Mockito.verify(mockedUserDelegate, Mockito.atLeastOnce()).getUserPasswordWithEmail(userBean);
         Mockito.verify(mockedUserDelegate).adduser(userBean);
+    }
+
+    @Test
+    public void sendEmailVerificationTest() {
+        UserBean userBean = new UserBean();
+        userBean.setId(1L);
+        userBean.setEmail("test@gmail.com");
+
+        List<Long> result = homeController.sendEmailVerification(userBean);
+        Assert.assertEquals(result.size(), 0);
+
     }
 
     @Test

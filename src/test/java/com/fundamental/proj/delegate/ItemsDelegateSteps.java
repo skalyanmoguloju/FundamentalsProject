@@ -38,7 +38,9 @@ public class ItemsDelegateSteps {
     private ItemsDelegate itemsDelegate;
 
     private List<ItemsBean> expectedListItemBean;
+    private List<Items> expectedListItem;
     private List<Long> expectedListSoldCount;
+    private List<String> expectedListItems;
 
     @Given("^mock ItemsDelegate is initialized$")
     public void mock_itemsrespository_is_initialized() throws Throwable {
@@ -159,16 +161,16 @@ public class ItemsDelegateSteps {
     /***********************************************/
     @When("^getAllItemsContainingSearchTerm\\(\\) is called for ItemsDelegate$")
     public void getallitemscontainingsearchterm_is_called_for_ItemsDelegate() throws Throwable {
-        Mockito.when(mockedItemsService.getAllItemsContainingSearchTerm(Mockito.anyString(),Mockito.anyString())).thenReturn(mockedListItems);
+        Mockito.when(mockedItemsService.getAllItemsContainingSearchTerm(Mockito.anyString(), Mockito.anyString())).thenReturn(mockedListItems);
         Mockito.when(mockedItemsBeanMapper.mapItemBean(mockedListItems)).thenReturn(expectedListItemBean);
     }
 
     @Then("^a list of itembeans is returned for getAllItemsContainingSearchTerm$")
     public void a_list_of_itembeans_is_returned_for_getAllItemsContainingSearchTerm() throws Throwable {
-        List<ItemsBean> actualList = itemsDelegate.getAllItemsContainingSearchTerm("s","c");
+        List<ItemsBean> actualList = itemsDelegate.getAllItemsContainingSearchTerm("s", "c");
         Assert.assertEquals(actualList.size(), expectedListItemBean.size());
         Assert.assertEquals(actualList.get(0), expectedListItemBean.get(0));
-        Mockito.verify(mockedItemsService).getAllItemsContainingSearchTerm("s","c");
+        Mockito.verify(mockedItemsService).getAllItemsContainingSearchTerm("s", "c");
         Mockito.verify(mockedItemsBeanMapper).mapItemBean(mockedListItems);
     }
 
@@ -197,6 +199,37 @@ public class ItemsDelegateSteps {
         Assert.assertEquals(actualList.get(0), expectedListSoldCount.get(0));
         Mockito.verify(mockedItemsBeanMapper).mapBeanToItems(itemsBean);
         Mockito.verify(mockedItemsService).updateSoldCount(mockedItems);
+    }
+
+    @Given("^expected list of items is initialized for getAllCatgs$")
+    public void expected_list_of_items_is_initialized_for_getAllCatgs() throws Throwable {
+        expectedListItems = new ArrayList<String>();
+        expectedListItems.add("item1");
+    }
+
+    @When("^getAllCatgs\\(\\) is called for ItemsDelegate$")
+    public void getallcatgs_is_called_for_ItemsDelegate() throws Throwable {
+        Mockito.when(mockedItemsService.getAllCatgs()).thenReturn(expectedListItems);
+    }
+
+    @Then("^a list of items is returned for getAllCatgs$")
+    public void a_list_of_items_is_returned_for_getAllCatgs() throws Throwable {
+        List<String> list = itemsDelegate.getAllCatgs();
+        Assert.assertEquals(list.size(), expectedListItems.size());
+        Assert.assertEquals(list.get(0), expectedListItems.get(0));
+    }
+
+    @When("^getAllCatItemsContainingSearchTerm\\(\\) is called for ItemsDelegate$")
+    public void getallcatitemscontainingsearchterm_is_called_for_ItemsDelegate() throws Throwable {
+        expectedListItem = new ArrayList<Items>();
+        expectedListItem.add(new Items());
+        Mockito.when(mockedItemsService.getAllCatItemsContainingSearchTerm(Mockito.anyString())).thenReturn(expectedListItem);
+    }
+
+    @Then("^a list of itembeans is returned for getAllCatItemsContainingSearchTerm$")
+    public void a_list_of_itembeans_is_returned_for_getAllCatItemsContainingSearchTerm() throws Throwable {
+        List<ItemsBean> list = itemsDelegate.getAllCatItemsContainingSearchTerm("cat");
+        Assert.assertEquals(list.size(), 0);
     }
 
 }

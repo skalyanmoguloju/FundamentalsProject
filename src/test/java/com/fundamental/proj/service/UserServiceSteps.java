@@ -475,4 +475,70 @@ public class UserServiceSteps {
         // verify addNewManager method is called
         Mockito.verify(mockedUserRepository).addNewManager();
     }
+
+    @When("^getAllManagers\\(\\) is called for UserService$")
+    public void getallmanagers_is_called_for_UserService() throws Throwable {
+        Mockito.when(mockedUserRepository.getAllManagers()).thenReturn(expectedListUser);
+    }
+
+    @Then("^a list of users is returned for getAllManagers for UserService$")
+    public void a_list_of_users_is_returned_for_getAllManagers_for_UserService() throws Throwable {
+        List<User> result = userService.getAllManagers();
+        Assert.assertEquals(result.size(), expectedListUser.size());
+        Assert.assertEquals(result.get(0), expectedListUser.get(0));
+    }
+
+    @When("^getAllNewManagers\\(\\) is called for UserService$")
+    public void getallnewmanagers_is_called_for_UserService() throws Throwable {
+        Mockito.when(mockedUserRepository.getAllNewManagers()).thenReturn(expectedListUser);
+    }
+
+    @Then("^a list of users is returned for getAllNewManagers for UserService$")
+    public void a_list_of_users_is_returned_for_getAllNewManagers_for_UserService() throws Throwable {
+        List<User> result = userService.getAllNewManagers();
+        Assert.assertEquals(result.size(), expectedListUser.size());
+        Assert.assertEquals(result.get(0), expectedListUser.get(0));
+    }
+
+    @When("^promoteManager\\(\\) is called for UserService$")
+    public void promotemanager_is_called_for_UserService() throws Throwable {
+        Mockito.doNothing().when(mockedUserRepository).promoteManager(Mockito.anyLong());
+
+    }
+
+    @Then("^promoteManager is successfully called for UserService$")
+    public void promotemanager_is_successfully_called_for_UserService() throws Throwable {
+        userService.promoteManager(1L);
+    }
+
+    @When("^approveManager\\(\\) is called for UserService$")
+    public void approvemanager_is_called_for_UserService() throws Throwable {
+        Mockito.doNothing().when(mockedUserRepository).approveManager(Mockito.anyLong());
+    }
+
+    @Then("^approveManager is successfully called for UserService$")
+    public void approvemanager_is_successfully_called_for_UserService() throws Throwable {
+        userService.approveManager(1L);
+    }
+
+    @When("^declineManager\\(\\) is called for UserService$")
+    public void declinemanager_is_called_for_UserService() throws Throwable {
+        Mockito.doNothing().when(mockedUserRepository).declineManager(Mockito.anyLong());
+    }
+
+    @Then("^declineManager is successfully called for UserService$")
+    public void declinemanager_is_successfully_called_for_UserService() throws Throwable {
+        userService.declineManager(1L);
+    }
+
+    @When("^updateOtherInfo\\(\\) is called for UserService$")
+    public void updateotherinfo_is_called_for_UserService() throws Throwable {
+        Mockito.doNothing().when(mockedUserRepository).updateOtherInfo(Mockito.any(User.class));
+    }
+
+    @Then("^updateOtherInfo is successfully called for UserService$")
+    public void updateotherinfo_is_successfully_called_for_UserService() throws Throwable {
+        userService.updateOtherInfo(new User());
+    }
+
 }

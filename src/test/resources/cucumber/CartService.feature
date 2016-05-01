@@ -30,3 +30,9 @@ Feature: Check CartService
     Given mock CartService is initialized
     When AddToCart() is called
     Then AddToCart has been called successfully called
+
+# Test clearCart
+  Scenario: clearCart is called successfully
+    Given mock CartService is initialized
+    When clearCart() is called
+    Then clearCart has been called successfully called

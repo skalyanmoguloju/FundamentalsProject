@@ -13,6 +13,7 @@ import cucumber.api.java.en.And;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
+import org.hibernate.search.indexes.serialization.javaserialization.impl.Add;
 import org.junit.Assert;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
@@ -44,6 +45,7 @@ public class AddressDelegateSteps {
     private AddressDelegate addressDelegate;
 
     private List<AddressBean> expectedListAddressBean;
+    private List<Long> expectedAddressIDs;
 
     @Given("^mock AddressDelegate is initialized$")
     public void mock_addressDelegate_is_initialized() throws Throwable {
@@ -95,6 +97,26 @@ public class AddressDelegateSteps {
         Assert.assertEquals(actualList.get(0), expectedListAddressBean.get(0));
         Mockito.verify(mockedAddressService).getAddress(1L);
         Mockito.verify(mockedAddressBeanMapper).mapAddressBean(mockedAddressList);
+    }
+
+
+    @Given("^expected list of addressIDs is initialized$")
+    public void expected_list_of_addressIDs_is_initialized() throws Throwable {
+        expectedAddressIDs = new ArrayList<Long>();
+        expectedAddressIDs.add(1L);
+    }
+
+    @When("^addAddress\\(\\) is called for AddressDelegate$")
+    public void addaddress_is_called_for_AddressDelegate() throws Throwable {
+        Mockito.when(mockedAddressBeanMapper.mapBeanToAddress(Mockito.any(AddressBean.class))).thenReturn(mockedAddress);
+        Mockito.when(mockedAddressService.addAddress(mockedAddress)).thenReturn(expectedAddressIDs);
+    }
+
+    @Then("^a list of IDs is returned for addAddress$")
+    public void a_list_of_IDs_is_returned_for_addAddress() throws Throwable {
+        List<Long> list = addressDelegate.addAddress(new AddressBean());
+        Assert.assertEquals(list.size(), expectedAddressIDs.size());
+        Assert.assertEquals(list.get(0), expectedAddressIDs.get(0));
     }
 
 }

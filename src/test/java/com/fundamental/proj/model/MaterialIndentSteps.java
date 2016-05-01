@@ -1,5 +1,6 @@
 package com.fundamental.proj.model;
 
+import cucumber.api.java.cs.A;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
@@ -23,12 +24,14 @@ public class MaterialIndentSteps {
 
     @When("^items user_id (\\d+) is set for MaterialIndent$")
     public void items_user_id_is_set_for_MaterialIndent(int arg1) throws Throwable {
-        materialIndent.getUser().setId(arg1);
+        User user = new User();
+        user.setId(arg1);
+        materialIndent.setUser(user);
     }
 
     @Then("^items getUser_id returns (\\d+) for MaterialIndent$")
     public void items_getUser_id_returns_for_MaterialIndent(int arg1) throws Throwable {
-        Assert.assertEquals(materialIndent.getUser(), arg1);
+        Assert.assertEquals(materialIndent.getUser().getId(), arg1, 1E-15);
     }
 
     @Given("^indent_id is set up for MaterialIndent$")
@@ -122,4 +125,22 @@ public class MaterialIndentSteps {
     public void getcard_exp_returns(String arg1) throws Throwable {
         materialIndent.getCard_exp();
     }
+
+    @Given("^address is set up$")
+    public void address_is_set_up() throws Throwable {
+        materialIndent = new MaterialIndent();
+    }
+
+    private Address address;
+    @When("^an address is set$")
+    public void an_address_is_set() throws Throwable {
+        address = new Address();
+        materialIndent.setAddress(address);
+    }
+
+    @Then("^getAddress returns address$")
+    public void getaddress_returns_address() throws Throwable {
+        Assert.assertEquals(materialIndent.getAddress(), address);
+    }
+
 }

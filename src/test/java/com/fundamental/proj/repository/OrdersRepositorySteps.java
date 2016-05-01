@@ -16,6 +16,7 @@ import org.mockito.Mockito;
 import org.mockito.MockitoAnnotations;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -55,7 +56,7 @@ public class OrdersRepositorySteps {
         expectedListOrders.add(new Orders());
 
         Mockito.when(mockedSessionFactory.getCurrentSession()).thenReturn(mockedSession);
-        Mockito.when(mockedSession.createQuery("from Orders where materialIndent.user_id=:uid")).thenReturn(mockedQuery);
+        Mockito.when(mockedSession.createQuery("from Orders where materialIndent.user.id=:uid order by order_id")).thenReturn(mockedQuery);
         Mockito.when(mockedQuery.setParameter(Mockito.eq("uid"), Mockito.anyLong())).thenReturn(mockedQuery);
         Mockito.when(mockedQuery.list()).thenReturn(expectedListOrders);
     }
@@ -67,7 +68,7 @@ public class OrdersRepositorySteps {
         Assert.assertEquals(actualListOrders.size(), expectedListOrders.size());
         Assert.assertEquals(actualListOrders.get(0), expectedListOrders.get(0));
         Mockito.verify(mockedSessionFactory).getCurrentSession();
-        Mockito.verify(mockedSession).createQuery("from Orders where materialIndent.user_id=:uid");
+        Mockito.verify(mockedSession).createQuery("from Orders where materialIndent.user.id=:uid order by order_id");
         Mockito.verify(mockedQuery).setParameter("uid", 1L);
         Mockito.verify(mockedQuery).list();
     }
@@ -84,7 +85,7 @@ public class OrdersRepositorySteps {
         expectedTotalSold.add(3L);
 
         Mockito.when(mockedSessionFactory.getCurrentSession()).thenReturn(mockedSession);
-        Mockito.when(mockedSession.createQuery("select sum(quantity) from Orders where items.item_id=:iid")).thenReturn(mockedQuery);
+        Mockito.when(mockedSession.createQuery(Mockito.anyString())).thenReturn(mockedQuery);
         Mockito.when(mockedQuery.setParameter(Mockito.eq("iid"), Mockito.anyLong())).thenReturn(mockedQuery);
         Mockito.when(mockedQuery.list()).thenReturn(expectedTotalSold);
     }
@@ -94,10 +95,62 @@ public class OrdersRepositorySteps {
         List<Long> actualTotalSold = ordersRepository.getTotalSold(1L);
 
         Assert.assertEquals(actualTotalSold.size(), expectedTotalSold.size());
-        Assert.assertEquals(actualTotalSold.get(0), expectedTotalSold.get(0));
+        Assert.assertEquals(actualTotalSold.get(0), expectedTotalSold.get(0) + expectedTotalSold.get(0), 1E-14);
         Mockito.verify(mockedSessionFactory).getCurrentSession();
-        Mockito.verify(mockedSession).createQuery("select sum(quantity) from Orders where items.item_id=:iid");
-        Mockito.verify(mockedQuery).setParameter("iid", 1L);
-        Mockito.verify(mockedQuery).list();
+        Mockito.verify(mockedQuery, Mockito.atLeastOnce()).list();
     }
+
+
+    @When("^getOrderById\\(\\) is called$")
+    public void getorderbyid_is_called() throws Throwable {
+        expectedListOrders = new ArrayList<Orders>();
+        expectedListOrders.add(new Orders());
+
+        Mockito.when(mockedSessionFactory.getCurrentSession()).thenReturn(mockedSession);
+        Mockito.when(mockedSession.createQuery("from Orders where order_id=:oid")).thenReturn(mockedQuery);
+        Mockito.when(mockedQuery.setParameter(Mockito.eq("oid"), Mockito.anyLong())).thenReturn(mockedQuery);
+        Mockito.when(mockedQuery.list()).thenReturn(expectedListOrders);
+    }
+
+    @Then("^getOrderById returns a list of orders$")
+    public void getorderbyid_returns_a_list_of_orders() throws Throwable {
+        List<Orders> result = ordersRepository.getOrderById(1L);
+        Assert.assertEquals(result.size(), expectedListOrders.size());
+        Assert.assertEquals(result.get(0), expectedListOrders.get(0));
+    }
+
+    @When("^getReceivedOrders\\(\\) is called$")
+    public void getreceivedorders_is_called() throws Throwable {
+        expectedListOrders = new ArrayList<Orders>();
+        expectedListOrders.add(new Orders());
+
+        Mockito.when(mockedSessionFactory.getCurrentSession()).thenReturn(mockedSession);
+        Mockito.when(mockedSession.createQuery("from Orders where items.user_id=:uid order by purchase_date")).thenReturn(mockedQuery);
+        Mockito.when(mockedQuery.setParameter(Mockito.eq("uid"), Mockito.anyLong())).thenReturn(mockedQuery);
+        Mockito.when(mockedQuery.list()).thenReturn(expectedListOrders);
+    }
+
+    @Then("^getReceivedOrders returns a list of orders$")
+    public void getreceivedorders_returns_a_list_of_orders() throws Throwable {
+        List<Orders> result = ordersRepository.getReceivedOrders(1L);
+        Assert.assertEquals(result.size(), expectedListOrders.size());
+        Assert.assertEquals(result.get(0), expectedListOrders.get(0));
+    }
+
+    @When("^udpateOrders\\(\\) is called$")
+    public void udpateorders_is_called() throws Throwable {
+        Mockito.when(mockedSessionFactory.getCurrentSession()).thenReturn(mockedSession);
+        Mockito.when(mockedSession.createQuery("update Orders set status=:val, delivery_date=:val2 where order_id=:iid")).thenReturn(mockedQuery);
+        Mockito.when(mockedQuery.setParameter(Mockito.eq("iid"), Mockito.anyLong())).thenReturn(mockedQuery);
+        Mockito.when(mockedQuery.setParameter(Mockito.eq("val"), Mockito.eq("Delivered"))).thenReturn(mockedQuery);
+        Mockito.when(mockedQuery.setParameter(Mockito.eq("val2"), Mockito.any(Date.class))).thenReturn(mockedQuery);
+        Mockito.when(mockedQuery.executeUpdate()).thenReturn(1);
+        Mockito.doNothing().when(mockedSession).flush();
+    }
+
+    @Then("^udpateOrders has been called successfully$")
+    public void udpateorders_has_been_called_successfully() throws Throwable {
+        ordersRepository.udpateOrders(1L);
+    }
+
 }

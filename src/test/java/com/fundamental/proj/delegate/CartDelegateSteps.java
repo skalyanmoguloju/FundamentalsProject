@@ -172,4 +172,18 @@ public class CartDelegateSteps {
         Mockito.verify(mockedCartBeanMapper).mapBeanToCart(cartBean);
         Mockito.verify(mockedCartService).AddToCart(mockedCart, flag);
     }
+
+
+    @When("^clearCart\\(\\) is called for CartDelegate$")
+    public void clearcart_is_called_for_CartDelegate() throws Throwable {
+        Mockito.doNothing().when(mockedCartService).clearCart(Mockito.anyLong());
+    }
+
+    @Then("^clearCart has been called successfully$")
+    public void clearcart_has_been_called_successfully() throws Throwable {
+        cartDelegate.clearCart(1L);
+
+        Mockito.verify(mockedCartService).clearCart(1L);
+    }
+
 }

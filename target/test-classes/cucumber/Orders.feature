@@ -24,3 +24,23 @@ Feature: Check Orders
     Given Orders is set up
     When quantity 3 is set for Orders
     Then getQuantity returns quantity 3 for Orders
+
+  Scenario: getType returns type
+    Given Orders is set up
+    When type "type" is set for Orders
+    Then getType returns type "type"
+
+  Scenario: getRejected_quantity returns quantity
+    Given Orders is set up
+    When rejectedQuantity 3 is set for Orders
+    Then getRejected_quantity returns quantity 3 for Orders
+
+  Scenario: getPurchase_date returns date
+    Given Orders is set up
+    When date is set for Orders
+    Then getPurchase_date returns that date
+
+  Scenario: getDelivery_date returns date
+    Given Orders is set up
+    When ddate is set for Orders
+    Then getDelivery_date returns that date

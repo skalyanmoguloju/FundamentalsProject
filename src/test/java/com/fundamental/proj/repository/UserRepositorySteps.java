@@ -42,6 +42,7 @@ public class UserRepositorySteps {
     private List<User> expectedListUser;
     private List<Long> expectedListID;
     private List<String> expectedListPswd;
+    private List<String> expectedListRole;
 
     @Given("^mock UserRepository is initialized$")
     public void mock_userrepository_is_initialized() throws Throwable {
@@ -378,10 +379,11 @@ public class UserRepositorySteps {
     /************************************************/
     @When("^verifyUser\\(\\) is called$")
     public void verifyuser_is_called() throws Throwable {
+        expectedListRole = new ArrayList<String>();
+        expectedListRole.add("Manager");
         Mockito.when(mockedSessionFactory.getCurrentSession()).thenReturn(mockedSession);
-        Mockito.when(mockedSession.createQuery("update User set status=:sts where id=:id")).thenReturn(mockedQuery);
-        Mockito.when(mockedQuery.setParameter(Mockito.eq("sts"), Mockito.anyString())).thenReturn(mockedQuery);
-        Mockito.when(mockedQuery.setParameter(Mockito.eq("id"), Mockito.anyLong())).thenReturn(mockedQuery);
+        Mockito.when(mockedSession.createQuery(Mockito.anyString())).thenReturn(mockedQuery);
+        Mockito.when(mockedQuery.list()).thenReturn(expectedListRole);
         Mockito.when(mockedQuery.executeUpdate()).thenReturn(0);
         Mockito.doNothing().when(mockedSession).flush();
     }
@@ -391,13 +393,9 @@ public class UserRepositorySteps {
         Long id = 1L;
         userRepository.verifyUser(id);
 
-        // verify verifyUser method has been called successfully
-        Mockito.verify(mockedSessionFactory).getCurrentSession();
-        Mockito.verify(mockedSession).createQuery("update User set status=:sts where id=:id");
-        Mockito.verify(mockedQuery).setParameter("sts", "Active");
-        Mockito.verify(mockedQuery).setParameter("id", id);
-        Mockito.verify(mockedQuery).executeUpdate();
-        Mockito.verify(mockedSession).flush();
+        expectedListRole = new ArrayList<String>();
+        expectedListRole.add("User");
+        userRepository.verifyUser(id);
     }
 
     /************************************************/
@@ -408,7 +406,7 @@ public class UserRepositorySteps {
     @When("^resetPswd\\(\\) is called$")
     public void resetpswd_is_called() throws Throwable {
         Mockito.when(mockedSessionFactory.getCurrentSession()).thenReturn(mockedSession);
-        Mockito.when(mockedSession.createQuery("update User set password=:pswd where id=:id")).thenReturn(mockedQuery);
+        Mockito.when(mockedSession.createQuery("update User set pwsd=:pswd where id=:id")).thenReturn(mockedQuery);
         Mockito.when(mockedQuery.setParameter(Mockito.eq("pswd"), Mockito.anyString())).thenReturn(mockedQuery);
         Mockito.when(mockedQuery.setParameter(Mockito.eq("id"), Mockito.anyLong())).thenReturn(mockedQuery);
         Mockito.when(mockedQuery.executeUpdate()).thenReturn(1);
@@ -424,7 +422,7 @@ public class UserRepositorySteps {
 
         // verify resetPswd method has been called successfully
         Mockito.verify(mockedSessionFactory).getCurrentSession();
-        Mockito.verify(mockedSession).createQuery("update User set password=:pswd where id=:id");
+        Mockito.verify(mockedSession).createQuery("update User set pwsd=:pswd where id=:id");
         Mockito.verify(mockedQuery).setParameter("pswd", pswd);
         Mockito.verify(mockedQuery).setParameter("id", id);
         Mockito.verify(mockedQuery).executeUpdate();
@@ -593,6 +591,145 @@ public class UserRepositorySteps {
 
         // verify addNewManager method has been called
         Mockito.verify(mockedSessionFactory).getCurrentSession();
+    }
+
+    @When("^getAllManagers\\(\\) is called$")
+    public void getallmanagers_is_called() throws Throwable {
+        Mockito.when(mockedSessionFactory.getCurrentSession()).thenReturn(mockedSession);
+        Mockito.when(mockedSession.createQuery("from User where role=:rolename and status!=:statusname")).thenReturn(mockedQuery);
+        Mockito.when(mockedQuery.setParameter(Mockito.eq("rolename"), Mockito.eq("Manager"))).thenReturn(mockedQuery);
+        Mockito.when(mockedQuery.setParameter(Mockito.eq("statusname"), Mockito.eq("null"))).thenReturn(mockedQuery);
+        Mockito.when(mockedQuery.list()).thenReturn(expectedListUser);
+    }
+
+    @Then("^a list of users is returned for getAllManagers$")
+    public void a_list_of_users_is_returned_for_getAllManagers() throws Throwable {
+        List<User> result = userRepository.getAllManagers();
+        Assert.assertEquals(result.size(), expectedListUser.size());
+        Assert.assertEquals(result.get(0), expectedListUser.get(0));
+    }
+
+    @When("^getAllNewManagers\\(\\) is called$")
+    public void getallnewmanagers_is_called() throws Throwable {
+        Mockito.when(mockedSessionFactory.getCurrentSession()).thenReturn(mockedSession);
+        Mockito.when(mockedSession.createQuery("from User where role=:rolename and status=:statusname")).thenReturn(mockedQuery);
+        Mockito.when(mockedQuery.setParameter(Mockito.eq("rolename"), Mockito.eq("User"))).thenReturn(mockedQuery);
+        Mockito.when(mockedQuery.setParameter(Mockito.eq("statusname"), Mockito.eq("Pending Manager"))).thenReturn(mockedQuery);
+        Mockito.when(mockedQuery.list()).thenReturn(expectedListUser);
+    }
+
+    @Then("^a list of users is returned for getAllNewManagers$")
+    public void a_list_of_users_is_returned_for_getAllNewManagers() throws Throwable {
+        List<User> result = userRepository.getAllNewManagers();
+        Assert.assertEquals(result.size(), expectedListUser.size());
+        Assert.assertEquals(result.get(0), expectedListUser.get(0));
+    }
+
+    @When("^promoteManager\\(\\) is called$")
+    public void promotemanager_is_called() throws Throwable {
+        Mockito.when(mockedSessionFactory.getCurrentSession()).thenReturn(mockedSession);
+        Mockito.when(mockedSession.createQuery("update User set role=:role where id=:id")).thenReturn(mockedQuery);
+        Mockito.when(mockedQuery.setParameter(Mockito.eq("role"), Mockito.eq("Admin"))).thenReturn(mockedQuery);
+        Mockito.when(mockedQuery.setParameter(Mockito.eq("id"), Mockito.anyLong())).thenReturn(mockedQuery);
+        Mockito.when(mockedQuery.executeUpdate()).thenReturn(1);
+        Mockito.doNothing().when(mockedSession).flush();
+    }
+
+    @Then("^promoteManager is successfully called$")
+    public void promotemanager_is_successfully_called() throws Throwable {
+        userRepository.promoteManager(1L);
+
+        Mockito.verify(mockedSessionFactory).getCurrentSession();
+        Mockito.verify(mockedSession).createQuery("update User set role=:role where id=:id");
+        Mockito.verify(mockedQuery).setParameter("role", "Admin");
+        Mockito.verify(mockedQuery).setParameter("id", 1L);
+        Mockito.verify(mockedQuery).executeUpdate();
+        Mockito.verify(mockedSession).flush();
+    }
+
+    @When("^approveManager\\(\\) is called$")
+    public void approvemanager_is_called() throws Throwable {
+        Mockito.when(mockedSessionFactory.getCurrentSession()).thenReturn(mockedSession);
+        Mockito.when(mockedSession.createQuery("update User set role=:role, status=:status where id=:id")).thenReturn(mockedQuery);
+        Mockito.when(mockedQuery.setParameter(Mockito.eq("role"), Mockito.eq("Manager"))).thenReturn(mockedQuery);
+        Mockito.when(mockedQuery.setParameter(Mockito.eq("status"), Mockito.eq("Active"))).thenReturn(mockedQuery);
+        Mockito.when(mockedQuery.setParameter(Mockito.eq("id"), Mockito.anyLong())).thenReturn(mockedQuery);
+        Mockito.when(mockedQuery.executeUpdate()).thenReturn(1);
+        Mockito.doNothing().when(mockedSession).flush();
+    }
+
+    @Then("^approveManager is successfully called$")
+    public void approvemanager_is_successfully_called() throws Throwable {
+        userRepository.approveManager(1L);
+
+        Mockito.verify(mockedSessionFactory).getCurrentSession();
+        Mockito.verify(mockedSession).createQuery("update User set role=:role, status=:status where id=:id");
+        Mockito.verify(mockedQuery).setParameter("role", "Manager");
+        Mockito.verify(mockedQuery).setParameter("status", "Active");
+        Mockito.verify(mockedQuery).setParameter("id", 1L);
+        Mockito.verify(mockedQuery).executeUpdate();
+        Mockito.verify(mockedSession).flush();
+    }
+
+    @When("^declineManager\\(\\) is called$")
+    public void declinemanager_is_called() throws Throwable {
+        Mockito.when(mockedSessionFactory.getCurrentSession()).thenReturn(mockedSession);
+        Mockito.when(mockedSession.createQuery("update User set role=:role, status=:status where id=:id")).thenReturn(mockedQuery);
+        Mockito.when(mockedQuery.setParameter(Mockito.eq("role"), Mockito.eq("User"))).thenReturn(mockedQuery);
+        Mockito.when(mockedQuery.setParameter(Mockito.eq("status"), Mockito.eq("Active"))).thenReturn(mockedQuery);
+        Mockito.when(mockedQuery.setParameter(Mockito.eq("id"), Mockito.anyLong())).thenReturn(mockedQuery);
+        Mockito.when(mockedQuery.executeUpdate()).thenReturn(1);
+        Mockito.doNothing().when(mockedSession).flush();
+    }
+
+    @Then("^declineManager is successfully called$")
+    public void declinemanager_is_successfully_called() throws Throwable {
+        userRepository.declineManager(1L);
+
+        Mockito.verify(mockedSessionFactory).getCurrentSession();
+        Mockito.verify(mockedSession).createQuery("update User set role=:role, status=:status where id=:id");
+        Mockito.verify(mockedQuery).setParameter("role", "User");
+        Mockito.verify(mockedQuery).setParameter("status", "Active");
+        Mockito.verify(mockedQuery).setParameter("id", 1L);
+        Mockito.verify(mockedQuery).executeUpdate();
+        Mockito.verify(mockedSession).flush();
+    }
+
+    @When("^updateOtherInfo\\(\\) is called$")
+    public void updateotherinfo_is_called() throws Throwable {
+        Mockito.when(mockedSessionFactory.getCurrentSession()).thenReturn(mockedSession);
+        Mockito.when(mockedSession.createQuery("update User set name=:name,lname=:lname, email=:email, gender=:gender, dob=:dob where id=:id")).thenReturn(mockedQuery);
+        Mockito.when(mockedQuery.setParameter(Mockito.eq("id"), Mockito.anyLong())).thenReturn(mockedQuery);
+        Mockito.when(mockedQuery.setParameter(Mockito.eq("name"), Mockito.anyString())).thenReturn(mockedQuery);
+        Mockito.when(mockedQuery.setParameter(Mockito.eq("lname"), Mockito.anyString())).thenReturn(mockedQuery);
+        Mockito.when(mockedQuery.setParameter(Mockito.eq("email"), Mockito.anyString())).thenReturn(mockedQuery);
+        Mockito.when(mockedQuery.setParameter(Mockito.eq("gender"), Mockito.anyString())).thenReturn(mockedQuery);
+        Mockito.when(mockedQuery.setParameter(Mockito.eq("dob"), Mockito.any(Date.class))).thenReturn(mockedQuery);
+        Mockito.when(mockedQuery.executeUpdate()).thenReturn(1);
+        Mockito.doNothing().when(mockedSession).flush();
+    }
+
+    @Then("^updateOtherInfo is successfully called$")
+    public void updateotherinfo_is_successfully_called() throws Throwable {
+        User user = new User();
+        user.setId(1L);
+        user.setName("name");
+        user.setLname("lname");
+        user.setEmail("test@gmail.com");
+        user.setGender("M");
+        user.setDob(new Date());
+        userRepository.updateOtherInfo(user);
+
+        Mockito.verify(mockedSessionFactory).getCurrentSession();
+        Mockito.verify(mockedSession).createQuery("update User set name=:name,lname=:lname, email=:email, gender=:gender, dob=:dob where id=:id");
+        Mockito.verify(mockedQuery).setParameter("id", user.getId());
+        Mockito.verify(mockedQuery).setParameter("name", user.getName());
+        Mockito.verify(mockedQuery).setParameter("lname", user.getLname());
+        Mockito.verify(mockedQuery).setParameter("email", user.getEmail());
+        Mockito.verify(mockedQuery).setParameter("gender", user.getGender());
+        Mockito.verify(mockedQuery).setParameter("dob", user.getDob());
+        Mockito.verify(mockedQuery).executeUpdate();
+        Mockito.verify(mockedSession).flush();
     }
 
 }

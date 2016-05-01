@@ -144,3 +144,41 @@ Feature: Check UserService
     And expected empty list of ids is initialized
     When addNewManager() is called
     Then a list of ids is empty for addNewManager
+
+# Test getAllManagers
+  Scenario: getAllManagers returns some users
+    Given mock UserService is initialized
+    And expected list of users is initialized
+    When getAllManagers() is called for UserService
+    Then a list of users is returned for getAllManagers for UserService
+
+  # Test getAllNewManagers
+  Scenario: getAllNewManagers returns some users
+    Given mock UserService is initialized
+    And expected list of users is initialized
+    When getAllNewManagers() is called for UserService
+    Then a list of users is returned for getAllNewManagers for UserService
+
+# Test promoteManager
+  Scenario: promoteManager is called successfully
+    Given mock UserService is initialized
+    When promoteManager() is called for UserService
+    Then promoteManager is successfully called for UserService
+
+# Test approveManager
+  Scenario: approveManager is called successfully
+    Given mock UserService is initialized
+    When approveManager() is called for UserService
+    Then approveManager is successfully called for UserService
+
+# Test declineManager
+  Scenario: declineManager is called successfully
+    Given mock UserService is initialized
+    When declineManager() is called for UserService
+    Then declineManager is successfully called for UserService
+
+# Test updateOtherInfo
+  Scenario: updateOtherInfo is called successfully
+    Given mock UserService is initialized
+    When updateOtherInfo() is called for UserService
+    Then updateOtherInfo is successfully called for UserService

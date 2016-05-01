@@ -77,3 +77,41 @@ Feature: Check UserDelegate
     And expected list of ids is initialized for addNewManager
     When addNewManager() is called for UserDelegate
     Then a list of ids is returned for addNewManager in UserDelegate
+
+# Test getAllManagers
+  Scenario: getAllManagers returns some users
+    Given mock UserDelegate is initialized
+    And expected users are initialized for getUserList
+    When getAllManagers() is called for UserDelegate
+    Then a list of users is returned for getAllManagers in UserDelegate
+
+# Test getAllNewManagers
+  Scenario: getAllNewManagers returns some users
+    Given mock UserDelegate is initialized
+    And expected users are initialized for getUserList
+    When getAllNewManagers() is called for UserDelegate
+    Then a list of users is returned for getAllNewManagers in UserDelegate
+
+# Test promoteManager
+  Scenario: promoteManager is called successfully
+    Given mock UserDelegate is initialized
+    When promoteManager() is called for UsersDelegate
+    Then promoteManager has been called successfully
+
+# Test approveManager
+  Scenario: approveManager is called successfully
+    Given mock UserDelegate is initialized
+    When approveManager() is called for UsersDelegate
+    Then approveManager has been called successfully
+
+# Test declineManager
+  Scenario: declineManager is called successfully
+    Given mock UserDelegate is initialized
+    When declineManager() is called for UsersDelegate
+    Then declineManager has been called successfully
+
+# Test updateOtherInfo
+  Scenario: updateOtherInfo is called successfully
+    Given mock UserDelegate is initialized
+    When updateOtherInfo() is called for UsersDelegate
+    Then updateOtherInfo has been called successfully

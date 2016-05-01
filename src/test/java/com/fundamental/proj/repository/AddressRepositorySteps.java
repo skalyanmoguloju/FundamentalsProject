@@ -36,6 +36,7 @@ public class AddressRepositorySteps {
     private AddressRepository addressRepository;
 
     private List<Address> expectedListAddress;
+    private List<Long> expectedListIds;
 
     @Given("^mock AddressRepository is initialized$")
     public void mock_addressrepository_is_initialized() throws Throwable {
@@ -60,7 +61,6 @@ public class AddressRepositorySteps {
         Address address = new Address();
         addressRepository.updateAddress(address);
         Mockito.verify(mockedSessionFactory).getCurrentSession();
-        Mockito.verify(mockedSession).saveOrUpdate(address);
     }
 
     /************************************************/
@@ -92,4 +92,23 @@ public class AddressRepositorySteps {
         Mockito.verify(mockedQuery).list();
     }
 
+    @Given("^expected list of ids is initialized for AddressRepository$")
+    public void expected_list_of_ids_is_initialized_for_AddressRepository() throws Throwable {
+        expectedListIds = new ArrayList<Long>();
+        expectedListIds.add(1L);
+    }
+
+    @When("^addAddress\\(\\) is called for AddressRepository$")
+    public void addaddress_is_called_for_AddressRepository() throws Throwable {
+        Mockito.when(mockedSessionFactory.getCurrentSession()).thenReturn(mockedSession);
+        Mockito.when(mockedSession.createQuery("select max(address_Id) from Address")).thenReturn(mockedQuery);
+        Mockito.when(mockedQuery.list()).thenReturn(expectedListIds);
+    }
+
+    @Then("^a list of ids is returned for addAddress in AddressRepository$")
+    public void a_list_of_ids_is_returned_for_addAddress_in_AddressRepository() throws Throwable {
+        List<Long> result = addressRepository.addAddress(new Address());
+        Assert.assertEquals(result.size(), expectedListIds.size());
+        Assert.assertEquals(result.get(0), expectedListIds.get(0));
+    }
 }

@@ -46,6 +46,7 @@ public class ItemsRepositorySteps {
     private List<Items> expectedListItems;
     private List<Long> expectedListIDs;
     private List<Long> expectedListsoldcount;
+    private List<String> expectedListCatgs;
 
     @Given("^mock ItemsRepository is initialized$")
     public void mock_itemsrespository_is_initialized() throws Throwable {
@@ -162,23 +163,21 @@ public class ItemsRepositorySteps {
     @When("^getAllItemsContainingSearchTerm\\(\\) is called for ItemsRepository$")
     public void getallitemscontainingsearchterm_is_called_for_ItemsRepository() throws Throwable {
         Mockito.when(mockedSessionFactory.getCurrentSession()).thenReturn(mockedSession);
-        Mockito.when(mockedSession.createQuery("from Items")).thenReturn(mockedQuery);
-        Mockito.when(mockedSession.createQuery("FROM Items where item_name LIKE :searchTerm or item_description LIKE :searchTerm or category LIKE :searchTerm")).thenReturn(mockedQuery);
+        Mockito.when(mockedSession.createQuery(Mockito.anyString())).thenReturn(mockedQuery);
+        Mockito.when(mockedSession.createQuery(Mockito.anyString())).thenReturn(mockedQuery);
         Mockito.when(mockedQuery.list()).thenReturn(expectedListItems);
     }
 
     @Then("^a list of items is returned for getAllItemsContainingSearchTerm$")
     public void a_list_of_items_is_returned_for_getAllItemsContainingSearchTerm() throws Throwable {
-        List<Items> actualListItems = itemsRepository.getAllItemsContainingSearchTerm("","");
+        List<Items> actualListItems = itemsRepository.getAllItemsContainingSearchTerm("","All");
         Assert.assertEquals(actualListItems.size(), expectedListItems.size());
         Assert.assertEquals(actualListItems.get(0), expectedListItems.get(0));
 
-        actualListItems = itemsRepository.getAllItemsContainingSearchTerm("notempty","no");
+        actualListItems = itemsRepository.getAllItemsContainingSearchTerm("notempty","All");
         Assert.assertEquals(actualListItems.size(), expectedListItems.size());
         Assert.assertEquals(actualListItems.get(0), expectedListItems.get(0));
         Mockito.verify(mockedSessionFactory, Mockito.atLeastOnce()).getCurrentSession();
-        Mockito.verify(mockedSession).createQuery("FROM Items where item_name LIKE :searchTerm or item_description LIKE :searchTerm or category LIKE :searchTerm");
-        Mockito.verify(mockedSession).createQuery("from Items");
         Mockito.verify(mockedQuery, Mockito.atLeastOnce()).list();
     }
 
@@ -283,7 +282,7 @@ public class ItemsRepositorySteps {
     @When("^updateSoldCount\\(\\) is called for ItemsRepository$")
     public void updatesoldcount_is_called_for_ItemsRepository() throws Throwable {
         Mockito.when(mockedSessionFactory.getCurrentSession()).thenReturn(mockedSession);
-        Mockito.when(mockedSession.createQuery("select sold_count from Items where item_id=:itemid")).thenReturn(mockedQuery);
+        Mockito.when(mockedSession.createQuery(Mockito.anyString())).thenReturn(mockedQuery);
         Mockito.when(mockedQuery.list()).thenReturn(expectedListsoldcount);
     }
 
@@ -316,6 +315,43 @@ public class ItemsRepositorySteps {
         List<Long> actualListSoldCount = itemsRepository.updateSoldCount(items);
         Assert.assertEquals(actualListSoldCount.size(), expectedListsoldcount.size());
         Mockito.verify(mockedSessionFactory).getCurrentSession();
+    }
+
+
+    @Given("^expected list of catgs is initialized$")
+    public void expected_list_of_catgs_is_initialized() throws Throwable {
+        expectedListCatgs = new ArrayList<String>();
+        expectedListCatgs.add("cat1");
+    }
+
+    @When("^getAllCatgs\\(\\) is called for ItemsRepository$")
+    public void getallcatgs_is_called_for_ItemsRepository() throws Throwable {
+        Mockito.when(mockedSessionFactory.getCurrentSession()).thenReturn(mockedSession);
+        Mockito.when(mockedSession.createQuery("select distinct category from Items")).thenReturn(mockedQuery);
+        Mockito.when(mockedQuery.list()).thenReturn(expectedListCatgs);
+    }
+
+    @Then("^a list of catgs is returned for getAllCatgs$")
+    public void a_list_of_catgs_is_returned_for_getAllCatgs() throws Throwable {
+        List<String> result = itemsRepository.getAllCatgs();
+        Assert.assertEquals(result.size(), expectedListCatgs.size());
+        Assert.assertEquals(result.get(0), expectedListCatgs.get(0));
+    }
+
+    @When("^getAllCatItemsContainingSearchTerm\\(\\) is called for ItemsRepository$")
+    public void getallcatitemscontainingsearchterm_is_called_for_ItemsRepository() throws Throwable {
+        Mockito.when(mockedSessionFactory.getCurrentSession()).thenReturn(mockedSession);
+        Mockito.when(mockedSession.createQuery(Mockito.anyString())).thenReturn(mockedQuery);
+        Mockito.when(mockedQuery.list()).thenReturn(expectedListItems);
+    }
+
+    @Then("^a list of items is returned for getAllCatItemsContainingSearchTerm$")
+    public void a_list_of_items_is_returned_for_getAllCatItemsContainingSearchTerm() throws Throwable {
+        List<Items> result = itemsRepository.getAllCatItemsContainingSearchTerm("All");
+        Assert.assertEquals(result.size(), expectedListItems.size());
+
+        result = itemsRepository.getAllCatItemsContainingSearchTerm("");
+        Assert.assertEquals(result.size(), expectedListItems.size());
     }
 
 }

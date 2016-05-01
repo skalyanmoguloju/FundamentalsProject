@@ -82,4 +82,49 @@ public class OrdersServiceSteps {
         Assert.assertEquals(actualListSoldCounts.get(0), expectedListSoldCounts.get(0));
         Mockito.verify(mockedOrdersRepository).getTotalSold(1L);
     }
+
+    @When("^getReceivedOrders\\(\\) is called for OrdersService$")
+    public void getreceivedorders_is_called_for_OrdersService() throws Throwable {
+        expectedListOrders = new ArrayList<Orders>();
+        expectedListOrders.add(new Orders());
+
+        Mockito.when(mockedOrdersRepository.getReceivedOrders(Mockito.anyLong())).thenReturn(expectedListOrders);
+    }
+
+    @Then("^getReceivedOrders returns list of orders$")
+    public void getreceivedorders_returns_list_of_orders() throws Throwable {
+        List<Orders> actualListOrders = ordersService.getReceivedOrders(1L);
+
+        Assert.assertEquals(actualListOrders.size(), expectedListOrders.size());
+        Assert.assertEquals(actualListOrders.get(0), expectedListOrders.get(0));
+        Mockito.verify(mockedOrdersRepository).getReceivedOrders(1L);
+    }
+
+    @When("^getOrder\\(\\) is called for OrdersService$")
+    public void getorder_is_called_for_OrdersService() throws Throwable {
+        expectedListOrders = new ArrayList<Orders>();
+        expectedListOrders.add(new Orders());
+
+        Mockito.when(mockedOrdersRepository.getOrderById(Mockito.anyLong())).thenReturn(expectedListOrders);
+    }
+
+    @Then("^getOrder returns list of orders$")
+    public void getorder_returns_list_of_orders() throws Throwable {
+        List<Orders> actualListOrders = ordersService.getOrder(1L);
+
+        Assert.assertEquals(actualListOrders.size(), expectedListOrders.size());
+        Assert.assertEquals(actualListOrders.get(0), expectedListOrders.get(0));
+        Mockito.verify(mockedOrdersRepository).getOrderById(1L);
+    }
+
+
+    @When("^udpateOrders\\(\\) is called for OrdersService$")
+    public void udpateorders_is_called_for_OrdersService() throws Throwable {
+        Mockito.doNothing().when(mockedOrdersRepository).udpateOrders(Mockito.anyLong());
+    }
+
+    @Then("^udpateOrders is called successfully for OrdersService$")
+    public void udpateorders_is_called_successfully_for_OrdersService() throws Throwable {
+        ordersService.udpateOrders(1L);
+    }
 }
