@@ -164,6 +164,11 @@
                         }
 
                     };
+                    $scope.getDate= function(date) {
+                        var d = new Date(date);
+                        var result = (d.getMonth() + 1) + "/" + d.getDate() + "/" + d.getFullYear();
+                        return result;
+                    };
                 }]);
 </script>
 <head>
@@ -215,7 +220,7 @@
                 <div class="col-xs-12 col-sm-12 col-md-2">
                     <ul class="meta-search">
                         <li><i class="glyphicon glyphicon-usd"></i> <span> {{vw.price}}</span></li>
-                        <li><i class="glyphicon glyphicon-time"></i> <span>Posted Date {{vw.data}}</span></li>
+                        <li><i class="glyphicon glyphicon-time"></i> <span>Posted Date: {{getDate(vw.date)}}</span></li>
                         <li><i class="glyphicon glyphicon-asterisk"></i> <span>Available {{vw.onsale_count - vw.sold_count}}</span></li>
                         <li><i class="glyphicon glyphicon-check"></i> <span>Total Sold {{vw.sold_count}}</span></li>
                     </ul>
