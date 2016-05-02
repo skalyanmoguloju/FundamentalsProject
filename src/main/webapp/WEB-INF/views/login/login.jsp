@@ -61,6 +61,7 @@
                                                     }
                                                     else {
                                                         $cookies.put("user", response[0].id);
+                                                        $cookies.put("alternate", "false");
                                                         window.location.href = "home"
                                                     }
                                                 }

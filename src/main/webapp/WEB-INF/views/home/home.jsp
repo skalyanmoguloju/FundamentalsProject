@@ -37,6 +37,15 @@
                                             $http.post('catList')
                                                     .success(function (response) {
                                                         $scope.Catgs = response;
+                                                        if($cookies.get("alternate").toString()=="true")
+                                                        {
+                                                            $scope.catg  = $cookies.get("catgVal").toString();
+                                                            $cookies.put("alternate", "false");
+                                                            $scope.update();
+                                                        }
+                                                        else {
+                                                            $scope.catg  = "All";
+                                                        }
                                                     });
 
                                             /* show notifications for only admin */
@@ -178,7 +187,7 @@
                     <tr>
                         <td style="width: 250px">
                             <select name="role" value="" class="form-control input-lg" ng-model = "catg" ng-change="update()" style="height: 28px">
-                                <option value="All" selected>All</option>
+                                <option value="All">All</option>
                                 <option id="{{rol}}" ng-repeat="cat in Catgs" value="{{cat}}">{{cat}}</option>
 
                             </select>

@@ -58,6 +58,13 @@
                                         });
                             });
 
+                    $scope.setAlternate = function(retrn) {
+                        console.log(retrn.ordersBean.itemsBean.category);
+                        $cookies.put("alternate", "true");
+                        $cookies.put("catgVal", retrn.ordersBean.itemsBean.category);
+                        window.location.href = "/home";
+
+                    };
                     $scope.returnSubmit = function(order){
                         console.log(order);
                         $http.post('returnrequest', {
@@ -475,6 +482,9 @@
                                                                                     <div class="input-group">
                                                                                         <label class="form-control" >{{return.resolution}}</label>
                                                                                         <span class="input-group-addon"></span>
+                                                                                    </div>
+                                                                                    <div class="form-group">
+                                                                                        <button type="submit" ng-click="setAlternate(return)" class="btn btn-primary">View Alternate Items</button>
                                                                                     </div>
                                                                                 </div>
 
