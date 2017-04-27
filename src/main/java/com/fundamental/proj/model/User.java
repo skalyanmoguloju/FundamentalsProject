@@ -12,7 +12,7 @@ import java.io.Serializable;
  */
 
 @Entity
-@Table(name = "User")
+@Table(name = "user")
 public class User{
 
     @Id

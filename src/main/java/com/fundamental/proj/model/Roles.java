@@ -6,7 +6,7 @@ import java.io.Serializable;
  * Created by sai on 2/22/16.
  */
 @Entity
-@Table(name = "Roles")
+@Table(name = "roles")
 public class Roles {
 
     @Id
