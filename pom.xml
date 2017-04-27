@@ -317,7 +317,6 @@
                         <id>exec-npm-install</id>
                         <phase>generate-sources</phase>
                         <configuration>
-                            <workingDirectory>src/main/webapp/app</workingDirectory>
                             <executable>npm</executable>
                             <arguments>
                                 <argument>install</argument>
@@ -331,7 +330,6 @@
                         <id>exec-bower-install</id>
                         <phase>generate-sources</phase>
                         <configuration>
-                            <workingDirectory>src/main/webapp/app</workingDirectory>
                             <executable>bower</executable>
                             <arguments>
                                 <argument>install</argument>
@@ -345,7 +343,6 @@
                         <id>exec-grunt</id>
                         <phase>process-resources</phase>
                         <configuration>
-                            <workingDirectory>src/main/webapp/app</workingDirectory>
                             <executable>grunt</executable>
                         </configuration>
                         <goals>
